@@ -39,5 +39,10 @@
    "esito": "confermato",
    "fonte": "Today I Found Out"
   }
- ]
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 47.8
+ }
 }

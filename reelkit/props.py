@@ -462,14 +462,20 @@ def microwave(cr, cx, cy, w, h, t, on=0.0, food="lasagna", heat=0.0):
     cr.fill()
 
 
-def field_plates(cr, cx, cy, r, sign, alpha=1.0):
-    """Due piastre + e - sopra e sotto la lente: sign = +1 / -1 inverte il campo."""
+def field_plates(cr, cx, cy, r, level, alpha=1.0):
+    """Piastre sopra e sotto la lente. level in [-1, 1] varia in modo continuo:
+    i colori sfumano (mai scatti rosso/blu) per non creare lampeggiamenti."""
+    pos, neg = (0.85, 0.42, 0.40), (0.40, 0.55, 0.85)  # toni smorzati, non saturi
     for k, yy in ((1, cy - r - 70), (-1, cy + r + 70)):
+        v = k * level  # +1 = piastra positiva
+        mix = (1 - v) / 2
+        col = tuple(E.lerp(p0, n0, mix) for p0, n0 in zip(pos, neg))
         E.rounded_rect(cr, cx - 230, yy - 26, 460, 52, 26)
-        positive = (k * sign) > 0
-        cr.set_source_rgba(*(E.RED if positive else (0.25, 0.45, 0.95)), alpha)
+        cr.set_source_rgba(*col, alpha)
         cr.fill_preserve()
         cr.set_source_rgba(*E.INK, alpha)
         cr.set_line_width(5)
         cr.stroke()
-        E.outlined_text(cr, "+ + + +" if positive else "− − − −", cx, yy + 16, 44, fill=E.WHITE, lw=0, alpha=alpha)
+        if abs(v) > 0.35:
+            E.outlined_text(cr, "+ + + +" if v > 0 else "− − − −", cx, yy + 16, 44, fill=E.WHITE, lw=0,
+                            alpha=alpha * min(1.0, (abs(v) - 0.35) / 0.4))

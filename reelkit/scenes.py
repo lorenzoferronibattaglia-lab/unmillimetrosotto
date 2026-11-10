@@ -191,17 +191,19 @@ def lens(cr, t, ctx, par, spec):
         esc_ids = set(random.Random(5).sample(top, 5))
     tesc = ctx.at(par, esc.get("at")) if esc else None
     fld = layers.get("field")
-    fsign, falign = 1, 0.0
+    falign, fs = 0.0, 1.0
     if fld:
         tf = ctx.at(par, fld.get("at"))
-        falign = E.ease(E.prog(t, tf, tf + 0.6))
-        fsign = 1 if int(max(0.0, t - tf) / fld.get("period", 0.45)) % 2 == 0 else -1
+        falign = E.ease(E.prog(t, tf, tf + 0.8))
+        half = max(1.0, fld.get("period", 1.2))  # mai piu' di un'inversione al secondo
+        # inversione FLUIDA (coseno): niente scatti, niente lampi
+        fs = math.cos(math.pi * max(0.0, t - tf) / half)
     for i, m in enumerate(field):
         x, y, a = jiggle(m, t, amp)
         if falign > 0:
-            target = 0.0 if fsign > 0 else math.pi  # ossigeno (-) verso la piastra +
+            target = math.pi * (1 - fs) / 2  # 0 con + in alto, pi con + in basso
             da = (target - a + math.pi) % (2 * math.pi) - math.pi
-            a = a + da * falign * 0.85 + 0.15 * math.sin(t * 9 + m["ph"])
+            a = a + da * falign * 0.85
         if i in esc_ids:
             k = E.prog(t, tesc + (i % 5) * 0.25, tesc + (i % 5) * 0.25 + 1.4)
             y -= E.ease(k) * 420
@@ -257,7 +259,7 @@ def lens(cr, t, ctx, par, spec):
     cr.restore()
     E.lens_frame(cr, cx, cy, rr)
     if fld and falign > 0:
-        P.field_plates(cr, cx, cy, r, fsign, alpha=falign)
+        P.field_plates(cr, cx, cy, r, fs, alpha=falign)
     th = spec.get("thermo")
     if th:
         a0 = ctx.at(par, th.get("start", 0))

@@ -195,7 +195,14 @@ def build(sb_path, preview=False):
                     "-af", "apad", "-shortest", "-movflags", "+faststart", final], check=True)
     for x in parts + [silent, lst]:
         os.remove(x)
-    print("video:", final)
+    import safety
+    ok, worst, at = safety.check(final)
+    meta["anti_lampeggio"] = {"esito": "ok" if ok else "BLOCCATO", "max_lampi_al_secondo": worst, "istante_s": round(at, 1)}
+    json.dump(meta, open(os.path.join(out, "meta.json"), "w"), ensure_ascii=False, indent=1)
+    if not ok:
+        os.replace(final, final.replace(".mp4", ".BLOCCATO.mp4"))
+        raise SystemExit(f"VIDEO BLOCCATO: {worst} lampi in un secondo intorno a {at:.1f}s (limite 3)")
+    print("video:", final, f"| anti-lampeggio OK (max {worst}/s)")
     return out
 
 

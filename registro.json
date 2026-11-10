@@ -32,7 +32,8 @@
    "id": "03_microonde",
    "tema": "Il microonde cuoce dall'interno?",
    "stato": "pronto",
-   "video": "media/03_microonde/03_microonde.mp4"
+   "video": "media/03_microonde/03_microonde_v2.mp4",
+   "nota": "v2: inversione del campo fluida e lenta (prima: alternanza rosso/blu a 2,5 Hz)"
   }
  ]
 }
