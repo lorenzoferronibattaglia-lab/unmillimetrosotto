@@ -1,6 +1,32 @@
-{"serie": "cucina", "obiettivo_serie": 20, "palette": "cucina_notte",
+{
+ "serie": "cucina",
+ "obiettivo_serie": 20,
+ "palette": "cucina_notte",
  "reel": [
-  {"id": "01_sale", "tema": "Il sale fa bollire prima l'acqua?", "stato": "pronto", "video": "media/01_sale/01_sale.mp4"},
-  {"id": "02_olio_pasta", "tema": "L'olio nella pasta evita che si attacchi?", "stato": "pronto", "video": "media/02_olio_pasta/02_olio_pasta.mp4",
-   "nota": "tema già trattato da Geopop (feb 2026)"}
- ]}
+  {
+   "id": "01_sale",
+   "tema": "Il sale fa bollire prima l'acqua?",
+   "stato": "programmato",
+   "video": "media/01_sale/01_sale.mp4",
+   "uscita": "2026-11-11T13:00:00+01:00",
+   "vidiq_post_id": "c2b0c9d7-e9e9-4832-a24c-39fc5ee7a8bc",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
+  },
+  {
+   "id": "02_olio_pasta",
+   "tema": "L'olio nella pasta evita che si attacchi?",
+   "stato": "programmato",
+   "video": "media/02_olio_pasta/02_olio_pasta.mp4",
+   "nota": "tema già trattato da Geopop (feb 2026)",
+   "uscita": "2026-11-11T19:30:00+01:00",
+   "vidiq_post_id": "1d0f0050-3341-4873-8018-3b4c00b91645",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
+  }
+ ]
+}
