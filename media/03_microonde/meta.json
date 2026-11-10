@@ -1,0 +1,43 @@
+{
+ "id": "03_microonde",
+ "titolo": "Il microonde cuoce dall'interno?",
+ "durata_s": 50.7,
+ "caratteri_voce": 718,
+ "didascalia": "Il microonde non cuoce dall'interno: le microonde entrano solo per pochi centimetri e scaldano quello strato. Il centro si scalda dopo, per conduzione. Per questo la lasagna è bollente fuori e gelata dentro 🥶🔥\n\nGira il piatto a metà e lascia riposare un minuto.\n\n#falsimiti #scienzaincucina #microonde #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Ufficio federale della sanità pubblica (CH) – Scheda forni a microonde (2025)",
+   "url": "https://www.bag.admin.ch/dam/bag/it/dokumente/str/nis/faktenblaetter-emf/faktenblatt-mikrowellenofen.pdf.download.pdf/faktenblatt%20mikrowellenofen%20i.pdf"
+  },
+  {
+   "titolo": "Zanichelli – Ruffo, Fisica: come si scaldano i cibi nel microonde",
+   "url": "https://online.scuola.zanichelli.it/ruffo_fisica-files/SEZIONE_H/ruffo_fisica_H19_6_2_scheda.pdf"
+  },
+  {
+   "titolo": "Today I Found Out – Microwaves don't cook from the inside out",
+   "url": "https://www.todayifoundout.com/index.php/2010/10/microwaves-dont-cook-from-the-inside-out/"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "Campo che si inverte 2,45 miliardi di volte al secondo (2,45 GHz)",
+   "esito": "confermato",
+   "fonte": "Zanichelli"
+  },
+  {
+   "affermazione": "Molecole d'acqua polari ruotano per allinearsi, si urtano e scaldano",
+   "esito": "confermato (semplificazione standard del riscaldamento dielettrico)",
+   "fonte": "Zanichelli; UFSP"
+  },
+  {
+   "affermazione": "Penetrazione di pochi centimetri, poi conduzione verso il centro",
+   "esito": "confermato; profondità a 37% ~1,4 cm in acqua a 45 °C, 2,5-4 cm citati per i cibi: in grafica '2-3 cm'",
+   "fonte": "UFSP; culinarylore; absurdlyoptimized"
+  },
+  {
+   "affermazione": "Riposo e girare migliorano l'uniformità",
+   "esito": "confermato",
+   "fonte": "Today I Found Out"
+  }
+ ]
+}

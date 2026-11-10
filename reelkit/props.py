@@ -338,7 +338,11 @@ def check_card(cr, x, y, text, ok, t, t0, w=760):
     cr.set_source_rgb(*E.INK)
     cr.set_line_width(7)
     cr.stroke()
-    E.outlined_text(cr, text, -w / 2 + 60, 30, 80, fill=E.INK, lw=0, anchor="left")
+    # il testo si restringe per non toccare l'icona
+    size = 80
+    while size > 40 and E.text_extents(cr, text, size).x_advance > w - 60 - 190:
+        size -= 4
+    E.outlined_text(cr, text, -w / 2 + 60, size * 0.37, size, fill=E.INK, lw=0, anchor="left")
     col = (0.2, 0.75, 0.35) if ok else E.RED
     E.circle(cr, w / 2 - 110, 0, 58, col, lw=6)
     cr.set_source_rgb(*E.WHITE)
@@ -388,3 +392,84 @@ def pointer(cr, x0, y0, x1, y1, t, t0, color=None):
         cr.set_line_width(4)
         cr.stroke()
     cr.set_line_cap(cairo.LINE_CAP_BUTT)
+
+
+def microwave(cr, cx, cy, w, h, t, on=0.0, food="lasagna", heat=0.0):
+    """Forno a microonde frontale. on 0..1 accende la luce interna, heat 0..1 colora il cibo."""
+    x0, y0 = cx - w / 2, cy - h / 2
+    E.rounded_rect(cr, x0, y0, w, h, 34)
+    cr.set_source_rgb(0.86, 0.88, 0.91)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(7)
+    cr.stroke()
+    # finestra
+    wx0, wy0, ww, wh = x0 + 34, y0 + 34, w * 0.66, h - 68
+    E.rounded_rect(cr, wx0, wy0, ww, wh, 22)
+    light = 0.18 + 0.55 * on
+    cr.set_source_rgb(0.12 + light * 0.9, 0.12 + light * 0.8, 0.10 + light * 0.35)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    # piatto girevole + cibo
+    pcx, pcy = wx0 + ww / 2, wy0 + wh - 70
+    cr.save()
+    cr.translate(pcx, pcy)
+    cr.scale(1, 0.28)
+    cr.arc(0, 0, ww * 0.38, 0, 2 * math.pi)
+    cr.restore()
+    cr.set_source_rgb(0.92, 0.94, 0.96)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(4)
+    cr.stroke()
+    fw, fh = ww * 0.46, 90
+    fx, fy = pcx - fw / 2, pcy - fh - 6
+    col = (E.lerp(0.95, 0.93, heat), E.lerp(0.80, 0.45, heat), E.lerp(0.55, 0.20, heat))
+    E.rounded_rect(cr, fx, fy, fw, fh, 14)
+    cr.set_source_rgb(*col)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    for k in (1, 2):
+        cr.move_to(fx + 10, fy + k * fh / 3)
+        cr.line_to(fx + fw - 10, fy + k * fh / 3)
+        cr.set_source_rgba(0.75, 0.25, 0.15, 0.8)
+        cr.set_line_width(6)
+        cr.stroke()
+    # onde se acceso
+    if on > 0.05:
+        for i in range(3):
+            ph = (t * 1.6 + i / 3) % 1.0
+            cr.arc(pcx, fy + fh / 2, 40 + ph * 160, math.pi * 1.1, math.pi * 1.9)
+            cr.set_source_rgba(1, 1, 1, 0.5 * (1 - ph) * on)
+            cr.set_line_width(5)
+            cr.stroke()
+    # pannello comandi
+    px = wx0 + ww + 30
+    E.rounded_rect(cr, px, wy0, x0 + w - 34 - px, 70, 12)
+    cr.set_source_rgb(0.15, 0.17, 0.2)
+    cr.fill()
+    secs = max(0, 90 - int(t * 6) % 90)
+    E.outlined_text(cr, f"{secs // 60}:{secs % 60:02d}", px + (x0 + w - 34 - px) / 2, wy0 + 50, 38,
+                    fill=(0.4, 1.0, 0.5), lw=0)
+    for j in range(2):
+        E.circle(cr, px + (x0 + w - 34 - px) / 2, wy0 + 150 + j * 110, 34, E.STEEL, lw=5)
+    E.rounded_rect(cr, x0 + w - 40, y0 + 60, 14, h - 120, 7)
+    cr.set_source_rgb(*E.STEEL_DARK)
+    cr.fill()
+
+
+def field_plates(cr, cx, cy, r, sign, alpha=1.0):
+    """Due piastre + e - sopra e sotto la lente: sign = +1 / -1 inverte il campo."""
+    for k, yy in ((1, cy - r - 70), (-1, cy + r + 70)):
+        E.rounded_rect(cr, cx - 230, yy - 26, 460, 52, 26)
+        positive = (k * sign) > 0
+        cr.set_source_rgba(*(E.RED if positive else (0.25, 0.45, 0.95)), alpha)
+        cr.fill_preserve()
+        cr.set_source_rgba(*E.INK, alpha)
+        cr.set_line_width(5)
+        cr.stroke()
+        E.outlined_text(cr, "+ + + +" if positive else "− − − −", cx, yy + 16, 44, fill=E.WHITE, lw=0, alpha=alpha)

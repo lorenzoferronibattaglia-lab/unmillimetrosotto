@@ -27,6 +27,12 @@
     "instagram",
     "tiktok"
    ]
+  },
+  {
+   "id": "03_microonde",
+   "tema": "Il microonde cuoce dall'interno?",
+   "stato": "pronto",
+   "video": "media/03_microonde/03_microonde.mp4"
   }
  ]
 }

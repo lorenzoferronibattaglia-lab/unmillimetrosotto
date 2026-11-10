@@ -1,0 +1,180 @@
+{
+ "id": "03_microonde",
+ "topic": "Il microonde cuoce dall'interno?",
+ "theme": "cucina_notte",
+ "paragraphs": [
+  {
+   "text": "Il microonde cuoce dall'interno? Falso. E il centro gelato della lasagna ne è la prova.",
+   "scene": {
+    "type": "hook",
+    "title": [
+     "IL MICROONDE CUOCE",
+     "DALL'INTERNO?"
+    ],
+    "title_size": 86,
+    "prop": {
+     "appliance": "microwave"
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Dentro il microonde c'è un campo elettrico che cambia verso due miliardi e mezzo di volte al secondo. Le molecole d'acqua hanno un lato positivo e uno negativo: ruotano per seguirlo, si urtano, e si scaldano.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "LE MOLECOLE",
+     "GIRANO"
+    ],
+    "surface": false,
+    "heat": 0.3,
+    "layers": [
+     {
+      "kind": "field",
+      "at": "campo",
+      "period": 0.4
+     }
+    ],
+    "labels": [
+     {
+      "text": "2,45 MILIARDI DI VOLTE AL SECONDO",
+      "at": "miliardi",
+      "pos": [
+       540,
+       1382
+      ],
+      "size": 40
+     }
+    ]
+   }
+  },
+  {
+   "text": "Ma le microonde entrano solo per pochi centimetri. È quello strato esterno che si scalda, tutto insieme.",
+   "scene": {
+    "type": "section",
+    "title": [
+     "ENTRANO SOLO",
+     "POCHI CENTIMETRI"
+    ],
+    "penetrate_at": "entrano",
+    "depth_px": 120,
+    "depth_label": "2-3 cm",
+    "labels": [
+     {
+      "text": "QUI SCALDA",
+      "at": "strato",
+      "pos": [
+       300,
+       1240
+      ],
+      "color": "RED"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il centro invece aspetta: il calore ci arriva piano piano, da una molecola all'altra. Ecco perché fuori scotta e dentro è ancora freddo.",
+   "scene": {
+    "type": "section",
+    "title": [
+     "IL CENTRO",
+     "ASPETTA"
+    ],
+    "penetrate_at": 0.0,
+    "conduct_at": "piano",
+    "depth_px": 120,
+    "labels": [
+     {
+      "text": "CENTRO FREDDO",
+      "at": "freddo",
+      "pos": [
+       540,
+       1240
+      ],
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: gira il piatto a metà cottura, e lascia riposare un minuto prima di mangiare. Morale: il microonde non cuoce da dentro.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "GIRA A METÀ",
+      "ok": true,
+      "at": "gira"
+     },
+     {
+      "text": "1 MIN DI RIPOSO",
+      "ok": true,
+      "at": "riposare"
+     }
+    ],
+    "labels": [
+     {
+      "text": "NON CUOCE DA DENTRO",
+      "at": "Morale",
+      "pos": [
+       540,
+       1050
+      ],
+      "color": "RED"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo falso mito in cucina.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui"
+   }
+  }
+ ],
+ "caption": "Il microonde non cuoce dall'interno: le microonde entrano solo per pochi centimetri e scaldano quello strato. Il centro si scalda dopo, per conduzione. Per questo la lasagna è bollente fuori e gelata dentro 🥶🔥\n\nGira il piatto a metà e lascia riposare un minuto.\n\n#falsimiti #scienzaincucina #microonde #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Ufficio federale della sanità pubblica (CH) – Scheda forni a microonde (2025)",
+   "url": "https://www.bag.admin.ch/dam/bag/it/dokumente/str/nis/faktenblaetter-emf/faktenblatt-mikrowellenofen.pdf.download.pdf/faktenblatt%20mikrowellenofen%20i.pdf"
+  },
+  {
+   "titolo": "Zanichelli – Ruffo, Fisica: come si scaldano i cibi nel microonde",
+   "url": "https://online.scuola.zanichelli.it/ruffo_fisica-files/SEZIONE_H/ruffo_fisica_H19_6_2_scheda.pdf"
+  },
+  {
+   "titolo": "Today I Found Out – Microwaves don't cook from the inside out",
+   "url": "https://www.todayifoundout.com/index.php/2010/10/microwaves-dont-cook-from-the-inside-out/"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "Campo che si inverte 2,45 miliardi di volte al secondo (2,45 GHz)",
+   "esito": "confermato",
+   "fonte": "Zanichelli"
+  },
+  {
+   "affermazione": "Molecole d'acqua polari ruotano per allinearsi, si urtano e scaldano",
+   "esito": "confermato (semplificazione standard del riscaldamento dielettrico)",
+   "fonte": "Zanichelli; UFSP"
+  },
+  {
+   "affermazione": "Penetrazione di pochi centimetri, poi conduzione verso il centro",
+   "esito": "confermato; profondità a 37% ~1,4 cm in acqua a 45 °C, 2,5-4 cm citati per i cibi: in grafica '2-3 cm'",
+   "fonte": "UFSP; culinarylore; absurdlyoptimized"
+  },
+  {
+   "affermazione": "Riposo e girare migliorano l'uniformità",
+   "esito": "confermato",
+   "fonte": "Today I Found Out"
+  }
+ ]
+}

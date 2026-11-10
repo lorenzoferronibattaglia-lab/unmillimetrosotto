@@ -116,6 +116,14 @@ def hook(cr, t, ctx, par, spec):
     s = scene_start(ctx, par)
     E.background(cr)
     pr = spec.get("prop", {})
+    if pr.get("appliance") == "microwave":
+        on = E.ease(E.prog(t, s + 0.3, s + 0.8))
+        P.microwave(cr, 540, 1000, 860, 560, t, on=on, heat=0.55 * E.ease(E.prog(t, s + 0.5, s + 4)))
+        E.title(cr, spec["title"], t, s, y=250, size=spec.get("title_size", 92))
+        st = spec.get("stamp")
+        if st:
+            E.stamp(cr, st.get("text", "FALSO MITO"), 540, 610, t, ctx.at(par, st.get("at")), size=104)
+        return
     ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=840)
     if pr.get("pasta"):
         cr.save()
@@ -182,8 +190,18 @@ def lens(cr, t, ctx, par, spec):
         top = sorted(range(len(field)), key=lambda i: field[i]["y"])[:12]
         esc_ids = set(random.Random(5).sample(top, 5))
     tesc = ctx.at(par, esc.get("at")) if esc else None
+    fld = layers.get("field")
+    fsign, falign = 1, 0.0
+    if fld:
+        tf = ctx.at(par, fld.get("at"))
+        falign = E.ease(E.prog(t, tf, tf + 0.6))
+        fsign = 1 if int(max(0.0, t - tf) / fld.get("period", 0.45)) % 2 == 0 else -1
     for i, m in enumerate(field):
         x, y, a = jiggle(m, t, amp)
+        if falign > 0:
+            target = 0.0 if fsign > 0 else math.pi  # ossigeno (-) verso la piastra +
+            da = (target - a + math.pi) % (2 * math.pi) - math.pi
+            a = a + da * falign * 0.85 + 0.15 * math.sin(t * 9 + m["ph"])
         if i in esc_ids:
             k = E.prog(t, tesc + (i % 5) * 0.25, tesc + (i % 5) * 0.25 + 1.4)
             y -= E.ease(k) * 420
@@ -238,6 +256,8 @@ def lens(cr, t, ctx, par, spec):
             cr.fill()
     cr.restore()
     E.lens_frame(cr, cx, cy, rr)
+    if fld and falign > 0:
+        P.field_plates(cr, cx, cy, r, fsign, alpha=falign)
     th = spec.get("thermo")
     if th:
         a0 = ctx.at(par, th.get("start", 0))
@@ -374,4 +394,64 @@ def end(cr, t, ctx, par, spec):
         cr.restore()
 
 
-TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end}
+def section(cr, t, ctx, par, spec):
+    """Sezione di un cibo: banda esterna scaldata dalle microonde, poi il calore entra per conduzione."""
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s)
+    x0, y0, w, h = 140, 520, 800, 560
+    t_pen = ctx.at(par, spec.get("penetrate_at", 0.2))
+    t_con = ctx.at(par, spec.get("conduct_at"), t_pen + 3) if spec.get("conduct_at") else None
+    pen = E.ease(E.prog(t, t_pen, t_pen + 0.8))
+    con = E.ease(E.prog(t, t_con, t_con + 3.0)) if t_con else 0.0
+    depth = spec.get("depth_px", 110)
+    cold, hot = (0.33, 0.62, 0.95), (0.95, 0.35, 0.22)
+    # griglia di celle: temperatura = funzione della distanza dal bordo
+    n = 24
+    cw, ch = w / n, h / (n * h / w)
+    rows = int(h / cw)
+    for i in range(n):
+        for j in range(rows):
+            cxp, cyp = x0 + (i + 0.5) * cw, y0 + (j + 0.5) * cw
+            dist = min(cxp - x0, x0 + w - cxp, cyp - y0, y0 + h - cyp)
+            # la conduzione avanza ma NON arriva al centro: il centro resta freddo
+            reach = depth * pen + (min(w, h) / 2 - depth) * con * 0.5
+            k = E.clamp(1 - (dist - depth * pen * 0.6) / max(1, reach - depth * pen * 0.6 + 60)) if reach > 0 else 0
+            if dist <= depth * pen:
+                k = max(k, 0.85 * pen)
+            col = tuple(E.lerp(c0, c1, k) for c0, c1 in zip(cold, hot))
+            cr.rectangle(x0 + i * cw, y0 + j * cw, cw + 0.5, cw + 0.5)
+            cr.set_source_rgb(*col)
+            cr.fill()
+    E.rounded_rect(cr, x0, y0, w, rows * cw, 24)
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(8)
+    cr.stroke()
+    # quota della profondità
+    if pen > 0.9 and spec.get("depth_label"):
+        a = E.prog(t, t_pen + 0.8, t_pen + 1.1)
+        yy = y0 - 30
+        cr.move_to(x0, yy)
+        cr.line_to(x0 + depth, yy)
+        cr.set_source_rgba(*E.YELLOW, a)
+        cr.set_line_width(6)
+        cr.stroke()
+        for xx in (x0, x0 + depth):
+            cr.move_to(xx, yy - 14)
+            cr.line_to(xx, yy + 14)
+            cr.stroke()
+        E.outlined_text(cr, spec["depth_label"], x0 + depth + 20, yy + 14, 44, fill=E.YELLOW, lw=8, anchor="left", alpha=a)
+    # frecce di conduzione verso il centro
+    if con > 0:
+        mx, my = x0 + w / 2, y0 + rows * cw / 2
+        for ang in (0, math.pi / 2, math.pi, 3 * math.pi / 2):
+            ph = (t * 0.8) % 1.0
+            d0 = E.lerp(min(w, h) / 2 - 40, 60, ph)
+            px, py = mx + d0 * math.cos(ang), my + d0 * math.sin(ang)
+            cr.arc(px, py, 12, 0, 2 * math.pi)
+            cr.set_source_rgba(1, 0.9, 0.6, 0.9 * con)
+            cr.fill()
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section}
