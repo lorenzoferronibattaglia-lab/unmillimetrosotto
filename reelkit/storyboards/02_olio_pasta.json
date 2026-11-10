@@ -1,0 +1,242 @@
+{
+ "id": "02_olio_pasta",
+ "topic": "L'olio nell'acqua della pasta evita che si attacchi?",
+ "theme": "cucina_notte",
+ "paragraphs": [
+  {
+   "text": "L'olio nell'acqua della pasta evita che si attacchi? Falso. Per quello, è olio sprecato.",
+   "scene": {
+    "type": "hook",
+    "title": [
+     "L'OLIO NELLA PASTA",
+     "EVITA CHE SI ATTACCHI?"
+    ],
+    "title_size": 84,
+    "prop": {
+     "pour": "oil",
+     "pasta": true
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Guarda cosa succede. L'olio non si mescola con l'acqua: le sue molecole non si legano a quelle dell'acqua. E siccome è più leggero, sale e galleggia sopra.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "OLIO E ACQUA",
+     "NON SI MESCOLANO"
+    ],
+    "surface": true,
+    "heat": 0.4,
+    "layers": [
+     {
+      "kind": "oil",
+      "at": "molecole"
+     }
+    ],
+    "labels": [
+     {
+      "text": "OLIO",
+      "at": "galleggia",
+      "pos": [
+       300,
+       1250
+      ],
+      "color": "#E0A21A"
+     },
+     {
+      "text": "ACQUA",
+      "at": "galleggia",
+      "pos": [
+       780,
+       1250
+      ],
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "La pasta invece sta sotto, in mezzo all'acqua che bolle. L'olio non la tocca quasi mai.",
+   "scene": {
+    "type": "pot",
+    "title": [
+     "L'OLIO RESTA",
+     "IN SUPERFICIE"
+    ],
+    "oil_at": "always",
+    "labels": [
+     {
+      "text": "OLIO",
+      "at": "tocca",
+      "pos": [
+       330,
+       640
+      ],
+      "arrow_to": [
+       420,
+       800
+      ],
+      "color": "#E0A21A"
+     },
+     {
+      "text": "PASTA",
+      "at": "sotto",
+      "pos": [
+       880,
+       1290
+      ],
+      "arrow_to": [
+       640,
+       1120
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "text": "E allora perché si attacca? Colpa dell'amido. Nei primi minuti la superficie della pasta rilascia amido, che con l'acqua calda diventa una specie di colla.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "IL VERO COLPEVOLE:",
+     "L'AMIDO"
+    ],
+    "surface": false,
+    "heat": 0.5,
+    "layers": [
+     {
+      "kind": "pasta",
+      "at": 0.1
+     },
+     {
+      "kind": "starch",
+      "at": "rilascia",
+      "glue_at": "colla"
+     }
+    ],
+    "labels": [
+     {
+      "text": "AMIDO",
+      "at": "rilascia",
+      "pos": [
+       540,
+       1250
+      ],
+      "color": "#B8A46A"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco vero è girare la pasta nei primi due minuti, e usare acqua abbondante: circa un litro ogni cento grammi.",
+   "scene": {
+    "type": "pot",
+    "title": [
+     "IL TRUCCO",
+     "VERO"
+    ],
+    "clump_at": 0.0,
+    "stir_at": "girare",
+    "labels": [
+     {
+      "text": "1 LITRO / 100 g",
+      "at": "litro",
+      "pos": [
+       540,
+       680
+      ],
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Anzi, l'olio può peggiorare le cose: quando scoli, ricopre la pasta e il sugo scivola via. Morale: niente olio, gira la pasta.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "A COSA SERVE",
+     "DAVVERO"
+    ],
+    "prop": "pasta_pot",
+    "items": [
+     {
+      "text": "OLIO",
+      "ok": false,
+      "at": "niente"
+     },
+     {
+      "text": "GIRARE",
+      "ok": true,
+      "at": "gira"
+     }
+    ],
+    "labels": [
+     {
+      "text": "IL SUGO SCIVOLA VIA",
+      "at": "scivola",
+      "pos": [
+       540,
+       860
+      ],
+      "color": "RED"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo falso mito in cucina.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui"
+   }
+  }
+ ],
+ "caption": "L'olio nell'acqua della pasta non serve a non farla attaccare: galleggia e la pasta resta sotto. Il vero colpevole è l'amido dei primi minuti. Gira la pasta e usa acqua abbondante 🍝\n\n#falsimiti #scienzaincucina #pasta #cucinaitaliana #curiosità",
+ "sources": [
+  {
+   "titolo": "Geopop – Il trucco dell'olio nell'acqua di cottura serve? (2026)",
+   "url": "https://www.geopop.it/il-trucco-dellolio-nellacqua-di-cottura-serve-a-non-far-attaccare-la-pasta-spoiler-no/"
+  },
+  {
+   "titolo": "Chowhound – Lidia Bastianich e Barilla sull'olio nell'acqua",
+   "url": "https://chowhound.com/1568674/mistake-add-oil-pasta-water"
+  },
+  {
+   "titolo": "Food & Wine via Pulse – Do you really need oil in pasta water? (2026)",
+   "url": "https://www.pulse.bot/food/news/do-you-really-need-to-add-oil-to-pasta-cooking-water-07c91e83-086b-43b8-b36a-199f0fa5f7e9/"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "L'olio non si mescola con l'acqua e galleggia perché meno denso",
+   "esito": "confermato",
+   "fonte": "Geopop"
+  },
+  {
+   "affermazione": "L'amido rilasciato soprattutto nei primi 2 minuti causa l'incollamento; mescolare e acqua abbondante",
+   "esito": "confermato",
+   "fonte": "Geopop"
+  },
+  {
+   "affermazione": "L'olio sulla pasta scolata fa scivolare il sugo",
+   "esito": "confermato",
+   "fonte": "Barilla citata da Chowhound"
+  },
+  {
+   "affermazione": "1 litro ogni 100 g",
+   "esito": "regola pratica diffusa, non legge fisica",
+   "fonte": "uso comune"
+  },
+  {
+   "affermazione": "Sfumatura omessa: l'olio può ridurre la schiuma che trabocca",
+   "esito": "non contraddetta dal testo ('per quello' = per non attaccare)",
+   "fonte": "Chowhound"
+  }
+ ]
+}

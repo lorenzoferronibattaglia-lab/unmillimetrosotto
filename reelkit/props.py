@@ -1,0 +1,390 @@
+"""
+Oggetti di scena riutilizzabili (pentola, fornello, spargisale, bottiglia d'olio,
+mestolo, spaghetti, bolle, molecole, ioni, gocce d'olio, granuli d'amido).
+Tutti i colori vengono letti dal modulo engine a runtime, così il tema è intercambiabile.
+"""
+import math
+import random
+
+import cairo
+
+import engine as E
+
+OIL = (0.98, 0.80, 0.25)
+OIL_DARK = (0.85, 0.62, 0.10)
+PASTA = (0.98, 0.84, 0.42)
+PASTA_DARK = (0.80, 0.62, 0.22)
+STARCH = (0.97, 0.97, 0.92)
+
+
+def stove(cr, cx, y, w):
+    E.rounded_rect(cr, cx - w / 2, y, w, 70, 14)
+    cr.set_source_rgb(0.20, 0.22, 0.26)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+
+
+def flames(cr, cx, y, w, t, intensity=1.0):
+    n = 7
+    for i in range(n):
+        fx = cx - w / 2 + (i + 0.5) * w / n
+        hgt = (55 + 18 * math.sin(t * 13 + i * 1.7)) * intensity
+        for col, k in ((E.RED, 1.0), (E.YELLOW, 0.55)):
+            cr.move_to(fx - 22 * k, y)
+            cr.curve_to(fx - 20 * k, y - hgt * 0.5 * k, fx, y - hgt * k * 0.9, fx, y - hgt * k)
+            cr.curve_to(fx, y - hgt * k * 0.9, fx + 20 * k, y - hgt * 0.5 * k, fx + 22 * k, y)
+            cr.close_path()
+            cr.set_source_rgb(*col)
+            cr.fill()
+
+
+def pot(cr, cx, top, w, h, water_level=0.72, t=0.0, wave=1.0):
+    """Pentola in sezione. Ritorna (ix0, ix1, superficie_y, fondo_y) dell'interno."""
+    x0, x1 = cx - w / 2, cx + w / 2
+    bottom = top + h
+    for sx in (-1, 1):
+        hx = cx + sx * (w / 2 + 10) - (50 if sx < 0 else 0)
+        E.rounded_rect(cr, hx, top + 40, 60, 34, 14)
+        cr.set_source_rgb(*E.STEEL_DARK)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(5)
+        cr.stroke()
+    E.rounded_rect(cr, x0, top, w, h, 30)
+    cr.set_source_rgb(*E.STEEL)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    ix0, ix1, itop, ibot = x0 + 22, x1 - 22, top + 10, bottom - 22
+    E.rounded_rect(cr, ix0, itop, ix1 - ix0, ibot - itop, 18)
+    cr.set_source_rgb(0.86, 0.89, 0.92)
+    cr.fill()
+    surf_y = ibot - (ibot - itop) * water_level
+    cr.save()
+    E.rounded_rect(cr, ix0, itop, ix1 - ix0, ibot - itop, 18)
+    cr.clip()
+    cr.move_to(ix0, ibot)
+    for i in range(31):
+        xx = E.lerp(ix0, ix1, i / 30)
+        cr.line_to(xx, surf_y + wave * 7 * math.sin(xx * 0.03 + t * 4))
+    cr.line_to(ix1, ibot)
+    cr.close_path()
+    g = cairo.LinearGradient(0, surf_y, 0, ibot)
+    g.add_color_stop_rgb(0, *E.WATER)
+    g.add_color_stop_rgb(1, *E.WATER_DEEP)
+    cr.set_source(g)
+    cr.fill()
+    cr.restore()
+    return ix0, ix1, surf_y, ibot
+
+
+def pot_rim(cr, cx, top, w):
+    """Bordo della pentola: va disegnato DOPO il contenuto che sporge."""
+    E.rounded_rect(cr, cx - w / 2 - 14, top - 8, w + 28, 26, 12)
+    cr.set_source_rgb(*E.STEEL_DARK)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+
+
+def kitchen_pot(cr, t, cx=540, top=840, w=560, h=380, water_level=0.72):
+    """Fornello + fiamme + pentola: la composizione standard."""
+    stove(cr, cx, top + h + 35, w + 60)
+    flames(cr, cx, top + h + 35, w * 0.68, t)
+    inner = pot(cr, cx, top, w, h, water_level, t)
+    return inner
+
+
+def shaker(cr, x, y, angle, label="SALE"):
+    """Spargisale. Il tappo forato è in alto a riposo (asse -y).
+    ATTENZIONE FISICA: per versare verso sinistra usare angle NEGATIVO."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    E.rounded_rect(cr, -55, -80, 110, 150, 30)
+    cr.set_source_rgb(0.95, 0.96, 0.98)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    E.rounded_rect(cr, -58, -120, 116, 52, 16)
+    cr.set_source_rgb(*E.STEEL)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.stroke()
+    for hx in (-25, 0, 25):
+        E.circle(cr, hx, -120, 6, E.INK, lw=0)
+    E.outlined_text(cr, label, 0, 12, 36, fill=E.INK, lw=0)
+    cr.restore()
+
+
+def oil_bottle(cr, x, y, angle):
+    """Bottiglia d'olio. Il collo è in alto a riposo (asse -y).
+    Per versare verso sinistra usare angle NEGATIVO."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    # corpo
+    E.rounded_rect(cr, -55, -60, 110, 190, 26)
+    cr.set_source_rgba(0.75, 0.88, 0.70, 0.95)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    # olio dentro
+    E.rounded_rect(cr, -45, -10, 90, 130, 20)
+    cr.set_source_rgb(*OIL)
+    cr.fill()
+    # collo
+    cr.move_to(-55, -40)
+    cr.curve_to(-55, -90, -22, -100, -22, -130)
+    cr.line_to(22, -130)
+    cr.curve_to(22, -100, 55, -90, 55, -40)
+    cr.close_path()
+    cr.set_source_rgba(0.75, 0.88, 0.70, 0.95)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.stroke()
+    E.rounded_rect(cr, -26, -158, 52, 32, 8)
+    cr.set_source_rgb(*E.RED)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.stroke()
+    # etichetta
+    E.rounded_rect(cr, -46, 30, 92, 54, 10)
+    cr.set_source_rgb(1, 1, 1)
+    cr.fill()
+    E.outlined_text(cr, "OLIO", 0, 68, 30, fill=E.INK, lw=0)
+    cr.restore()
+
+
+def mouth_point(x, y, angle, dist):
+    """Posizione dell'apertura di un contenitore ruotato di `angle`,
+    con l'apertura a distanza `dist` lungo l'asse -y a riposo."""
+    return x + dist * math.sin(angle), y - dist * math.cos(angle)
+
+
+def falling_grains(cr, t, t0, origin, until_y, n=26, spread=18, drift=-40, size=16, gap=0.09, seed=3):
+    rnd = random.Random(seed)
+    ox, oy = origin
+    for i in range(n):
+        k = t - (t0 + i * gap)
+        if k < 0:
+            continue
+        gx = ox + rnd.uniform(-spread, spread) + k * drift
+        gy = oy + 900 * k * k
+        if gy < until_y:
+            E_salt(cr, gx, gy, size, k * 4)
+
+
+def E_salt(cr, x, y, s, angle=0.0, alpha=1.0):
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    E.rounded_rect(cr, -s / 2, -s / 2, s, s, s * 0.15)
+    cr.set_source_rgba(1, 1, 1, alpha)
+    cr.fill_preserve()
+    cr.set_source_rgba(0.55, 0.6, 0.68, alpha)
+    cr.set_line_width(max(2, s * 0.08))
+    cr.stroke()
+    cr.restore()
+
+
+def oil_stream(cr, t, t0, t1, origin, surf_y):
+    """Filo d'olio che scende dall'apertura fino alla superficie."""
+    p = E.prog(t, t0, t0 + 0.3)
+    q = E.prog(t, t1, t1 + 0.3)
+    if p <= 0 or q >= 1:
+        return
+    ox, oy = origin
+    top = E.lerp(oy, surf_y, q)
+    bot = E.lerp(oy, surf_y, p)
+    cr.move_to(ox, top)
+    cr.line_to(ox - 6, bot)
+    cr.set_source_rgb(*OIL)
+    cr.set_line_width(12)
+    cr.set_line_cap(cairo.LINE_CAP_ROUND)
+    cr.stroke()
+    cr.set_line_cap(cairo.LINE_CAP_BUTT)
+
+
+def oil_slick(cr, ix0, ix1, surf_y, t, amount, thickness=18):
+    """Strato d'olio che galleggia sulla superficie (amount 0..1)."""
+    if amount <= 0:
+        return
+    cx = (ix0 + ix1) / 2
+    half = (ix1 - ix0) / 2 * amount
+    cr.move_to(cx - half, surf_y)
+    for i in range(21):
+        xx = E.lerp(cx - half, cx + half, i / 20)
+        cr.line_to(xx, surf_y - 4 + 4 * math.sin(xx * 0.03 + t * 4))
+    for i in range(20, -1, -1):
+        xx = E.lerp(cx - half, cx + half, i / 20)
+        cr.line_to(xx, surf_y + thickness * amount + 3 * math.sin(xx * 0.05 + t * 3))
+    cr.close_path()
+    cr.set_source_rgba(*OIL, 0.95)
+    cr.fill_preserve()
+    cr.set_source_rgb(*OIL_DARK)
+    cr.set_line_width(3)
+    cr.stroke()
+
+
+def spaghetti(cr, ix0, ix1, bot, t, n=14, clump=0.0, separate=0.0, height=300, seed=8):
+    """Spaghetti in pentola. clump 0..1 li stringe in un mazzo, separate 0..1 li apre e li muove."""
+    rnd = random.Random(seed)
+    cr.set_line_width(9)
+    cr.set_line_cap(cairo.LINE_CAP_ROUND)
+    cx = (ix0 + ix1) / 2
+    for i in range(n):
+        x0 = rnd.uniform(ix0 + 30, ix1 - 30)
+        a = rnd.uniform(-0.5, 0.5)
+        x0 = E.lerp(x0, cx + (x0 - cx) * 0.15, clump)
+        a = E.lerp(a, a * 0.1, clump)
+        if separate > 0:
+            a += separate * 0.35 * math.sin(t * 2.5 + i)
+        x1 = x0 + height * math.sin(a)
+        y1 = bot - 15 - height * math.cos(a)
+        cr.move_to(x0, bot - 15)
+        cr.line_to(x1, y1)
+        cr.set_source_rgb(*PASTA)
+        cr.stroke()
+    cr.set_line_cap(cairo.LINE_CAP_BUTT)
+
+
+def spoon(cr, x, y, angle):
+    """Mestolo di legno, impugnatura in alto."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    E.rounded_rect(cr, -12, -420, 24, 380, 12)
+    cr.set_source_rgb(0.72, 0.50, 0.28)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    cr.save()
+    cr.scale(1, 1.4)
+    cr.arc(0, -10, 40, 0, 2 * math.pi)
+    cr.restore()
+    cr.set_source_rgb(0.72, 0.50, 0.28)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.stroke()
+    cr.restore()
+
+
+def bubble(cr, x, y, r, alpha=1.0):
+    cr.arc(x, y, r, 0, 2 * math.pi)
+    cr.set_source_rgba(0.85, 0.95, 1.0, 0.55 * alpha)
+    cr.fill_preserve()
+    cr.set_source_rgba(1, 1, 1, alpha)
+    cr.set_line_width(3)
+    cr.stroke()
+
+
+def water_molecule(cr, x, y, scale=1.0, angle=0.0, alpha=1.0):
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    cr.scale(scale, scale)
+    for s in (-1, 1):
+        a = math.pi / 2 + s * math.radians(52)
+        E.circle(cr, 30 * math.cos(a), 30 * math.sin(a), 15, E.WHITE, lw=3.5, alpha=alpha)
+    E.circle(cr, 0, 0, 25, E.O_RED, lw=3.5, alpha=alpha)
+    cr.restore()
+
+
+def oil_molecule(cr, x, y, scale=1.0, angle=0.0, alpha=1.0, length=6):
+    """Molecola grassa stilizzata: testa + lunga catena a zig-zag."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    cr.scale(scale, scale)
+    cr.move_to(-length * 14 / 2, 0)
+    for i in range(length + 1):
+        cr.line_to(-length * 14 / 2 + i * 14, -8 if i % 2 else 8)
+    cr.set_source_rgba(*OIL_DARK, alpha)
+    cr.set_line_width(7)
+    cr.set_line_join(cairo.LINE_JOIN_ROUND)
+    cr.stroke()
+    for i in range(length + 1):
+        E.circle(cr, -length * 14 / 2 + i * 14, -8 if i % 2 else 8, 9, OIL, lw=2.5, alpha=alpha)
+    cr.restore()
+
+
+def starch_grain(cr, x, y, r, alpha=1.0):
+    cr.arc(x, y, r, 0, 2 * math.pi)
+    cr.set_source_rgba(*STARCH, alpha)
+    cr.fill_preserve()
+    cr.set_source_rgba(0.7, 0.68, 0.55, alpha)
+    cr.set_line_width(3)
+    cr.stroke()
+
+
+def check_card(cr, x, y, text, ok, t, t0, w=760):
+    p = E.ease_out_back(E.prog(t, t0, t0 + 0.4))
+    if p <= 0:
+        return
+    cr.save()
+    cr.translate(x, y)
+    cr.scale(p, p)
+    E.rounded_rect(cr, -w / 2, -85, w, 170, 40)
+    cr.set_source_rgb(*E.WHITE)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(7)
+    cr.stroke()
+    E.outlined_text(cr, text, -w / 2 + 60, 30, 80, fill=E.INK, lw=0, anchor="left")
+    col = (0.2, 0.75, 0.35) if ok else E.RED
+    E.circle(cr, w / 2 - 110, 0, 58, col, lw=6)
+    cr.set_source_rgb(*E.WHITE)
+    cr.set_line_width(16)
+    cr.set_line_cap(cairo.LINE_CAP_ROUND)
+    bx = w / 2 - 110
+    if ok:
+        cr.move_to(bx - 30, 2)
+        cr.line_to(bx - 8, 26)
+        cr.line_to(bx + 32, -22)
+    else:
+        cr.move_to(bx - 24, -24)
+        cr.line_to(bx + 24, 24)
+        cr.move_to(bx + 24, -24)
+        cr.line_to(bx - 24, 24)
+    cr.stroke()
+    cr.set_line_cap(cairo.LINE_CAP_BUTT)
+    cr.restore()
+
+
+def pointer(cr, x0, y0, x1, y1, t, t0, color=None):
+    """Freccia curva che compare (stile 'cerchio + freccia')."""
+    p = E.ease(E.prog(t, t0, t0 + 0.35))
+    if p <= 0:
+        return
+    color = color or E.RED
+    xe, ye = E.lerp(x0, x1, p), E.lerp(y0, y1, p)
+    mx, my = (x0 + xe) / 2 + 60, (y0 + ye) / 2
+    cr.move_to(x0, y0)
+    cr.curve_to(mx, my, mx, my, xe, ye)
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(20)
+    cr.set_line_cap(cairo.LINE_CAP_ROUND)
+    cr.stroke_preserve()
+    cr.set_source_rgb(*color)
+    cr.set_line_width(11)
+    cr.stroke()
+    if p >= 1:
+        ang = math.atan2(ye - my, xe - mx)
+        cr.move_to(xe + 10 * math.cos(ang), ye + 10 * math.sin(ang))
+        cr.line_to(xe - 34 * math.cos(ang - 0.5), ye - 34 * math.sin(ang - 0.5))
+        cr.line_to(xe - 34 * math.cos(ang + 0.5), ye - 34 * math.sin(ang + 0.5))
+        cr.close_path()
+        cr.set_source_rgb(*color)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(4)
+        cr.stroke()
+    cr.set_line_cap(cairo.LINE_CAP_BUTT)

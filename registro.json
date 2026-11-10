@@ -1,0 +1,6 @@
+{"serie": "cucina", "obiettivo_serie": 20, "palette": "cucina_notte",
+ "reel": [
+  {"id": "01_sale", "tema": "Il sale fa bollire prima l'acqua?", "stato": "pronto", "video": "media/01_sale/01_sale.mp4"},
+  {"id": "02_olio_pasta", "tema": "L'olio nella pasta evita che si attacchi?", "stato": "pronto", "video": "media/02_olio_pasta/02_olio_pasta.mp4",
+   "nota": "tema già trattato da Geopop (feb 2026)"}
+ ]}

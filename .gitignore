@@ -1,0 +1,5 @@
+reelkit/cache/
+reelkit/out/
+*.wav
+.secrets/
+*.key

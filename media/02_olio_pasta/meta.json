@@ -1,0 +1,48 @@
+{
+ "id": "02_olio_pasta",
+ "titolo": "L'olio nell'acqua della pasta evita che si attacchi?",
+ "durata_s": 54.8,
+ "caratteri_voce": 780,
+ "didascalia": "L'olio nell'acqua della pasta non serve a non farla attaccare: galleggia e la pasta resta sotto. Il vero colpevole è l'amido dei primi minuti. Gira la pasta e usa acqua abbondante 🍝\n\n#falsimiti #scienzaincucina #pasta #cucinaitaliana #curiosità",
+ "fonti": [
+  {
+   "titolo": "Geopop – Il trucco dell'olio nell'acqua di cottura serve? (2026)",
+   "url": "https://www.geopop.it/il-trucco-dellolio-nellacqua-di-cottura-serve-a-non-far-attaccare-la-pasta-spoiler-no/"
+  },
+  {
+   "titolo": "Chowhound – Lidia Bastianich e Barilla sull'olio nell'acqua",
+   "url": "https://chowhound.com/1568674/mistake-add-oil-pasta-water"
+  },
+  {
+   "titolo": "Food & Wine via Pulse – Do you really need oil in pasta water? (2026)",
+   "url": "https://www.pulse.bot/food/news/do-you-really-need-to-add-oil-to-pasta-cooking-water-07c91e83-086b-43b8-b36a-199f0fa5f7e9/"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "L'olio non si mescola con l'acqua e galleggia perché meno denso",
+   "esito": "confermato",
+   "fonte": "Geopop"
+  },
+  {
+   "affermazione": "L'amido rilasciato soprattutto nei primi 2 minuti causa l'incollamento; mescolare e acqua abbondante",
+   "esito": "confermato",
+   "fonte": "Geopop"
+  },
+  {
+   "affermazione": "L'olio sulla pasta scolata fa scivolare il sugo",
+   "esito": "confermato",
+   "fonte": "Barilla citata da Chowhound"
+  },
+  {
+   "affermazione": "1 litro ogni 100 g",
+   "esito": "regola pratica diffusa, non legge fisica",
+   "fonte": "uso comune"
+  },
+  {
+   "affermazione": "Sfumatura omessa: l'olio può ridurre la schiuma che trabocca",
+   "esito": "non contraddetta dal testo ('per quello' = per non attaccare)",
+   "fonte": "Chowhound"
+  }
+ ]
+}
