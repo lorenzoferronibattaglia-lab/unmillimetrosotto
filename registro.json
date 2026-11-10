@@ -31,9 +31,15 @@
   {
    "id": "03_microonde",
    "tema": "Il microonde cuoce dall'interno?",
-   "stato": "pronto",
+   "stato": "programmato",
    "video": "media/03_microonde/03_microonde_v2.mp4",
-   "nota": "v2: inversione del campo fluida e lenta (prima: alternanza rosso/blu a 2,5 Hz)"
+   "nota": "v2: inversione del campo fluida e lenta (prima: alternanza rosso/blu a 2,5 Hz)",
+   "uscita": "2026-11-10T21:00:00+01:00",
+   "vidiq_post_id": "c0f8e5cb-4329-4fc3-a69f-38c5681adb63",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
   }
  ]
 }
