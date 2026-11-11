@@ -116,6 +116,41 @@ def hook(cr, t, ctx, par, spec):
     s = scene_start(ctx, par)
     E.background(cr)
     pr = spec.get("prop", {})
+    payoff = spec.get("mode") == "payoff"
+    if payoff:
+        # gancio v2: movimento dal fotogramma 0 (lieve zoom continuo), titolo subito visibile
+        z = 1.0 + 0.05 * E.clamp((t - s) / 6.0)
+        cr.save()
+        cr.translate(540, 1000)
+        cr.scale(z, z)
+        cr.translate(-540, -1000)
+        s_title = s - 1.0
+    else:
+        s_title = s
+    stamp_col = None
+    if spec.get("stamp", {}).get("color") == "green":
+        stamp_col = P.GREEN_OK
+    if pr.get("appliance") == "ice_bucket":
+        frost = E.ease(E.prog(t, ctx.at(par, pr.get("frost_at", 0.5)), ctx.at(par, pr.get("frost_at", 0.5)) + 2.0))
+        l0, r0, surf, bot = P.ice_bucket(cr, 540, 860, 640, 470, t, frost=frost)
+        # spargisale gia' inclinato e che versa dal primo fotogramma (tappo verso la pentola: angolo negativo)
+        ang = -2.3
+        mx, my = P.mouth_point(800, 620, ang, 120)
+        P.falling_grains(cr, t, s - 1.5, (mx, my), surf, n=60, gap=0.07)
+        P.shaker(cr, 800, 620, ang)
+        th = pr.get("thermo")
+        if payoff:
+            cr.restore()
+        if th:
+            a0, a1 = ctx.at(par, th.get("start", 0)), ctx.at(par, th.get("end", 3))
+            k = E.ease(E.prog(t, a0, a1))
+            v = E.lerp(th.get("from", 0), th.get("to", -10), k)
+            E.thermo_pill(cr, 300, 770, f"{v:.0f} °C".replace("-", "−"), t, s - 1, hot=0.1)
+        E.title(cr, spec["title"], t, s_title, y=250, size=spec.get("title_size", 92))
+        st = spec.get("stamp")
+        if st:
+            E.stamp(cr, st.get("text", "FALSO MITO"), 540, 610, t, ctx.at(par, st.get("at")), size=104, color=stamp_col)
+        return
     if pr.get("appliance") == "microwave":
         on = E.ease(E.prog(t, s + 0.3, s + 0.8))
         P.microwave(cr, 540, 1000, 860, 560, t, on=on, heat=0.55 * E.ease(E.prog(t, s + 0.5, s + 4)))
@@ -152,7 +187,7 @@ def hook(cr, t, ctx, par, spec):
     E.title(cr, spec["title"], t, s, y=250, size=spec.get("title_size", 92))
     st = spec.get("stamp")
     if st:
-        E.stamp(cr, st.get("text", "FALSO MITO"), 540, 620, t, ctx.at(par, st.get("at")), size=104)
+        E.stamp(cr, st.get("text", "FALSO MITO"), 540, 620, t, ctx.at(par, st.get("at")), size=104, color=stamp_col)
 
 
 # ---------------------------------------------------------------- LENS
@@ -169,7 +204,9 @@ def lens(cr, t, ctx, par, spec):
     layers = {l["kind"]: l for l in spec.get("layers", [])}
     pasta_y = cy + 170
     excl = [(cx - r - 50, pasta_y - 60, cx + r + 50, pasta_y + 60)] if "pasta" in layers else []
-    key = (par, bool(surface), bool(excl))
+    if "ice" in layers:  # il liquido sta solo sotto il reticolo del ghiaccio
+        excl.append((cx - r - 100, cy - r - 100, cx + r + 100, cy - r + 70 + 4 * 86 * 0.87 - 10))
+    key = (par, bool(surface), len(excl))
     if key not in _FIELDS:
         _FIELDS[key] = molecule_field(11 + par * 7, surface=surface, exclude=excl)
     field = _FIELDS[key]
@@ -208,6 +245,51 @@ def lens(cr, t, ctx, par, spec):
             k = E.prog(t, tesc + (i % 5) * 0.25, tesc + (i % 5) * 0.25 + 1.4)
             y -= E.ease(k) * 420
         P.water_molecule(cr, x, y, 0.95, a)
+
+    # ghiaccio: reticolo ordinato nella meta' alta della lente; con "melt_at" si smonta dal basso
+    ice = layers.get("ice")
+    if ice:
+        tm = ctx.at(par, ice["melt_at"]) if ice.get("melt_at") else None
+        ions_at = ctx.at(par, ice["ions_at"]) if ice.get("ions_at") else None
+        rows_n, cols_n, sp = 4, 7, 86
+        for rr_ in range(rows_n):
+            for cc in range(cols_n):
+                bx = cx - 3 * sp + cc * sp + (sp / 2 if rr_ % 2 else 0) - (sp / 4)
+                by = cy - r + 70 + rr_ * sp * 0.87
+                ang = 0.0 if (rr_ + cc) % 2 == 0 else math.pi
+                x, y = bx + 2 * math.sin(t * 6 + cc + rr_), by
+                if tm is not None:
+                    order = (rows_n - 1 - rr_) * 0.35 + (cc % 3) * 0.12
+                    k = E.ease(E.prog(t, tm + order, tm + order + 1.4))
+                    x += k * 40 * math.sin(cc * 1.7 + rr_)
+                    y += k * (140 + 30 * cc % 3)
+                    ang += k * 2.0 * math.sin(t * 3 + cc)
+                P.water_molecule(cr, x, y, 0.85, ang)
+        # legami del reticolo (spariscono mentre fonde)
+        if tm is None or t < tm + 0.6:
+            alpha = 1.0 if tm is None else 1 - E.prog(t, tm, tm + 0.6)
+            cr.set_source_rgba(1, 1, 1, 0.5 * alpha)
+            cr.set_line_width(3)
+            cr.set_dash([8, 8])
+            for rr_ in range(rows_n):
+                y = cy - r + 70 + rr_ * sp * 0.87
+                cr.move_to(cx - 3.5 * sp, y)
+                cr.line_to(cx + 3.5 * sp, y)
+            cr.stroke()
+            cr.set_dash([])
+        if ions_at is not None:
+            rnd = random.Random(44)
+            for j in range(6):
+                k = E.ease(E.prog(t, ions_at + j * 0.15, ions_at + 1.0 + j * 0.15))
+                if k <= 0:
+                    continue
+                ix = cx - 250 + j * 100
+                iy = E.lerp(cy + r + 60, cy - r + 190 + (j % 2) * 60, k)
+                P.E.circle  # noqa (riferimento per chiarezza)
+                import props as _P  # noqa
+                ion_kind = "na" if j % 2 == 0 else "cl"
+                E.circle(cr, ix, iy, 24 if ion_kind == "na" else 32, P.__dict__.get("NA_COL", (0.58, 0.40, 0.92)) if ion_kind == "na" else (0.30, 0.80, 0.45), lw=4)
+                E.outlined_text(cr, "+" if ion_kind == "na" else "−", ix, iy + 12, 36, fill=E.WHITE, lw=0)
 
     # olio: molecole grasse che salgono e si raccolgono sopra l'acqua
     oil = layers.get("oil")
@@ -326,8 +408,17 @@ def number(cr, t, ctx, par, spec):
             cr.set_source_rgb(*E.INK)
             cr.set_line_width(7)
             cr.stroke()
-            E.outlined_text(cr, card["main"], -20, 30, 92, fill=E.INK, lw=0, anchor="right")
-            E.outlined_text(cr, card.get("sub", ""), 10, 30, 62, fill=E.STEEL_DARK, lw=0, anchor="left")
+            # main + sub centrati insieme, rimpiccioliti se non entrano nella scheda
+            ms, ss = 92, 62
+            while ms > 50:
+                wm = E.text_extents(cr, card["main"], ms).x_advance
+                ws = E.text_extents(cr, card.get("sub", ""), ss).x_advance
+                if wm + ws + 24 <= 720:
+                    break
+                ms, ss = ms - 6, ss - 4
+            x0 = -(wm + ws + 24) / 2
+            E.outlined_text(cr, card["main"], x0, 30, ms, fill=E.INK, lw=0, anchor="left")
+            E.outlined_text(cr, card.get("sub", ""), x0 + wm + 24, 30, ss, fill=E.STEEL_DARK, lw=0, anchor="left")
             cr.restore()
     big = spec.get("big")
     if big:
@@ -370,7 +461,11 @@ def end(cr, t, ctx, par, spec):
     cr.scale(p, p)
     E.outlined_text(cr, spec.get("line", "IL PROSSIMO"), 0, 0, 100, fill=E.WHITE, lw=14)
     cr.restore()
-    E.stamp(cr, spec.get("stamp", "FALSO MITO"), 540, 760, t, s + 0.4, size=120)
+    st_txt = spec.get("stamp", "FALSO MITO")
+    st_size = 120
+    while st_size > 70 and E.text_extents(cr, st_txt, st_size).x_advance > 780:
+        st_size -= 6
+    E.stamp(cr, st_txt, 540, 760, t, s + 0.4, size=st_size)
     tg = ctx.at(par, spec.get("follow_at", 0.2))
     handle = spec.get("handle", "@unmillimetrosotto")
     pb = E.ease_out_back(E.prog(t, tg + 0.5, tg + 0.85))

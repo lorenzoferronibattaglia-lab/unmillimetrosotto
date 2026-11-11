@@ -156,7 +156,7 @@ def title(cr, lines, t, t0=0.0, y=210, size=96, highlight_last=True):
         cr.restore()
 
 
-def stamp(cr, text, x, y, t, t0, size=110, angle=-0.18):
+def stamp(cr, text, x, y, t, t0, size=110, angle=-0.18, color=None):
     """Timbro rosso che 'sbatte' sullo schermo."""
     p = prog(t, t0, t0 + 0.28)
     if p <= 0:
@@ -170,7 +170,7 @@ def stamp(cr, text, x, y, t, t0, size=110, angle=-0.18):
     cr.rotate(angle)
     cr.scale(sc, sc)
     rounded_rect(cr, -w / 2, -h / 2, w, h, 26)
-    cr.set_source_rgba(*RED, 0.95 * a)
+    cr.set_source_rgba(*(color or globals()['RED']), 0.95 * a)
     cr.fill_preserve()
     cr.set_source_rgba(1, 1, 1, a)
     cr.set_line_width(10)

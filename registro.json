@@ -40,6 +40,20 @@
     "instagram",
     "tiktok"
    ]
+  },
+  {
+   "id": "04_sale_ghiaccio",
+   "tema": "Il sale nel ghiaccio raffredda il vino più in fretta? (VERO)",
+   "stato": "pronto",
+   "video": "media/04_sale_ghiaccio/04_sale_ghiaccio.mp4",
+   "gancio": "v2 payoff"
+  }
+ ],
+ "lezioni": [
+  {
+   "data": "2026-11-11",
+   "fonte": "reel 03 IG: 206 views, 6,4 s medi su 51, skip 55,8%",
+   "lezione": "gancio v2: immagine-risposta in movimento dal frame 0, domanda concreta, timbro dopo; 35-45 s"
   }
  ]
 }

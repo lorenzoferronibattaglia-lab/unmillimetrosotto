@@ -479,3 +479,117 @@ def field_plates(cr, cx, cy, r, level, alpha=1.0):
         if abs(v) > 0.35:
             E.outlined_text(cr, "+ + + +" if v > 0 else "− − − −", cx, yy + 16, 44, fill=E.WHITE, lw=0,
                             alpha=alpha * min(1.0, (abs(v) - 0.35) / 0.4))
+
+
+GREEN_OK = (0.20, 0.72, 0.38)
+ICE = (0.84, 0.94, 1.0)
+
+
+def ice_cube(cr, x, y, s, angle=0.0, alpha=0.9):
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    E.rounded_rect(cr, -s / 2, -s / 2, s, s, s * 0.22)
+    cr.set_source_rgba(*ICE, alpha)
+    cr.fill_preserve()
+    cr.set_source_rgba(0.45, 0.65, 0.85, alpha)
+    cr.set_line_width(4)
+    cr.stroke()
+    cr.move_to(-s * 0.25, -s * 0.2)
+    cr.line_to(s * 0.05, -s * 0.3)
+    cr.set_source_rgba(1, 1, 1, alpha)
+    cr.set_line_width(5)
+    cr.stroke()
+    cr.restore()
+
+
+def wine_bottle(cr, x, y, scale=1.0, angle=0.0):
+    """Bottiglia di vino, fondo in (x, y) a riposo; collo verso l'alto."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    cr.scale(scale, scale)
+    cr.move_to(-60, 0)
+    cr.line_to(-60, -330)
+    cr.curve_to(-60, -400, -24, -410, -22, -470)
+    cr.line_to(-22, -560)
+    cr.line_to(22, -560)
+    cr.line_to(22, -470)
+    cr.curve_to(24, -410, 60, -400, 60, -330)
+    cr.line_to(60, 0)
+    cr.close_path()
+    cr.set_source_rgb(0.16, 0.32, 0.20)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    E.rounded_rect(cr, -48, -260, 96, 120, 10)
+    cr.set_source_rgb(0.96, 0.93, 0.85)
+    cr.fill()
+    E.outlined_text(cr, "VINO", 0, -190, 30, fill=E.INK, lw=0)
+    E.rounded_rect(cr, -24, -585, 48, 40, 6)
+    cr.set_source_rgb(0.55, 0.12, 0.18)
+    cr.fill()
+    cr.move_to(-40, -320)
+    cr.line_to(-40, -40)
+    cr.set_source_rgba(1, 1, 1, 0.25)
+    cr.set_line_width(10)
+    cr.stroke()
+    cr.restore()
+
+
+def ice_bucket(cr, cx, top, w, h, t, frost=0.0, salt_t=None, water_level=0.62):
+    """Secchiello in sezione con acqua, cubetti e bottiglia. Ritorna (ix0, ix1, superficie, fondo)."""
+    x0, x1 = cx - w / 2, cx + w / 2
+    bot = top + h
+    inset = 40
+    # bottiglia dietro (sporge dal secchiello)
+    wine_bottle(cr, cx + 30, bot - 30, scale=0.95, angle=0.08)
+    # acqua dentro il secchiello (trapezio)
+    surf = bot - (h - 20) * water_level
+    def side(y):
+        k = (y - top) / h
+        return E.lerp(x0, x0 + inset, k), E.lerp(x1, x1 - inset, k)
+    l0, r0 = side(surf)
+    l1, r1 = side(bot - 12)
+    cr.move_to(l0, surf)
+    for i in range(21):
+        xx = E.lerp(l0, r0, i / 20)
+        cr.line_to(xx, surf + 5 * math.sin(xx * 0.03 + t * 3))
+    cr.line_to(r1, bot - 12)
+    cr.line_to(l1, bot - 12)
+    cr.close_path()
+    cr.set_source_rgba(0.55, 0.78, 0.95, 0.75)
+    cr.fill()
+    # cubetti galleggianti
+    rnd = random.Random(12)
+    for i in range(9):
+        xx = rnd.uniform(l0 + 40, r0 - 40)
+        yy = surf + rnd.uniform(-10, 60) + 4 * math.sin(t * 2 + i)
+        ice_cube(cr, xx, yy, rnd.uniform(50, 70), angle=rnd.uniform(-0.5, 0.5) + 0.05 * math.sin(t + i))
+    # secchiello in metallo (pareti), davanti
+    cr.move_to(x0, top)
+    cr.line_to(x1, top)
+    cr.line_to(x1 - inset, bot)
+    cr.line_to(x0 + inset, bot)
+    cr.close_path()
+    cr.set_source_rgba(0.75, 0.79, 0.84, 0.28)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(7)
+    cr.stroke()
+    E.rounded_rect(cr, x0 - 14, top - 14, w + 28, 28, 14)
+    cr.set_source_rgb(*E.STEEL)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    # brina sulle pareti
+    if frost > 0:
+        rnd = random.Random(3)
+        for i in range(60):
+            fy = rnd.uniform(top + 20, bot - 20)
+            fl, fr = side(fy)
+            fx = fl + 8 if i % 2 else fr - 8
+            E.circle(cr, fx + rnd.uniform(-6, 6), fy, rnd.uniform(3, 7), (1, 1, 1), lw=0, alpha=0.8 * frost)
+    return l0, r0, surf, bot

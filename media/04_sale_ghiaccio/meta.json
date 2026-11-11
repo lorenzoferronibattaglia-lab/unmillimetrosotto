@@ -1,0 +1,57 @@
+{
+ "id": "04_sale_ghiaccio",
+ "titolo": "Il sale nel ghiaccio raffredda il vino più in fretta?",
+ "durata_s": 53.4,
+ "caratteri_voce": 781,
+ "didascalia": "Vero: il sale nel ghiaccio raffredda il vino più in fretta. Acqua e ghiaccio si fermano a 0 °C, col sale il ghiaccio continua a sciogliersi sotto zero e a rubare calore: la miscela può arrivare a circa −21 °C 🍷🧊\n\nGhiaccio, acqua, una manciata di sale e gira la bottiglia ogni tanto.\n\n#veroofalso #scienzaincucina #vino #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Geopop – Perché in inverno si sparge il sale sulle strade (abbassamento crioscopico)",
+   "url": "https://www.geopop.it/perche-in-inverno-si-sparge-il-sale-sulle-strade/"
+  },
+  {
+   "titolo": "Greenme – ghiaccio e sale fino a −21 °C",
+   "url": "https://www.greenme.it/casa-e-giardino/trucchi-e-consigli/raffreddare-velocemnte-bibite-trucco/"
+  },
+  {
+   "titolo": "Guida al raffreddamento del vino (cita il test di Serious Eats)",
+   "url": "https://milazzo.life/?p=252249"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "Acqua e ghiaccio restano a 0 °C",
+   "esito": "confermato",
+   "fonte": "Greenme"
+  },
+  {
+   "affermazione": "Il sale abbassa il punto di fusione (abbassamento crioscopico)",
+   "esito": "confermato",
+   "fonte": "Geopop"
+  },
+  {
+   "affermazione": "La fusione sottrae calore (calore latente)",
+   "esito": "confermato",
+   "fonte": "Geopop (cocktail)"
+  },
+  {
+   "affermazione": "Fino a circa −21 °C (punto eutettico)",
+   "esito": "confermato come limite teorico; in pratica la miscela sta più su",
+   "fonte": "Greenme"
+  },
+  {
+   "affermazione": "Muovere la bottiglia accelera",
+   "esito": "confermato (test Serious Eats citato)",
+   "fonte": "milazzo.life"
+  },
+  {
+   "affermazione": "Termometro del gancio a −10 °C",
+   "esito": "valore indicativo realistico, non misurato"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 0,
+  "istante_s": 0
+ }
+}
