@@ -1,0 +1,149 @@
+{
+ "id": "17_mela_limone",
+ "topic": "La mela tagliata diventa marrone: il limone la salva?",
+ "paragraphs": [
+  {
+   "text": "La mela tagliata diventa marrone: il limone la salva? Vero. E il colpevole è l'ossigeno.",
+   "scene": {
+    "type": "real",
+    "clip": "clips/17_mela.mp4",
+    "title": [
+     "IL LIMONE",
+     "SALVA LA MELA?"
+    ],
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Tagliando la mela rompi le sue cellule: un enzima incontra l'ossigeno dell'aria e crea pigmenti scuri.",
+   "scene": {
+    "type": "lens",
+    "no_open": true,
+    "title": [
+     "ARRIVA",
+     "L'OSSIGENO"
+    ],
+    "surface": false,
+    "heat": 0.2,
+    "water": false,
+    "bg": "#CFE6F7",
+    "layers": [
+     {
+      "kind": "apple",
+      "o2_at": "ossigeno",
+      "brown_at": "pigmenti"
+     }
+    ],
+    "labels": [
+     {
+      "text": "OSSIGENO",
+      "at": "ossigeno",
+      "pos": [
+       540,
+       560
+      ],
+      "size": 50,
+      "color": "#2E78BF"
+     },
+     {
+      "text": "PIGMENTI SCURI",
+      "at": "pigmenti",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 50
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il limone è acido: in quell'ambiente l'enzima lavora male, e la mela resta chiara molto più a lungo.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "COL",
+     "LIMONE"
+    ],
+    "surface": false,
+    "heat": 0.2,
+    "water": false,
+    "bg": "#CFE6F7",
+    "layers": [
+     {
+      "kind": "apple",
+      "o2_at": 0.0,
+      "lemon_at": "acido"
+     }
+    ],
+    "labels": [
+     {
+      "text": "ENZIMA RALLENTATO",
+      "at": "male",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 50,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: qualche goccia di limone, oppure pellicola a contatto, così l'aria non arriva.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "GOCCE DI LIMONE",
+      "ok": true,
+      "at": "goccia"
+     },
+     {
+      "text": "PELLICOLA A CONTATTO",
+      "ok": true,
+      "at": "pellicola"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Vero: il limone salva la mela tagliata 🍎 Tagliandola rompi le cellule: un enzima incontra l'ossigeno e crea pigmenti scuri. L'acidità del limone lo fa lavorare male.\n\nQualche goccia di limone o pellicola a contatto, e resta chiara molto più a lungo.\n\n#veroofalso #mela #scienzaincucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Imbrunimento enzimatico (polifenolossidasi)",
+   "url": "https://en.wikipedia.org/wiki/Polyphenol_oxidase"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "imbrunimento = polifenolossidasi + ossigeno -> pigmenti scuri",
+   "esito": "confermato",
+   "fonte": "biochimica alimentare"
+  },
+  {
+   "affermazione": "acidità (limone) rallenta l'enzima",
+   "esito": "confermato (pH basso inibisce la PPO; anche la vitamina C aiuta)",
+   "fonte": "biochimica alimentare"
+  }
+ ],
+ "hook_test": "reale",
+ "theme": "cucina_notte"
+}

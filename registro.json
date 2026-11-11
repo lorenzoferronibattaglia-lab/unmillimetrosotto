@@ -238,6 +238,36 @@
    "gancio": "v2 payoff (disegno)",
    "test": "A/B gancio reale vs disegno",
    "vidiq_post_id": "0e78dbb3-872a-4687-a640-6d816cb5d7be"
+  },
+  {
+   "id": "17_mela_limone",
+   "tema": "La mela tagliata diventa marrone: il limone la salva?",
+   "stato": "in_preparazione",
+   "video": "media/17_mela_limone/17_mela_limone.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "subito",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ],
+   "gancio": "reale (Kling 3.0 via Higgsfield)",
+   "nota": "extra di oggi"
+  },
+  {
+   "id": "18_banana_etilene",
+   "tema": "La banana fa maturare la frutta vicina?",
+   "stato": "in_preparazione",
+   "video": "media/18_banana_etilene/18_banana_etilene.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-11T20:15:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ],
+   "gancio": "reale (Kling 3.0 via Higgsfield)",
+   "nota": "extra di oggi"
   }
  ],
  "lezioni": [

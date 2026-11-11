@@ -371,7 +371,7 @@ def lens(cr, t, ctx, par, spec):
     # batterio: compare con "at", con "dry_at" perde acqua e si raggrinzisce
     mic = layers.get("microbe")
     if mic:
-        tm0 = ctx.at(par, mic.get("at", 0.0))
+        tm0 = ctx.at(par, mic.get("at", 0.0))  # noqa
         k = E.ease_out_back(E.prog(t, tm0, tm0 + 0.45))
         td = ctx.at(par, mic["dry_at"]) if mic.get("dry_at") else None
         shr = E.ease(E.prog(t, td, td + 2.2)) if td is not None else 0.0
@@ -435,6 +435,65 @@ def lens(cr, t, ctx, par, spec):
                 a *= 1 - E.ease(E.prog(t, tn + j * 0.15, tn + 0.5 + j * 0.15))
             if a > 0.01:
                 P.h_ion(cr, px + 8 * math.sin(t * 3 + j), py + 8 * math.cos(t * 2.6 + j), alpha=a, scale=E.lerp(0.6, 1.0, a))
+
+    # etilene: gas che sale dal basso (dalla banana) e attraversa la lente
+    ety = layers.get("ethylene")
+    if ety:
+        te0 = ctx.at(par, ety.get("at", 0.0))
+        rnd = random.Random(121)
+        for j in range(ety.get("n", 10)):
+            bx = cx - r + 70 + rnd.uniform(0, 2 * r - 140)
+            if t < te0:
+                continue
+            ph = ((t - te0) * 0.28 + j / 10) % 1.0
+            k = min(1.0, (t - te0) * 1.5)
+            yb = E.lerp(cy + r + 40, cy - r - 40, ph)
+            P.ethylene(cr, bx + 18 * math.sin(t * 1.6 + j), yb, 0.95, angle=0.5 * math.sin(t * 0.9 + j), alpha=k)
+
+    # mela: polpa in basso; l'ossigeno scende (o2_at) e la imbrunisce (brown_at); col limone (lemon_at) arrivano H+ e l'ossigeno rimbalza
+    ap = layers.get("apple")
+    if ap:
+        band_y = cy + 150
+        to = ctx.at(par, ap["o2_at"]) if ap.get("o2_at") is not None else None
+        tb = ctx.at(par, ap["brown_at"]) if ap.get("brown_at") is not None else None
+        tl = ctx.at(par, ap["lemon_at"]) if ap.get("lemon_at") is not None else None
+        E.rounded_rect(cr, cx - r - 40, band_y, 2 * r + 80, 260, 30)
+        cr.set_source_rgb(0.98, 0.95, 0.80)
+        cr.fill_preserve()
+        cr.set_source_rgb(0.80, 0.72, 0.45)
+        cr.set_line_width(6)
+        cr.stroke()
+        rnd = random.Random(131)
+        brown = E.ease(E.prog(t, tb, tb + 2.5)) if tb is not None else float(ap.get("start_brown", 0))
+        if brown > 0.02:
+            E.rounded_rect(cr, cx - r - 40, band_y, 2 * r + 80, 70, 30)
+            cr.set_source_rgba(0.62, 0.40, 0.18, 0.55 * brown)
+            cr.fill()
+        for j in range(22):
+            px = cx - r + 30 + j * (2 * r - 60) / 21 + rnd.uniform(-10, 10)
+            py = band_y + 14 + rnd.uniform(0, 50)
+            rr0 = rnd.uniform(22, 40) * (0.4 + 0.6 * brown)
+            if brown > 0.02:
+                E.circle(cr, px, py, rr0, (0.45, 0.25, 0.10), lw=0, alpha=0.85 * brown)
+        lem = E.ease(E.prog(t, tl, tl + 0.8)) if tl is not None else 0.0
+        if lem > 0:
+            rnd2 = random.Random(141)
+            for j in range(8):
+                px = cx - r + 70 + j * (2 * r - 140) / 7
+                py = band_y - 45 + 8 * math.sin(t * 3 + j)
+                P.h_ion(cr, px, E.lerp(cy - r - 40, py, E.ease(E.prog(t, tl + j * 0.08, tl + 0.8 + j * 0.08))), alpha=lem, scale=0.75)
+        if to is not None and t > to:
+            rnd3 = random.Random(151)
+            for j in range(7):
+                ox = cx - r + 80 + rnd3.uniform(0, 2 * r - 160)
+                ph = ((t - to) * 0.45 + j / 7) % 1.0
+                if lem > 0.5:
+                    # rimbalza prima di toccare la polpa
+                    d = math.sin(ph * math.pi)
+                    oy = E.lerp(cy - r + 40, band_y - 110, d)
+                else:
+                    oy = E.lerp(cy - r + 40, band_y + 10, min(1.0, ph * 1.3))
+                P.o2(cr, ox + 10 * math.sin(t * 2 + j), oy, 0.9, angle=0.6 * math.sin(t + j), alpha=min(1.0, (t - to) * 2))
 
     # ghiaccio: reticolo ordinato nella meta' alta della lente; con "melt_at" si smonta dal basso
     ice = layers.get("ice")

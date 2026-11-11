@@ -941,3 +941,38 @@ def egg_point(th, rx=230, ry=300):
     y = -ry * math.cos(th)
     d = math.hypot(x, y) or 1
     return x, y, x / d, y / d
+
+
+def ethylene(cr, x, y, scale=1.0, angle=0.0, alpha=1.0):
+    """Etilene C2H4: due carboni scuri con doppio legame, quattro idrogeni bianchi."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    cr.scale(scale, scale)
+    cr.set_source_rgba(*E.INK, alpha)
+    cr.set_line_width(5)
+    for dy in (-5, 5):
+        cr.move_to(-18, dy)
+        cr.line_to(18, dy)
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            cr.move_to(sx * 18, 0)
+            cr.line_to(sx * 36, sy * 26)
+    cr.stroke()
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            E.circle(cr, sx * 36, sy * 26, 11, (1, 1, 1), lw=4, alpha=alpha)
+    for sx in (-1, 1):
+        E.circle(cr, sx * 18, 0, 18, (0.25, 0.27, 0.30), lw=4, alpha=alpha)
+    cr.restore()
+
+
+def o2(cr, x, y, scale=1.0, angle=0.0, alpha=1.0):
+    """Ossigeno O2: due sfere rosse unite."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    cr.scale(scale, scale)
+    for sx in (-1, 1):
+        E.circle(cr, sx * 15, 0, 20, (0.93, 0.30, 0.30), lw=4, alpha=alpha)
+    cr.restore()

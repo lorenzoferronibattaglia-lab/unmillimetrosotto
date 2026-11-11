@@ -1,0 +1,30 @@
+{
+ "id": "18_banana_etilene",
+ "titolo": "La banana fa maturare la frutta vicina?",
+ "durata_s": 26.4,
+ "caratteri_voce": 408,
+ "didascalia": "Vero: la banana fa maturare la frutta vicina 🍌 Maturando libera etilene, un gas che per la frutta è il segnale di maturare: si ammorbidisce e l'amido diventa zucchero.\n\nFrutta acerba in un sacchetto di carta con una banana. Per farla durare, tienile separate.\n\n#veroofalso #frutta #banana #scienzaincucina #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Etilene come ormone vegetale della maturazione",
+   "url": "https://en.wikipedia.org/wiki/Ethylene_as_a_plant_hormone"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "le banane emettono etilene che accelera la maturazione dei frutti climaterici vicini",
+   "esito": "confermato",
+   "fonte": "fisiologia vegetale"
+  },
+  {
+   "affermazione": "maturando amido -> zuccheri e frutto più morbido (pere, kiwi, banane)",
+   "esito": "confermato",
+   "fonte": "fisiologia vegetale"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 10.9
+ }
+}

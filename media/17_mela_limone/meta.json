@@ -1,0 +1,30 @@
+{
+ "id": "17_mela_limone",
+ "titolo": "La mela tagliata diventa marrone: il limone la salva?",
+ "durata_s": 27.0,
+ "caratteri_voce": 422,
+ "didascalia": "Vero: il limone salva la mela tagliata 🍎 Tagliandola rompi le cellule: un enzima incontra l'ossigeno e crea pigmenti scuri. L'acidità del limone lo fa lavorare male.\n\nQualche goccia di limone o pellicola a contatto, e resta chiara molto più a lungo.\n\n#veroofalso #mela #scienzaincucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Imbrunimento enzimatico (polifenolossidasi)",
+   "url": "https://en.wikipedia.org/wiki/Polyphenol_oxidase"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "imbrunimento = polifenolossidasi + ossigeno -> pigmenti scuri",
+   "esito": "confermato",
+   "fonte": "biochimica alimentare"
+  },
+  {
+   "affermazione": "acidità (limone) rallenta l'enzima",
+   "esito": "confermato (pH basso inibisce la PPO; anche la vitamina C aiuta)",
+   "fonte": "biochimica alimentare"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 12.3
+ }
+}
