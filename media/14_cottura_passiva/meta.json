@@ -1,0 +1,34 @@
+{
+ "id": "14_cottura_passiva",
+ "titolo": "Si può cuocere la pasta a fuoco spento?",
+ "durata_s": 24.1,
+ "caratteri_voce": 396,
+ "didascalia": "Vero: la pasta si cuoce anche a fuoco spento 🍝 All'amido basta un'ottantina di gradi per gonfiarsi, e col coperchio l'acqua resta calda abbastanza.\n\nDue minuti di bollore, spegni, coperchio e lascia il tempo della confezione più un minuto.\n\n#veroofalso #pasta #risparmio #scienzaincucina #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Barilla, cottura passiva (2 min + tempo confezione, +1 min)",
+   "url": "https://www.greenme.it/?p=963245"
+  },
+  {
+   "titolo": "Selectra: il risparmio viene soprattutto dal coperchio",
+   "url": "https://selectra.net/energia/attualita/pasta-fuoco-spento-cottura-passiva-risparmio"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "2 minuti accesi, poi coperchio e tempo confezione (+~1 min)",
+   "esito": "confermato",
+   "fonte": "indicazioni Barilla"
+  },
+  {
+   "affermazione": "acqua sopra 80 °C durante la cottura passiva",
+   "esito": "plausibile con coperchio e dosi normali; non misurato da noi",
+   "fonte": "fisica della pentola coperta"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 22.5
+ }
+}

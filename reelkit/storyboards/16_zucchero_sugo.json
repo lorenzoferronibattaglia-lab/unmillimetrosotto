@@ -1,0 +1,181 @@
+{
+ "id": "16_zucchero_sugo",
+ "topic": "Lo zucchero toglie l'acidità al sugo?",
+ "paragraphs": [
+  {
+   "text": "Lo zucchero toglie l'acidità al sugo? Falso: la nasconde soltanto.",
+   "scene": {
+    "type": "hook",
+    "title": [
+     "LO ZUCCHERO TOGLIE",
+     "L'ACIDITÀ AL SUGO?"
+    ],
+    "prop": {
+     "pour": "salt",
+     "liquid": "sugo",
+     "label": "ZUCCHERO"
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "L'acidità del pomodoro sono particelle chiamate ioni idrogeno. E lo zucchero non le tocca.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "IL SEGRETO",
+     "DELL'ACIDITÀ"
+    ],
+    "surface": false,
+    "heat": 0.3,
+    "layers": [
+     {
+      "kind": "ions",
+      "at": "ioni"
+     },
+     {
+      "kind": "sugar",
+      "at": "zucchero",
+      "n": 6
+     }
+    ],
+    "labels": [
+     {
+      "text": "IONI H+",
+      "at": "ioni",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 56,
+      "color": "#9A57F2"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Copre solo il sapore aspro sulla lingua: il sugo resta acido uguale.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "ACIDO",
+     "UGUALE"
+    ],
+    "surface": false,
+    "heat": 0.3,
+    "layers": [
+     {
+      "kind": "ions",
+      "at": 0.0
+     },
+     {
+      "kind": "sugar",
+      "at": 0.0,
+      "n": 6
+     }
+    ],
+    "labels": [
+     {
+      "text": "pH UGUALE",
+      "at": "uguale",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Per toglierla davvero serve un pizzico di bicarbonato: neutralizza gli acidi e fa qualche bollicina.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "IL VERO",
+     "RIMEDIO"
+    ],
+    "surface": false,
+    "heat": 0.3,
+    "layers": [
+     {
+      "kind": "ions",
+      "at": 0.0,
+      "neutralize_at": "neutralizza"
+     },
+     {
+      "kind": "co2",
+      "at": "bollicina",
+      "from_zero": true
+     }
+    ],
+    "labels": [
+     {
+      "text": "BICARBONATO",
+      "at": "bicarbonato",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 52,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Ma solo un pizzico: se esageri, il sugo sa di sapone.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "OCCHIO",
+     "ALLA DOSE"
+    ],
+    "items": [
+     {
+      "text": "UN PIZZICO DI BICARBONATO",
+      "ok": true,
+      "at": "pizzico"
+     },
+     {
+      "text": "TROPPO BICARBONATO",
+      "ok": false,
+      "at": "esageri"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Falso: lo zucchero non toglie l'acidità al sugo, la nasconde soltanto 🍅 Copre il sapore aspro, ma gli acidi restano lì.\n\nPer neutralizzarli serve un pizzico di bicarbonato (fa qualche bollicina). Solo un pizzico: se esageri, sa di sapone.\n\n#veroofalso #sugo #pomodoro #scienzaincucina #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Acid-base: bicarbonato + acido → CO2 + acqua",
+   "url": "https://it.wikipedia.org/wiki/Bicarbonato_di_sodio"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "lo zucchero non cambia il pH, maschera l'aspro",
+   "esito": "confermato",
+   "fonte": "chimica di base / percezione del gusto"
+  },
+  {
+   "affermazione": "il bicarbonato neutralizza gli acidi liberando CO2; in eccesso dà sapore saponoso",
+   "esito": "confermato",
+   "fonte": "chimica di base"
+  }
+ ],
+ "hook_test": "disegno",
+ "theme": "cucina_notte"
+}

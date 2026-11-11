@@ -1,0 +1,35 @@
+{
+ "id": "12_miele_non_scade",
+ "titolo": "Il miele non scade mai?",
+ "durata_s": 29.5,
+ "caratteri_voce": 467,
+ "didascalia": "Vero: il miele, se resta ben chiuso, praticamente non scade 🍯 È quasi tutto zucchero e pochissima acqua: un batterio che ci finisce dentro perde acqua e non cresce. E in più è acido.\n\nSe cristallizza non è andato a male: basta un bagnomaria tiepido.\n\n#veroofalso #miele #scienzaincucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Honey composition (water ~17%, pH ~3.9)",
+   "url": "https://en.wikipedia.org/wiki/Honey"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "acqua < 20% (tipicamente ~17%)",
+   "esito": "confermato",
+   "fonte": "composizione standard del miele"
+  },
+  {
+   "affermazione": "pH intorno a 4 (3,4-6,1, media ~3,9)",
+   "esito": "confermato",
+   "fonte": "letteratura sul miele"
+  },
+  {
+   "affermazione": "non scade se chiuso; fermenta se assorbe acqua",
+   "esito": "confermato con la riserva sull'umidità detta nel video",
+   "fonte": "conoscenza alimentare"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 11.2
+ }
+}

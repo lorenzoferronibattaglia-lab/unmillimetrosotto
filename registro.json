@@ -157,6 +157,81 @@
     "tiktok"
    ],
    "vidiq_post_id": "89866375-874d-460c-8054-6832b307edd6"
+  },
+  {
+   "id": "12_miele_non_scade",
+   "tema": "Il miele non scade mai?",
+   "stato": "in_preparazione",
+   "video": "media/12_miele_non_scade/12_miele_non_scade.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-13T15:30:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ],
+   "gancio": "reale (Kling 3.0 via Higgsfield)",
+   "test": "A/B gancio reale vs disegno"
+  },
+  {
+   "id": "13_uova_galleggiano",
+   "tema": "Le uova vecchie galleggiano?",
+   "stato": "in_preparazione",
+   "video": "media/13_uova_galleggiano/13_uova_galleggiano.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-13T18:00:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ],
+   "gancio": "reale (Kling 3.0 via Higgsfield)",
+   "test": "A/B gancio reale vs disegno"
+  },
+  {
+   "id": "14_cottura_passiva",
+   "tema": "Si può cuocere la pasta a fuoco spento?",
+   "stato": "in_preparazione",
+   "video": "media/14_cottura_passiva/14_cottura_passiva.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-13T13:00:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ],
+   "gancio": "v2 payoff (disegno)",
+   "test": "A/B gancio reale vs disegno"
+  },
+  {
+   "id": "15_pane_raffermo",
+   "tema": "Il pane raffermo torna morbido in forno?",
+   "stato": "in_preparazione",
+   "video": "media/15_pane_raffermo/15_pane_raffermo.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-13T21:00:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ],
+   "gancio": "reale (Kling 3.0 via Higgsfield)",
+   "test": "A/B gancio reale vs disegno"
+  },
+  {
+   "id": "16_zucchero_sugo",
+   "tema": "Lo zucchero toglie l'acidità al sugo?",
+   "stato": "in_preparazione",
+   "video": "media/16_zucchero_sugo/16_zucchero_sugo.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-13T19:30:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ],
+   "gancio": "v2 payoff (disegno)",
+   "test": "A/B gancio reale vs disegno"
   }
  ],
  "lezioni": [

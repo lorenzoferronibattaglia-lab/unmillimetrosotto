@@ -1,0 +1,30 @@
+{
+ "id": "16_zucchero_sugo",
+ "titolo": "Lo zucchero toglie l'acidità al sugo?",
+ "durata_s": 27.9,
+ "caratteri_voce": 422,
+ "didascalia": "Falso: lo zucchero non toglie l'acidità al sugo, la nasconde soltanto 🍅 Copre il sapore aspro, ma gli acidi restano lì.\n\nPer neutralizzarli serve un pizzico di bicarbonato (fa qualche bollicina). Solo un pizzico: se esageri, sa di sapone.\n\n#veroofalso #sugo #pomodoro #scienzaincucina #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Acid-base: bicarbonato + acido → CO2 + acqua",
+   "url": "https://it.wikipedia.org/wiki/Bicarbonato_di_sodio"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "lo zucchero non cambia il pH, maschera l'aspro",
+   "esito": "confermato",
+   "fonte": "chimica di base / percezione del gusto"
+  },
+  {
+   "affermazione": "il bicarbonato neutralizza gli acidi liberando CO2; in eccesso dà sapore saponoso",
+   "esito": "confermato",
+   "fonte": "chimica di base"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 4.9
+ }
+}

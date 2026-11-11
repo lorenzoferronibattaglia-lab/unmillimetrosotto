@@ -1,0 +1,30 @@
+{
+ "id": "13_uova_galleggiano",
+ "titolo": "Le uova vecchie galleggiano?",
+ "durata_s": 30.1,
+ "caratteri_voce": 479,
+ "didascalia": "Vero: le uova vecchie galleggiano 🥚 Dal guscio poroso l'acqua evapora ed entra aria: la camera d'aria cresce e l'uovo si alleggerisce.\n\nFresco resta sdraiato sul fondo, dopo qualche settimana sta in piedi, vecchio galleggia. Ma vecchio non vuol dire marcio: nel dubbio rompilo in una ciotola e annusalo.\n\n#veroofalso #uova #scienzaincucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Egg float test / air cell",
+   "url": "https://en.wikipedia.org/wiki/Egg_as_food"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "il guscio ha migliaia di pori, l'acqua evapora ed entra aria",
+   "esito": "confermato",
+   "fonte": "biologia dell'uovo"
+  },
+  {
+   "affermazione": "fresco sul fondo, poi in piedi, vecchio galleggia",
+   "esito": "confermato (indicatore di età, non di sicurezza)",
+   "fonte": "test di galleggiamento"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 2,
+  "istante_s": 15.3
+ }
+}

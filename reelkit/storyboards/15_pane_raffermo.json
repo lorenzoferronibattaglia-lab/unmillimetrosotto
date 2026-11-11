@@ -1,0 +1,180 @@
+{
+ "id": "15_pane_raffermo",
+ "topic": "Il pane raffermo torna morbido in forno?",
+ "paragraphs": [
+  {
+   "text": "Il pane raffermo torna morbido in forno? Vero. Perché non è secco: è l'amido che si è irrigidito.",
+   "scene": {
+    "type": "real",
+    "clip": "clips/15_pane.mp4",
+    "title": [
+     "IL PANE RAFFERMO",
+     "TORNA MORBIDO?"
+    ],
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Nel pane fresco le catene di amido sono sciolte e morbide. Coi giorni si rimettono in fila e si irrigidiscono.",
+   "scene": {
+    "type": "lens",
+    "no_open": true,
+    "title": [
+     "L'AMIDO",
+     "SI METTE IN FILA"
+    ],
+    "surface": false,
+    "heat": 0.2,
+    "water": false,
+    "layers": [
+     {
+      "kind": "chains",
+      "align_at": "fila"
+     }
+    ],
+    "labels": [
+     {
+      "text": "RIGIDO",
+      "at": "irrigidiscono",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 56
+     }
+    ],
+    "bg": "#E8C98E"
+   }
+  },
+  {
+   "text": "In forno, sopra i sessanta gradi, quelle file si sciolgono di nuovo, e il pane torna morbido.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "IN FORNO",
+     "SI SCIOLGONO"
+    ],
+    "surface": false,
+    "heat": 0.6,
+    "water": false,
+    "layers": [
+     {
+      "kind": "chains",
+      "start_aligned": 1,
+      "melt_at": "sciolgono"
+     }
+    ],
+    "thermo": {
+     "from": 25,
+     "to": 60,
+     "start": 0.0,
+     "end": "sessanta"
+    },
+    "labels": [
+     {
+      "text": "MORBIDO",
+      "at": "morbido",
+      "pos": [
+       540,
+       1420
+      ],
+      "size": 52,
+      "color": "#2E78BF"
+     }
+    ],
+    "bg": "#E8C98E"
+   }
+  },
+  {
+   "text": "Il trucco: bagna appena la crosta, pochi minuti in forno caldo, e mangialo subito, perché poi indurisce prima.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "CROSTA APPENA BAGNATA",
+      "ok": true,
+      "at": "bagna"
+     },
+     {
+      "text": "POCHI MINUTI IN FORNO",
+      "ok": true,
+      "at": "forno"
+     },
+     {
+      "text": "MANGIALO SUBITO",
+      "ok": true,
+      "at": "mangialo"
+     }
+    ]
+   }
+  },
+  {
+   "text": "E non metterlo in frigo: al freddo l'amido si irrigidisce più in fretta. Meglio il congelatore.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "DOVE",
+     "CONSERVARLO"
+    ],
+    "items": [
+     {
+      "text": "PANE IN FRIGO",
+      "ok": false,
+      "at": "frigo"
+     },
+     {
+      "text": "CONGELATORE",
+      "ok": true,
+      "at": "congelatore"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Vero: il pane raffermo torna morbido in forno 🍞 Non è secco: le catene di amido si sono rimesse in fila e irrigidite. Sopra i 60 °C si sciolgono di nuovo.\n\nCrosta appena bagnata, pochi minuti in forno, e mangialo subito. E mai in frigo: lì raffermisce prima. Meglio il congelatore.\n\n#veroofalso #pane #scienzaincucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Mercer, The Complexities of Bread Staling (Univ. of Guelph)",
+   "url": "https://iufost.org/iufostold/wp-content/uploads/2017/04/66-The-Complexities-of-Bread-Staling.pdf"
+  },
+  {
+   "titolo": "Foodcrumbles, How bread goes stale",
+   "url": "https://foodcrumbles.com/how-bread-goes-stale/"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "il raffermo è soprattutto retrogradazione dell'amido, non perdita d'acqua",
+   "esito": "confermato",
+   "fonte": "Foodcrumbles, Mercer"
+  },
+  {
+   "affermazione": "sopra ~60 °C la retrogradazione dell'amilopectina si annulla",
+   "esito": "confermato",
+   "fonte": "Foodcrumbles"
+  },
+  {
+   "affermazione": "in frigo raffermisce più in fretta, il congelatore lo ferma",
+   "esito": "confermato",
+   "fonte": "Mercer"
+  }
+ ],
+ "hook_test": "reale",
+ "theme": "cucina_notte"
+}

@@ -146,13 +146,22 @@ def hook(cr, t, ctx, par, spec):
             P.steam(cr, 640, 1330 - 700, t, n=3, alpha=0.35, spread=30)
         elif pr["appliance"] in ("oil_pot", "pasta_pot"):
             liq = (P.OIL, P.OIL_DARK) if pr["appliance"] == "oil_pot" else None
-            ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=860, w=560, h=380, liquid=liq)
+            fire = 1.0
+            if pr.get("fire_off_at") is not None:
+                fire = 1 - E.ease(E.prog(t, ctx.at(par, pr["fire_off_at"]), ctx.at(par, pr["fire_off_at"]) + 0.6))
+            ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=860, w=560, h=380, liquid=liq, fire=fire)
             if pr["appliance"] == "pasta_pot":
                 cr.save()
                 E.rounded_rect(cr, ix0, surf - 200, ix1 - ix0, bot - surf + 200, 18)
                 cr.clip()
                 P.spaghetti(cr, ix0, ix1, bot, t, height=bot - surf - 45)
                 cr.restore()
+                if pr.get("lid_at") is not None:
+                    tl = ctx.at(par, pr["lid_at"])
+                    kl = E.ease(E.prog(t, tl, tl + 0.5))
+                    if kl > 0:
+                        P.pot_rim(cr, 540, 860, 560)
+                        P.lid(cr, 540, 852, 560, lift=E.lerp(260, 4, kl))
             else:
                 rnd = random.Random(2)
                 for j in range(14):
@@ -211,7 +220,10 @@ def hook(cr, t, ctx, par, spec):
         if st:
             E.stamp(cr, st.get("text", "FALSO MITO"), 540, 610, t, ctx.at(par, st.get("at")), size=104)
         return
-    ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=840)
+    liq = None
+    if pr.get("liquid") == "sugo":
+        liq = ((0.82, 0.20, 0.13), (0.62, 0.12, 0.08))
+    ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=840, liquid=liq)
     if pr.get("pasta"):
         cr.save()
         E.rounded_rect(cr, ix0, surf - 200, ix1 - ix0, bot - surf + 200, 18)
@@ -233,7 +245,7 @@ def hook(cr, t, ctx, par, spec):
             mx, my = P.mouth_point(760, 660, ang, 120)
             P.falling_grains(cr, t, s + 0.8, (mx, my), surf)
             P.pot_rim(cr, 540, 840, 560)
-            P.shaker(cr, 760, 660, ang)
+            P.shaker(cr, 760, 660, ang, label=pr.get("label", "SALE"))
     else:
         P.pot_rim(cr, 540, 840, 560)
     E.title(cr, spec["title"], t, s, y=250, size=spec.get("title_size", 92))
@@ -263,12 +275,27 @@ def lens(cr, t, ctx, par, spec):
         _FIELDS[key] = molecule_field(11 + par * 7, surface=surface, exclude=excl)
     field = _FIELDS[key]
 
-    p_open = E.ease(E.prog(t, s, s + 0.45))
+    p_open = 1.0 if spec.get("no_open") else E.ease(E.prog(t, s, s + 0.45))
     rr = E.lerp(40, r, p_open)
     cr.save()
     cr.arc(cx, cy, rr, 0, 2 * math.pi)
     cr.clip()
-    water_bg(cr, surface, t)
+    if spec.get("bg"):
+        import cairo as _c
+        h = spec["bg"].lstrip("#")
+        bc = tuple(int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+        g = _c.LinearGradient(0, cy - r, 0, cy + r)
+        g.add_color_stop_rgb(0, *[min(1, c * 1.12) for c in bc])
+        g.add_color_stop_rgb(1, *[c * 0.85 for c in bc])
+        cr.set_source(g)
+        cr.paint()
+    else:
+        water_bg(cr, surface, t)
+    if spec.get("tint"):
+        h = spec["tint"].lstrip("#")
+        tc = tuple(int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+        cr.set_source_rgba(*tc, spec.get("tint_alpha", 0.45))
+        cr.paint()
 
     heat = spec.get("heat", 0.3)
     amp = E.lerp(6, 22, heat)
@@ -288,6 +315,8 @@ def lens(cr, t, ctx, par, spec):
         # inversione FLUIDA (coseno): niente scatti, niente lampi
         fs = math.cos(math.pi * max(0.0, t - tf) / half)
     lidl = layers.get("lid")
+    wpos = []
+    hide_water = spec.get("water", True) is False
     for i, m in enumerate(field):
         x, y, a = jiggle(m, t, amp)
         if falign > 0:
@@ -304,7 +333,108 @@ def lens(cr, t, ctx, par, spec):
             else:
                 k = E.prog(t, tesc + (i % 5) * 0.25, tesc + (i % 5) * 0.25 + 1.4)
                 y -= E.ease(k) * 420
-        P.water_molecule(cr, x, y, 0.95, a)
+        wpos.append((x, y))
+        if not hide_water:
+            P.water_molecule(cr, x, y, 0.95, a)
+
+    # zuccheri: anelli che trattengono l'acqua (con "bind_at" compaiono i legami verso le molecole vicine)
+    sug = layers.get("sugar")
+    if sug:
+        ts0 = ctx.at(par, sug.get("at", 0.0))
+        tb = ctx.at(par, sug["bind_at"]) if sug.get("bind_at") else None
+        rnd = random.Random(91)
+        spots = []
+        while len(spots) < sug.get("n", 11):
+            px, py = rnd.uniform(cx - r + 60, cx + r - 60), rnd.uniform(cy - r + 60, cy + r - 60)
+            if math.hypot(px - cx, py - cy) < r - 60 and all(math.hypot(px - a, py - b) > 120 for a, b in spots):
+                if not (layers.get("microbe") and math.hypot(px - (cx + 20), py - (cy + 70)) < 170):
+                    spots.append((px, py))
+        for j, (px, py) in enumerate(spots):
+            k = E.ease(E.prog(t, ts0 + j * 0.05, ts0 + 0.4 + j * 0.05))
+            if k <= 0:
+                continue
+            x, y = px + 6 * math.sin(t * 2.2 + j), py + 6 * math.cos(t * 1.9 + j)
+            if tb is not None:
+                kb = E.ease(E.prog(t, tb + j * 0.04, tb + 0.6 + j * 0.04))
+                if kb > 0 and wpos:
+                    near = sorted(wpos, key=lambda q: (q[0] - x) ** 2 + (q[1] - y) ** 2)[:3]
+                    cr.set_source_rgba(1, 1, 1, 0.85 * kb)
+                    cr.set_line_width(4)
+                    cr.set_dash([7, 6])
+                    for qx, qy in near:
+                        cr.move_to(x, y)
+                        cr.line_to(E.lerp(x, qx, kb), E.lerp(y, qy, kb))
+                    cr.stroke()
+                    cr.set_dash([])
+            P.sugar_ring(cr, x, y, 30 * k, angle=0.3 * math.sin(t + j))
+
+    # batterio: compare con "at", con "dry_at" perde acqua e si raggrinzisce
+    mic = layers.get("microbe")
+    if mic:
+        tm0 = ctx.at(par, mic.get("at", 0.0))
+        k = E.ease_out_back(E.prog(t, tm0, tm0 + 0.45))
+        td = ctx.at(par, mic["dry_at"]) if mic.get("dry_at") else None
+        shr = E.ease(E.prog(t, td, td + 2.2)) if td is not None else 0.0
+        mx, my = cx + 20, cy + 70
+        if k > 0:
+            if td is not None and t > td:
+                for j in range(7):
+                    kk = E.ease(E.prog(t, td + j * 0.18, td + 1.4 + j * 0.18))
+                    ang = j * 2 * math.pi / 7 + 0.4
+                    P.water_molecule(cr, mx + math.cos(ang) * E.lerp(30, 230, kk), my + math.sin(ang) * E.lerp(20, 200, kk), 0.8, ang)
+            P.microbe(cr, mx, my, scale=1.5 * k, shrink=shr, t=t)
+
+    # catene di amido: disordinate e morbide; con "align_at" si riordinano e si irrigidiscono, con "melt_at" si sciolgono
+    ch = layers.get("chains")
+    if ch:
+        ta = ctx.at(par, ch["align_at"]) if ch.get("align_at") else None
+        tmc = ctx.at(par, ch["melt_at"]) if ch.get("melt_at") else None
+        ka = E.ease(E.prog(t, ta, ta + 1.6)) if ta is not None else float(ch.get("start_aligned", 0))
+        km = E.ease(E.prog(t, tmc, tmc + 1.6)) if tmc is not None else 0.0
+        k = ka * (1 - km)
+        for j in range(6):
+            pts = []
+            for b in range(10):
+                bx = cx - 290 + b * 64
+                ph = j * 1.7
+                y_dis = cy - 220 + j * 85 + 60 * math.sin(bx * 0.018 + ph) + 35 * math.sin(bx * 0.043 + ph * 2 + t * 1.5)
+                y_ord = cy - 120 + j * 46 + 3 * math.sin(t * 4 + b + j)
+                x = E.lerp(bx + 10 * math.sin(t * 2 + b + j), cx - 260 + b * 58, k)
+                pts.append((x, E.lerp(y_dis, y_ord, k)))
+            cr.set_source_rgb(*E.INK)
+            cr.set_line_width(7)
+            for b, (x, y) in enumerate(pts):
+                (cr.move_to if b == 0 else cr.line_to)(x, y)
+            cr.stroke()
+            for x, y in pts:
+                E.circle(cr, x, y, 15, (0.97, 0.92, 0.78), lw=4)
+        if k > 0.05:
+            cr.set_source_rgba(1, 1, 1, 0.5 * k)
+            cr.set_line_width(3)
+            cr.set_dash([6, 8])
+            for j in range(5):
+                yy = cy - 120 + j * 46 + 23
+                cr.move_to(cx - 280, yy)
+                cr.line_to(cx + 280, yy)
+            cr.stroke()
+            cr.set_dash([])
+
+    # ioni H+ (acidita'): con "neutralize_at" spariscono uno dopo l'altro
+    ion = layers.get("ions")
+    if ion:
+        tn = ctx.at(par, ion["neutralize_at"]) if ion.get("neutralize_at") else None
+        ti0 = ctx.at(par, ion.get("at", 0.0))
+        rnd = random.Random(101)
+        for j in range(ion.get("n", 9)):
+            px = cx - r + 80 + rnd.uniform(0, 2 * r - 160)
+            py = cy - r + 90 + rnd.uniform(0, 2 * r - 180)
+            if math.hypot(px - cx, py - cy) > r - 50:
+                px, py = cx + (px - cx) * 0.6, cy + (py - cy) * 0.6
+            a = E.ease(E.prog(t, ti0 + j * 0.06, ti0 + 0.4 + j * 0.06))
+            if tn is not None:
+                a *= 1 - E.ease(E.prog(t, tn + j * 0.15, tn + 0.5 + j * 0.15))
+            if a > 0.01:
+                P.h_ion(cr, px + 8 * math.sin(t * 3 + j), py + 8 * math.cos(t * 2.6 + j), alpha=a, scale=E.lerp(0.6, 1.0, a))
 
     # ghiaccio: reticolo ordinato nella meta' alta della lente; con "melt_at" si smonta dal basso
     ice = layers.get("ice")
@@ -371,6 +501,8 @@ def lens(cr, t, ctx, par, spec):
         rnd = random.Random(81)
         for j in range(12):
             bx = cx - r + 60 + rnd.uniform(0, 2 * r - 120)
+            if gas.get("from_zero") and t < tg0:
+                continue
             ph = ((t - tg0) * 0.35 + j / 12) % 1.0 if t > tg0 else (j / 12) * 0.3
             yb = E.lerp(cy + r - 40, (surface or cy - r) - 260, ph)
             P.co2(cr, bx + 10 * math.sin(t * 2 + j), yb, 0.85, angle=0.4 * math.sin(t + j))
@@ -666,4 +798,146 @@ def section(cr, t, ctx, par, spec):
     labels(cr, t, ctx, par, spec.get("labels"))
 
 
-TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section}
+# ---------------------------------------------------------------- REAL (ripresa reale in apertura)
+import os as _os
+import subprocess as _sp
+import cairo as _cairo
+
+_CLIP_CACHE = {}
+
+
+def _clip_frames(path):
+    """Estrae una volta i fotogrammi del clip (PNG, 30 fps) e li tiene in cache su disco."""
+    if path in _CLIP_CACHE:
+        return _CLIP_CACHE[path]
+    d = path + ".frames"
+    if not _os.path.isdir(d) or not _os.listdir(d):
+        _os.makedirs(d, exist_ok=True)
+        _sp.run(["ffmpeg", "-y", "-v", "error", "-i", path, "-vf",
+                 f"fps={E.FPS},scale=720:1280:force_original_aspect_ratio=increase,crop=720:1280",
+                 _os.path.join(d, "f%04d.png")], check=True)
+    files = sorted(_os.path.join(d, f) for f in _os.listdir(d) if f.endswith(".png"))
+    _CLIP_CACHE[path] = files
+    return files
+
+
+def scene_end(ctx, par):
+    nxt = ctx.par_start.get(par + 1)
+    return nxt - 0.15 if nxt is not None else ctx.dur + 0.8
+
+
+def real(cr, t, ctx, par, spec):
+    """Ripresa reale (clip) a tutto schermo con titolo e timbro; nell'ultimo tratto l'inquadratura
+    si stringe in un cerchio che coincide con la lente della scena dopo: il tuffo 'un millimetro sotto'."""
+    s0, s1 = scene_start(ctx, par), scene_end(ctx, par)
+    here = _os.path.dirname(_os.path.abspath(__file__))
+    files = _clip_frames(_os.path.join(here, spec["clip"]))
+    n = len(files)
+    speed = min(1.0, (n - 1) / max(1.0, (s1 - s0) * E.FPS))
+    idx = int(E.clamp((t - s0) * E.FPS * speed, 0, n - 1))
+    img = _cairo.ImageSurface.create_from_png(files[idx])
+    dive = spec.get("dive", True)
+    k = E.ease(E.prog(t, s1 - 0.7, s1)) if dive else 0.0
+    cx, cy, r_end = LENS
+    # coordinate della scena: il frame è traslato di +60 in y, il video copre tutto lo schermo
+    r = E.lerp(1250, r_end, k)
+    zoom = 1.0 + 0.6 * k
+    E.background(cr)
+    cr.save()
+    cr.arc(cx, cy, r, 0, 2 * math.pi)
+    cr.clip()
+    cr.translate(cx, cy)
+    cr.scale(zoom, zoom)
+    cr.translate(-cx, -cy)
+    cr.translate(0, -60)
+    cr.scale(E.W / 720, E.H / 1280)
+    cr.set_source_surface(img, 0, 0)
+    cr.get_source().set_filter(_cairo.FILTER_GOOD)
+    cr.paint()
+    cr.restore()
+    if k > 0:
+        E.lens_frame(cr, cx, cy, r) if r < 900 else None
+    # velo scuro in alto per leggere il titolo
+    g = _cairo.LinearGradient(0, -60, 0, 560)
+    g.add_color_stop_rgba(0, 0, 0, 0, 0.62 * (1 - k))
+    g.add_color_stop_rgba(1, 0, 0, 0, 0)
+    cr.rectangle(0, -60, E.W, 620)
+    cr.set_source(g)
+    cr.fill()
+    E.title(cr, spec["title"], t, s0 - 1.0, y=250, size=spec.get("title_size", 92))
+    st = spec.get("stamp")
+    if st:
+        col = P.GREEN_OK if st.get("color") == "green" else None
+        E.stamp(cr, st.get("text", "FALSO MITO"), 540, 610, t, ctx.at(par, st.get("at")), size=104, color=col)
+
+
+# ---------------------------------------------------------------- EGG
+def egg_scene(cr, t, ctx, par, spec):
+    """mode "section": uovo in sezione, camera d'aria che cresce (grow_at), acqua che esce e aria che entra (pores_at).
+    mode "glasses": tre bicchieri d'acqua con uovo fresco (sdraiato), di qualche settimana (in piedi), vecchio (galleggia)."""
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s)
+    if spec.get("mode", "section") == "section":
+        cx, cy = 540, 900
+        tg = ctx.at(par, spec["grow_at"]) if spec.get("grow_at") else None
+        tp = ctx.at(par, spec["pores_at"]) if spec.get("pores_at") else None
+        a0, a1 = spec.get("air_from", 0.07), spec.get("air_to", 0.30)
+        air = E.lerp(a0, a1, E.ease(E.prog(t, tg, tg + 2.6))) if tg is not None else a0
+        pin = E.ease_out_back(E.prog(t, s, s + 0.45))
+        cr.save()
+        cr.translate(cx, cy)
+        cr.scale(pin, pin)
+        cr.translate(-cx, -cy)
+        P.egg_section(cr, cx, cy, air=air)
+        cr.restore()
+        if tp is not None and t > tp:
+            for j in range(10):
+                th = 2 * math.pi * (j + 0.5) / 10 + 0.15
+                x, y, nx, ny = P.egg_point(th)
+                ph = ((t - tp) * 0.45 + j / 10) % 1.0
+                d = E.lerp(-40, 150, ph)
+                al = min(1.0, (t - tp) * 2) * (1 - ph * 0.6)
+                P.water_molecule(cr, cx + x + nx * d, cy + y + ny * d, 0.8, th, alpha=al)
+            for j in range(5):
+                th = -0.9 + j * 0.45
+                x, y, nx, ny = P.egg_point(th)
+                ph = ((t - tp) * 0.4 + j / 5) % 1.0
+                d = E.lerp(170, -30, ph)
+                al = min(1.0, (t - tp) * 2) * (1 - abs(ph - 0.5))
+                E.circle(cr, cx + x + nx * d, cy + y + ny * d, 20, P.AIR, lw=4, alpha=al)
+        labels(cr, t, ctx, par, spec.get("labels"))
+        return
+    base_y, sc, fill = 1230, 0.95, 0.8
+    lvl = base_y - 480 * sc * fill
+    for j, it in enumerate(spec.get("items", [])):
+        gx = 220 + j * 320
+        es = 1.45
+        ta = ctx.at(par, it.get("at", 0.2 + j))
+        k = E.ease(E.prog(t, ta, ta + 0.5))
+        P.glass_of(cr, gx, base_y, fill=fill, t=t, scale=sc)
+        if k <= 0:
+            continue
+        st = it["state"]
+        if st == "fresh":
+            ex, ey, ang = gx, base_y - 8 - 50 * es, math.pi / 2
+        elif st == "medium":
+            ex, ey, ang = gx, base_y - 8 - 64 * es, 0.3
+        else:
+            ex, ey, ang = gx, lvl + 30 * es + 4 * math.sin(t * 2.4), 0.12 * math.sin(t * 1.7)
+        drop = (1 - k) * (ey - (lvl - 200))
+        P.egg_whole(cr, ex, ey - drop, angle=ang, scale=es)
+        cr.save()
+        cr.move_to(gx - 115 * sc, base_y)
+        cr.line_to(gx + 115 * sc, base_y)
+        cr.line_to(gx + (150 - 35 * (1 - fill)) * sc, lvl)
+        cr.line_to(gx - (150 - 35 * (1 - fill)) * sc, lvl)
+        cr.close_path()
+        cr.set_source_rgba(0.62, 0.82, 0.97, 0.28)
+        cr.fill()
+        cr.restore()
+        E.label(cr, it["text"], gx, base_y + 75, t, ta + 0.2, size=it.get("size", 42), bg=(0.18, 0.47, 0.75) if st != "old" else E.RED)
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene}

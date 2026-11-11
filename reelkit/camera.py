@@ -28,7 +28,10 @@ def events(spec, ctx, par):
     if spec.get("big"):
         add(spec["big"].get("at"), 540, 900)
     for i, it in enumerate(spec.get("items", []) or []):
-        add(it.get("at", 0.2 + i), 540, 520 + i * 200)
+        if spec.get("type") == "egg":
+            add(it.get("at", 0.2 + i), 220 + i * 320, 1150)
+        else:
+            add(it.get("at", 0.2 + i), 540, 520 + i * 200)
     return ev
 
 

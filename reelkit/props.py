@@ -92,10 +92,11 @@ def pot_rim(cr, cx, top, w):
     cr.stroke()
 
 
-def kitchen_pot(cr, t, cx=540, top=840, w=560, h=380, water_level=0.72, liquid=None):
-    """Fornello + fiamme + pentola: la composizione standard."""
+def kitchen_pot(cr, t, cx=540, top=840, w=560, h=380, water_level=0.72, liquid=None, fire=1.0):
+    """Fornello + fiamme + pentola: la composizione standard. fire in [0,1] = intensita' della fiamma (0 = spenta)."""
     stove(cr, cx, top + h + 35, w + 60)
-    flames(cr, cx, top + h + 35, w * 0.68, t)
+    if fire > 0.02:
+        flames(cr, cx, top + h + 35, w * 0.68, t, intensity=fire)
     inner = pot(cr, cx, top, w, h, water_level, t, liquid=liquid)
     return inner
 
@@ -119,7 +120,10 @@ def shaker(cr, x, y, angle, label="SALE"):
     cr.stroke()
     for hx in (-25, 0, 25):
         E.circle(cr, hx, -120, 6, E.INK, lw=0)
-    E.outlined_text(cr, label, 0, 12, 36, fill=E.INK, lw=0)
+    lsz = 36
+    while lsz > 18 and E.text_extents(cr, label, lsz).x_advance > 100:
+        lsz -= 2
+    E.outlined_text(cr, label, 0, 12, lsz, fill=E.INK, lw=0)
     cr.restore()
 
 
@@ -791,3 +795,149 @@ def teaspoon(cr, x, y, scale=1.0):
     cr.set_source_rgba(1, 1, 1, 0.7)
     cr.fill()
     cr.restore()
+
+
+SUGAR = (1.0, 0.98, 0.92)
+H_ION = (0.60, 0.34, 0.95)
+EGG_SHELL = (0.96, 0.89, 0.76)
+EGG_WHITE = (0.98, 0.97, 0.90)
+EGG_YOLK = (1.0, 0.76, 0.18)
+AIR = (0.80, 0.90, 0.98)
+
+
+def sugar_ring(cr, x, y, r=26, angle=0.0, alpha=1.0):
+    """Zucchero stilizzato: anello esagonale ambra (glucosio/fruttosio)."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    for i in range(6):
+        a = math.pi / 6 + i * math.pi / 3
+        (cr.move_to if i == 0 else cr.line_to)(r * math.cos(a), r * math.sin(a))
+    cr.close_path()
+    cr.set_source_rgba(*SUGAR, alpha)
+    cr.fill_preserve()
+    cr.set_source_rgba(*E.INK, alpha)
+    cr.set_line_width(5)
+    cr.stroke()
+    cr.arc(0, 0, r * 0.32, 0, 2 * math.pi)
+    cr.set_source_rgba(1, 1, 1, 0.55 * alpha)
+    cr.fill()
+    cr.restore()
+
+
+def microbe(cr, x, y, scale=1.0, shrink=0.0, t=0.0, angle=0.25):
+    """Batterio a bastoncello. shrink in [0,1]: perde acqua, si rimpicciolisce e si raggrinzisce."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    k = scale * (1 - 0.38 * shrink)
+    L, R = 120 * k, 44 * k * (1 - 0.15 * shrink)
+    n = 48
+    for i in range(n + 1):
+        a = 2 * math.pi * i / n
+        wob = 1 + 0.10 * shrink * math.sin(7 * a + 1.3)
+        px = (L / 2 * (1 if math.cos(a) > 0 else -1) + R * math.cos(a)) if abs(math.cos(a)) > 0 else R * math.cos(a)
+        px = (L / 2) * math.copysign(1, math.cos(a)) + R * math.cos(a) * wob
+        py = R * math.sin(a) * wob
+        (cr.move_to if i == 0 else cr.line_to)(px, py)
+    cr.close_path()
+    g = (E.lerp(0.45, 0.62, shrink), E.lerp(0.80, 0.66, shrink), E.lerp(0.36, 0.40, shrink))
+    cr.set_source_rgb(*g)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    # flagello
+    cr.move_to(-(L / 2 + R), 0)
+    for i in range(1, 9):
+        cr.line_to(-(L / 2 + R) - i * 10 * k, 10 * k * math.sin(i * 1.2 + t * 6))
+    cr.set_line_width(4)
+    cr.stroke()
+    cr.restore()
+
+
+def h_ion(cr, x, y, alpha=1.0, scale=1.0):
+    """Ione idrogeno (acidita'): pallina rossa con H+."""
+    E.circle(cr, x, y, 32 * scale, H_ION, lw=5, alpha=alpha)
+    E.outlined_text(cr, "H+", x, y + 13 * scale, 34 * scale, fill=E.WHITE, lw=0, alpha=alpha)
+
+
+def _egg_path(cr, rx, ry):
+    n = 64
+    for i in range(n + 1):
+        th = 2 * math.pi * i / n
+        x = rx * math.sin(th) * (1 + 0.12 * math.cos(th))
+        y = -ry * math.cos(th)
+        (cr.move_to if i == 0 else cr.line_to)(x, y)
+    cr.close_path()
+
+
+def egg_whole(cr, x, y, scale=1.0, angle=0.0, rx=50, ry=66):
+    """Uovo intero, parte larga in alto a riposo (angle in radianti)."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    cr.scale(scale, scale)
+    _egg_path(cr, rx, ry)
+    cr.set_source_rgb(*EGG_SHELL)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5 / scale)
+    cr.stroke()
+    cr.save()
+    cr.translate(-rx * 0.35, -ry * 0.35)
+    cr.scale(1, 1.7)
+    cr.arc(0, 0, rx * 0.16, 0, 2 * math.pi)
+    cr.restore()
+    cr.set_source_rgba(1, 1, 1, 0.6)
+    cr.fill()
+    cr.restore()
+
+
+def egg_section(cr, cx, cy, air=0.08, rx=230, ry=300):
+    """Uovo in sezione, parte larga in alto: guscio, albume, tuorlo, camera d'aria (air = frazione dell'altezza)."""
+    cr.save()
+    cr.translate(cx, cy)
+    _egg_path(cr, rx, ry)
+    cr.set_source_rgb(*EGG_WHITE)
+    cr.fill()
+    cr.save()
+    _egg_path(cr, rx - 4, ry - 4)
+    cr.clip()
+    yl = -ry + air * 2 * ry
+    cr.move_to(-rx - 20, -ry - 20)
+    cr.line_to(rx + 20, -ry - 20)
+    cr.line_to(rx + 20, yl - 18)
+    cr.curve_to(rx * 0.4, yl + 22, -rx * 0.4, yl + 22, -rx - 20, yl - 18)
+    cr.close_path()
+    cr.set_source_rgb(*AIR)
+    cr.fill_preserve()
+    cr.set_source_rgba(*E.INK, 0.6)
+    cr.set_line_width(4)
+    cr.stroke()
+    cr.restore()
+    E.circle(cr, 0, ry * 0.18, rx * 0.46, EGG_YOLK, lw=5)
+    _egg_path(cr, rx, ry)
+    cr.set_source_rgb(*EGG_SHELL)
+    cr.set_line_width(22)
+    cr.stroke_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    # pori
+    for i in range(22):
+        th = 2 * math.pi * (i + 0.5) / 22
+        x = rx * math.sin(th) * (1 + 0.12 * math.cos(th))
+        y = -ry * math.cos(th)
+        cr.arc(x, y, 3.5, 0, 2 * math.pi)
+        cr.set_source_rgb(*E.INK)
+        cr.fill()
+    cr.restore()
+
+
+def egg_point(th, rx=230, ry=300):
+    """Punto del guscio all'angolo th (0 = cima) e normale uscente."""
+    x = rx * math.sin(th) * (1 + 0.12 * math.cos(th))
+    y = -ry * math.cos(th)
+    d = math.hypot(x, y) or 1
+    return x, y, x / d, y / d

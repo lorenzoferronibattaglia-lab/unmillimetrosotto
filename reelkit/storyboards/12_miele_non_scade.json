@@ -1,0 +1,167 @@
+{
+ "id": "12_miele_non_scade",
+ "topic": "Il miele non scade mai?",
+ "paragraphs": [
+  {
+   "text": "Il miele non scade mai? Vero, se resta ben chiuso. Il motivo è un millimetro sotto.",
+   "scene": {
+    "type": "real",
+    "clip": "clips/12_miele.mp4",
+    "title": [
+     "IL MIELE",
+     "NON SCADE MAI?"
+    ],
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Il miele è quasi tutto zucchero: l'acqua è meno di un quinto, e gli zuccheri la tengono stretta.",
+   "scene": {
+    "type": "lens",
+    "no_open": true,
+    "title": [
+     "QUASI TUTTO",
+     "ZUCCHERO"
+    ],
+    "surface": false,
+    "heat": 0.2,
+    "layers": [
+     {
+      "kind": "sugar",
+      "at": "zucchero",
+      "bind_at": "stretta",
+      "n": 11
+     }
+    ],
+    "labels": [
+     {
+      "text": "ACQUA < 20%",
+      "at": "acqua",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 52,
+      "color": "#2E78BF"
+     }
+    ],
+    "bg": "#E9A23B"
+   }
+  },
+  {
+   "text": "Se un batterio ci finisce dentro, lo zucchero gli strappa l'acqua: si secca e non riesce a crescere.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "IL BATTERIO",
+     "SI SECCA"
+    ],
+    "surface": false,
+    "heat": 0.2,
+    "layers": [
+     {
+      "kind": "sugar",
+      "at": 0.0,
+      "n": 9
+     },
+     {
+      "kind": "microbe",
+      "at": "batterio",
+      "dry_at": "strappa"
+     }
+    ],
+    "labels": [
+     {
+      "text": "NON CRESCE",
+      "at": "crescere",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 56
+     }
+    ],
+    "bg": "#E9A23B"
+   }
+  },
+  {
+   "text": "In più il miele è acido: il suo pH sta intorno a quattro.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "E IN PIÙ",
+     "È ACIDO"
+    ],
+    "card": {
+     "main": "pH del miele",
+     "sub": "in media",
+     "at": 0.1
+    },
+    "big": {
+     "text": "~4",
+     "at": "quattro"
+    }
+   }
+  },
+  {
+   "text": "L'unico nemico è l'umidità: tienilo chiuso. E se si cristallizza, non è andato a male.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "COME",
+     "CONSERVARLO"
+    ],
+    "items": [
+     {
+      "text": "BARATTOLO CHIUSO",
+      "ok": true,
+      "at": "chiuso"
+     },
+     {
+      "text": "CRISTALLIZZATO = BUONO",
+      "ok": true,
+      "at": "cristallizza"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Vero: il miele, se resta ben chiuso, praticamente non scade 🍯 È quasi tutto zucchero e pochissima acqua: un batterio che ci finisce dentro perde acqua e non cresce. E in più è acido.\n\nSe cristallizza non è andato a male: basta un bagnomaria tiepido.\n\n#veroofalso #miele #scienzaincucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Honey composition (water ~17%, pH ~3.9)",
+   "url": "https://en.wikipedia.org/wiki/Honey"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "acqua < 20% (tipicamente ~17%)",
+   "esito": "confermato",
+   "fonte": "composizione standard del miele"
+  },
+  {
+   "affermazione": "pH intorno a 4 (3,4-6,1, media ~3,9)",
+   "esito": "confermato",
+   "fonte": "letteratura sul miele"
+  },
+  {
+   "affermazione": "non scade se chiuso; fermenta se assorbe acqua",
+   "esito": "confermato con la riserva sull'umidità detta nel video",
+   "fonte": "conoscenza alimentare"
+  }
+ ],
+ "hook_test": "reale",
+ "theme": "cucina_notte"
+}

@@ -1,0 +1,158 @@
+{
+ "id": "13_uova_galleggiano",
+ "topic": "Le uova vecchie galleggiano?",
+ "paragraphs": [
+  {
+   "text": "Le uova vecchie galleggiano? Vero. E c'entra una bolla d'aria nascosta dentro.",
+   "scene": {
+    "type": "real",
+    "clip": "clips/13_uova.mp4",
+    "title": [
+     "LE UOVA VECCHIE",
+     "GALLEGGIANO?"
+    ],
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Il guscio è pieno di pori minuscoli: col tempo l'acqua dell'uovo evapora e da fuori entra aria.",
+   "scene": {
+    "type": "egg",
+    "mode": "section",
+    "title": [
+     "UN GUSCIO",
+     "PIENO DI PORI"
+    ],
+    "pores_at": "pori",
+    "labels": [
+     {
+      "text": "ESCE ACQUA",
+      "at": "evapora",
+      "pos": [
+       300,
+       1330
+      ],
+      "size": 46,
+      "color": "#2E78BF"
+     },
+     {
+      "text": "ENTRA ARIA",
+      "at": "aria",
+      "pos": [
+       780,
+       1330
+      ],
+      "size": 46,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Così la camera d'aria si allarga, e l'uovo diventa sempre più leggero.",
+   "scene": {
+    "type": "egg",
+    "mode": "section",
+    "title": [
+     "LA BOLLA",
+     "CRESCE"
+    ],
+    "grow_at": "allarga",
+    "labels": [
+     {
+      "text": "CAMERA D'ARIA",
+      "at": "camera",
+      "pos": [
+       540,
+       1330
+      ],
+      "size": 52
+     }
+    ]
+   }
+  },
+  {
+   "text": "Fresco resta sdraiato sul fondo, dopo qualche settimana si alza in piedi, e quando è vecchio galleggia.",
+   "scene": {
+    "type": "egg",
+    "mode": "glasses",
+    "title": [
+     "IL TEST",
+     "DEL BICCHIERE"
+    ],
+    "items": [
+     {
+      "state": "fresh",
+      "text": "FRESCO",
+      "at": "Fresco"
+     },
+     {
+      "state": "medium",
+      "text": "SETTIMANE",
+      "at": "piedi"
+     },
+     {
+      "state": "old",
+      "text": "VECCHIO",
+      "at": "galleggia"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Ma vecchio non vuol dire per forza marcio: nel dubbio rompilo in una ciotola e annusalo.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "NEL",
+     "DUBBIO"
+    ],
+    "items": [
+     {
+      "text": "ROMPILO IN UNA CIOTOLA",
+      "ok": true,
+      "at": "rompilo"
+     },
+     {
+      "text": "ANNUSALO",
+      "ok": true,
+      "at": "annusalo"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Vero: le uova vecchie galleggiano 🥚 Dal guscio poroso l'acqua evapora ed entra aria: la camera d'aria cresce e l'uovo si alleggerisce.\n\nFresco resta sdraiato sul fondo, dopo qualche settimana sta in piedi, vecchio galleggia. Ma vecchio non vuol dire marcio: nel dubbio rompilo in una ciotola e annusalo.\n\n#veroofalso #uova #scienzaincucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Egg float test / air cell",
+   "url": "https://en.wikipedia.org/wiki/Egg_as_food"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "il guscio ha migliaia di pori, l'acqua evapora ed entra aria",
+   "esito": "confermato",
+   "fonte": "biologia dell'uovo"
+  },
+  {
+   "affermazione": "fresco sul fondo, poi in piedi, vecchio galleggia",
+   "esito": "confermato (indicatore di età, non di sicurezza)",
+   "fonte": "test di galleggiamento"
+  }
+ ],
+ "hook_test": "reale",
+ "theme": "cucina_notte"
+}

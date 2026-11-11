@@ -43,7 +43,7 @@ def tts_with_timestamps(text, out_dir):
                            "voice_settings": VOICE_CFG["voice_settings"]}).encode()
         req = urllib.request.Request(
             f"https://api.elevenlabs.io/v1/text-to-speech/{VOICE_CFG['voice_id']}/with-timestamps"
-            "?output_format=mp3_44100_192",
+            "?output_format=mp3_44100_128",
             data=body, headers={"xi-api-key": key, "Content-Type": "application/json"})
         with urllib.request.urlopen(req, timeout=180) as r:
             d = json.loads(r.read())
@@ -121,7 +121,7 @@ def build(sb_path, preview=False):
         cr.save()
         cr.translate(0, 60)
         spec = sb["paragraphs"][i]["scene"]
-        if sb.get("camera", True):
+        if sb.get("camera", True) and spec["type"] != "real":
             import camera
             camera.apply(cr, t, bounds[i][0], bounds[i][1], i, spec, ctx, i)
         S.TYPES[spec["type"]](cr, t, ctx, i, spec)
