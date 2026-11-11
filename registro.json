@@ -82,6 +82,76 @@
     "instagram",
     "tiktok"
    ]
+  },
+  {
+   "id": "07_pasta_sciacquata",
+   "tema": "La pasta va sciacquata dopo la cottura?",
+   "stato": "in_preparazione",
+   "video": "media/07_pasta_sciacquata/07_pasta_sciacquata.mp4",
+   "gancio": "v2 payoff",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-12T19:30:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
+  },
+  {
+   "id": "08_microonde_vitamine",
+   "tema": "Il microonde distrugge le vitamine?",
+   "stato": "in_preparazione",
+   "video": "media/08_microonde_vitamine/08_microonde_vitamine.mp4",
+   "gancio": "v2 payoff",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-12T21:00:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
+  },
+  {
+   "id": "09_ghiaccio_galleggia",
+   "tema": "Perché il ghiaccio galleggia?",
+   "stato": "in_preparazione",
+   "video": "media/09_ghiaccio_galleggia/09_ghiaccio_galleggia.mp4",
+   "gancio": "v2 payoff",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-12T15:30:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
+  },
+  {
+   "id": "10_cucchiaino_spumante",
+   "tema": "Il cucchiaino nel collo tiene le bollicine?",
+   "stato": "in_preparazione",
+   "video": "media/10_cucchiaino_spumante/10_cucchiaino_spumante.mp4",
+   "gancio": "v2 payoff",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-12T18:00:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
+  },
+  {
+   "id": "11_olio_evo_frittura",
+   "tema": "L'extravergine non va usato per friggere?",
+   "stato": "in_preparazione",
+   "video": "media/11_olio_evo_frittura/11_olio_evo_frittura.mp4",
+   "gancio": "v2 payoff",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-12T13:00:00+01:00",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
   }
  ],
  "lezioni": [

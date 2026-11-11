@@ -1,0 +1,30 @@
+{
+ "id": "09_ghiaccio_galleggia",
+ "titolo": "Perché il ghiaccio galleggia?",
+ "durata_s": 29.1,
+ "caratteri_voce": 481,
+ "didascalia": "Il ghiaccio galleggia perché, gelando, le molecole d'acqua si agganciano in un reticolo pieno di spazi vuoti: occupa circa il 9% di spazio in più ed è più leggero dell'acqua 🧊\n\nPer questo una bottiglia piena in freezer può spaccarsi.\n\n#scienza #curiosità #acqua #fisica #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Densità del ghiaccio ~0,917 g/cm³ (dato fisico standard)",
+   "url": "https://it.wikipedia.org/wiki/Ghiaccio"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "Ghiaccio ~9% di volume in più (densità 0,917)",
+   "esito": "confermato (dato standard)",
+   "fonte": "conoscenza fisica"
+  },
+  {
+   "affermazione": "Quasi tutte le sostanze solide sono più dense del loro liquido",
+   "esito": "confermato con poche eccezioni (es. silicio, gallio)",
+   "fonte": "conoscenza fisica"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 0,
+  "istante_s": 0
+ }
+}

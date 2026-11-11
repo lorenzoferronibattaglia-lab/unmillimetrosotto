@@ -1,0 +1,34 @@
+{
+ "id": "07_pasta_sciacquata",
+ "titolo": "La pasta va sciacquata dopo la cottura?",
+ "durata_s": 26.9,
+ "caratteri_voce": 450,
+ "didascalia": "Falso: la pasta non va sciacquata. Il velo di amido che si forma in cottura fa da colla col sugo: se lo togli, il sugo scivola via 🍝\n\nTieni un mestolo d'acqua di cottura. Unica eccezione: l'insalata di pasta.\n\n#veroofalso #pasta #scienzaincucina #cucinaitaliana #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Centro Tutela Consumatori Utenti Bolzano – La pasta va raffreddata sotto l'acqua fredda?",
+   "url": "https://consumer.bz.it/it/print/pdf/node/33151"
+  },
+  {
+   "titolo": "Chowhound – Barilla: il velo di amido aiuta il sugo ad aderire",
+   "url": "https://chowhound.com/1568674/mistake-add-oil-pasta-water"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "L'amido superficiale aiuta il sugo ad aderire; sciacquare lo toglie",
+   "esito": "confermato",
+   "fonte": "CTCU; Chowhound"
+  },
+  {
+   "affermazione": "Eccezione insalata di pasta",
+   "esito": "confermato",
+   "fonte": "CTCU"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 4.8
+ }
+}

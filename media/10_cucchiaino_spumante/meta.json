@@ -1,0 +1,33 @@
+{
+ "id": "10_cucchiaino_spumante",
+ "titolo": "Il cucchiaino nel collo tiene le bollicine?",
+ "durata_s": 27.8,
+ "caratteri_voce": 443,
+ "didascalia": "Falso: il cucchiaino nel collo non salva le bollicine. La bottiglia resta aperta e la CO2 esce lo stesso. Nel 1994 il comitato dello Champagne l'ha testato: nessuna differenza. Serve un tappo ermetico 🥂\n\n#veroofalso #spumante #vino #scienza #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Gambero Rosso – il cucchiaino non conserva lo spumante",
+   "url": "https://www.gamberorosso.it/vino/cucchiaino-conserva-spumante/"
+  },
+  {
+   "titolo": "Geopop – il metodo del cucchiaino (studio CIVC 1994)",
+   "url": "https://www.geopop.it/il-metodo-del-cucchiaino-nella-bottiglia-di-spumante-funziona-davvero-ecco-cosa-dice-la-scienza/"
+  },
+  {
+   "titolo": "Altroconsumo – falsi miti sul vino",
+   "url": "https://www.altroconsumo.it/alimentazione/vino/consigli/vino-falsi-miti"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "Studio CIVC 1994: cucchiaino irrilevante, tappo ermetico efficace",
+   "esito": "confermato",
+   "fonte": "Geopop; Gambero Rosso"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 5.0
+ }
+}
