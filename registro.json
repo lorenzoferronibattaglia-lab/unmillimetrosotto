@@ -242,22 +242,23 @@
   {
    "id": "17_mela_limone",
    "tema": "La mela tagliata diventa marrone: il limone la salva?",
-   "stato": "in_preparazione",
+   "stato": "pubblicato",
    "video": "media/17_mela_limone/17_mela_limone.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
-   "uscita": "subito",
+   "uscita": "2026-11-11T18:3x+01:00",
    "piattaforme": [
     "instagram",
     "tiktok"
    ],
    "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "nota": "extra di oggi"
+   "nota": "extra di oggi",
+   "vidiq_post_id": "782831a4-3861-4e2e-abaf-bd2bb656a91b"
   },
   {
    "id": "18_banana_etilene",
    "tema": "La banana fa maturare la frutta vicina?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/18_banana_etilene/18_banana_etilene.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
@@ -267,7 +268,8 @@
     "tiktok"
    ],
    "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "nota": "extra di oggi"
+   "nota": "extra di oggi",
+   "vidiq_post_id": "fec08e50-a713-468c-8c9c-516558f2f4b4"
   }
  ],
  "lezioni": [
