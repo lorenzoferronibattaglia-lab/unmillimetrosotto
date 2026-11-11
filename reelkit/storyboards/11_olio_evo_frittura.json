@@ -1,0 +1,137 @@
+{
+ "topic": "L'extravergine non va usato per friggere?",
+ "paragraphs": [
+  {
+   "text": "Con l'extravergine non si frigge? Falso. Basta non esagerare con il fuoco.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "CON L'EXTRAVERGINE",
+     "NON SI FRIGGE?"
+    ],
+    "prop": {
+     "appliance": "oil_pot",
+     "thermo": {
+      "from": 120,
+      "to": 175,
+      "start": 0.0,
+      "end": "fuoco",
+      "hot": 0.9
+     }
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Ogni olio ha un punto di fumo: la temperatura oltre cui si rovina. Per l'extravergine è intorno ai duecento gradi.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "PUNTO DI FUMO",
+     "DELL'EXTRAVERGINE"
+    ],
+    "card": {
+     "main": "extravergine",
+     "sub": "punto di fumo",
+     "at": 0.1
+    },
+    "big": {
+     "text": "~200 °C",
+     "at": "duecento"
+    }
+   }
+  },
+  {
+   "text": "Ma per friggere bene servono tra centosessanta e centottanta gradi. C'è margine.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "PER FRIGGERE",
+     "SERVONO..."
+    ],
+    "card": {
+     "main": "frittura",
+     "sub": "temperatura giusta",
+     "at": 0.1
+    },
+    "big": {
+     "text": "160-180 °C",
+     "at": "centosessanta"
+    }
+   }
+  },
+  {
+   "text": "Il trucco: usa un termometro, non superare i centottanta, e non riusare l'olio.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "TERMOMETRO",
+      "ok": true,
+      "at": "termometro"
+     },
+     {
+      "text": "MAI OLTRE 180 °C",
+      "ok": true,
+      "at": "superare"
+     },
+     {
+      "text": "OLIO RIUSATO",
+      "ok": false,
+      "at": "riusare"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Falso: con l'extravergine si può friggere. Il suo punto di fumo è intorno ai 200 °C, e per friggere bene servono 160-180 °C 🫒\n\nTermometro, mai oltre 180, e niente olio riusato.\n\n#veroofalso #olio #frittura #scienzaincucina #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "My Personal Trainer – punto di fumo degli oli e temperatura di frittura 160-180",
+   "url": "https://www.my-personaltrainer.it/alimentazione/olio-per-friggere-quanto-usarne-tipi-di-olio-e-consigli.html"
+  },
+  {
+   "titolo": "Il Fatto Alimentare – USDA include l'olio d'oliva tra quelli adatti alla frittura",
+   "url": "https://ilfattoalimentare.it/stati-uniti-olio-di-oliva-fritture-teatro-naturale.html"
+  },
+  {
+   "titolo": "Greenme – punto di fumo EVO 175-210 °C",
+   "url": "https://www.greenme.it/lifestyle/sai-cosa-compri/il-tuo-olio-e-davvero-extravergine-doliva-prova-a-scoprirlo-con-il-test-del-punto-di-fumo-che-nessuno-ti-ha-mai-detto/"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "Punto di fumo EVO ~190-210 °C",
+   "esito": "confermato con variabilità tra fonti (una fonte dissente: <180)",
+   "fonte": "MyPersonalTrainer; Greenme"
+  },
+  {
+   "affermazione": "Frittura a 160-180 °C",
+   "esito": "confermato",
+   "fonte": "MyPersonalTrainer"
+  },
+  {
+   "affermazione": "Non riusare l'olio",
+   "esito": "confermato",
+   "fonte": "MyPersonalTrainer"
+  }
+ ],
+ "id": "11_olio_evo_frittura",
+ "theme": "cucina_notte"
+}

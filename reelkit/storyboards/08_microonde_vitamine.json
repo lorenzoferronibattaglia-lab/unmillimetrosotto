@@ -1,0 +1,151 @@
+{
+ "topic": "Il microonde distrugge le vitamine?",
+ "paragraphs": [
+  {
+   "text": "Il microonde distrugge le vitamine? Falso. Anzi, spesso ne salva più della pentola.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "IL MICROONDE DISTRUGGE",
+     "LE VITAMINE?"
+    ],
+    "prop": {
+     "appliance": "microwave2"
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Molte vitamine, come la C, si sciolgono in acqua. Se lessi le verdure, una parte finisce nell'acqua che butti.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "LE VITAMINE",
+     "FINISCONO NELL'ACQUA"
+    ],
+    "surface": false,
+    "heat": 0.5,
+    "layers": [
+     {
+      "kind": "pasta",
+      "at": 0.0,
+      "veg": true
+     },
+     {
+      "kind": "vitamins",
+      "leach_at": "lessi",
+      "amount": 0.5
+     }
+    ],
+    "labels": [
+     {
+      "text": "VITAMINA C",
+      "at": "C,",
+      "pos": [
+       540,
+       1290
+      ],
+      "color": "#E08A10"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Con la bollitura la vitamina C può calare fino alla metà.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "BOLLITURA:",
+     "VITAMINA C"
+    ],
+    "card": {
+     "main": "bollitura",
+     "sub": "vitamina C persa",
+     "at": 0.1
+    },
+    "big": {
+     "text": "−50%",
+     "at": "metà"
+    }
+   }
+  },
+  {
+   "text": "Al microonde, con poca acqua e pochi minuti, la perdita si ferma intorno a un quarto.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "MICROONDE:",
+     "VITAMINA C"
+    ],
+    "card": {
+     "main": "microonde",
+     "sub": "vitamina C persa",
+     "at": 0.1
+    },
+    "big": {
+     "text": "−28%",
+     "at": "quarto"
+    }
+   }
+  },
+  {
+   "text": "Il trucco: poca acqua, coperchio e cottura breve. Le vitamine restano nel piatto.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "POCA ACQUA",
+      "ok": true,
+      "at": "poca"
+     },
+     {
+      "text": "COTTURA BREVE",
+      "ok": true,
+      "at": "breve"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Falso: il microonde non distrugge le vitamine. Molte (come la C) si sciolgono in acqua: lessando ne perdi fino a metà, al microonde con poca acqua la perdita si ferma intorno a un quarto 🥦\n\n#veroofalso #microonde #nutrizione #scienzaincucina #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "CSS – Preparazione delicata delle verdure (vapore fino a 15%, microonde fino a 28%, bollitura fino a 50%)",
+   "url": "https://www.css.ch/it/clienti-privati/mia-salute/alimentazione/nozioni-sull-alimentazione/preparazione-delicata.html"
+  },
+  {
+   "titolo": "Businessonline – sintesi studi (Food Science and Biotechnology 2018)",
+   "url": "https://www.businessonline.it/news/verdure-in-busta-da-riscaldare-al-microonde-in-forte-crescita-ma-meno-nutrienti-ultraprocessate-e-conservanti-secondo-la-scienza_n86055.html"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "Bollitura fino a −50% vitamina C, microonde fino a −28%",
+   "esito": "confermato (valori 'fino a')",
+   "fonte": "CSS"
+  },
+  {
+   "affermazione": "Microonde spesso ritenzione migliore",
+   "esito": "confermato con eccezioni (vit. K in alcune verdure)",
+   "fonte": "Food Sci Biotech 2018 via Businessonline"
+  }
+ ],
+ "id": "08_microonde_vitamine",
+ "theme": "cucina_notte"
+}

@@ -1,0 +1,158 @@
+{
+ "topic": "La pasta va sciacquata dopo la cottura?",
+ "paragraphs": [
+  {
+   "text": "Sciacqui la pasta per non farla attaccare? Fermati. È un errore, e ti spiego perché.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "LA PASTA VA",
+     "SCIACQUATA?"
+    ],
+    "prop": {
+     "appliance": "pasta_pot"
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "errore"
+    }
+   }
+  },
+  {
+   "text": "Mentre cuoce, la pasta si ricopre di un velo di amido. È appiccicoso, ed è proprio quello che serve.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "IL VELO",
+     "DI AMIDO"
+    ],
+    "surface": false,
+    "heat": 0.4,
+    "layers": [
+     {
+      "kind": "pasta",
+      "at": 0.1
+     },
+     {
+      "kind": "starch",
+      "at": "velo",
+      "glue_at": "appiccicoso"
+     }
+    ],
+    "labels": [
+     {
+      "text": "AMIDO",
+      "at": "velo",
+      "pos": [
+       540,
+       1290
+      ],
+      "color": "#B8A46A"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quell'amido fa da colla tra la pasta e il sugo. Se lo sciacqui via, il sugo scivola e resta nel piatto.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "È LA COLLA",
+     "DEL SUGO"
+    ],
+    "surface": false,
+    "heat": 0.3,
+    "layers": [
+     {
+      "kind": "pasta",
+      "at": 0.0
+     },
+     {
+      "kind": "starch",
+      "at": 0.0,
+      "glue_at": 0.2
+     }
+    ],
+    "labels": [
+     {
+      "text": "SENZA AMIDO IL SUGO SCIVOLA",
+      "at": "scivola",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 48
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: niente acqua fredda, e tieni un mestolo d'acqua di cottura per il sugo. Unica eccezione: l'insalata di pasta.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "NIENTE ACQUA FREDDA",
+      "ok": true,
+      "at": "niente"
+     },
+     {
+      "text": "ACQUA DI COTTURA NEL SUGO",
+      "ok": true,
+      "at": "mestolo"
+     }
+    ],
+    "labels": [
+     {
+      "text": "ECCEZIONE: INSALATA DI PASTA",
+      "at": "eccezione",
+      "pos": [
+       540,
+       1000
+      ],
+      "size": 46,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Falso: la pasta non va sciacquata. Il velo di amido che si forma in cottura fa da colla col sugo: se lo togli, il sugo scivola via 🍝\n\nTieni un mestolo d'acqua di cottura. Unica eccezione: l'insalata di pasta.\n\n#veroofalso #pasta #scienzaincucina #cucinaitaliana #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Centro Tutela Consumatori Utenti Bolzano – La pasta va raffreddata sotto l'acqua fredda?",
+   "url": "https://consumer.bz.it/it/print/pdf/node/33151"
+  },
+  {
+   "titolo": "Chowhound – Barilla: il velo di amido aiuta il sugo ad aderire",
+   "url": "https://chowhound.com/1568674/mistake-add-oil-pasta-water"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "L'amido superficiale aiuta il sugo ad aderire; sciacquare lo toglie",
+   "esito": "confermato",
+   "fonte": "CTCU; Chowhound"
+  },
+  {
+   "affermazione": "Eccezione insalata di pasta",
+   "esito": "confermato",
+   "fonte": "CTCU"
+  }
+ ],
+ "id": "07_pasta_sciacquata",
+ "theme": "cucina_notte"
+}

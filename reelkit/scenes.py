@@ -130,8 +130,39 @@ def hook(cr, t, ctx, par, spec):
     stamp_col = None
     if spec.get("stamp", {}).get("color") == "green":
         stamp_col = P.GREEN_OK
-    if pr.get("appliance") in ("pot_lid", "wine_glass"):
-        if pr["appliance"] == "pot_lid":
+    if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2"):
+        if pr["appliance"] == "water_glass_ice":
+            P.glass_of(cr, 540, 1320, fill=0.62, t=t, ice=4, scale=1.1)
+        elif pr["appliance"] == "bottle_spoon":
+            P.glass_of(cr, 330, 1330, liquid=(0.97, 0.90, 0.55), fill=0.55, t=t, scale=0.7, bubbles=True)
+            # bottiglia aperta, cucchiaino col manico nel collo e la conca fuori
+            P.teaspoon(cr, 640, 1330 - 600, scale=0.9)
+            P.wine_bottle(cr, 640, 1330, scale=1.0, angle=0.0, label="SPUMANTE", cork=False)
+            cr.save()
+            cr.rectangle(560, 1330 - 610, 160, 52)
+            cr.clip()
+            P.teaspoon(cr, 640, 1330 - 600, scale=0.9)
+            cr.restore()
+            P.steam(cr, 640, 1330 - 700, t, n=3, alpha=0.35, spread=30)
+        elif pr["appliance"] in ("oil_pot", "pasta_pot"):
+            liq = (P.OIL, P.OIL_DARK) if pr["appliance"] == "oil_pot" else None
+            ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=860, w=560, h=380, liquid=liq)
+            if pr["appliance"] == "pasta_pot":
+                cr.save()
+                E.rounded_rect(cr, ix0, surf - 200, ix1 - ix0, bot - surf + 200, 18)
+                cr.clip()
+                P.spaghetti(cr, ix0, ix1, bot, t, height=bot - surf - 45)
+                cr.restore()
+            else:
+                rnd = random.Random(2)
+                for j in range(14):
+                    ph = (t * 0.9 + j * 0.07) % 1.0
+                    P.bubble(cr, rnd.uniform(ix0 + 30, ix1 - 30), E.lerp(bot - 20, surf + 8, ph), 5 + 6 * ph, 1 - ph * 0.4)
+            P.pot_rim(cr, 540, 860, 560)
+        elif pr["appliance"] == "microwave2":
+            on = E.ease(E.prog(t, s - 1, s - 0.5))
+            P.microwave(cr, 540, 1000, 860, 560, t, on=on, heat=0.3)
+        elif pr["appliance"] == "pot_lid":
             ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=860, w=560, h=380)
             P.pot_rim(cr, 540, 860, 560)
             P.steam(cr, 540 - 300, 820, t, n=3, alpha=0.5, spread=60)
@@ -333,6 +364,17 @@ def lens(cr, t, ctx, par, spec):
                 k = E.ease(E.prog(t, tr + j * 0.18, tr + j * 0.18 + 1.6))
                 y = E.lerp(y, (surface or cy - r) - 140 - (j % 3) * 50, k)
             P.ethanol(cr, x, y, 0.95, angle=0.3 * math.sin(t + j))
+    # anidride carbonica che sale e scappa dalla superficie (bottiglia aperta)
+    gas = layers.get("co2")
+    if gas:
+        tg0 = ctx.at(par, gas.get("at", 0.0))
+        rnd = random.Random(81)
+        for j in range(12):
+            bx = cx - r + 60 + rnd.uniform(0, 2 * r - 120)
+            ph = ((t - tg0) * 0.35 + j / 12) % 1.0 if t > tg0 else (j / 12) * 0.3
+            yb = E.lerp(cy + r - 40, (surface or cy - r) - 260, ph)
+            P.co2(cr, bx + 10 * math.sin(t * 2 + j), yb, 0.85, angle=0.4 * math.sin(t + j))
+
     # coperchio in cima alla lente
     if lidl:
         tl = ctx.at(par, lidl.get("at", 0.0))
@@ -369,9 +411,11 @@ def lens(cr, t, ctx, par, spec):
         pp = E.ease(E.prog(t, ctx.at(par, pasta.get("at", 0.1)), ctx.at(par, pasta.get("at", 0.1)) + 0.5))
         if pp > 0:
             E.rounded_rect(cr, cx - r - 40, pasta_y - 45 + (1 - pp) * 300, 2 * r + 80, 90, 45)
-            cr.set_source_rgb(*P.PASTA)
+            rod_col = (0.35, 0.70, 0.30) if pasta.get("veg") else P.PASTA
+            rod_dark = (0.20, 0.45, 0.18) if pasta.get("veg") else P.PASTA_DARK
+            cr.set_source_rgb(*rod_col)
             cr.fill_preserve()
-            cr.set_source_rgb(*P.PASTA_DARK)
+            cr.set_source_rgb(*rod_dark)
             cr.set_line_width(5)
             cr.stroke()
     # amido che esce dalla pasta e si gonfia (colla)
@@ -393,6 +437,22 @@ def lens(cr, t, ctx, par, spec):
             E.rounded_rect(cr, cx - r - 40, pasta_y - 70, 2 * r + 80, 40, 20)
             cr.set_source_rgba(*P.STARCH, 0.55 * swell)
             cr.fill()
+    # vitamine dentro la verdura che, con "leach_at", escono nell'acqua (amount = quanta parte esce)
+    vit = layers.get("vitamins")
+    if vit and layers.get("pasta"):
+        tl = ctx.at(par, vit["leach_at"]) if vit.get("leach_at") else None
+        amount = vit.get("amount", 0.5)
+        rnd = random.Random(71)
+        nv = 10
+        for j in range(nv):
+            vx = cx - r + 50 + j * (2 * r - 100) / (nv - 1)
+            vy = pasta_y
+            leaves = j < round(nv * amount)
+            if tl is not None and leaves:
+                k = E.ease(E.prog(t, tl + j * 0.1, tl + 1.4 + j * 0.1))
+                vx += k * rnd.uniform(-60, 60)
+                vy -= k * rnd.uniform(140, 260)
+            P.vitamin(cr, vx, vy, 20)
     cr.restore()
     E.lens_frame(cr, cx, cy, rr)
     if fld and falign > 0:

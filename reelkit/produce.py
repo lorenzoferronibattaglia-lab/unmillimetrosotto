@@ -144,7 +144,7 @@ def build(sb_path, preview=False):
     shots = []
     for i, (a, b) in enumerate(bounds):
         ts = {a + 0.6, b - 0.1}
-        for v in re.findall(r'"at":\s*"([^"]+)"', json.dumps(sb["paragraphs"][i]["scene"])):
+        for v in re.findall(r'"at":\s*"([^"]+)"', json.dumps(sb["paragraphs"][i]["scene"], ensure_ascii=False)):
             try:
                 ts.add(ctx.at(i, v) + 0.6)
             except KeyError as e:

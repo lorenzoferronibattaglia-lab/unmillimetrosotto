@@ -1,0 +1,134 @@
+{
+ "topic": "Il cucchiaino nel collo tiene le bollicine?",
+ "paragraphs": [
+  {
+   "text": "Il cucchiaino nella bottiglia tiene le bollicine? Falso. L'hanno pure misurato.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "IL CUCCHIAINO SALVA",
+     "LE BOLLICINE?"
+    ],
+    "prop": {
+     "appliance": "bottle_spoon"
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Le bollicine sono anidride carbonica sciolta nel vino. Appena apri, la pressione scende e il gas comincia a scappare.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "LE BOLLICINE",
+     "SCAPPANO"
+    ],
+    "surface": true,
+    "heat": 0.3,
+    "layers": [
+     {
+      "kind": "co2",
+      "at": "apri"
+     }
+    ],
+    "labels": [
+     {
+      "text": "CO2",
+      "at": "anidride",
+      "pos": [
+       540,
+       1290
+      ],
+      "color": "#5A5F66"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Con il cucchiaino la bottiglia resta aperta, e il gas esce lo stesso.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "LA BOTTIGLIA",
+     "RESTA APERTA"
+    ],
+    "surface": true,
+    "heat": 0.3,
+    "layers": [
+     {
+      "kind": "co2",
+      "at": 0.0
+     }
+    ],
+    "labels": [
+     {
+      "text": "ESCE LO STESSO",
+      "at": "stesso",
+      "pos": [
+       540,
+       1290
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "text": "Nel novantaquattro i produttori di Champagne l'hanno testato: cucchiaino o niente, nessuna differenza. Funziona solo un tappo ermetico.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TEST DELLO",
+     "CHAMPAGNE"
+    ],
+    "items": [
+     {
+      "text": "CUCCHIAINO",
+      "ok": false,
+      "at": "cucchiaino"
+     },
+     {
+      "text": "TAPPO ERMETICO",
+      "ok": true,
+      "at": "tappo"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Falso: il cucchiaino nel collo non salva le bollicine. La bottiglia resta aperta e la CO2 esce lo stesso. Nel 1994 il comitato dello Champagne l'ha testato: nessuna differenza. Serve un tappo ermetico 🥂\n\n#veroofalso #spumante #vino #scienza #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Gambero Rosso – il cucchiaino non conserva lo spumante",
+   "url": "https://www.gamberorosso.it/vino/cucchiaino-conserva-spumante/"
+  },
+  {
+   "titolo": "Geopop – il metodo del cucchiaino (studio CIVC 1994)",
+   "url": "https://www.geopop.it/il-metodo-del-cucchiaino-nella-bottiglia-di-spumante-funziona-davvero-ecco-cosa-dice-la-scienza/"
+  },
+  {
+   "titolo": "Altroconsumo – falsi miti sul vino",
+   "url": "https://www.altroconsumo.it/alimentazione/vino/consigli/vino-falsi-miti"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "Studio CIVC 1994: cucchiaino irrilevante, tappo ermetico efficace",
+   "esito": "confermato",
+   "fonte": "Geopop; Gambero Rosso"
+  }
+ ],
+ "id": "10_cucchiaino_spumante",
+ "theme": "cucina_notte"
+}

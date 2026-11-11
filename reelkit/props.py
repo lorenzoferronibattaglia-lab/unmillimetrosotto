@@ -40,7 +40,7 @@ def flames(cr, cx, y, w, t, intensity=1.0):
             cr.fill()
 
 
-def pot(cr, cx, top, w, h, water_level=0.72, t=0.0, wave=1.0):
+def pot(cr, cx, top, w, h, water_level=0.72, t=0.0, wave=1.0, liquid=None):
     """Pentola in sezione. Ritorna (ix0, ix1, superficie_y, fondo_y) dell'interno."""
     x0, x1 = cx - w / 2, cx + w / 2
     bottom = top + h
@@ -73,8 +73,9 @@ def pot(cr, cx, top, w, h, water_level=0.72, t=0.0, wave=1.0):
     cr.line_to(ix1, ibot)
     cr.close_path()
     g = cairo.LinearGradient(0, surf_y, 0, ibot)
-    g.add_color_stop_rgb(0, *E.WATER)
-    g.add_color_stop_rgb(1, *E.WATER_DEEP)
+    c0, c1 = (E.WATER, E.WATER_DEEP) if liquid is None else liquid
+    g.add_color_stop_rgb(0, *c0)
+    g.add_color_stop_rgb(1, *c1)
     cr.set_source(g)
     cr.fill()
     cr.restore()
@@ -91,11 +92,11 @@ def pot_rim(cr, cx, top, w):
     cr.stroke()
 
 
-def kitchen_pot(cr, t, cx=540, top=840, w=560, h=380, water_level=0.72):
+def kitchen_pot(cr, t, cx=540, top=840, w=560, h=380, water_level=0.72, liquid=None):
     """Fornello + fiamme + pentola: la composizione standard."""
     stove(cr, cx, top + h + 35, w + 60)
     flames(cr, cx, top + h + 35, w * 0.68, t)
-    inner = pot(cr, cx, top, w, h, water_level, t)
+    inner = pot(cr, cx, top, w, h, water_level, t, liquid=liquid)
     return inner
 
 
@@ -325,7 +326,7 @@ def starch_grain(cr, x, y, r, alpha=1.0):
     cr.stroke()
 
 
-def check_card(cr, x, y, text, ok, t, t0, w=760):
+def check_card(cr, x, y, text, ok, t, t0, w=880):
     p = E.ease_out_back(E.prog(t, t0, t0 + 0.4))
     if p <= 0:
         return
@@ -340,7 +341,7 @@ def check_card(cr, x, y, text, ok, t, t0, w=760):
     cr.stroke()
     # il testo si restringe per non toccare l'icona
     size = 80
-    while size > 40 and E.text_extents(cr, text, size).x_advance > w - 60 - 190:
+    while size > 34 and E.text_extents(cr, text, size).x_advance > w - 60 - 190:
         size -= 4
     E.outlined_text(cr, text, -w / 2 + 60, size * 0.37, size, fill=E.INK, lw=0, anchor="left")
     col = (0.2, 0.75, 0.35) if ok else E.RED
@@ -503,7 +504,7 @@ def ice_cube(cr, x, y, s, angle=0.0, alpha=0.9):
     cr.restore()
 
 
-def wine_bottle(cr, x, y, scale=1.0, angle=0.0):
+def wine_bottle(cr, x, y, scale=1.0, angle=0.0, label="VINO", cork=True):
     """Bottiglia di vino, fondo in (x, y) a riposo; collo verso l'alto."""
     cr.save()
     cr.translate(x, y)
@@ -526,10 +527,14 @@ def wine_bottle(cr, x, y, scale=1.0, angle=0.0):
     E.rounded_rect(cr, -48, -260, 96, 120, 10)
     cr.set_source_rgb(0.96, 0.93, 0.85)
     cr.fill()
-    E.outlined_text(cr, "VINO", 0, -190, 30, fill=E.INK, lw=0)
-    E.rounded_rect(cr, -24, -585, 48, 40, 6)
-    cr.set_source_rgb(0.55, 0.12, 0.18)
-    cr.fill()
+    lsz = 30
+    while lsz > 16 and E.text_extents(cr, label, lsz).x_advance > 86:
+        lsz -= 2
+    E.outlined_text(cr, label, 0, -190, lsz, fill=E.INK, lw=0)
+    if cork:
+        E.rounded_rect(cr, -24, -585, 48, 40, 6)
+        cr.set_source_rgb(0.55, 0.12, 0.18)
+        cr.fill()
     cr.move_to(-40, -320)
     cr.line_to(-40, -40)
     cr.set_source_rgba(1, 1, 1, 0.25)
@@ -689,4 +694,100 @@ def ethanol(cr, x, y, scale=1.0, angle=0.0, alpha=1.0):
     E.circle(cr, -36, 0, 22, (0.25, 0.27, 0.30), lw=3.5, alpha=alpha)
     E.circle(cr, 6, 0, 22, (0.25, 0.27, 0.30), lw=3.5, alpha=alpha)
     E.circle(cr, 46, 6, 22, E.O_RED, lw=3.5, alpha=alpha)
+    cr.restore()
+
+
+def co2(cr, x, y, scale=1.0, angle=0.0, alpha=1.0):
+    """CO2: carbonio scuro al centro, due ossigeni rossi ai lati."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    cr.scale(scale, scale)
+    for sx in (-1, 1):
+        E.circle(cr, sx * 30, 0, 19, E.O_RED, lw=3.5, alpha=alpha)
+    E.circle(cr, 0, 0, 20, (0.25, 0.27, 0.30), lw=3.5, alpha=alpha)
+    cr.restore()
+
+
+VIT = (1.0, 0.62, 0.12)
+
+
+def vitamin(cr, x, y, r=22, alpha=1.0, label="C"):
+    """Vitamina stilizzata: esagono arancione con lettera."""
+    cr.save()
+    cr.translate(x, y)
+    for i in range(6):
+        a = math.pi / 6 + i * math.pi / 3
+        (cr.move_to if i == 0 else cr.line_to)(r * math.cos(a), r * math.sin(a))
+    cr.close_path()
+    cr.set_source_rgba(*VIT, alpha)
+    cr.fill_preserve()
+    cr.set_source_rgba(*E.INK, alpha)
+    cr.set_line_width(3.5)
+    cr.stroke()
+    E.outlined_text(cr, label, 0, r * 0.45, r * 1.2, fill=E.WHITE, lw=0, alpha=alpha)
+    cr.restore()
+
+
+def glass_of(cr, cx, base_y, liquid=(0.62, 0.82, 0.97), fill=0.6, t=0.0, ice=0, scale=1.0, bubbles=False):
+    """Bicchiere dritto con liquido; ice = numero di cubetti che GALLEGGIANO in superficie."""
+    cr.save()
+    cr.translate(cx, base_y)
+    cr.scale(scale, scale)
+    w_top, w_bot, h = 300, 230, 480
+    top = -h
+    lvl = -h * fill
+    cr.move_to(-w_bot / 2, 0)
+    cr.line_to(w_bot / 2, 0)
+    cr.line_to(w_top / 2 - (w_top - w_bot) / 2 * (1 - fill), lvl)
+    cr.line_to(-w_top / 2 + (w_top - w_bot) / 2 * (1 - fill), lvl)
+    cr.close_path()
+    cr.set_source_rgba(*liquid, 0.85)
+    cr.fill()
+    if bubbles:
+        for i in range(10):
+            ph = (t * 0.5 + i * 0.1) % 1.0
+            bx = -80 + (i * 37) % 160
+            E.circle(cr, bx + 6 * math.sin(t * 3 + i), -10 - ph * (-lvl - 20), 5 + 3 * ph, (1, 1, 1), lw=0, alpha=0.8 * (1 - ph * 0.5))
+    rnd = random.Random(5)
+    for i in range(ice):
+        ice_cube(cr, -90 + i * 75 + rnd.uniform(-8, 8), lvl + 8 + 5 * math.sin(t * 2 + i), 66, angle=rnd.uniform(-0.4, 0.4))
+    cr.move_to(-w_top / 2, top)
+    cr.line_to(-w_bot / 2, 0)
+    cr.line_to(w_bot / 2, 0)
+    cr.line_to(w_top / 2, top)
+    cr.set_source_rgba(1, 1, 1, 0.95)
+    cr.set_line_width(8)
+    cr.stroke()
+    cr.restore()
+
+
+def teaspoon(cr, x, y, scale=1.0):
+    """Cucchiaino d'acciaio verticale: manico verso il basso da (x, y), conca in alto."""
+    cr.save()
+    cr.translate(x, y)
+    cr.scale(scale, scale)
+    steel = (0.80, 0.83, 0.87)
+    E.rounded_rect(cr, -9, -10, 18, 200, 9)
+    cr.set_source_rgb(*steel)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    cr.save()
+    cr.translate(0, -50)
+    cr.scale(1, 1.45)
+    cr.arc(0, 0, 34, 0, 2 * math.pi)
+    cr.restore()
+    cr.set_source_rgb(*steel)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.stroke()
+    cr.save()
+    cr.translate(-10, -62)
+    cr.scale(1, 1.8)
+    cr.arc(0, 0, 8, 0, 2 * math.pi)
+    cr.restore()
+    cr.set_source_rgba(1, 1, 1, 0.7)
+    cr.fill()
     cr.restore()

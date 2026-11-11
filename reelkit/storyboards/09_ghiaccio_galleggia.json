@@ -1,0 +1,141 @@
+{
+ "topic": "Perché il ghiaccio galleggia?",
+ "paragraphs": [
+  {
+   "text": "Perché il ghiaccio galleggia? Quasi tutte le sostanze da solide affondano. L'acqua no, ed ecco perché.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "PERCHÉ IL GHIACCIO",
+     "GALLEGGIA?"
+    ],
+    "prop": {
+     "appliance": "water_glass_ice"
+    },
+    "stamp": {
+     "text": "ECCO PERCHÉ",
+     "at": "ecco",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Nell'acqua liquida le molecole si muovono e stanno strette, una vicino all'altra.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "ACQUA",
+     "LIQUIDA"
+    ],
+    "surface": false,
+    "heat": 0.4,
+    "labels": [
+     {
+      "text": "STRETTE E IN MOVIMENTO",
+      "at": "strette",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 50,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quando gela, invece, si agganciano in un reticolo ordinato, pieno di spazi vuoti.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "GHIACCIO:",
+     "PIENO DI SPAZI"
+    ],
+    "surface": false,
+    "heat": 0.1,
+    "layers": [
+     {
+      "kind": "ice"
+     }
+    ],
+    "labels": [
+     {
+      "text": "RETICOLO CON SPAZI VUOTI",
+      "at": "reticolo",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 48
+     }
+    ]
+   }
+  },
+  {
+   "text": "Così il ghiaccio occupa circa il nove per cento di spazio in più. È più leggero, e galleggia.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "IL GHIACCIO",
+     "OCCUPA..."
+    ],
+    "card": {
+     "main": "volume",
+     "sub": "rispetto all'acqua",
+     "at": 0.1
+    },
+    "big": {
+     "text": "+9%",
+     "at": "nove"
+    }
+   }
+  },
+  {
+   "text": "Ed è per questo che una bottiglia d'acqua dimenticata in freezer può spaccarsi.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "OCCHIO AL",
+     "FREEZER"
+    ],
+    "items": [
+     {
+      "text": "BOTTIGLIA PIENA IN FREEZER",
+      "ok": false,
+      "at": "bottiglia"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Segui per il prossimo vero o falso.",
+   "scene": {
+    "type": "end",
+    "follow_at": "Segui",
+    "stamp": "VERO O FALSO?"
+   }
+  }
+ ],
+ "caption": "Il ghiaccio galleggia perché, gelando, le molecole d'acqua si agganciano in un reticolo pieno di spazi vuoti: occupa circa il 9% di spazio in più ed è più leggero dell'acqua 🧊\n\nPer questo una bottiglia piena in freezer può spaccarsi.\n\n#scienza #curiosità #acqua #fisica #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Densità del ghiaccio ~0,917 g/cm³ (dato fisico standard)",
+   "url": "https://it.wikipedia.org/wiki/Ghiaccio"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "Ghiaccio ~9% di volume in più (densità 0,917)",
+   "esito": "confermato (dato standard)",
+   "fonte": "conoscenza fisica"
+  },
+  {
+   "affermazione": "Quasi tutte le sostanze solide sono più dense del loro liquido",
+   "esito": "confermato con poche eccezioni (es. silicio, gallio)",
+   "fonte": "conoscenza fisica"
+  }
+ ],
+ "id": "09_ghiaccio_galleggia",
+ "theme": "cucina_notte"
+}
