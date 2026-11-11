@@ -1,0 +1,57 @@
+{
+ "id": "06_vino_temperatura",
+ "titolo": "Il vino rosso va servito a temperatura ambiente?",
+ "durata_s": 33.9,
+ "caratteri_voce": 539,
+ "didascalia": "Falso: il rosso non va servito alla temperatura di casa. Le case stanno sui 22 °C, un rosso va tra 14 e 18 (i più strutturati fino a circa 20). Troppo caldo, l'alcol evapora di più e copre i profumi 🍷\n\nUn passaggio in frigo e versane poco per volta: nel bicchiere si scalda di qualche grado in fretta.\n\n#veroofalso #vino #sommelier #scienzaincucina #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Gambero Rosso – Vino rosso freddo: temperature di servizio",
+   "url": "https://www.gamberorosso.it/vino/vino-rosso-freddo/"
+  },
+  {
+   "titolo": "Money.it / Note di Vino – Perché la temperatura è cruciale (cita AIS)",
+   "url": "https://www.money.it/perche-la-temperatura-e-cruciale-nel-servizio-del-vino"
+  },
+  {
+   "titolo": "Gambero Rosso – Rossi d'estate: nel bicchiere +3-4 gradi",
+   "url": "https://www.gamberorosso.it/notizie/vino/degustazioni/vini-rossi-estate-freschi/"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "Rossi tra 14 e 18 °C (strutturati fino a ~20)",
+   "esito": "confermato con variazioni tra fonti (GR: 16-20)",
+   "fonte": "AIS via Money.it; Banfi; Gambero Rosso"
+  },
+  {
+   "affermazione": "Troppo caldo accentua l'alcol",
+   "esito": "confermato",
+   "fonte": "Money.it (AIS); Dissapore"
+  },
+  {
+   "affermazione": "L'etanolo evapora più facilmente dell'acqua",
+   "esito": "confermato (più volatile, ebolle a 78 °C)",
+   "fonte": "conoscenza chimica di base"
+  },
+  {
+   "affermazione": "Case sui 22 °C",
+   "esito": "valore tipico, non misurato",
+   "fonte": "—"
+  },
+  {
+   "affermazione": "Nel bicchiere si scalda in fretta (3-4 °C)",
+   "esito": "confermato",
+   "fonte": "Gambero Rosso"
+  },
+  {
+   "affermazione": "DA VERIFICARE CON LORENZO (enologo)",
+   "esito": "chiedere conferma della forbice 14-18"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 5.2
+ }
+}

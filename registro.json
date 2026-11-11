@@ -49,6 +49,21 @@
    "gancio": "v2 payoff",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica"
+  },
+  {
+   "id": "05_coperchio",
+   "tema": "Il coperchio fa bollire prima l'acqua? (VERO)",
+   "stato": "pronto",
+   "video": "media/05_coperchio/05_coperchio.mp4",
+   "voce": "Francesco (eleven_v3)"
+  },
+  {
+   "id": "06_vino_temperatura",
+   "tema": "Il rosso va servito a temperatura ambiente? (FALSO)",
+   "stato": "pronto",
+   "video": "media/06_vino_temperatura/06_vino_temperatura.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "da_verificare": "forbice 14-18 °C con Lorenzo"
   }
  ],
  "lezioni": [

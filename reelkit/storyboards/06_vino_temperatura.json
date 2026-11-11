@@ -1,0 +1,43 @@
+{
+ "id": "06_vino_temperatura",
+ "topic": "Il vino rosso va servito a temperatura ambiente?",
+ "theme": "cucina_notte",
+ "paragraphs": [
+  {"text": "Il rosso va servito a temperatura ambiente? Falso. O almeno, non a quella di casa tua.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["IL ROSSO VA SERVITO", "A TEMPERATURA AMBIENTE?"], "title_size": 80,
+             "prop": {"appliance": "wine_glass", "thermo": {"from": 22, "to": 22, "start": 0.0, "end": 0.5, "x": 810, "y": 1180, "hot": 0.7}},
+             "stamp": {"text": "FALSO MITO", "at": "Falso"}}},
+  {"text": "Nel vino c'è alcol, e l'alcol evapora più facilmente dell'acqua. Più il vino è caldo, più alcol sale verso il naso.",
+   "scene": {"type": "lens", "title": ["L'ALCOL", "EVAPORA PRIMA"], "surface": true, "heat": 0.45,
+             "layers": [{"kind": "ethanol", "rise_at": "caldo", "n": 7}],
+             "labels": [{"text": "ALCOL", "at": "sale", "pos": [300, 1290], "color": "#5A5F66"}, {"text": "ACQUA", "at": "sale", "pos": [780, 1290], "color": "#2E78BF"}]}},
+  {"text": "Le nostre case stanno sui ventidue gradi. Un rosso, invece, va servito tra quattordici e diciotto.",
+   "scene": {"type": "number", "title": ["A CASA", "CI SONO..."], "title_size": 100,
+             "card": {"main": "casa", "sub": "oggi", "at": 0.2},
+             "big": {"text": "22 °C", "at": "ventidue"},
+             "labels": [{"text": "ROSSO: 14-18 °C", "at": "quattordici", "pos": [540, 1160], "size": 64, "color": "#7A1024"}]}},
+  {"text": "A ventidue gradi l'alcol copre i profumi, e in bocca il vino sembra caldo e pesante.",
+   "scene": {"type": "lens", "title": ["L'ALCOL COPRE", "I PROFUMI"], "surface": true, "heat": 0.6,
+             "layers": [{"kind": "ethanol", "rise_at": 0.0, "n": 9}],
+             "labels": [{"text": "PROFUMI COPERTI", "at": "copre", "pos": [540, 1290], "size": 52}]}},
+  {"text": "Il trucco: un passaggio in frigo prima di servire, e versane poco per volta. Nel bicchiere si scalda in fretta.",
+   "scene": {"type": "checklist", "title": ["IL TRUCCO", "DEL SOMMELIER"],
+             "items": [{"text": "UN PO' DI FRIGO", "ok": true, "at": "frigo"}, {"text": "POCO PER VOLTA", "ok": true, "at": "poco"}]}},
+  {"text": "Segui per il prossimo vero o falso.",
+   "scene": {"type": "end", "follow_at": "Segui", "stamp": "VERO O FALSO?"}}
+ ],
+ "caption": "Falso: il rosso non va servito alla temperatura di casa. Le case stanno sui 22 °C, un rosso va tra 14 e 18 (i più strutturati fino a circa 20). Troppo caldo, l'alcol evapora di più e copre i profumi 🍷\n\nUn passaggio in frigo e versane poco per volta: nel bicchiere si scalda di qualche grado in fretta.\n\n#veroofalso #vino #sommelier #scienzaincucina #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Gambero Rosso – Vino rosso freddo: temperature di servizio", "url": "https://www.gamberorosso.it/vino/vino-rosso-freddo/"},
+  {"titolo": "Money.it / Note di Vino – Perché la temperatura è cruciale (cita AIS)", "url": "https://www.money.it/perche-la-temperatura-e-cruciale-nel-servizio-del-vino"},
+  {"titolo": "Gambero Rosso – Rossi d'estate: nel bicchiere +3-4 gradi", "url": "https://www.gamberorosso.it/notizie/vino/degustazioni/vini-rossi-estate-freschi/"}
+ ],
+ "fact_check": [
+  {"affermazione": "Rossi tra 14 e 18 °C (strutturati fino a ~20)", "esito": "confermato con variazioni tra fonti (GR: 16-20)", "fonte": "AIS via Money.it; Banfi; Gambero Rosso"},
+  {"affermazione": "Troppo caldo accentua l'alcol", "esito": "confermato", "fonte": "Money.it (AIS); Dissapore"},
+  {"affermazione": "L'etanolo evapora più facilmente dell'acqua", "esito": "confermato (più volatile, ebolle a 78 °C)", "fonte": "conoscenza chimica di base"},
+  {"affermazione": "Case sui 22 °C", "esito": "valore tipico, non misurato", "fonte": "—"},
+  {"affermazione": "Nel bicchiere si scalda in fretta (3-4 °C)", "esito": "confermato", "fonte": "Gambero Rosso"},
+  {"affermazione": "DA VERIFICARE CON LORENZO (enologo)", "esito": "chiedere conferma della forbice 14-18"}
+ ]
+}

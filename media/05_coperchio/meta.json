@@ -1,0 +1,48 @@
+{
+ "id": "05_coperchio",
+ "titolo": "Il coperchio fa bollire prima l'acqua?",
+ "durata_s": 32.3,
+ "caratteri_voce": 517,
+ "didascalia": "Vero: col coperchio l'acqua bolle prima. Il vapore che scappa si porta via calore; il coperchio lo fa condensare e ricadere nella pentola. Secondo una stima, a bollore senza coperchio serve quasi 4 volte l'energia 💨\n\n#veroofalso #scienzaincucina #pasta #risparmio #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Selectra – Dove finisce l'energia di una pentola che bolle (stima: ~750 W senza coperchio vs ~200 W con)",
+   "url": "https://selectra.net/energia/attualita/pasta-fuoco-spento-cottura-passiva-risparmio"
+  },
+  {
+   "titolo": "Il Post – La cottura della pasta a fuoco spento, spiegata",
+   "url": "https://www.ilpost.it/2022/09/09/cottura-pasta-fuoco-spento/"
+  },
+  {
+   "titolo": "Zwilling – Riscaldare bene pentole e padelle (coperchio e diametro del fornello)",
+   "url": "https://www.zwilling.com/it/magazine/guida-alle-pentole/cookware_how-to-heat-cookware.html"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "Le molecole che evaporano portano via calore",
+   "esito": "confermato",
+   "fonte": "Selectra (evaporazione = dispersione principale)"
+  },
+  {
+   "affermazione": "Il coperchio fa condensare il vapore che ricade",
+   "esito": "confermato",
+   "fonte": "Selectra"
+  },
+  {
+   "affermazione": "Quasi 4 volte l'energia a bollore senza coperchio",
+   "esito": "stima di modello (750 W vs 200 W, 2 L, induzione), detto 'secondo una stima'",
+   "fonte": "Selectra"
+  },
+  {
+   "affermazione": "Fornello grande quanto la pentola",
+   "esito": "confermato",
+   "fonte": "Zwilling"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 30.5
+ }
+}

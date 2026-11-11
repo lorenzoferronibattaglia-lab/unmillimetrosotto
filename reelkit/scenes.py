@@ -130,6 +130,27 @@ def hook(cr, t, ctx, par, spec):
     stamp_col = None
     if spec.get("stamp", {}).get("color") == "green":
         stamp_col = P.GREEN_OK
+    if pr.get("appliance") in ("pot_lid", "wine_glass"):
+        if pr["appliance"] == "pot_lid":
+            ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=860, w=560, h=380)
+            P.pot_rim(cr, 540, 860, 560)
+            P.steam(cr, 540 - 300, 820, t, n=3, alpha=0.5, spread=60)
+            P.lid(cr, 540, 852, 560, lift=6 + 4 * math.sin(t * 9))
+        else:
+            P.wine_glass(cr, 540, 1330, scale=1.05, fill=0.4, t=t)
+        th = pr.get("thermo")
+        if payoff:
+            cr.restore()
+        if th:
+            a0, a1 = ctx.at(par, th.get("start", 0)), ctx.at(par, th.get("end", 3))
+            k = E.ease(E.prog(t, a0, a1))
+            v = E.lerp(th.get("from", 20), th.get("to", 100), k)
+            E.thermo_pill(cr, th.get("x", 300), th.get("y", 770), f"{v:.0f} °C", t, s - 1, hot=th.get("hot", 0.6))
+        E.title(cr, spec["title"], t, s_title, y=250, size=spec.get("title_size", 92))
+        st = spec.get("stamp")
+        if st:
+            E.stamp(cr, st.get("text", "FALSO MITO"), 540, 610, t, ctx.at(par, st.get("at")), size=104, color=stamp_col)
+        return
     if pr.get("appliance") == "ice_bucket":
         frost = E.ease(E.prog(t, ctx.at(par, pr.get("frost_at", 0.5)), ctx.at(par, pr.get("frost_at", 0.5)) + 2.0))
         l0, r0, surf, bot = P.ice_bucket(cr, 540, 860, 640, 470, t, frost=frost)
@@ -235,6 +256,7 @@ def lens(cr, t, ctx, par, spec):
         half = max(1.0, fld.get("period", 1.2))  # mai piu' di un'inversione al secondo
         # inversione FLUIDA (coseno): niente scatti, niente lampi
         fs = math.cos(math.pi * max(0.0, t - tf) / half)
+    lidl = layers.get("lid")
     for i, m in enumerate(field):
         x, y, a = jiggle(m, t, amp)
         if falign > 0:
@@ -242,8 +264,15 @@ def lens(cr, t, ctx, par, spec):
             da = (target - a + math.pi) % (2 * math.pi) - math.pi
             a = a + da * falign * 0.85
         if i in esc_ids:
-            k = E.prog(t, tesc + (i % 5) * 0.25, tesc + (i % 5) * 0.25 + 1.4)
-            y -= E.ease(k) * 420
+            if lidl:
+                # col coperchio: salgono, sbattono e ricadono (ciclo continuo)
+                ph = ((t - tesc) * 0.6 + (i % 5) * 0.2) % 1.0 if t > tesc else 0.0
+                # rimbalzano SOTTO il coperchio (cy - r + 70): mai attraverso
+                hop = math.sin(ph * math.pi) * max(0.0, min(230, y - (cy - r + 70) - 35))
+                y -= hop
+            else:
+                k = E.prog(t, tesc + (i % 5) * 0.25, tesc + (i % 5) * 0.25 + 1.4)
+                y -= E.ease(k) * 420
         P.water_molecule(cr, x, y, 0.95, a)
 
     # ghiaccio: reticolo ordinato nella meta' alta della lente; con "melt_at" si smonta dal basso
@@ -290,6 +319,32 @@ def lens(cr, t, ctx, par, spec):
                 ion_kind = "na" if j % 2 == 0 else "cl"
                 E.circle(cr, ix, iy, 24 if ion_kind == "na" else 32, P.__dict__.get("NA_COL", (0.58, 0.40, 0.92)) if ion_kind == "na" else (0.30, 0.80, 0.45), lw=4)
                 E.outlined_text(cr, "+" if ion_kind == "na" else "−", ix, iy + 12, 36, fill=E.WHITE, lw=0)
+
+    # etanolo: molecole di alcol mescolate all'acqua; con "rise_at" salgono ed escono dalla superficie
+    eth = layers.get("ethanol")
+    if eth:
+        tr = ctx.at(par, eth["rise_at"]) if eth.get("rise_at") else None
+        rnd = random.Random(61)
+        for j in range(eth.get("n", 7)):
+            bx = cx - 280 + j * 95 + rnd.uniform(-20, 20)
+            by = cy + rnd.uniform(-40, 230)
+            x, y = bx + 8 * math.sin(t * 3 + j), by + 6 * math.cos(t * 2.5 + j)
+            if tr is not None and j % 2 == 0:
+                k = E.ease(E.prog(t, tr + j * 0.18, tr + j * 0.18 + 1.6))
+                y = E.lerp(y, (surface or cy - r) - 140 - (j % 3) * 50, k)
+            P.ethanol(cr, x, y, 0.95, angle=0.3 * math.sin(t + j))
+    # coperchio in cima alla lente
+    if lidl:
+        tl = ctx.at(par, lidl.get("at", 0.0))
+        k = E.ease(E.prog(t, tl, tl + 0.5))
+        if k > 0:
+            ly = E.lerp(cy - r - 80, cy - r + 70, k)
+            E.rounded_rect(cr, cx - r - 20, ly - 40, 2 * r + 40, 40, 10)
+            cr.set_source_rgb(*E.STEEL)
+            cr.fill_preserve()
+            cr.set_source_rgb(*E.INK)
+            cr.set_line_width(6)
+            cr.stroke()
 
     # olio: molecole grasse che salgono e si raccolgono sopra l'acqua
     oil = layers.get("oil")

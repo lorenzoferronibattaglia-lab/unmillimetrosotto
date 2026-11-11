@@ -1,0 +1,41 @@
+{
+ "id": "05_coperchio",
+ "topic": "Il coperchio fa bollire prima l'acqua?",
+ "theme": "cucina_notte",
+ "paragraphs": [
+  {"text": "L'acqua della pasta non bolle mai? Metti il coperchio. Non è pigrizia: è fisica. Ed è vero.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["COPERCHIO:", "BOLLE PRIMA?"], "title_size": 96,
+             "prop": {"appliance": "pot_lid", "thermo": {"from": 20, "to": 100, "start": 0.0, "end": "vero", "x": 300, "y": 770}},
+             "stamp": {"text": "VERO", "at": "vero", "color": "green"}}},
+  {"text": "Mentre l'acqua si scalda, le molecole più veloci scappano come vapore. E ognuna si porta via un po' di calore.",
+   "scene": {"type": "lens", "title": ["IL VAPORE", "RUBA CALORE"], "surface": true, "heat": 0.6,
+             "layers": [{"kind": "escape", "at": "scappano"}],
+             "labels": [{"text": "OGNI MOLECOLA PORTA VIA CALORE", "at": "porta", "pos": [540, 1290], "size": 44}]}},
+  {"text": "Il coperchio le blocca: il vapore sbatte, si condensa e ricade nella pentola. Con il suo calore.",
+   "scene": {"type": "lens", "title": ["IL COPERCHIO", "LE RIMANDA GIÙ"], "surface": true, "heat": 0.6,
+             "layers": [{"kind": "escape", "at": "sbatte"}, {"kind": "lid", "at": "blocca"}],
+             "labels": [{"text": "IL CALORE RESTA DENTRO", "at": "ricade", "pos": [540, 1290], "size": 50, "color": "#2E78BF"}]}},
+  {"text": "Secondo una stima, tenere due litri a bollore senza coperchio richiede quasi quattro volte l'energia.",
+   "scene": {"type": "number", "title": ["SENZA COPERCHIO", "SERVE..."], "title_size": 96,
+             "card": {"main": "2 litri", "sub": "a bollore", "at": 0.2},
+             "big": {"text": "× 4", "at": "quattro"},
+             "labels": [{"text": "ENERGIA, STIMA", "at": "energia", "pos": [540, 1150], "size": 46, "color": "#2E78BF"}]}},
+  {"text": "Il trucco: coperchio finché bolle, e un fornello grande quanto la pentola.",
+   "scene": {"type": "checklist", "title": ["IL TRUCCO", "COMPLETO"],
+             "items": [{"text": "COPERCHIO", "ok": true, "at": "coperchio"}, {"text": "FORNELLO GIUSTO", "ok": true, "at": "fornello"}]}},
+  {"text": "Segui per il prossimo vero o falso.",
+   "scene": {"type": "end", "follow_at": "Segui", "stamp": "VERO O FALSO?"}}
+ ],
+ "caption": "Vero: col coperchio l'acqua bolle prima. Il vapore che scappa si porta via calore; il coperchio lo fa condensare e ricadere nella pentola. Secondo una stima, a bollore senza coperchio serve quasi 4 volte l'energia 💨\n\n#veroofalso #scienzaincucina #pasta #risparmio #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Selectra – Dove finisce l'energia di una pentola che bolle (stima: ~750 W senza coperchio vs ~200 W con)", "url": "https://selectra.net/energia/attualita/pasta-fuoco-spento-cottura-passiva-risparmio"},
+  {"titolo": "Il Post – La cottura della pasta a fuoco spento, spiegata", "url": "https://www.ilpost.it/2022/09/09/cottura-pasta-fuoco-spento/"},
+  {"titolo": "Zwilling – Riscaldare bene pentole e padelle (coperchio e diametro del fornello)", "url": "https://www.zwilling.com/it/magazine/guida-alle-pentole/cookware_how-to-heat-cookware.html"}
+ ],
+ "fact_check": [
+  {"affermazione": "Le molecole che evaporano portano via calore", "esito": "confermato", "fonte": "Selectra (evaporazione = dispersione principale)"},
+  {"affermazione": "Il coperchio fa condensare il vapore che ricade", "esito": "confermato", "fonte": "Selectra"},
+  {"affermazione": "Quasi 4 volte l'energia a bollore senza coperchio", "esito": "stima di modello (750 W vs 200 W, 2 L, induzione), detto 'secondo una stima'", "fonte": "Selectra"},
+  {"affermazione": "Fornello grande quanto la pentola", "esito": "confermato", "fonte": "Zwilling"}
+ ]
+}

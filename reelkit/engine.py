@@ -149,10 +149,14 @@ def title(cr, lines, t, t0=0.0, y=210, size=96, highlight_last=True):
             continue
         cr.save()
         yy = y + i * size * 1.08
+        # ogni riga si restringe da sola per stare in 880 px (margine anche con lo zoom della camera)
+        lsize = size
+        while lsize > 48 and text_extents(cr, line, lsize).x_advance > 880:
+            lsize -= 4
         cr.translate(W / 2, yy)
         cr.scale(p, p)
         col = YELLOW if (highlight_last and i == len(lines) - 1 and len(lines) > 1) else WHITE
-        outlined_text(cr, line, 0, 0, size, fill=col, lw=14)
+        outlined_text(cr, line, 0, 0, lsize, fill=col, lw=14)
         cr.restore()
 
 

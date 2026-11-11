@@ -593,3 +593,100 @@ def ice_bucket(cr, cx, top, w, h, t, frost=0.0, salt_t=None, water_level=0.62):
             fx = fl + 8 if i % 2 else fr - 8
             E.circle(cr, fx + rnd.uniform(-6, 6), fy, rnd.uniform(3, 7), (1, 1, 1), lw=0, alpha=0.8 * frost)
     return l0, r0, surf, bot
+
+
+def lid(cr, cx, y, w, lift=0.0, angle=0.0):
+    """Coperchio appoggiato sul bordo della pentola (y = bordo). lift lo solleva."""
+    cr.save()
+    cr.translate(cx, y - lift)
+    cr.rotate(angle)
+    cr.move_to(-w / 2 - 16, 0)
+    cr.curve_to(-w / 2, -70, w / 2, -70, w / 2 + 16, 0)
+    cr.close_path()
+    cr.set_source_rgb(*E.STEEL)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    E.rounded_rect(cr, -40, -82, 80, 26, 12)
+    cr.set_source_rgb(*E.STEEL_DARK)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.stroke()
+    cr.restore()
+
+
+def steam(cr, x, y, t, n=4, alpha=0.7, spread=120):
+    for i in range(n):
+        ph = (t * 0.5 + i / n) % 1.0
+        xx = x + math.sin(ph * 6 + i) * 25 + (i - n / 2) * spread / n
+        yy = y - ph * 220
+        cr.arc(xx, yy, 18 + ph * 22, 0, 2 * math.pi)
+        cr.set_source_rgba(1, 1, 1, alpha * (1 - ph) * 0.6)
+        cr.fill()
+
+
+WINE = (0.50, 0.06, 0.14)
+
+
+def wine_glass(cr, cx, base_y, scale=1.0, fill=0.45, t=0.0):
+    """Calice da rosso: base in base_y."""
+    cr.save()
+    cr.translate(cx, base_y)
+    cr.scale(scale, scale)
+    # coppa
+    def bowl_path():
+        cr.move_to(-150, -560)
+        cr.curve_to(-170, -380, -120, -260, 0, -250)
+        cr.curve_to(120, -260, 170, -380, 150, -560)
+    # vino (parte bassa della coppa)
+    cr.save()
+    bowl_path()
+    cr.close_path()
+    cr.clip()
+    top = -250 - 310 * fill
+    cr.move_to(-200, top + 6 * math.sin(t * 2))
+    cr.curve_to(-60, top - 8, 60, top + 8, 200, top + 6 * math.sin(t * 2 + 1))
+    cr.line_to(200, 0)
+    cr.line_to(-200, 0)
+    cr.close_path()
+    cr.set_source_rgb(*WINE)
+    cr.fill()
+    cr.restore()
+    bowl_path()
+    cr.set_source_rgba(1, 1, 1, 0.9)
+    cr.set_line_width(8)
+    cr.stroke()
+    # gambo e piede
+    cr.move_to(0, -250)
+    cr.line_to(0, -20)
+    cr.set_line_width(12)
+    cr.stroke()
+    cr.save()
+    cr.scale(1, 0.22)
+    cr.arc(0, -20 / 0.22, 110, 0, 2 * math.pi)
+    cr.restore()
+    cr.set_line_width(8)
+    cr.stroke()
+    # riflesso
+    cr.move_to(-110, -520)
+    cr.curve_to(-125, -420, -100, -350, -70, -320)
+    cr.set_source_rgba(1, 1, 1, 0.35)
+    cr.set_line_width(10)
+    cr.stroke()
+    cr.restore()
+    return cx, base_y - (250 + 310 * fill) * scale
+
+
+def ethanol(cr, x, y, scale=1.0, angle=0.0, alpha=1.0):
+    """Etanolo stilizzato: due carboni scuri, ossigeno rosso, idrogeni bianchi."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    cr.scale(scale, scale)
+    for hx, hy in ((-62, -18), (-58, 22), (-30, -34), (10, 34), (66, 22)):
+        E.circle(cr, hx, hy, 12, E.WHITE, lw=3, alpha=alpha)
+    E.circle(cr, -36, 0, 22, (0.25, 0.27, 0.30), lw=3.5, alpha=alpha)
+    E.circle(cr, 6, 0, 22, (0.25, 0.27, 0.30), lw=3.5, alpha=alpha)
+    E.circle(cr, 46, 6, 22, E.O_RED, lw=3.5, alpha=alpha)
+    cr.restore()
