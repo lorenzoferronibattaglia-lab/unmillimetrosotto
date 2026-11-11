@@ -86,7 +86,7 @@
   {
    "id": "07_pasta_sciacquata",
    "tema": "La pasta va sciacquata dopo la cottura?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/07_pasta_sciacquata/07_pasta_sciacquata.mp4",
    "gancio": "v2 payoff",
    "voce": "Francesco (eleven_v3)",
@@ -95,12 +95,13 @@
    "piattaforme": [
     "instagram",
     "tiktok"
-   ]
+   ],
+   "vidiq_post_id": "320fba9c-6c7f-4cf8-a3da-7cfc7b74f918"
   },
   {
    "id": "08_microonde_vitamine",
    "tema": "Il microonde distrugge le vitamine?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/08_microonde_vitamine/08_microonde_vitamine.mp4",
    "gancio": "v2 payoff",
    "voce": "Francesco (eleven_v3)",
@@ -109,12 +110,13 @@
    "piattaforme": [
     "instagram",
     "tiktok"
-   ]
+   ],
+   "vidiq_post_id": "ddc69dd8-d4e2-4a0f-952c-9fb42f69a5e8"
   },
   {
    "id": "09_ghiaccio_galleggia",
    "tema": "Perché il ghiaccio galleggia?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/09_ghiaccio_galleggia/09_ghiaccio_galleggia.mp4",
    "gancio": "v2 payoff",
    "voce": "Francesco (eleven_v3)",
@@ -123,12 +125,13 @@
    "piattaforme": [
     "instagram",
     "tiktok"
-   ]
+   ],
+   "vidiq_post_id": "3b93a023-5493-4faa-a237-07df33d6cddb"
   },
   {
    "id": "10_cucchiaino_spumante",
    "tema": "Il cucchiaino nel collo tiene le bollicine?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/10_cucchiaino_spumante/10_cucchiaino_spumante.mp4",
    "gancio": "v2 payoff",
    "voce": "Francesco (eleven_v3)",
@@ -137,12 +140,13 @@
    "piattaforme": [
     "instagram",
     "tiktok"
-   ]
+   ],
+   "vidiq_post_id": "b3045ce5-bcfd-418c-b389-806b440259e1"
   },
   {
    "id": "11_olio_evo_frittura",
    "tema": "L'extravergine non va usato per friggere?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/11_olio_evo_frittura/11_olio_evo_frittura.mp4",
    "gancio": "v2 payoff",
    "voce": "Francesco (eleven_v3)",
@@ -151,7 +155,8 @@
    "piattaforme": [
     "instagram",
     "tiktok"
-   ]
+   ],
+   "vidiq_post_id": "89866375-874d-460c-8054-6832b307edd6"
   }
  ],
  "lezioni": [
