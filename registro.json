@@ -45,8 +45,10 @@
    "id": "04_sale_ghiaccio",
    "tema": "Il sale nel ghiaccio raffredda il vino più in fretta? (VERO)",
    "stato": "pronto",
-   "video": "media/04_sale_ghiaccio/04_sale_ghiaccio.mp4",
-   "gancio": "v2 payoff"
+   "video": "media/04_sale_ghiaccio/04_sale_ghiaccio_v2.mp4",
+   "gancio": "v2 payoff",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica"
   }
  ],
  "lezioni": [
@@ -54,6 +56,17 @@
    "data": "2026-11-11",
    "fonte": "reel 03 IG: 206 views, 6,4 s medi su 51, skip 55,8%",
    "lezione": "gancio v2: immagine-risposta in movimento dal frame 0, domanda concreta, timbro dopo; 35-45 s"
+  },
+  {
+   "data": "2026-11-11",
+   "lezione": "camera dinamica (stacchi e zoom sugli eventi) come costruttore.spiega; testi <= 650 caratteri per stare sotto i 45 s"
   }
- ]
+ ],
+ "voce_attuale": {
+  "nome": "Francesco - Natural, Warm and Confident",
+  "voice_id": "PJucOeN3PPVPnud4XocS",
+  "modello": "eleven_v3",
+  "dal": "2026-11-11",
+  "prima": "SimoneF (scartata: suonava finta)"
+ }
 }

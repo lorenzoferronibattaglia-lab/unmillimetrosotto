@@ -21,10 +21,10 @@ import engine as E  # noqa: E402
 import scenes as S  # noqa: E402
 
 VOICE_CFG = {
-    "voice_id": "8BRNClOqAj0d70eCur4i",  # SimoneF
-    "model_id": "eleven_multilingual_v2",
+    "voice_id": "PJucOeN3PPVPnud4XocS",  # Francesco - Natural, Warm and Confident (scelta 11/11/2026)
+    "model_id": "eleven_v3",
     "language_code": "it",
-    "voice_settings": {"stability": 0.4, "similarity_boost": 0.8, "style": 0.3, "speed": 1.08},
+    "voice_settings": {"stability": 0.5, "similarity_boost": 0.75},
 }
 KEY_PATH = os.path.expanduser("~/.secrets/elevenlabs_key")
 
@@ -121,6 +121,9 @@ def build(sb_path, preview=False):
         cr.save()
         cr.translate(0, 60)
         spec = sb["paragraphs"][i]["scene"]
+        if sb.get("camera", True):
+            import camera
+            camera.apply(cr, t, bounds[i][0], bounds[i][1], i, spec, ctx, i)
         S.TYPES[spec["type"]](cr, t, ctx, i, spec)
         cr.restore()
         if captions:

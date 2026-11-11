@@ -1,8 +1,8 @@
 {
  "id": "04_sale_ghiaccio",
  "titolo": "Il sale nel ghiaccio raffredda il vino più in fretta?",
- "durata_s": 53.4,
- "caratteri_voce": 781,
+ "durata_s": 37.1,
+ "caratteri_voce": 621,
  "didascalia": "Vero: il sale nel ghiaccio raffredda il vino più in fretta. Acqua e ghiaccio si fermano a 0 °C, col sale il ghiaccio continua a sciogliersi sotto zero e a rubare calore: la miscela può arrivare a circa −21 °C 🍷🧊\n\nGhiaccio, acqua, una manciata di sale e gira la bottiglia ogni tanto.\n\n#veroofalso #scienzaincucina #vino #curiosità #unmillimetrosotto",
  "fonti": [
   {
@@ -51,7 +51,7 @@
  ],
  "anti_lampeggio": {
   "esito": "ok",
-  "max_lampi_al_secondo": 0,
-  "istante_s": 0
+  "max_lampi_al_secondo": 1,
+  "istante_s": 35.0
  }
 }
