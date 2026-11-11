@@ -44,26 +44,44 @@
   {
    "id": "04_sale_ghiaccio",
    "tema": "Il sale nel ghiaccio raffredda il vino più in fretta? (VERO)",
-   "stato": "pronto",
+   "stato": "programmato",
    "video": "media/04_sale_ghiaccio/04_sale_ghiaccio_v2.mp4",
    "gancio": "v2 payoff",
    "voce": "Francesco (eleven_v3)",
-   "camera": "automatica"
+   "camera": "automatica",
+   "uscita": "2026-11-11T21:00:00+01:00",
+   "vidiq_post_id": "f1670971-d565-4629-84b9-6fbc67e62512",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "id": "05_coperchio",
    "tema": "Il coperchio fa bollire prima l'acqua? (VERO)",
-   "stato": "pronto",
+   "stato": "programmato",
    "video": "media/05_coperchio/05_coperchio.mp4",
-   "voce": "Francesco (eleven_v3)"
+   "voce": "Francesco (eleven_v3)",
+   "uscita": "2026-11-11T15:30:00+01:00",
+   "vidiq_post_id": "d061b128-8645-403b-8288-f59ac8ccca36",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
   },
   {
    "id": "06_vino_temperatura",
    "tema": "Il rosso va servito a temperatura ambiente? (FALSO)",
-   "stato": "pronto",
+   "stato": "programmato",
    "video": "media/06_vino_temperatura/06_vino_temperatura.mp4",
    "voce": "Francesco (eleven_v3)",
-   "da_verificare": "forbice 14-18 °C con Lorenzo"
+   "da_verificare": "forbice 14-18 °C con Lorenzo",
+   "uscita": "2026-11-11T18:00:00+01:00",
+   "vidiq_post_id": "96de76c6-6c27-40a0-8dc0-d354134b4a3f",
+   "piattaforme": [
+    "instagram",
+    "tiktok"
+   ]
   }
  ],
  "lezioni": [
