@@ -177,7 +177,7 @@
    "id": "13_uova_galleggiano",
    "tema": "Le uova vecchie galleggiano?",
    "stato": "in_preparazione",
-   "video": "media/13_uova_galleggiano/13_uova_galleggiano.mp4",
+   "video": "media/13_uova_galleggiano/13_uova_galleggiano_v2.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
    "uscita": "2026-11-13T18:00:00+01:00",
@@ -185,7 +185,7 @@
     "instagram",
     "tiktok"
    ],
-   "gancio": "reale (Kling 3.0 via Higgsfield)",
+   "gancio": "reale (Wan 3.0 480p via Higgsfield)",
    "test": "A/B gancio reale vs disegno"
   },
   {
