@@ -161,7 +161,7 @@
   {
    "id": "12_miele_non_scade",
    "tema": "Il miele non scade mai?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/12_miele_non_scade/12_miele_non_scade.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
@@ -171,12 +171,13 @@
     "tiktok"
    ],
    "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "test": "A/B gancio reale vs disegno"
+   "test": "A/B gancio reale vs disegno",
+   "vidiq_post_id": "bdc3a3ba-57cb-4bf7-9816-4d8a3d2d6cdc"
   },
   {
    "id": "13_uova_galleggiano",
    "tema": "Le uova vecchie galleggiano?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/13_uova_galleggiano/13_uova_galleggiano_v2.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
@@ -186,12 +187,13 @@
     "tiktok"
    ],
    "gancio": "reale (Wan 3.0 480p via Higgsfield)",
-   "test": "A/B gancio reale vs disegno"
+   "test": "A/B gancio reale vs disegno",
+   "vidiq_post_id": "2a6f3e03-4d97-42a2-bb3a-570e5a3de17f"
   },
   {
    "id": "14_cottura_passiva",
    "tema": "Si può cuocere la pasta a fuoco spento?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/14_cottura_passiva/14_cottura_passiva.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
@@ -201,27 +203,30 @@
     "tiktok"
    ],
    "gancio": "v2 payoff (disegno)",
-   "test": "A/B gancio reale vs disegno"
+   "test": "A/B gancio reale vs disegno",
+   "vidiq_post_id": "5032daa1-7bdf-44fc-845e-b8c59c075b67"
   },
   {
    "id": "15_pane_raffermo",
    "tema": "Il pane raffermo torna morbido in forno?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/15_pane_raffermo/15_pane_raffermo.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
-   "uscita": "2026-11-13T21:00:00+01:00",
+   "uscita": "2026-11-11T22:15:00+01:00",
    "piattaforme": [
     "instagram",
     "tiktok"
    ],
    "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "test": "A/B gancio reale vs disegno"
+   "test": "A/B gancio reale vs disegno",
+   "vidiq_post_id": "acf11830-ae49-451d-8ed0-170580d6896f",
+   "nota": "extra di oggi, anticipato da venerdì su richiesta"
   },
   {
    "id": "16_zucchero_sugo",
    "tema": "Lo zucchero toglie l'acidità al sugo?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/16_zucchero_sugo/16_zucchero_sugo.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
@@ -231,7 +236,8 @@
     "tiktok"
    ],
    "gancio": "v2 payoff (disegno)",
-   "test": "A/B gancio reale vs disegno"
+   "test": "A/B gancio reale vs disegno",
+   "vidiq_post_id": "0e78dbb3-872a-4687-a640-6d816cb5d7be"
   }
  ],
  "lezioni": [
