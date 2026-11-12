@@ -274,7 +274,7 @@
   {
    "id": "19_scongelare_acqua",
    "tema": "Scongelare in acqua fredda è più veloce che in frigo?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/19_scongelare_acqua/19_scongelare_acqua.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
@@ -283,12 +283,13 @@
     "instagram"
    ],
    "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti"
+   "formato": "serie numerata + domanda nei commenti",
+   "vidiq_post_id": "0da8bf69-011f-4cc4-aafd-dd622cf4a471"
   },
   {
    "id": "20_pentola_pressione",
    "tema": "La pentola a pressione cuoce più in fretta?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/20_pentola_pressione/20_pentola_pressione.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
@@ -297,12 +298,13 @@
     "instagram"
    ],
    "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti"
+   "formato": "serie numerata + domanda nei commenti",
+   "vidiq_post_id": "e3c486c9-2e2f-45fd-9413-f677ebcd4d4e"
   },
   {
    "id": "21_carne_asciutta",
    "tema": "Asciugare la carne fa venire la crosticina?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/21_carne_asciutta/21_carne_asciutta.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
@@ -311,12 +313,13 @@
     "instagram"
    ],
    "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti"
+   "formato": "serie numerata + domanda nei commenti",
+   "vidiq_post_id": "bc8420d6-1883-4d3a-bc14-667d32b3caea"
   },
   {
    "id": "22_riso_lavato",
    "tema": "Lavare il riso lo rende meno colloso?",
-   "stato": "in_preparazione",
+   "stato": "programmato",
    "video": "media/22_riso_lavato/22_riso_lavato.mp4",
    "voce": "Francesco (eleven_v3)",
    "camera": "automatica",
@@ -325,7 +328,8 @@
     "instagram"
    ],
    "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti"
+   "formato": "serie numerata + domanda nei commenti",
+   "vidiq_post_id": "42728014-72f5-4518-bfc9-c9122d046414"
   }
  ],
  "lezioni": [
@@ -342,6 +346,10 @@
    "data": "2026-11-12",
    "fonte": "insights IG mattina",
    "lezione": "Migliori: sale nel ghiaccio (2.439) e coperchio (2.338): VERO + trucco pratico + processo visibile + termometro. Aperture reali (Kling) ultime 3/3 con skip 52-62%: abbandonate. TikTok: 0 views pubbliche su 9 video, da verificare. Da sabato: 4/giorno distanziati, solo Instagram."
+  },
+  {
+   "data": "2026-11-12 sera",
+   "lezione": "Cucchiaino spumante: skip 18% (miti di casa che tutti praticano). Olio EVO 1.497 in 7h (FALSO pratico + termometro). Ghiaccio galleggia (curiosità pura) più debole. Profilo converte ~75% delle visite: serve portare gente al profilo."
   }
  ],
  "voce_attuale": {
@@ -350,5 +358,6 @@
   "modello": "eleven_v3",
   "dal": "2026-11-11",
   "prima": "SimoneF (scartata: suonava finta)"
- }
+ },
+ "autorizzazione": "2026-11-12: Lorenzo autorizza a programmare senza chiedere conferma; l'agente controlla ogni reel e manda i video."
 }
