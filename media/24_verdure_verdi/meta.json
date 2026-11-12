@@ -1,0 +1,34 @@
+{
+ "id": "24_verdure_verdi",
+ "titolo": "Le verdure restano verdi se le metti nel ghiaccio?",
+ "durata_s": 31.9,
+ "caratteri_voce": 483,
+ "didascalia": "Salvalo per dopo 📌 Le verdure restano verdi se dopo la cottura le metti nel ghiaccio 🥦 Il verde è la clorofilla: col calore e col tempo perde il magnesio e diventa verde oliva. Cottura breve e acqua ghiacciata fermano tutto.\n\n2-3 minuti in acqua bollente salata, 1 minuto in acqua e ghiaccio, e il limone solo alla fine (l'acido spegne il verde).\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Popular Science: shades of green (clorofilla, magnesio, feofitina)",
+   "url": "https://www.popsci.com/diy/article/2009-01/shades-green"
+  },
+  {
+   "titolo": "Blanching science: tempi e shock in acqua e ghiaccio",
+   "url": "https://123foodscience.pages.dev/cooking-science/blanching-science/"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "con calore/tempo/acido il magnesio esce dalla clorofilla -> feofitina verde oliva",
+   "esito": "confermato",
+   "fonte": "Popular Science, brevetti sulla conservazione del colore"
+  },
+  {
+   "affermazione": "sbollentatura breve + acqua e ghiaccio mantiene il verde; fagiolini ~3 min, broccoli 2-3",
+   "esito": "confermato",
+   "fonte": "123foodscience"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 27.3
+ }
+}

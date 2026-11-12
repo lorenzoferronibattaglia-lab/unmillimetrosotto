@@ -1,0 +1,39 @@
+{
+ "id": "23_uovo_sodo_verde",
+ "titolo": "Il bordo verde nel tuorlo dell'uovo sodo è normale?",
+ "durata_s": 29.2,
+ "caratteri_voce": 455,
+ "didascalia": "Salvalo per dopo 📌 Il bordo verde nel tuorlo dell'uovo sodo non è normale: vuol dire che l'hai cotto troppo 🥚 Lo zolfo dell'albume e il ferro del tuorlo formano solfuro di ferro, grigio verde. Non fa male, ma l'uovo è stracotto.\n\n10 minuti dal bollore, poi subito in acqua e ghiaccio.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Nebraska Extension: how to avoid green ring in hard boiled eggs",
+   "url": "https://food.unl.edu/how-avoid-green-ring-hard-boiled-egg-yolks/"
+  },
+  {
+   "titolo": "Museum of Science Boston: why boiled eggs turn green",
+   "url": "https://www.mos.org/video/why-boiled-eggs-turn-green"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "anello verde = solfuro di ferro da zolfo dell'albume e ferro del tuorlo, per cottura eccessiva",
+   "esito": "confermato",
+   "fonte": "Nebraska Extension"
+  },
+  {
+   "affermazione": "innocuo; si evita non stracuocendo e raffreddando subito",
+   "esito": "confermato",
+   "fonte": "Nebraska Extension, MOS"
+  },
+  {
+   "affermazione": "~10 minuti dal bollore per uovo sodo",
+   "esito": "nella forbice comune 9-12 min",
+   "fonte": "indicazioni correnti"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 6.4
+ }
+}

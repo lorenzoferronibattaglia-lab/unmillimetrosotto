@@ -1,0 +1,149 @@
+{
+ "id": "23_uovo_sodo_verde",
+ "topic": "Il bordo verde nel tuorlo dell'uovo sodo è normale?",
+ "paragraphs": [
+  {
+   "text": "Il bordo verde nel tuorlo dell'uovo sodo è normale? Falso: vuol dire che l'hai cotto troppo.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "IL BORDO VERDE",
+     "NEL TUORLO?"
+    ],
+    "prop": {
+     "appliance": "boiled_egg",
+     "thermo": {
+      "from": 90,
+      "to": 100,
+      "start": 0.0,
+      "end": 2.0,
+      "x": 300,
+      "y": 770,
+      "hot": 0.9
+     }
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Cuocendo a lungo, lo zolfo dell'albume e il ferro del tuorlo si incontrano e formano un composto grigio verde.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "ZOLFO",
+     "+ FERRO"
+    ],
+    "surface": false,
+    "heat": 0.7,
+    "water": false,
+    "bg": "#F6EFD6",
+    "layers": [
+     {
+      "kind": "fes",
+      "at": "zolfo",
+      "react_at": "incontrano"
+     }
+    ],
+    "labels": [
+     {
+      "text": "SOLFURO DI FERRO",
+      "at": "composto",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 50
+     }
+    ]
+   }
+  },
+  {
+   "text": "Non fa male, ma l'uovo è stracotto. Per un sodo perfetto bastano dieci minuti dal bollore.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "IL TEMPO",
+     "GIUSTO"
+    ],
+    "card": {
+     "main": "uovo sodo",
+     "sub": "dal bollore",
+     "at": 0.1
+    },
+    "big": {
+     "text": "10 min",
+     "at": "dieci"
+    }
+   }
+  },
+  {
+   "text": "Poi subito in acqua e ghiaccio: la cottura si ferma, e il bordo verde non si forma.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "10 MINUTI DAL BOLLORE",
+      "ok": true,
+      "at": "subito"
+     },
+     {
+      "text": "SUBITO ACQUA E GHIACCIO",
+      "ok": true,
+      "at": "ghiaccio"
+     },
+     {
+      "text": "LASCIARLO NELL'ACQUA CALDA",
+      "ok": false,
+      "at": "ferma"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Salvalo, ti servirà. E scrivi nei commenti il prossimo mito da smontare.",
+   "scene": {
+    "type": "end",
+    "line": "TI SERVIRÀ",
+    "follow_at": "Salvalo",
+    "stamp": "SALVALO!"
+   }
+  }
+ ],
+ "caption": "Salvalo per dopo 📌 Il bordo verde nel tuorlo dell'uovo sodo non è normale: vuol dire che l'hai cotto troppo 🥚 Lo zolfo dell'albume e il ferro del tuorlo formano solfuro di ferro, grigio verde. Non fa male, ma l'uovo è stracotto.\n\n10 minuti dal bollore, poi subito in acqua e ghiaccio.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Nebraska Extension: how to avoid green ring in hard boiled eggs",
+   "url": "https://food.unl.edu/how-avoid-green-ring-hard-boiled-egg-yolks/"
+  },
+  {
+   "titolo": "Museum of Science Boston: why boiled eggs turn green",
+   "url": "https://www.mos.org/video/why-boiled-eggs-turn-green"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "anello verde = solfuro di ferro da zolfo dell'albume e ferro del tuorlo, per cottura eccessiva",
+   "esito": "confermato",
+   "fonte": "Nebraska Extension"
+  },
+  {
+   "affermazione": "innocuo; si evita non stracuocendo e raffreddando subito",
+   "esito": "confermato",
+   "fonte": "Nebraska Extension, MOS"
+  },
+  {
+   "affermazione": "~10 minuti dal bollore per uovo sodo",
+   "esito": "nella forbice comune 9-12 min",
+   "fonte": "indicazioni correnti"
+  }
+ ],
+ "theme": "cucina_notte"
+}

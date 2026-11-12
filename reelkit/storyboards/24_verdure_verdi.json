@@ -1,0 +1,163 @@
+{
+ "id": "24_verdure_verdi",
+ "topic": "Le verdure restano verdi se le metti nel ghiaccio?",
+ "paragraphs": [
+  {
+   "text": "Le verdure restano verdi se dopo la cottura le metti nel ghiaccio? Vero. È tutta questione di tempo.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "VERDURE VERDI",
+     "COME AL RISTORANTE?"
+    ],
+    "prop": {
+     "appliance": "veg_pot",
+     "olive": 0.0,
+     "thermo": {
+      "from": 96,
+      "to": 100,
+      "start": 0.0,
+      "end": 1.5,
+      "x": 300,
+      "y": 770,
+      "hot": 0.9
+     }
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Il verde è la clorofilla. Col calore e col tempo perde il suo magnesio, e diventa verde oliva, spenta.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "LA CLOROFILLA",
+     "PERDE IL MAGNESIO"
+    ],
+    "surface": false,
+    "heat": 0.7,
+    "water": false,
+    "bg": "#E8F4E0",
+    "layers": [
+     {
+      "kind": "chloro",
+      "olive_at": "magnesio"
+     }
+    ],
+    "labels": [
+     {
+      "text": "VERDE OLIVA",
+      "at": "oliva",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 52
+     }
+    ]
+   }
+  },
+  {
+   "text": "Una cottura breve, e poi l'acqua ghiacciata, fermano tutto: il verde resta brillante.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "IL GHIACCIO",
+     "FERMA TUTTO"
+    ],
+    "surface": false,
+    "heat": 0.2,
+    "water": false,
+    "bg": "#E3F1FA",
+    "layers": [
+     {
+      "kind": "chloro"
+     }
+    ],
+    "thermo": {
+     "from": 100,
+     "to": 4,
+     "start": "ghiacciata",
+     "end": "tutto"
+    },
+    "labels": [
+     {
+      "text": "VERDE BRILLANTE",
+      "at": "brillante",
+      "pos": [
+       540,
+       560
+      ],
+      "size": 52,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: due o tre minuti in acqua bollente salata, poi un minuto in acqua e ghiaccio. E il limone solo alla fine.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "2-3 MINUTI NEL BOLLORE",
+      "ok": true,
+      "at": "minuti"
+     },
+     {
+      "text": "1 MINUTO ACQUA E GHIACCIO",
+      "ok": true,
+      "at": "minuto"
+     },
+     {
+      "text": "LIMONE IN COTTURA",
+      "ok": false,
+      "at": "limone"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Salvalo, ti servirà. E scrivi nei commenti il prossimo mito da smontare.",
+   "scene": {
+    "type": "end",
+    "line": "TI SERVIRÀ",
+    "follow_at": "Salvalo",
+    "stamp": "SALVALO!"
+   }
+  }
+ ],
+ "caption": "Salvalo per dopo 📌 Le verdure restano verdi se dopo la cottura le metti nel ghiaccio 🥦 Il verde è la clorofilla: col calore e col tempo perde il magnesio e diventa verde oliva. Cottura breve e acqua ghiacciata fermano tutto.\n\n2-3 minuti in acqua bollente salata, 1 minuto in acqua e ghiaccio, e il limone solo alla fine (l'acido spegne il verde).\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Popular Science: shades of green (clorofilla, magnesio, feofitina)",
+   "url": "https://www.popsci.com/diy/article/2009-01/shades-green"
+  },
+  {
+   "titolo": "Blanching science: tempi e shock in acqua e ghiaccio",
+   "url": "https://123foodscience.pages.dev/cooking-science/blanching-science/"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "con calore/tempo/acido il magnesio esce dalla clorofilla -> feofitina verde oliva",
+   "esito": "confermato",
+   "fonte": "Popular Science, brevetti sulla conservazione del colore"
+  },
+  {
+   "affermazione": "sbollentatura breve + acqua e ghiaccio mantiene il verde; fagiolini ~3 min, broccoli 2-3",
+   "esito": "confermato",
+   "fonte": "123foodscience"
+  }
+ ],
+ "theme": "cucina_notte"
+}

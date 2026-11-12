@@ -131,8 +131,29 @@ def hook(cr, t, ctx, par, spec):
     if spec.get("stamp", {}).get("color") == "green":
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
-                               "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl"):
-        if pr["appliance"] == "thaw_bowl":
+                               "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot"):
+        if pr["appliance"] == "boiled_egg":
+            P.egg_section(cr, 540, 1060, air=0.06, rx=200, ry=262, green=E.ease(E.prog(t, s + 0.2, s + 2.0)), cooked=True)
+        elif pr["appliance"] == "veg_pot":
+            ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=860, w=560, h=380)
+            rnd = random.Random(23)
+            fade = E.ease(E.prog(t, s + 0.5, s + 4.0)) * pr.get("olive", 0.0)
+            for j in range(14):
+                bx = rnd.uniform(ix0 + 50, ix1 - 50)
+                by = rnd.uniform(surf + 40, bot - 40) + 8 * math.sin(t * 2 + j)
+                cr.save()
+                cr.translate(bx, by)
+                cr.rotate(rnd.uniform(-0.8, 0.8))
+                E.rounded_rect(cr, -55, -11, 110, 22, 11)
+                cr.restore()
+                col = tuple(E.lerp(a, b, fade) for a, b in zip(P.CHLORO, P.OLIVE))
+                cr.set_source_rgb(*col)
+                cr.fill_preserve()
+                cr.set_source_rgb(*E.INK)
+                cr.set_line_width(4)
+                cr.stroke()
+            P.pot_rim(cr, 540, 860, 560)
+        elif pr["appliance"] == "thaw_bowl":
             P.glass_of(cr, 540, 1360, liquid=(0.55, 0.78, 0.97), fill=0.78, t=t, scale=1.45)
             P.frozen_bag(cr, 540 + 6 * math.sin(t * 1.3), 1360 - 290 + 8 * math.sin(t * 1.7), w=300, h=190,
                          frost=1 - 0.7 * E.ease(E.clamp((t - s) / 5.0)), angle=0.05 * math.sin(t))
@@ -530,6 +551,41 @@ def lens(cr, t, ctx, par, spec):
                 else:
                     oy = E.lerp(cy - r + 40, band_y + 10, min(1.0, ph * 1.3))
                 P.o2(cr, ox + 10 * math.sin(t * 2 + j), oy, 0.9, angle=0.6 * math.sin(t + j), alpha=min(1.0, (t - to) * 2))
+
+    # zolfo (albume) + ferro (tuorlo) che, con react_at, si uniscono in solfuro di ferro verdastro
+    fes = layers.get("fes")
+    if fes:
+        ts0 = ctx.at(par, fes.get("at", 0.0))
+        tr = ctx.at(par, fes["react_at"]) if fes.get("react_at") is not None else None
+        rnd = random.Random(161)
+        for j in range(7):
+            x0 = cx - r + 90 + j * (2 * r - 180) / 6
+            ys, yf = cy - 200 + rnd.uniform(-20, 20), cy + 200 + rnd.uniform(-20, 20)
+            a = E.ease(E.prog(t, ts0 + j * 0.06, ts0 + 0.4 + j * 0.06))
+            k = E.ease(E.prog(t, tr + j * 0.12, tr + 1.2 + j * 0.12)) if tr is not None else 0.0
+            ym = cy + 40 * math.sin(j)
+            sx, sy = x0 - 18 * k + 6 * math.sin(t * 2 + j), E.lerp(ys, ym, k)
+            fx, fy = x0 + 18 * k + 6 * math.cos(t * 2 + j), E.lerp(yf, ym, k)
+            if a <= 0:
+                continue
+            if k > 0.95:
+                E.circle(cr, x0, ym, 40, (0.42, 0.50, 0.30), lw=0, alpha=0.6 * a)
+            P.atom_tag(cr, sx, sy, "S", (0.98, 0.86, 0.25), alpha=a)
+            P.atom_tag(cr, fx, fy, "Fe", (0.72, 0.38, 0.20), alpha=a)
+
+    # clorofilla: verde brillante; con olive_at perde il magnesio e diventa verde oliva
+    chl = layers.get("chloro")
+    if chl:
+        to = ctx.at(par, chl["olive_at"]) if chl.get("olive_at") is not None else None
+        rnd = random.Random(171)
+        for j in range(chl.get("n", 9)):
+            px = cx - 210 + (j % 3) * 210 + rnd.uniform(-20, 20)
+            py = cy - 200 + (j // 3) * 200 + rnd.uniform(-15, 15)
+            ko = E.ease(E.prog(t, to + j * 0.12, to + 1.4 + j * 0.12)) if to is not None else 0.0
+            P.chlorophyll(cr, px + 6 * math.sin(t * 2 + j), py + 6 * math.cos(t * 1.7 + j), k_olive=ko, scale=1.4)
+            if to is not None and 0.2 < ko < 0.98:
+                mk = E.prog(t, to + j * 0.12 + 0.4, to + j * 0.12 + 1.6)
+                P.atom_tag(cr, px + mk * 120, py - mk * 160, "Mg", (0.80, 0.85, 0.90), r=18, alpha=1 - mk)
 
     # ghiaccio: reticolo ordinato nella meta' alta della lente; con "melt_at" si smonta dal basso
     ice = layers.get("ice")

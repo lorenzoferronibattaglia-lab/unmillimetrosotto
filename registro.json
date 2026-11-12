@@ -330,6 +330,32 @@
    "gancio": "v2 payoff (disegno) + termometro",
    "formato": "serie numerata + domanda nei commenti",
    "vidiq_post_id": "42728014-72f5-4518-bfc9-c9122d046414"
+  },
+  {
+   "id": "23_uovo_sodo_verde",
+   "tema": "Il bordo verde nel tuorlo dell'uovo sodo è normale?",
+   "stato": "in_preparazione",
+   "video": "media/23_uovo_sodo_verde/23_uovo_sodo_verde.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "uscita": "2026-11-13T21:30:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
+   "nota": "quinto reel extra richiesto da Lorenzo per ven e sab"
+  },
+  {
+   "id": "24_verdure_verdi",
+   "tema": "Le verdure restano verdi se le metti nel ghiaccio?",
+   "stato": "in_preparazione",
+   "video": "media/24_verdure_verdi/24_verdure_verdi.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "uscita": "2026-11-14T11:00:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
+   "nota": "quinto reel extra richiesto da Lorenzo per ven e sab"
   }
  ],
  "lezioni": [

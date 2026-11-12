@@ -894,7 +894,7 @@ def egg_whole(cr, x, y, scale=1.0, angle=0.0, rx=50, ry=66):
     cr.restore()
 
 
-def egg_section(cr, cx, cy, air=0.08, rx=230, ry=300):
+def egg_section(cr, cx, cy, air=0.08, rx=230, ry=300, green=0.0, cooked=False):
     """Uovo in sezione, parte larga in alto: guscio, albume, tuorlo, camera d'aria (air = frazione dell'altezza)."""
     cr.save()
     cr.translate(cx, cy)
@@ -916,7 +916,9 @@ def egg_section(cr, cx, cy, air=0.08, rx=230, ry=300):
     cr.set_line_width(4)
     cr.stroke()
     cr.restore()
-    E.circle(cr, 0, ry * 0.18, rx * 0.46, EGG_YOLK, lw=5)
+    if green > 0:
+        E.circle(cr, 0, ry * 0.18, rx * 0.46 + 16, (0.42, 0.50, 0.30), lw=0, alpha=green)
+    E.circle(cr, 0, ry * 0.18, rx * 0.46, (1.0, 0.82, 0.35) if cooked else EGG_YOLK, lw=5)
     _egg_path(cr, rx, ry)
     cr.set_source_rgb(*EGG_SHELL)
     cr.set_line_width(22)
@@ -1063,3 +1065,28 @@ def steak(cr, x, y, w=380, h=110, brown=0.0, wet=0.0, t=0.0):
         for i in range(9):
             px = x - w / 2 + 40 + i * (w - 80) / 8
             E.circle(cr, px, y - h - 6 + 2 * math.sin(t * 4 + i), 10, (0.70, 0.88, 1.0), lw=3, alpha=wet)
+
+
+CHLORO = (0.20, 0.72, 0.28)
+OLIVE = (0.55, 0.55, 0.22)
+
+
+def chlorophyll(cr, x, y, k_olive=0.0, scale=1.0, alpha=1.0):
+    """Clorofilla stilizzata: anello verde con Mg al centro; k_olive>0 perde il Mg e diventa verde oliva."""
+    col = tuple(E.lerp(a, b, k_olive) for a, b in zip(CHLORO, OLIVE))
+    cr.save()
+    cr.translate(x, y)
+    cr.scale(scale, scale)
+    for i in range(4):
+        a = i * math.pi / 2 + math.pi / 4
+        E.circle(cr, 26 * math.cos(a), 26 * math.sin(a), 14, col, lw=4, alpha=alpha)
+    E.circle(cr, 0, 0, 30, col, lw=5, alpha=alpha)
+    if k_olive < 0.95:
+        E.circle(cr, 0, 0, 13, (0.80, 0.85, 0.90), lw=3, alpha=alpha * (1 - k_olive))
+        E.outlined_text(cr, "Mg", 0, 6, 16, fill=E.INK, lw=0, alpha=alpha * (1 - k_olive))
+    cr.restore()
+
+
+def atom_tag(cr, x, y, text, col, r=24, alpha=1.0):
+    E.circle(cr, x, y, r, col, lw=4, alpha=alpha)
+    E.outlined_text(cr, text, x, y + r * 0.38, r * 0.95, fill=E.WHITE if sum(col) < 2.0 else E.INK, lw=0, alpha=alpha)
