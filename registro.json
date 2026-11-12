@@ -270,6 +270,62 @@
    "gancio": "reale (Kling 3.0 via Higgsfield)",
    "nota": "extra di oggi",
    "vidiq_post_id": "fec08e50-a713-468c-8c9c-516558f2f4b4"
+  },
+  {
+   "id": "19_scongelare_acqua",
+   "tema": "Scongelare in acqua fredda è più veloce che in frigo?",
+   "stato": "in_preparazione",
+   "video": "media/19_scongelare_acqua/19_scongelare_acqua.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-14T13:00:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "gancio": "v2 payoff (disegno) + termometro",
+   "formato": "serie numerata + domanda nei commenti"
+  },
+  {
+   "id": "20_pentola_pressione",
+   "tema": "La pentola a pressione cuoce più in fretta?",
+   "stato": "in_preparazione",
+   "video": "media/20_pentola_pressione/20_pentola_pressione.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-14T15:30:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "gancio": "v2 payoff (disegno) + termometro",
+   "formato": "serie numerata + domanda nei commenti"
+  },
+  {
+   "id": "21_carne_asciutta",
+   "tema": "Asciugare la carne fa venire la crosticina?",
+   "stato": "in_preparazione",
+   "video": "media/21_carne_asciutta/21_carne_asciutta.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-14T18:30:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "gancio": "v2 payoff (disegno) + termometro",
+   "formato": "serie numerata + domanda nei commenti"
+  },
+  {
+   "id": "22_riso_lavato",
+   "tema": "Lavare il riso lo rende meno colloso?",
+   "stato": "in_preparazione",
+   "video": "media/22_riso_lavato/22_riso_lavato.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "camera": "automatica",
+   "uscita": "2026-11-14T21:00:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "gancio": "v2 payoff (disegno) + termometro",
+   "formato": "serie numerata + domanda nei commenti"
   }
  ],
  "lezioni": [
@@ -281,6 +337,11 @@
   {
    "data": "2026-11-11",
    "lezione": "camera dinamica (stacchi e zoom sugli eventi) come costruttore.spiega; testi <= 650 caratteri per stare sotto i 45 s"
+  },
+  {
+   "data": "2026-11-12",
+   "fonte": "insights IG mattina",
+   "lezione": "Migliori: sale nel ghiaccio (2.439) e coperchio (2.338): VERO + trucco pratico + processo visibile + termometro. Aperture reali (Kling) ultime 3/3 con skip 52-62%: abbandonate. TikTok: 0 views pubbliche su 9 video, da verificare. Da sabato: 4/giorno distanziati, solo Instagram."
   }
  ],
  "voce_attuale": {

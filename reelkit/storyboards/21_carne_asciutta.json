@@ -1,0 +1,164 @@
+{
+ "id": "21_carne_asciutta",
+ "topic": "Asciugare la carne fa venire la crosticina?",
+ "paragraphs": [
+  {
+   "text": "Asciugare la carne prima di cuocerla fa venire la crosticina? Vero. E c'entra un limite di cento gradi.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "ASCIUGARE LA CARNE",
+     "FA LA CROSTICINA?"
+    ],
+    "prop": {
+     "appliance": "steak_pan",
+     "thermo": {
+      "from": 20,
+      "to": 100,
+      "start": 0.0,
+      "end": "cento",
+      "x": 300,
+      "y": 770,
+      "hot": 0.8
+     }
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Finché sulla carne c'è acqua, la superficie resta ferma a cento gradi: il calore se ne va tutto per farla evaporare.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "FERMA A",
+     "100 GRADI"
+    ],
+    "surface": false,
+    "heat": 0.8,
+    "layers": [
+     {
+      "kind": "apple",
+      "flesh": "#C9605A"
+     }
+    ],
+    "thermo": {
+     "from": 100,
+     "to": 100,
+     "start": 0.0,
+     "end": 1.0
+    },
+    "labels": [
+     {
+      "text": "L'ACQUA EVAPORA",
+      "at": "evaporare",
+      "pos": [
+       540,
+       560
+      ],
+      "size": 48,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Se è asciutta, supera i centoquaranta gradi: parte la reazione di Maillard, e si forma la crosticina.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "ARRIVA LA",
+     "CROSTICINA"
+    ],
+    "surface": false,
+    "heat": 0.9,
+    "water": false,
+    "bg": "#F4D8B6",
+    "layers": [
+     {
+      "kind": "apple",
+      "flesh": "#C9605A",
+      "brown_at": "Maillard"
+     }
+    ],
+    "thermo": {
+     "from": 100,
+     "to": 150,
+     "start": 0.0,
+     "end": "centoquaranta"
+    },
+    "labels": [
+     {
+      "text": "MAILLARD",
+      "at": "Maillard",
+      "pos": [
+       540,
+       560
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: tamponala con la carta da cucina, padella ben calda, e non girarla subito.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "TAMPONA CON LA CARTA",
+      "ok": true,
+      "at": "tamponala"
+     },
+     {
+      "text": "PADELLA BEN CALDA",
+      "ok": true,
+      "at": "padella"
+     },
+     {
+      "text": "GIRARLA SUBITO",
+      "ok": false,
+      "at": "girarla"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quale mito vuoi che smontiamo? Scrivilo nei commenti.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Scrivilo",
+    "stamp": "IL TUO MITO?"
+   }
+  }
+ ],
+ "caption": "Vero o falso #21 · Asciugare la carne fa venire la crosticina 🥩 Finché c'è acqua la superficie resta a 100 °C. Asciutta supera i 140 °C, parte la reazione di Maillard e si forma la crosta.\n\nTamponala con la carta, padella ben calda, e non girarla subito.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Maillard reaction (accelera sopra ~140 °C)",
+   "url": "https://en.wikipedia.org/wiki/Maillard_reaction"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "superficie bagnata limitata a ~100 °C dall'evaporazione",
+   "esito": "confermato",
+   "fonte": "fisica dell'evaporazione"
+  },
+  {
+   "affermazione": "Maillard rapida sopra ~140 °C",
+   "esito": "confermato",
+   "fonte": "chimica degli alimenti"
+  }
+ ],
+ "theme": "cucina_notte"
+}

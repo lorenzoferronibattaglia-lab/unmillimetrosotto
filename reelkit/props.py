@@ -976,3 +976,90 @@ def o2(cr, x, y, scale=1.0, angle=0.0, alpha=1.0):
     for sx in (-1, 1):
         E.circle(cr, sx * 15, 0, 20, (0.93, 0.30, 0.30), lw=4, alpha=alpha)
     cr.restore()
+
+
+def frozen_bag(cr, x, y, w=300, h=190, frost=1.0, angle=0.0):
+    """Sacchetto gelo con dentro un pezzo di carne congelata (brina = frost)."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    E.rounded_rect(cr, -w / 2, -h / 2, w, h, 26)
+    cr.set_source_rgba(0.92, 0.96, 1.0, 0.85)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    E.rounded_rect(cr, -w / 2 + 30, -h / 2 + 30, w - 60, h - 60, 30)
+    cr.set_source_rgb(0.78, 0.36, 0.36)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(4)
+    cr.stroke()
+    if frost > 0:
+        rnd = random.Random(7)
+        for _ in range(40):
+            E.circle(cr, rnd.uniform(-w / 2 + 12, w / 2 - 12), rnd.uniform(-h / 2 + 12, h / 2 - 12), rnd.uniform(3, 8), (1, 1, 1), lw=0, alpha=0.8 * frost)
+    E.rounded_rect(cr, -w / 2 - 6, -h / 2 - 14, w + 12, 22, 8)
+    cr.set_source_rgb(0.30, 0.55, 0.95)
+    cr.fill()
+    cr.restore()
+
+
+def pressure_lid(cr, cx, y, w, t=0.0, jet=1.0):
+    """Coperchio della pentola a pressione: piatto, chiuso, con valvola e getto di vapore."""
+    E.rounded_rect(cr, cx - w / 2 - 20, y - 34, w + 40, 40, 14)
+    cr.set_source_rgb(*E.STEEL)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    E.rounded_rect(cr, cx + w / 2 - 20, y - 30, 170, 30, 12)
+    cr.set_source_rgb(0.15, 0.15, 0.18)
+    cr.fill()
+    E.rounded_rect(cr, cx - 26, y - 92, 52, 60, 12)
+    cr.set_source_rgb(*E.STEEL_DARK)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.stroke()
+    if jet > 0:
+        for i in range(6):
+            ph = (t * 1.6 + i / 6) % 1.0
+            E.circle(cr, cx + 12 * math.sin(t * 7 + i), y - 100 - ph * 220, 14 + 26 * ph, (1, 1, 1), lw=0, alpha=0.65 * (1 - ph) * jet)
+
+
+def frying_pan(cr, cx, y, w=640):
+    """Padella vista di lato: fondo spesso, manico a destra. y = fondo interno."""
+    E.rounded_rect(cr, cx + w / 2 - 10, y - 40, 260, 34, 16)
+    cr.set_source_rgb(0.18, 0.18, 0.20)
+    cr.fill()
+    cr.move_to(cx - w / 2, y - 60)
+    cr.line_to(cx - w / 2 + 30, y + 20)
+    cr.line_to(cx + w / 2 - 30, y + 20)
+    cr.line_to(cx + w / 2, y - 60)
+    cr.set_source_rgb(0.22, 0.23, 0.26)
+    cr.set_line_width(22)
+    cr.stroke()
+
+
+def steak(cr, x, y, w=380, h=110, brown=0.0, wet=0.0, t=0.0):
+    """Bistecca di lato; brown = crosticina sul fondo, wet = goccioline d'acqua in superficie."""
+    E.rounded_rect(cr, x - w / 2, y - h, w, h, 40)
+    cr.set_source_rgb(0.80, 0.33, 0.33)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    cr.move_to(x - w / 2 + 40, y - h * 0.55)
+    cr.curve_to(x - 40, y - h * 0.8, x + 40, y - h * 0.3, x + w / 2 - 40, y - h * 0.55)
+    cr.set_source_rgba(1, 0.9, 0.85, 0.7)
+    cr.set_line_width(10)
+    cr.stroke()
+    if brown > 0:
+        E.rounded_rect(cr, x - w / 2 + 4, y - 26, w - 8, 24, 12)
+        cr.set_source_rgba(0.40, 0.20, 0.08, 0.9 * brown)
+        cr.fill()
+    if wet > 0:
+        rnd = random.Random(3)
+        for i in range(9):
+            px = x - w / 2 + 40 + i * (w - 80) / 8
+            E.circle(cr, px, y - h - 6 + 2 * math.sin(t * 4 + i), 10, (0.70, 0.88, 1.0), lw=3, alpha=wet)

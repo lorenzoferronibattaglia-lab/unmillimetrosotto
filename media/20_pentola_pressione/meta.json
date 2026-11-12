@@ -1,0 +1,30 @@
+{
+ "id": "20_pentola_pressione",
+ "titolo": "La pentola a pressione cuoce più in fretta?",
+ "durata_s": 28.2,
+ "caratteri_voce": 436,
+ "didascalia": "Vero o falso #20 · La pentola a pressione cuoce più in fretta ⏱️ Il vapore non può uscire, la pressione sale e l'acqua bolle a circa 120 °C invece di 100: i cibi cuociono in molto meno tempo.\n\nGuarnizione pulita, mai piena oltre i 2/3, e aprila solo quando la pressione è scesa.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Pressure cooking: ~1 bar sopra l'atmosfera, ebollizione ~120 °C",
+   "url": "https://en.wikipedia.org/wiki/Pressure_cooking"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "ebollizione ~120 °C in pentola a pressione",
+   "esito": "confermato (~1 bar relativo)",
+   "fonte": "Wikipedia/manuali"
+  },
+  {
+   "affermazione": "max 2/3, non aprire sotto pressione",
+   "esito": "confermato (indicazioni dei produttori)",
+   "fonte": "manuali d'uso"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 0,
+  "istante_s": 0
+ }
+}

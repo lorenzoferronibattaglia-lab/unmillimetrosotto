@@ -1,0 +1,143 @@
+{
+ "id": "19_scongelare_acqua",
+ "topic": "Scongelare in acqua fredda è più veloce che in frigo?",
+ "paragraphs": [
+  {
+   "text": "Scongelare in acqua fredda è più veloce che in frigo? Vero, e di parecchio.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "SCONGELARE",
+     "IN ACQUA FREDDA?"
+    ],
+    "prop": {
+     "appliance": "thaw_bowl",
+     "thermo": {
+      "from": -18,
+      "to": -2,
+      "start": 0.0,
+      "end": 3.5,
+      "x": 300,
+      "y": 770,
+      "hot": 0.0
+     }
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "L'acqua trasmette il calore più di venti volte meglio dell'aria.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "ACQUA",
+     "CONTRO ARIA"
+    ],
+    "card": {
+     "main": "calore trasmesso",
+     "sub": "acqua vs aria",
+     "at": 0.1
+    },
+    "big": {
+     "text": "×20",
+     "at": "venti"
+    }
+   }
+  },
+  {
+   "text": "Le sue molecole sono fitte e urtano di continuo il ghiaccio: gli cedono calore, e il ghiaccio si scioglie in fretta.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "URTI",
+     "CONTINUI"
+    ],
+    "surface": false,
+    "heat": 0.6,
+    "layers": [
+     {
+      "kind": "ice",
+      "melt_at": "scioglie"
+     }
+    ],
+    "labels": [
+     {
+      "text": "CEDONO CALORE",
+      "at": "cedono",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 52,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: sacchetto ben chiuso, acqua fredda cambiata ogni mezz'ora. E mai sul tavolo.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "SACCHETTO CHIUSO",
+      "ok": true,
+      "at": "sacchetto"
+     },
+     {
+      "text": "ACQUA NUOVA OGNI 30 MIN",
+      "ok": true,
+      "at": "cambiata"
+     },
+     {
+      "text": "SUL TAVOLO",
+      "ok": false,
+      "at": "tavolo"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quale mito vuoi che smontiamo? Scrivilo nei commenti.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Scrivilo",
+    "stamp": "IL TUO MITO?"
+   }
+  }
+ ],
+ "caption": "Vero o falso #19 · Scongelare in acqua fredda è molto più veloce che in frigo 🧊 L'acqua trasmette il calore più di 20 volte meglio dell'aria: le sue molecole urtano di continuo il ghiaccio e lo sciolgono in fretta.\n\nSacchetto ben chiuso, acqua fredda cambiata ogni 30 minuti, mai sul tavolo.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "USDA – The Big Thaw: safe defrosting methods (cold water, change every 30 min)",
+   "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/big-thaw-safe-defrosting-methods"
+  },
+  {
+   "titolo": "Conducibilità termica acqua ~0,6 W/mK, aria ~0,026 W/mK",
+   "url": "https://en.wikipedia.org/wiki/Thermal_conductivity"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "acqua conduce >20 volte meglio dell'aria",
+   "esito": "confermato (~23x)",
+   "fonte": "dati di conducibilità"
+  },
+  {
+   "affermazione": "acqua fredda, sacchetto chiuso, cambio ogni 30 min, mai a temperatura ambiente",
+   "esito": "confermato",
+   "fonte": "USDA"
+  }
+ ],
+ "theme": "cucina_notte"
+}

@@ -130,8 +130,43 @@ def hook(cr, t, ctx, par, spec):
     stamp_col = None
     if spec.get("stamp", {}).get("color") == "green":
         stamp_col = P.GREEN_OK
-    if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2"):
-        if pr["appliance"] == "water_glass_ice":
+    if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
+                               "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl"):
+        if pr["appliance"] == "thaw_bowl":
+            P.glass_of(cr, 540, 1360, liquid=(0.55, 0.78, 0.97), fill=0.78, t=t, scale=1.45)
+            P.frozen_bag(cr, 540 + 6 * math.sin(t * 1.3), 1360 - 290 + 8 * math.sin(t * 1.7), w=300, h=190,
+                         frost=1 - 0.7 * E.ease(E.clamp((t - s) / 5.0)), angle=0.05 * math.sin(t))
+            P.glass_of(cr, 540, 1360, liquid=(0.55, 0.78, 0.97), fill=0.0, t=t, scale=1.45)
+        elif pr["appliance"] == "pressure_pot":
+            P.kitchen_pot(cr, t, top=860, w=560, h=380)
+            P.pressure_lid(cr, 540, 860, 560, t=t)
+        elif pr["appliance"] == "steak_pan":
+            P.stove(cr, 540, 1275, 620)
+            P.flames(cr, 540, 1275, 420, t)
+            P.frying_pan(cr, 540, 1220)
+            P.steak(cr, 540, 1225, brown=E.ease(E.prog(t, s + 0.5, s + 4.0)), wet=1 - E.ease(E.prog(t, s, s + 2.0)), t=t)
+            P.steam(cr, 470, 1080, t, n=3, alpha=0.4 * (1 - E.ease(E.prog(t, s, s + 2.5))), spread=160)
+        elif pr["appliance"] == "rice_bowl":
+            P.glass_of(cr, 540, 1360, liquid=(0.93, 0.94, 0.96), fill=0.62, t=t, scale=1.45)
+            rnd = random.Random(17)
+            for j in range(70):
+                gx = 540 + rnd.uniform(-150, 150)
+                gy = 1360 - 14 - rnd.uniform(0, 70)
+                cr.save()
+                cr.translate(gx, gy)
+                cr.rotate(rnd.uniform(0, math.pi))
+                cr.scale(1, 0.45)
+                cr.arc(0, 0, 16, 0, 2 * math.pi)
+                cr.restore()
+                cr.set_source_rgb(1, 1, 0.97)
+                cr.fill_preserve()
+                cr.set_source_rgba(*E.INK, 0.6)
+                cr.set_line_width(2)
+                cr.stroke()
+            for j in range(18):
+                ph = (t * 0.25 + j / 18) % 1.0
+                E.circle(cr, 540 + rnd.uniform(-160, 160) + 10 * math.sin(t + j), 1360 - 60 - ph * 220, 10 + 10 * ph, (1, 1, 1), lw=0, alpha=0.45 * (1 - ph))
+        elif pr["appliance"] == "water_glass_ice":
             P.glass_of(cr, 540, 1320, fill=0.62, t=t, ice=4, scale=1.1)
         elif pr["appliance"] == "bottle_spoon":
             P.glass_of(cr, 330, 1330, liquid=(0.97, 0.90, 0.55), fill=0.55, t=t, scale=0.7, bubbles=True)
@@ -458,7 +493,8 @@ def lens(cr, t, ctx, par, spec):
         tb = ctx.at(par, ap["brown_at"]) if ap.get("brown_at") is not None else None
         tl = ctx.at(par, ap["lemon_at"]) if ap.get("lemon_at") is not None else None
         E.rounded_rect(cr, cx - r - 40, band_y, 2 * r + 80, 260, 30)
-        cr.set_source_rgb(0.98, 0.95, 0.80)
+        fl = ap.get("flesh")
+        cr.set_source_rgb(*((int(fl[1:3], 16) / 255, int(fl[3:5], 16) / 255, int(fl[5:7], 16) / 255) if fl else (0.98, 0.95, 0.80)))
         cr.fill_preserve()
         cr.set_source_rgb(0.80, 0.72, 0.45)
         cr.set_line_width(6)
@@ -604,6 +640,8 @@ def lens(cr, t, ctx, par, spec):
             E.rounded_rect(cr, cx - r - 40, pasta_y - 45 + (1 - pp) * 300, 2 * r + 80, 90, 45)
             rod_col = (0.35, 0.70, 0.30) if pasta.get("veg") else P.PASTA
             rod_dark = (0.20, 0.45, 0.18) if pasta.get("veg") else P.PASTA_DARK
+            if pasta.get("rice"):
+                rod_col, rod_dark = (0.99, 0.98, 0.93), (0.75, 0.72, 0.60)
             cr.set_source_rgb(*rod_col)
             cr.fill_preserve()
             cr.set_source_rgb(*rod_dark)
@@ -622,8 +660,13 @@ def lens(cr, t, ctx, par, spec):
             gx = cx - r + 40 + j * (2 * r - 80) / 15 + rnd.uniform(-10, 10)
             gy = pasta_y - 40 - E.ease(k) * rnd.uniform(30, 90)
             swell = E.ease(E.prog(t, tg, tg + 1.2))
-            P.starch_grain(cr, gx, gy, 9 + 14 * swell)
+            wash = E.ease(E.prog(t, ctx.at(par, st["wash_at"]) + j * 0.05, ctx.at(par, st["wash_at"]) + 1.2 + j * 0.05)) if st.get("wash_at") else 0.0
+            if wash >= 0.99:
+                continue
+            P.starch_grain(cr, gx + wash * 60 * math.sin(j), gy - wash * 420, (9 + 14 * swell), alpha=1 - wash)
         swell = E.ease(E.prog(t, tg, tg + 1.2))
+        if st.get("wash_at"):
+            swell *= 1 - E.ease(E.prog(t, ctx.at(par, st["wash_at"]), ctx.at(par, st["wash_at"]) + 1.0))
         if swell > 0:
             E.rounded_rect(cr, cx - r - 40, pasta_y - 70, 2 * r + 80, 40, 20)
             cr.set_source_rgba(*P.STARCH, 0.55 * swell)

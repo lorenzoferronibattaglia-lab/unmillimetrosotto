@@ -1,0 +1,30 @@
+{
+ "id": "22_riso_lavato",
+ "titolo": "Lavare il riso lo rende meno colloso?",
+ "durata_s": 24.7,
+ "caratteri_voce": 389,
+ "didascalia": "Vero o falso #22 · Lavare il riso lo rende meno colloso 🍚 Sui chicchi c'è una polvere di amido che in cottura si gonfia e li incolla. Sciacquandolo la togli e restano separati.\n\nLavalo finché l'acqua è quasi limpida. Ma per il risotto no: lì l'amido serve per la cremosità.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Rinsing rice removes surface starch",
+   "url": "https://en.wikipedia.org/wiki/Rice#Preparation"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "il lavaggio toglie amido superficiale e riduce la collosità",
+   "esito": "confermato",
+   "fonte": "scienza della cottura del riso"
+  },
+  {
+   "affermazione": "il risotto si fa con riso non lavato",
+   "esito": "confermato (amido per la mantecatura)",
+   "fonte": "tecnica culinaria"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 21.8
+ }
+}

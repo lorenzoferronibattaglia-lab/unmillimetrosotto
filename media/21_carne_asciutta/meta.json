@@ -1,0 +1,30 @@
+{
+ "id": "21_carne_asciutta",
+ "titolo": "Asciugare la carne fa venire la crosticina?",
+ "durata_s": 28.5,
+ "caratteri_voce": 466,
+ "didascalia": "Vero o falso #21 · Asciugare la carne fa venire la crosticina 🥩 Finché c'è acqua la superficie resta a 100 °C. Asciutta supera i 140 °C, parte la reazione di Maillard e si forma la crosta.\n\nTamponala con la carta, padella ben calda, e non girarla subito.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Maillard reaction (accelera sopra ~140 °C)",
+   "url": "https://en.wikipedia.org/wiki/Maillard_reaction"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "superficie bagnata limitata a ~100 °C dall'evaporazione",
+   "esito": "confermato",
+   "fonte": "fisica dell'evaporazione"
+  },
+  {
+   "affermazione": "Maillard rapida sopra ~140 °C",
+   "esito": "confermato",
+   "fonte": "chimica degli alimenti"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 25.7
+ }
+}

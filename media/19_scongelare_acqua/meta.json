@@ -1,0 +1,34 @@
+{
+ "id": "19_scongelare_acqua",
+ "titolo": "Scongelare in acqua fredda è più veloce che in frigo?",
+ "durata_s": 24.4,
+ "caratteri_voce": 403,
+ "didascalia": "Vero o falso #19 · Scongelare in acqua fredda è molto più veloce che in frigo 🧊 L'acqua trasmette il calore più di 20 volte meglio dell'aria: le sue molecole urtano di continuo il ghiaccio e lo sciolgono in fretta.\n\nSacchetto ben chiuso, acqua fredda cambiata ogni 30 minuti, mai sul tavolo.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "USDA – The Big Thaw: safe defrosting methods (cold water, change every 30 min)",
+   "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/big-thaw-safe-defrosting-methods"
+  },
+  {
+   "titolo": "Conducibilità termica acqua ~0,6 W/mK, aria ~0,026 W/mK",
+   "url": "https://en.wikipedia.org/wiki/Thermal_conductivity"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "acqua conduce >20 volte meglio dell'aria",
+   "esito": "confermato (~23x)",
+   "fonte": "dati di conducibilità"
+  },
+  {
+   "affermazione": "acqua fredda, sacchetto chiuso, cambio ogni 30 min, mai a temperatura ambiente",
+   "esito": "confermato",
+   "fonte": "USDA"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 21.7
+ }
+}

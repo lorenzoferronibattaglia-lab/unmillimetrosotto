@@ -1,0 +1,141 @@
+{
+ "id": "20_pentola_pressione",
+ "topic": "La pentola a pressione cuoce più in fretta?",
+ "paragraphs": [
+  {
+   "text": "La pentola a pressione cuoce più in fretta? Vero. Perché lì dentro l'acqua bolle a centoventi gradi.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "PENTOLA A PRESSIONE:",
+     "CUOCE PRIMA?"
+    ],
+    "prop": {
+     "appliance": "pressure_pot",
+     "thermo": {
+      "from": 100,
+      "to": 120,
+      "start": 0.0,
+      "end": "gradi",
+      "x": 300,
+      "y": 770,
+      "hot": 1.0
+     }
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Il vapore non può uscire: la pressione sale, e per bollire l'acqua deve arrivare molto più in alto.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "IL VAPORE",
+     "RESTA DENTRO"
+    ],
+    "heat": 0.9,
+    "layers": [
+     {
+      "kind": "escape",
+      "at": "vapore"
+     },
+     {
+      "kind": "lid",
+      "at": 0.0
+     }
+    ],
+    "labels": [
+     {
+      "text": "PRESSIONE",
+      "at": "pressione",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Così arriva a circa centoventi gradi, e i cibi cuociono in molto meno tempo.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "L'ACQUA",
+     "BOLLE A..."
+    ],
+    "card": {
+     "main": "ebollizione",
+     "sub": "in pentola a pressione",
+     "at": 0.1
+    },
+    "big": {
+     "text": "~120 °C",
+     "at": "centoventi"
+    }
+   }
+  },
+  {
+   "text": "Il trucco: guarnizione pulita, mai piena oltre due terzi, e aprila solo quando la pressione è scesa.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "GUARNIZIONE PULITA",
+      "ok": true,
+      "at": "guarnizione"
+     },
+     {
+      "text": "MAX 2/3 PIENA",
+      "ok": true,
+      "at": "terzi"
+     },
+     {
+      "text": "APRIRLA SOTTO PRESSIONE",
+      "ok": false,
+      "at": "aprila"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quale mito vuoi che smontiamo? Scrivilo nei commenti.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Scrivilo",
+    "stamp": "IL TUO MITO?"
+   }
+  }
+ ],
+ "caption": "Vero o falso #20 · La pentola a pressione cuoce più in fretta ⏱️ Il vapore non può uscire, la pressione sale e l'acqua bolle a circa 120 °C invece di 100: i cibi cuociono in molto meno tempo.\n\nGuarnizione pulita, mai piena oltre i 2/3, e aprila solo quando la pressione è scesa.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Pressure cooking: ~1 bar sopra l'atmosfera, ebollizione ~120 °C",
+   "url": "https://en.wikipedia.org/wiki/Pressure_cooking"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "ebollizione ~120 °C in pentola a pressione",
+   "esito": "confermato (~1 bar relativo)",
+   "fonte": "Wikipedia/manuali"
+  },
+  {
+   "affermazione": "max 2/3, non aprire sotto pressione",
+   "esito": "confermato (indicazioni dei produttori)",
+   "fonte": "manuali d'uso"
+  }
+ ],
+ "theme": "cucina_notte"
+}
