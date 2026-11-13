@@ -450,12 +450,14 @@
     {
       "data": "2026-11-12",
       "follower": "13-14",
-      "fonte": "Lorenzo"
+      "fonte": "Lorenzo",
+      "raggiunti": "~10000 (Lorenzo)"
     },
     {
       "data": "2026-11-13T17:20",
       "follower": 34,
-      "fonte": "API owner insights"
+      "fonte": "API owner insights",
+      "raggiunti": 21626
     }
   ]
 }
