@@ -440,5 +440,22 @@
     "dal": "2026-11-11",
     "prima": "SimoneF (scartata: suonava finta)"
   },
-  "autorizzazione": "2026-11-12: Lorenzo autorizza a programmare senza chiedere conferma; l'agente controlla ogni reel e manda i video."
+  "autorizzazione": "2026-11-12: Lorenzo autorizza a programmare senza chiedere conferma; l'agente controlla ogni reel e manda i video.",
+  "follower_storico": [
+    {
+      "data": "2026-11-11",
+      "follower": "4-5",
+      "fonte": "Lorenzo"
+    },
+    {
+      "data": "2026-11-12",
+      "follower": "13-14",
+      "fonte": "Lorenzo"
+    },
+    {
+      "data": "2026-11-13T17:20",
+      "follower": 34,
+      "fonte": "API owner insights"
+    }
+  ]
 }
