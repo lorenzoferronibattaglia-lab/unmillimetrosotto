@@ -1,439 +1,444 @@
 {
- "serie": "cucina",
- "obiettivo_serie": 20,
- "palette": "cucina_notte",
- "reel": [
-  {
-   "id": "01_sale",
-   "tema": "Il sale fa bollire prima l'acqua?",
-   "stato": "programmato",
-   "video": "media/01_sale/01_sale.mp4",
-   "uscita": "2026-11-11T13:00:00+01:00",
-   "vidiq_post_id": "c2b0c9d7-e9e9-4832-a24c-39fc5ee7a8bc",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
+  "serie": "cucina",
+  "obiettivo_serie": 20,
+  "palette": "cucina_notte",
+  "reel": [
+    {
+      "id": "01_sale",
+      "tema": "Il sale fa bollire prima l'acqua?",
+      "stato": "programmato",
+      "video": "media/01_sale/01_sale.mp4",
+      "uscita": "2026-11-11T13:00:00+01:00",
+      "vidiq_post_id": "c2b0c9d7-e9e9-4832-a24c-39fc5ee7a8bc",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "02_olio_pasta",
+      "tema": "L'olio nella pasta evita che si attacchi?",
+      "stato": "programmato",
+      "video": "media/02_olio_pasta/02_olio_pasta.mp4",
+      "nota": "tema già trattato da Geopop (feb 2026)",
+      "uscita": "2026-11-11T19:30:00+01:00",
+      "vidiq_post_id": "1d0f0050-3341-4873-8018-3b4c00b91645",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "03_microonde",
+      "tema": "Il microonde cuoce dall'interno?",
+      "stato": "programmato",
+      "video": "media/03_microonde/03_microonde_v2.mp4",
+      "nota": "v2: inversione del campo fluida e lenta (prima: alternanza rosso/blu a 2,5 Hz)",
+      "uscita": "2026-11-10T21:00:00+01:00",
+      "vidiq_post_id": "c0f8e5cb-4329-4fc3-a69f-38c5681adb63",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "04_sale_ghiaccio",
+      "tema": "Il sale nel ghiaccio raffredda il vino più in fretta? (VERO)",
+      "stato": "programmato",
+      "video": "media/04_sale_ghiaccio/04_sale_ghiaccio_v2.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-11T21:00:00+01:00",
+      "vidiq_post_id": "f1670971-d565-4629-84b9-6fbc67e62512",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "05_coperchio",
+      "tema": "Il coperchio fa bollire prima l'acqua? (VERO)",
+      "stato": "programmato",
+      "video": "media/05_coperchio/05_coperchio.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-11T15:30:00+01:00",
+      "vidiq_post_id": "d061b128-8645-403b-8288-f59ac8ccca36",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "06_vino_temperatura",
+      "tema": "Il rosso va servito a temperatura ambiente? (FALSO)",
+      "stato": "programmato",
+      "video": "media/06_vino_temperatura/06_vino_temperatura.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "da_verificare": "forbice 14-18 °C con Lorenzo",
+      "uscita": "2026-11-11T18:00:00+01:00",
+      "vidiq_post_id": "96de76c6-6c27-40a0-8dc0-d354134b4a3f",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "07_pasta_sciacquata",
+      "tema": "La pasta va sciacquata dopo la cottura?",
+      "stato": "programmato",
+      "video": "media/07_pasta_sciacquata/07_pasta_sciacquata.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T19:30:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "320fba9c-6c7f-4cf8-a3da-7cfc7b74f918"
+    },
+    {
+      "id": "08_microonde_vitamine",
+      "tema": "Il microonde distrugge le vitamine?",
+      "stato": "programmato",
+      "video": "media/08_microonde_vitamine/08_microonde_vitamine.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T21:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "ddc69dd8-d4e2-4a0f-952c-9fb42f69a5e8"
+    },
+    {
+      "id": "09_ghiaccio_galleggia",
+      "tema": "Perché il ghiaccio galleggia?",
+      "stato": "programmato",
+      "video": "media/09_ghiaccio_galleggia/09_ghiaccio_galleggia.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T15:30:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "3b93a023-5493-4faa-a237-07df33d6cddb"
+    },
+    {
+      "id": "10_cucchiaino_spumante",
+      "tema": "Il cucchiaino nel collo tiene le bollicine?",
+      "stato": "programmato",
+      "video": "media/10_cucchiaino_spumante/10_cucchiaino_spumante.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T18:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "b3045ce5-bcfd-418c-b389-806b440259e1"
+    },
+    {
+      "id": "11_olio_evo_frittura",
+      "tema": "L'extravergine non va usato per friggere?",
+      "stato": "programmato",
+      "video": "media/11_olio_evo_frittura/11_olio_evo_frittura.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T13:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "89866375-874d-460c-8054-6832b307edd6"
+    },
+    {
+      "id": "12_miele_non_scade",
+      "tema": "Il miele non scade mai?",
+      "stato": "programmato",
+      "video": "media/12_miele_non_scade/12_miele_non_scade.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-13T15:30:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Kling 3.0 via Higgsfield)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "bdc3a3ba-57cb-4bf7-9816-4d8a3d2d6cdc"
+    },
+    {
+      "id": "13_uova_galleggiano",
+      "tema": "Le uova vecchie galleggiano?",
+      "stato": "programmato",
+      "video": "media/13_uova_galleggiano/13_uova_galleggiano_v2.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-13T18:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Wan 3.0 480p via Higgsfield)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "2a6f3e03-4d97-42a2-bb3a-570e5a3de17f"
+    },
+    {
+      "id": "14_cottura_passiva",
+      "tema": "Si può cuocere la pasta a fuoco spento?",
+      "stato": "programmato",
+      "video": "media/14_cottura_passiva/14_cottura_passiva.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-13T13:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "v2 payoff (disegno)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "5032daa1-7bdf-44fc-845e-b8c59c075b67"
+    },
+    {
+      "id": "15_pane_raffermo",
+      "tema": "Il pane raffermo torna morbido in forno?",
+      "stato": "programmato",
+      "video": "media/15_pane_raffermo/15_pane_raffermo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-11T22:15:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Kling 3.0 via Higgsfield)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "acf11830-ae49-451d-8ed0-170580d6896f",
+      "nota": "extra di oggi, anticipato da venerdì su richiesta"
+    },
+    {
+      "id": "16_zucchero_sugo",
+      "tema": "Lo zucchero toglie l'acidità al sugo?",
+      "stato": "programmato",
+      "video": "media/16_zucchero_sugo/16_zucchero_sugo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-13T19:30:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "v2 payoff (disegno)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "0e78dbb3-872a-4687-a640-6d816cb5d7be"
+    },
+    {
+      "id": "17_mela_limone",
+      "tema": "La mela tagliata diventa marrone: il limone la salva?",
+      "stato": "pubblicato",
+      "video": "media/17_mela_limone/17_mela_limone.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-11T18:17+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Kling 3.0 via Higgsfield)",
+      "nota": "extra di oggi",
+      "vidiq_post_id": "782831a4-3861-4e2e-abaf-bd2bb656a91b"
+    },
+    {
+      "id": "18_banana_etilene",
+      "tema": "La banana fa maturare la frutta vicina?",
+      "stato": "programmato",
+      "video": "media/18_banana_etilene/18_banana_etilene.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-11T20:15:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Kling 3.0 via Higgsfield)",
+      "nota": "extra di oggi",
+      "vidiq_post_id": "fec08e50-a713-468c-8c9c-516558f2f4b4"
+    },
+    {
+      "id": "19_scongelare_acqua",
+      "tema": "Scongelare in acqua fredda è più veloce che in frigo?",
+      "stato": "programmato",
+      "video": "media/19_scongelare_acqua/19_scongelare_acqua.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-14T13:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "gancio": "v2 payoff (disegno) + termometro",
+      "formato": "serie numerata + domanda nei commenti",
+      "vidiq_post_id": "0da8bf69-011f-4cc4-aafd-dd622cf4a471"
+    },
+    {
+      "id": "20_pentola_pressione",
+      "tema": "La pentola a pressione cuoce più in fretta?",
+      "stato": "programmato",
+      "video": "media/20_pentola_pressione/20_pentola_pressione.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-14T15:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "gancio": "v2 payoff (disegno) + termometro",
+      "formato": "serie numerata + domanda nei commenti",
+      "vidiq_post_id": "e3c486c9-2e2f-45fd-9413-f677ebcd4d4e"
+    },
+    {
+      "id": "21_carne_asciutta",
+      "tema": "Asciugare la carne fa venire la crosticina?",
+      "stato": "programmato",
+      "video": "media/21_carne_asciutta/21_carne_asciutta.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-14T18:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "gancio": "v2 payoff (disegno) + termometro",
+      "formato": "serie numerata + domanda nei commenti",
+      "vidiq_post_id": "bc8420d6-1883-4d3a-bc14-667d32b3caea"
+    },
+    {
+      "id": "22_riso_lavato",
+      "tema": "Lavare il riso lo rende meno colloso?",
+      "stato": "programmato",
+      "video": "media/22_riso_lavato/22_riso_lavato.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-14T21:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "gancio": "v2 payoff (disegno) + termometro",
+      "formato": "serie numerata + domanda nei commenti",
+      "vidiq_post_id": "42728014-72f5-4518-bfc9-c9122d046414"
+    },
+    {
+      "id": "23_uovo_sodo_verde",
+      "tema": "Il bordo verde nel tuorlo dell'uovo sodo è normale?",
+      "stato": "programmato",
+      "video": "media/23_uovo_sodo_verde/23_uovo_sodo_verde.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-13T21:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
+      "nota": "quinto reel extra richiesto da Lorenzo per ven e sab",
+      "vidiq_post_id": "db7df21d-468d-4ac5-acaf-e26c3950ce45"
+    },
+    {
+      "id": "24_verdure_verdi",
+      "tema": "Le verdure restano verdi se le metti nel ghiaccio?",
+      "stato": "programmato",
+      "video": "media/24_verdure_verdi/24_verdure_verdi.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-14T11:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
+      "nota": "quinto reel extra richiesto da Lorenzo per ven e sab",
+      "vidiq_post_id": "d6bcf305-9613-453b-9b6b-e8863477b932"
+    },
+    {
+      "id": "25_cibo_caldo_frigo",
+      "tema": "Il cibo caldo non va messo in frigo?",
+      "stato": "programmato",
+      "video": "media/25_cibo_caldo_frigo/25_cibo_caldo_frigo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T12:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
+      "vidiq_post_id": "792120ea-632d-492a-8921-2a0658e25e2b"
+    },
+    {
+      "id": "26_pomodori_frigo",
+      "tema": "I pomodori vanno tenuti in frigo?",
+      "stato": "programmato",
+      "video": "media/26_pomodori_frigo/26_pomodori_frigo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T15:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
+      "vidiq_post_id": "43c8a12b-1cfa-4e8f-ad69-fd9a8c6e6d12"
+    },
+    {
+      "id": "27_cucchiaio_legno",
+      "tema": "Il cucchiaio di legno sulla pentola evita che trabocchi?",
+      "stato": "programmato",
+      "video": "media/27_cucchiaio_legno/27_cucchiaio_legno.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T18:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
+      "vidiq_post_id": "723abd96-def9-4baa-bcfd-0209c9ced657"
+    },
+    {
+      "id": "28_insalata_asciutta",
+      "tema": "L'insalata va asciugata prima di condirla?",
+      "stato": "programmato",
+      "video": "media/28_insalata_asciutta/28_insalata_asciutta.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T20:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
+      "vidiq_post_id": "6dcab96c-467a-4547-aabd-8e96295189cf"
+    }
+  ],
+  "lezioni": [
+    {
+      "data": "2026-11-11",
+      "fonte": "reel 03 IG: 206 views, 6,4 s medi su 51, skip 55,8%",
+      "lezione": "gancio v2: immagine-risposta in movimento dal frame 0, domanda concreta, timbro dopo; 35-45 s"
+    },
+    {
+      "data": "2026-11-11",
+      "lezione": "camera dinamica (stacchi e zoom sugli eventi) come costruttore.spiega; testi <= 650 caratteri per stare sotto i 45 s"
+    },
+    {
+      "data": "2026-11-12",
+      "fonte": "insights IG mattina",
+      "lezione": "Migliori: sale nel ghiaccio (2.439) e coperchio (2.338): VERO + trucco pratico + processo visibile + termometro. Aperture reali (Kling) ultime 3/3 con skip 52-62%: abbandonate. TikTok: 0 views pubbliche su 9 video, da verificare. Da sabato: 4/giorno distanziati, solo Instagram."
+    },
+    {
+      "data": "2026-11-12 sera",
+      "lezione": "Cucchiaino spumante: skip 18% (miti di casa che tutti praticano). Olio EVO 1.497 in 7h (FALSO pratico + termometro). Ghiaccio galleggia (curiosità pura) più debole. Profilo converte ~75% delle visite: serve portare gente al profilo."
+    },
+    "13/11: pasta a fuoco spento = breakout (9.129 views in ~4h, 27 condivisioni, 30 salvataggi). Pattern vincente: VERO + risparmio gas/tempo/soldi + termometro nell'hook. Intro con clip reali AI: skip peggiore, abbandonate."
+  ],
+  "voce_attuale": {
+    "nome": "Francesco - Natural, Warm and Confident",
+    "voice_id": "PJucOeN3PPVPnud4XocS",
+    "modello": "eleven_v3",
+    "dal": "2026-11-11",
+    "prima": "SimoneF (scartata: suonava finta)"
   },
-  {
-   "id": "02_olio_pasta",
-   "tema": "L'olio nella pasta evita che si attacchi?",
-   "stato": "programmato",
-   "video": "media/02_olio_pasta/02_olio_pasta.mp4",
-   "nota": "tema già trattato da Geopop (feb 2026)",
-   "uscita": "2026-11-11T19:30:00+01:00",
-   "vidiq_post_id": "1d0f0050-3341-4873-8018-3b4c00b91645",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "03_microonde",
-   "tema": "Il microonde cuoce dall'interno?",
-   "stato": "programmato",
-   "video": "media/03_microonde/03_microonde_v2.mp4",
-   "nota": "v2: inversione del campo fluida e lenta (prima: alternanza rosso/blu a 2,5 Hz)",
-   "uscita": "2026-11-10T21:00:00+01:00",
-   "vidiq_post_id": "c0f8e5cb-4329-4fc3-a69f-38c5681adb63",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "04_sale_ghiaccio",
-   "tema": "Il sale nel ghiaccio raffredda il vino più in fretta? (VERO)",
-   "stato": "programmato",
-   "video": "media/04_sale_ghiaccio/04_sale_ghiaccio_v2.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-11T21:00:00+01:00",
-   "vidiq_post_id": "f1670971-d565-4629-84b9-6fbc67e62512",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "05_coperchio",
-   "tema": "Il coperchio fa bollire prima l'acqua? (VERO)",
-   "stato": "programmato",
-   "video": "media/05_coperchio/05_coperchio.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-11T15:30:00+01:00",
-   "vidiq_post_id": "d061b128-8645-403b-8288-f59ac8ccca36",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "06_vino_temperatura",
-   "tema": "Il rosso va servito a temperatura ambiente? (FALSO)",
-   "stato": "programmato",
-   "video": "media/06_vino_temperatura/06_vino_temperatura.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "da_verificare": "forbice 14-18 °C con Lorenzo",
-   "uscita": "2026-11-11T18:00:00+01:00",
-   "vidiq_post_id": "96de76c6-6c27-40a0-8dc0-d354134b4a3f",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "07_pasta_sciacquata",
-   "tema": "La pasta va sciacquata dopo la cottura?",
-   "stato": "programmato",
-   "video": "media/07_pasta_sciacquata/07_pasta_sciacquata.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T19:30:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "320fba9c-6c7f-4cf8-a3da-7cfc7b74f918"
-  },
-  {
-   "id": "08_microonde_vitamine",
-   "tema": "Il microonde distrugge le vitamine?",
-   "stato": "programmato",
-   "video": "media/08_microonde_vitamine/08_microonde_vitamine.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T21:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "ddc69dd8-d4e2-4a0f-952c-9fb42f69a5e8"
-  },
-  {
-   "id": "09_ghiaccio_galleggia",
-   "tema": "Perché il ghiaccio galleggia?",
-   "stato": "programmato",
-   "video": "media/09_ghiaccio_galleggia/09_ghiaccio_galleggia.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T15:30:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "3b93a023-5493-4faa-a237-07df33d6cddb"
-  },
-  {
-   "id": "10_cucchiaino_spumante",
-   "tema": "Il cucchiaino nel collo tiene le bollicine?",
-   "stato": "programmato",
-   "video": "media/10_cucchiaino_spumante/10_cucchiaino_spumante.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T18:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "b3045ce5-bcfd-418c-b389-806b440259e1"
-  },
-  {
-   "id": "11_olio_evo_frittura",
-   "tema": "L'extravergine non va usato per friggere?",
-   "stato": "programmato",
-   "video": "media/11_olio_evo_frittura/11_olio_evo_frittura.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T13:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "89866375-874d-460c-8054-6832b307edd6"
-  },
-  {
-   "id": "12_miele_non_scade",
-   "tema": "Il miele non scade mai?",
-   "stato": "programmato",
-   "video": "media/12_miele_non_scade/12_miele_non_scade.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-13T15:30:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "bdc3a3ba-57cb-4bf7-9816-4d8a3d2d6cdc"
-  },
-  {
-   "id": "13_uova_galleggiano",
-   "tema": "Le uova vecchie galleggiano?",
-   "stato": "programmato",
-   "video": "media/13_uova_galleggiano/13_uova_galleggiano_v2.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-13T18:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Wan 3.0 480p via Higgsfield)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "2a6f3e03-4d97-42a2-bb3a-570e5a3de17f"
-  },
-  {
-   "id": "14_cottura_passiva",
-   "tema": "Si può cuocere la pasta a fuoco spento?",
-   "stato": "programmato",
-   "video": "media/14_cottura_passiva/14_cottura_passiva.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-13T13:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "v2 payoff (disegno)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "5032daa1-7bdf-44fc-845e-b8c59c075b67"
-  },
-  {
-   "id": "15_pane_raffermo",
-   "tema": "Il pane raffermo torna morbido in forno?",
-   "stato": "programmato",
-   "video": "media/15_pane_raffermo/15_pane_raffermo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-11T22:15:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "acf11830-ae49-451d-8ed0-170580d6896f",
-   "nota": "extra di oggi, anticipato da venerdì su richiesta"
-  },
-  {
-   "id": "16_zucchero_sugo",
-   "tema": "Lo zucchero toglie l'acidità al sugo?",
-   "stato": "programmato",
-   "video": "media/16_zucchero_sugo/16_zucchero_sugo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-13T19:30:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "v2 payoff (disegno)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "0e78dbb3-872a-4687-a640-6d816cb5d7be"
-  },
-  {
-   "id": "17_mela_limone",
-   "tema": "La mela tagliata diventa marrone: il limone la salva?",
-   "stato": "pubblicato",
-   "video": "media/17_mela_limone/17_mela_limone.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-11T18:17+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "nota": "extra di oggi",
-   "vidiq_post_id": "782831a4-3861-4e2e-abaf-bd2bb656a91b"
-  },
-  {
-   "id": "18_banana_etilene",
-   "tema": "La banana fa maturare la frutta vicina?",
-   "stato": "programmato",
-   "video": "media/18_banana_etilene/18_banana_etilene.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-11T20:15:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "nota": "extra di oggi",
-   "vidiq_post_id": "fec08e50-a713-468c-8c9c-516558f2f4b4"
-  },
-  {
-   "id": "19_scongelare_acqua",
-   "tema": "Scongelare in acqua fredda è più veloce che in frigo?",
-   "stato": "programmato",
-   "video": "media/19_scongelare_acqua/19_scongelare_acqua.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-14T13:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti",
-   "vidiq_post_id": "0da8bf69-011f-4cc4-aafd-dd622cf4a471"
-  },
-  {
-   "id": "20_pentola_pressione",
-   "tema": "La pentola a pressione cuoce più in fretta?",
-   "stato": "programmato",
-   "video": "media/20_pentola_pressione/20_pentola_pressione.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-14T15:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti",
-   "vidiq_post_id": "e3c486c9-2e2f-45fd-9413-f677ebcd4d4e"
-  },
-  {
-   "id": "21_carne_asciutta",
-   "tema": "Asciugare la carne fa venire la crosticina?",
-   "stato": "programmato",
-   "video": "media/21_carne_asciutta/21_carne_asciutta.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-14T18:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti",
-   "vidiq_post_id": "bc8420d6-1883-4d3a-bc14-667d32b3caea"
-  },
-  {
-   "id": "22_riso_lavato",
-   "tema": "Lavare il riso lo rende meno colloso?",
-   "stato": "programmato",
-   "video": "media/22_riso_lavato/22_riso_lavato.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-14T21:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti",
-   "vidiq_post_id": "42728014-72f5-4518-bfc9-c9122d046414"
-  },
-  {
-   "id": "23_uovo_sodo_verde",
-   "tema": "Il bordo verde nel tuorlo dell'uovo sodo è normale?",
-   "stato": "programmato",
-   "video": "media/23_uovo_sodo_verde/23_uovo_sodo_verde.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-13T21:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
-   "nota": "quinto reel extra richiesto da Lorenzo per ven e sab",
-   "vidiq_post_id": "db7df21d-468d-4ac5-acaf-e26c3950ce45"
-  },
-  {
-   "id": "24_verdure_verdi",
-   "tema": "Le verdure restano verdi se le metti nel ghiaccio?",
-   "stato": "programmato",
-   "video": "media/24_verdure_verdi/24_verdure_verdi.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-14T11:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
-   "nota": "quinto reel extra richiesto da Lorenzo per ven e sab",
-   "vidiq_post_id": "d6bcf305-9613-453b-9b6b-e8863477b932"
-  },
-  {
-   "id": "25_cibo_caldo_frigo",
-   "tema": "Il cibo caldo non va messo in frigo?",
-   "stato": "in_preparazione",
-   "video": "media/25_cibo_caldo_frigo/25_cibo_caldo_frigo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-15T12:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00"
-  },
-  {
-   "id": "26_pomodori_frigo",
-   "tema": "I pomodori vanno tenuti in frigo?",
-   "stato": "in_preparazione",
-   "video": "media/26_pomodori_frigo/26_pomodori_frigo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-15T15:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00"
-  },
-  {
-   "id": "27_cucchiaio_legno",
-   "tema": "Il cucchiaio di legno sulla pentola evita che trabocchi?",
-   "stato": "in_preparazione",
-   "video": "media/27_cucchiaio_legno/27_cucchiaio_legno.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-15T18:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00"
-  },
-  {
-   "id": "28_insalata_asciutta",
-   "tema": "L'insalata va asciugata prima di condirla?",
-   "stato": "in_preparazione",
-   "video": "media/28_insalata_asciutta/28_insalata_asciutta.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-15T20:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00"
-  }
- ],
- "lezioni": [
-  {
-   "data": "2026-11-11",
-   "fonte": "reel 03 IG: 206 views, 6,4 s medi su 51, skip 55,8%",
-   "lezione": "gancio v2: immagine-risposta in movimento dal frame 0, domanda concreta, timbro dopo; 35-45 s"
-  },
-  {
-   "data": "2026-11-11",
-   "lezione": "camera dinamica (stacchi e zoom sugli eventi) come costruttore.spiega; testi <= 650 caratteri per stare sotto i 45 s"
-  },
-  {
-   "data": "2026-11-12",
-   "fonte": "insights IG mattina",
-   "lezione": "Migliori: sale nel ghiaccio (2.439) e coperchio (2.338): VERO + trucco pratico + processo visibile + termometro. Aperture reali (Kling) ultime 3/3 con skip 52-62%: abbandonate. TikTok: 0 views pubbliche su 9 video, da verificare. Da sabato: 4/giorno distanziati, solo Instagram."
-  },
-  {
-   "data": "2026-11-12 sera",
-   "lezione": "Cucchiaino spumante: skip 18% (miti di casa che tutti praticano). Olio EVO 1.497 in 7h (FALSO pratico + termometro). Ghiaccio galleggia (curiosità pura) più debole. Profilo converte ~75% delle visite: serve portare gente al profilo."
-  }
- ],
- "voce_attuale": {
-  "nome": "Francesco - Natural, Warm and Confident",
-  "voice_id": "PJucOeN3PPVPnud4XocS",
-  "modello": "eleven_v3",
-  "dal": "2026-11-11",
-  "prima": "SimoneF (scartata: suonava finta)"
- },
- "autorizzazione": "2026-11-12: Lorenzo autorizza a programmare senza chiedere conferma; l'agente controlla ogni reel e manda i video."
+  "autorizzazione": "2026-11-12: Lorenzo autorizza a programmare senza chiedere conferma; l'agente controlla ogni reel e manda i video."
 }
