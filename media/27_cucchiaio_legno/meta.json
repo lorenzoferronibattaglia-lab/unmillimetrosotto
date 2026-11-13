@@ -1,0 +1,34 @@
+{
+ "id": "27_cucchiaio_legno",
+ "titolo": "Il cucchiaio di legno sulla pentola evita che trabocchi?",
+ "durata_s": 31.0,
+ "caratteri_voce": 476,
+ "didascalia": "Vero o falso #25 · Il cucchiaio di legno sulla pentola ferma la schiuma… ma solo per poco 🥄 L'amido rende le bolle robuste; quando toccano il legno, più freddo e asciutto, scoppiano. Dopo qualche minuto il cucchiaio si scalda e si bagna, e smette di funzionare.\n\nIl trucco vero: abbassa la fiamma appena bolle e usa una pentola grande.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "CQUniversity: can a wooden spoon really stop a pot from boiling over?",
+   "url": "https://www.cqu.edu.au/news/1213779/can-a-wooden-spoon-really-stop-a-pot-from-boiling-over"
+  },
+  {
+   "titolo": "Mental Floss: wooden spoon and boil-over",
+   "url": "https://www.mentalfloss.com/live-smarter/home/why-does-placing-wooden-spoon-across-pot-keep-pasta-water-boiling-over"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "il legno fa scoppiare le bolle di amido (più freddo, poroso)",
+   "esito": "confermato",
+   "fonte": "CQUniversity, Mental Floss"
+  },
+  {
+   "affermazione": "funziona solo per un tempo limitato",
+   "esito": "confermato",
+   "fonte": "CQUniversity"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 0,
+  "istante_s": 0
+ }
+}

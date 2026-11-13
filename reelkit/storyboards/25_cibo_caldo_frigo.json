@@ -1,0 +1,149 @@
+{
+ "id": "25_cibo_caldo_frigo",
+ "topic": "Il cibo caldo non va messo in frigo?",
+ "paragraphs": [
+  {
+   "text": "Il cibo caldo non va messo in frigo? Falso. Lasciarlo fuori a raffreddare è peggio.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "IL CIBO CALDO",
+     "NON VA IN FRIGO?"
+    ],
+    "prop": {
+     "appliance": "soup_pot",
+     "thermo": {
+      "from": 75,
+      "to": 60,
+      "start": 0.0,
+      "end": 3.0,
+      "x": 300,
+      "y": 770,
+      "hot": 0.8
+     }
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Tra i cinque e i sessanta gradi i batteri si moltiplicano in fretta. Più il cibo resta tiepido sul tavolo, più crescono.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "LA ZONA",
+     "PERICOLOSA"
+    ],
+    "surface": false,
+    "heat": 0.5,
+    "water": false,
+    "bg": "#FBE7C6",
+    "layers": [
+     {
+      "kind": "microbes",
+      "grow_at": "moltiplicano"
+     }
+    ],
+    "thermo": {
+     "from": 60,
+     "to": 25,
+     "start": 0.0,
+     "end": "tiepido"
+    },
+    "labels": [
+     {
+      "text": "TRA 5 E 60 °C",
+      "at": "cinque",
+      "pos": [
+       540,
+       560
+      ],
+      "size": 50
+     }
+    ]
+   }
+  },
+  {
+   "text": "In frigo si raffredda prima e i batteri si fermano. La regola: entro due ore dalla cottura.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "IN FRIGO",
+     "ENTRO..."
+    ],
+    "card": {
+     "main": "dalla cottura",
+     "sub": "al frigo",
+     "at": 0.1
+    },
+    "big": {
+     "text": "2 ore",
+     "at": "due"
+    }
+   }
+  },
+  {
+   "text": "Il trucco: dividi le porzioni grandi in contenitori bassi, così si raffreddano in fretta. Il pentolone intero no.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "CONTENITORI BASSI",
+      "ok": true,
+      "at": "contenitori"
+     },
+     {
+      "text": "ENTRO 2 ORE",
+      "ok": true,
+      "at": "raffreddano"
+     },
+     {
+      "text": "PENTOLONE INTERO",
+      "ok": false,
+      "at": "pentolone"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quale mito vuoi che smontiamo? Scrivilo nei commenti.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Scrivilo",
+    "stamp": "IL TUO MITO?"
+   }
+  }
+ ],
+ "caption": "Vero o falso #23 · Il cibo caldo si può mettere in frigo 🍲 Lasciarlo a raffreddare sul tavolo è peggio: tra 5 e 60 °C i batteri si moltiplicano in fretta. In frigo si raffredda prima.\n\nEntro 2 ore dalla cottura, dividi le porzioni grandi in contenitori bassi. Il pentolone intero no.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Virginia Tech / USDA: hot food can be placed directly in the refrigerator",
+   "url": "https://fst.vt.edu/news-and-events/stories/stories/king5-coolfood.html"
+  },
+  {
+   "titolo": "NDSU: hot food can go in the fridge, divide large pots",
+   "url": "https://www.ndsu.edu/agriculture/node/2178"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "il cibo caldo può andare direttamente in frigo",
+   "esito": "confermato",
+   "fonte": "USDA via Virginia Tech, NDSU"
+  },
+  {
+   "affermazione": "batteri crescono tra ~4 e 60 °C; refrigerare entro 2 ore; contenitori bassi",
+   "esito": "confermato",
+   "fonte": "USDA/foodsafety.gov"
+  }
+ ],
+ "theme": "cucina_notte"
+}

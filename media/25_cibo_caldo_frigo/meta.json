@@ -1,0 +1,34 @@
+{
+ "id": "25_cibo_caldo_frigo",
+ "titolo": "Il cibo caldo non va messo in frigo?",
+ "durata_s": 28.2,
+ "caratteri_voce": 468,
+ "didascalia": "Vero o falso #23 · Il cibo caldo si può mettere in frigo 🍲 Lasciarlo a raffreddare sul tavolo è peggio: tra 5 e 60 °C i batteri si moltiplicano in fretta. In frigo si raffredda prima.\n\nEntro 2 ore dalla cottura, dividi le porzioni grandi in contenitori bassi. Il pentolone intero no.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Virginia Tech / USDA: hot food can be placed directly in the refrigerator",
+   "url": "https://fst.vt.edu/news-and-events/stories/stories/king5-coolfood.html"
+  },
+  {
+   "titolo": "NDSU: hot food can go in the fridge, divide large pots",
+   "url": "https://www.ndsu.edu/agriculture/node/2178"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "il cibo caldo può andare direttamente in frigo",
+   "esito": "confermato",
+   "fonte": "USDA via Virginia Tech, NDSU"
+  },
+  {
+   "affermazione": "batteri crescono tra ~4 e 60 °C; refrigerare entro 2 ore; contenitori bassi",
+   "esito": "confermato",
+   "fonte": "USDA/foodsafety.gov"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 25.6
+ }
+}

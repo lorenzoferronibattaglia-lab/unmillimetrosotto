@@ -1,0 +1,146 @@
+{
+ "id": "28_insalata_asciutta",
+ "topic": "L'insalata va asciugata prima di condirla?",
+ "paragraphs": [
+  {
+   "text": "L'insalata va asciugata bene prima di condirla? Vero. Sulle foglie bagnate l'olio non si attacca.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "L'INSALATA VA",
+     "ASCIUGATA?"
+    ],
+    "prop": {
+     "appliance": "salad"
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Acqua e olio non si mescolano: se la foglia è bagnata, l'olio scivola via e finisce sul fondo della ciotola.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "FOGLIA",
+     "BAGNATA"
+    ],
+    "surface": false,
+    "heat": 0.3,
+    "water": false,
+    "bg": "#E8F4E0",
+    "layers": [
+     {
+      "kind": "leaf",
+      "wet": true,
+      "at": "olio"
+     }
+    ],
+    "labels": [
+     {
+      "text": "L'OLIO SCIVOLA VIA",
+      "at": "scivola",
+      "pos": [
+       540,
+       560
+      ],
+      "size": 48
+     }
+    ]
+   }
+  },
+  {
+   "text": "Se è asciutta, l'olio si stende sulla foglia e porta con sé sale e sapore.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "FOGLIA",
+     "ASCIUTTA"
+    ],
+    "surface": false,
+    "heat": 0.3,
+    "water": false,
+    "bg": "#F5F0D8",
+    "layers": [
+     {
+      "kind": "leaf",
+      "wet": false,
+      "at": "olio"
+     }
+    ],
+    "labels": [
+     {
+      "text": "L'OLIO SI STENDE",
+      "at": "stende",
+      "pos": [
+       540,
+       560
+      ],
+      "size": 50,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: centrifuga, poi tamponala. Prima il sale e l'aceto, l'olio alla fine.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "CENTRIFUGA E TAMPONA",
+      "ok": true,
+      "at": "centrifuga"
+     },
+     {
+      "text": "SALE E ACETO PRIMA",
+      "ok": true,
+      "at": "aceto"
+     },
+     {
+      "text": "OLIO ALLA FINE",
+      "ok": true,
+      "at": "fine"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quale mito vuoi che smontiamo? Scrivilo nei commenti.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Scrivilo",
+    "stamp": "IL TUO MITO?"
+   }
+  }
+ ],
+ "caption": "Vero o falso #26 · L'insalata va asciugata bene prima di condirla 🥗 Acqua e olio non si mescolano: sulla foglia bagnata l'olio scivola via e finisce sul fondo. Sulla foglia asciutta si stende e porta con sé il sapore.\n\nCentrifuga, tampona, sale e aceto prima e olio alla fine (il sale non si scioglie nell'olio).\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Immiscibilità acqua-olio (polare/apolare)",
+   "url": "https://it.wikipedia.org/wiki/Emulsione"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "olio e acqua non si mescolano; l'olio aderisce poco a superfici bagnate",
+   "esito": "confermato (chimica di base)",
+   "fonte": "chimica delle superfici"
+  },
+  {
+   "affermazione": "sale e aceto prima dell'olio (il sale non si scioglie nell'olio)",
+   "esito": "confermato",
+   "fonte": "solubilità del sale"
+  }
+ ],
+ "theme": "cucina_notte"
+}

@@ -131,8 +131,40 @@ def hook(cr, t, ctx, par, spec):
     if spec.get("stamp", {}).get("color") == "green":
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
-                               "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot"):
-        if pr["appliance"] == "boiled_egg":
+                               "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad"):
+        if pr["appliance"] == "soup_pot":
+            ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=860, w=560, h=380, liquid=((0.93, 0.62, 0.25), (0.75, 0.45, 0.15)), fire=0.0)
+            P.pot_rim(cr, 540, 860, 560)
+            P.steam(cr, 540 - 200, 820, t, n=4, alpha=0.6, spread=300)
+        elif pr["appliance"] == "foam_pot":
+            ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=900, w=560, h=360)
+            P.pot_rim(cr, 540, 900, 560)
+            rise = E.ease(E.clamp((t - s) / 2.5))
+            rnd = random.Random(37)
+            for j in range(40):
+                bx = rnd.uniform(ix0 - 10, ix1 + 10)
+                by = 900 - 10 - rnd.uniform(0, 70) * rise + 4 * math.sin(t * 5 + j)
+                if pr.get("spoon") and by < 860:
+                    continue
+                E.circle(cr, bx, by, rnd.uniform(14, 30), (1, 0.99, 0.94), lw=3, alpha=0.95)
+            if pr.get("spoon"):
+                cr.save()
+                cr.translate(540, 862)
+                cr.rotate(math.pi / 2)
+                P.spoon(cr, 0, 0, 0)
+                cr.restore()
+        elif pr["appliance"] == "fridge_tomato":
+            P.fridge_box(cr, 540, 760, t=t)
+            for i, (tx, ty) in enumerate([(400, 1205), (540, 1195), (680, 1205)]):
+                P.tomato(cr, tx, ty, r=62, dull=E.ease(E.clamp((t - s) / 4.0)) * 0.8)
+        elif pr["appliance"] == "salad":
+            P.salad_bowl(cr, 540, 1250, t=t, wet=1.0)
+            rnd = random.Random(41)
+            for j in range(8):
+                ph = ((t - s) * 0.5 + j / 8) % 1.0
+                E.circle(cr, 540 + rnd.uniform(-180, 180), 1000 + ph * 260, 12, (0.95, 0.80, 0.20), lw=3, alpha=1 - ph)
+        elif pr["appliance"] == "boiled_egg":
             P.egg_section(cr, 540, 1060, air=0.06, rx=200, ry=262, green=E.ease(E.prog(t, s + 0.2, s + 2.0)), cooked=True)
         elif pr["appliance"] == "veg_pot":
             ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=860, w=560, h=380)
@@ -586,6 +618,98 @@ def lens(cr, t, ctx, par, spec):
             if to is not None and 0.2 < ko < 0.98:
                 mk = E.prog(t, to + j * 0.12 + 0.4, to + j * 0.12 + 1.6)
                 P.atom_tag(cr, px + mk * 120, py - mk * 160, "Mg", (0.80, 0.85, 0.90), r=18, alpha=1 - mk)
+
+    # batteri che si moltiplicano (grow_at); con stop_at il freddo li ferma
+    mic2 = layers.get("microbes")
+    if mic2:
+        tg = ctx.at(par, mic2.get("grow_at", 0.0))
+        tsx = ctx.at(par, mic2["stop_at"]) if mic2.get("stop_at") is not None else None
+        tend = tsx if (tsx is not None and t > tsx) else t
+        n = 2 + int(14 * E.clamp((tend - tg) / 3.0)) if tend > tg else 2
+        rnd = random.Random(181)
+        for j in range(n):
+            px = cx + rnd.uniform(-r + 90, r - 90)
+            py = cy + rnd.uniform(-r + 90, r - 90)
+            if math.hypot(px - cx, py - cy) > r - 70:
+                continue
+            P.microbe(cr, px, py, scale=0.55, t=t if tsx is None or t < tsx else tsx, angle=rnd.uniform(-1, 1))
+
+    # schiuma: bolle di amido che salgono; "wood" = cucchiaio di legno in alto che le fa scoppiare finché non si scalda (hot_at)
+    fo = layers.get("foam")
+    if fo:
+        has_wood = fo.get("wood", False)
+        th_ = ctx.at(par, fo["hot_at"]) if fo.get("hot_at") is not None else None
+        wood_ok = has_wood and (th_ is None or t < th_)
+        wy = cy - r + 150
+        rnd = random.Random(191)
+        for j in range(14):
+            bx = cx - r + 70 + rnd.uniform(0, 2 * r - 140)
+            ph = ((t * 0.35) + j / 14) % 1.0
+            by = E.lerp(cy + r - 30, cy - r - 20, ph)
+            rr_b = 22 + 14 * math.sin(j)
+            if wood_ok and by < wy + 50:
+                if by > wy - 10:
+                    for k in range(6):
+                        a = k * math.pi / 3
+                        cr.move_to(bx + math.cos(a) * 16, wy + 50 + math.sin(a) * 16)
+                        cr.line_to(bx + math.cos(a) * 30, wy + 50 + math.sin(a) * 30)
+                    cr.set_source_rgba(1, 1, 1, 0.9)
+                    cr.set_line_width(4)
+                    cr.stroke()
+                continue
+            E.circle(cr, bx, by, rr_b, (1, 0.99, 0.94), lw=3, alpha=0.85)
+        if has_wood:
+            E.rounded_rect(cr, cx - r - 30, wy, 2 * r + 60, 46, 22)
+            cr.set_source_rgb(0.72, 0.50, 0.28)
+            cr.fill_preserve()
+            cr.set_source_rgb(*E.INK)
+            cr.set_line_width(5)
+            cr.stroke()
+
+    # aromi: molecole colorate prodotte dal frutto; con stop_at la produzione cala (fino a keep)
+    ar = layers.get("aroma")
+    if ar:
+        tst = ctx.at(par, ar["stop_at"]) if ar.get("stop_at") is not None else None
+        keep = ar.get("keep", 0.35)
+        rnd = random.Random(201)
+        cols = [(0.98, 0.55, 0.20), (0.95, 0.30, 0.55), (0.55, 0.40, 0.95), (0.98, 0.80, 0.20)]
+        frac = 1.0 - (1 - keep) * E.ease(E.prog(t, tst, tst + 2.0)) if tst is not None else float(ar.get("level", 1.0))
+        total = 18
+        for j in range(total):
+            if j >= round(total * frac):
+                continue
+            bx = cx - r + 70 + rnd.uniform(0, 2 * r - 140)
+            ph = ((t * 0.25) + j / total) % 1.0
+            by = E.lerp(cy + r - 20, cy - r + 20, ph)
+            E.circle(cr, bx + 12 * math.sin(t * 2 + j), by, 16, cols[j % 4], lw=3, alpha=min(1.0, 1.2 - ph))
+
+    # olio su foglia: "leaf" in basso; se wet l'olio rimbalza sull'acqua, se asciutta si stende (at)
+    lf = layers.get("leaf")
+    if lf:
+        band_y = cy + 150
+        E.rounded_rect(cr, cx - r - 40, band_y, 2 * r + 80, 260, 30)
+        cr.set_source_rgb(0.40, 0.72, 0.32)
+        cr.fill_preserve()
+        cr.set_source_rgb(0.20, 0.45, 0.18)
+        cr.set_line_width(6)
+        cr.stroke()
+        wet = lf.get("wet", False)
+        if wet:
+            for j in range(9):
+                E.circle(cr, cx - r + 70 + j * (2 * r - 140) / 8, band_y - 8, 34, (0.60, 0.82, 0.98), lw=3, alpha=0.9)
+        to_ = ctx.at(par, lf.get("at", 0.0))
+        for j in range(7):
+            k = E.ease(E.prog(t, to_ + j * 0.15, to_ + 1.2 + j * 0.15))
+            if k <= 0:
+                continue
+            ox = cx - r + 90 + j * (2 * r - 180) / 6
+            if wet:
+                d = math.sin(k * math.pi)
+                oy = E.lerp(cy - r + 60, band_y - 80, d if k < 0.5 else 1 - (k - 0.5) * 0.4)
+                oy = E.lerp(cy - r + 60, band_y - 70, min(1.0, k * 2)) - (max(0.0, k - 0.5) * 2) * 160
+            else:
+                oy = E.lerp(cy - r + 60, band_y - 14, k)
+            P.oil_molecule(cr, ox, oy, 0.95, angle=0.2 * math.sin(t + j) if wet else 0.0)
 
     # ghiaccio: reticolo ordinato nella meta' alta della lente; con "melt_at" si smonta dal basso
     ice = layers.get("ice")

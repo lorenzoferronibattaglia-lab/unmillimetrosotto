@@ -1,0 +1,30 @@
+{
+ "id": "28_insalata_asciutta",
+ "titolo": "L'insalata va asciugata prima di condirla?",
+ "durata_s": 26.4,
+ "caratteri_voce": 420,
+ "didascalia": "Vero o falso #26 · L'insalata va asciugata bene prima di condirla 🥗 Acqua e olio non si mescolano: sulla foglia bagnata l'olio scivola via e finisce sul fondo. Sulla foglia asciutta si stende e porta con sé il sapore.\n\nCentrifuga, tampona, sale e aceto prima e olio alla fine (il sale non si scioglie nell'olio).\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "fonti": [
+  {
+   "titolo": "Immiscibilità acqua-olio (polare/apolare)",
+   "url": "https://it.wikipedia.org/wiki/Emulsione"
+  }
+ ],
+ "verifiche": [
+  {
+   "affermazione": "olio e acqua non si mescolano; l'olio aderisce poco a superfici bagnate",
+   "esito": "confermato (chimica di base)",
+   "fonte": "chimica delle superfici"
+  },
+  {
+   "affermazione": "sale e aceto prima dell'olio (il sale non si scioglie nell'olio)",
+   "esito": "confermato",
+   "fonte": "solubilità del sale"
+  }
+ ],
+ "anti_lampeggio": {
+  "esito": "ok",
+  "max_lampi_al_secondo": 1,
+  "istante_s": 23.5
+ }
+}

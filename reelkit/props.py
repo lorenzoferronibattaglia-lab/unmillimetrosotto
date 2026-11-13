@@ -1090,3 +1090,78 @@ def chlorophyll(cr, x, y, k_olive=0.0, scale=1.0, alpha=1.0):
 def atom_tag(cr, x, y, text, col, r=24, alpha=1.0):
     E.circle(cr, x, y, r, col, lw=4, alpha=alpha)
     E.outlined_text(cr, text, x, y + r * 0.38, r * 0.95, fill=E.WHITE if sum(col) < 2.0 else E.INK, lw=0, alpha=alpha)
+
+
+def fridge_box(cr, cx, top, w=560, h=640, t=0.0):
+    """Frigo aperto visto di fronte: interno bianco con ripiani e luce fredda."""
+    E.rounded_rect(cr, cx - w / 2 - 24, top - 24, w + 48, h + 48, 36)
+    cr.set_source_rgb(0.86, 0.89, 0.93)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    E.rounded_rect(cr, cx - w / 2, top, w, h, 24)
+    cr.set_source_rgb(0.93, 0.97, 1.0)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(4)
+    cr.stroke()
+    for k in (0.38, 0.72):
+        y = top + h * k
+        cr.move_to(cx - w / 2 + 10, y)
+        cr.line_to(cx + w / 2 - 10, y)
+        cr.set_source_rgba(0.55, 0.70, 0.85, 0.9)
+        cr.set_line_width(8)
+        cr.stroke()
+    for i in range(6):
+        ph = (t * 0.3 + i / 6) % 1.0
+        E.circle(cr, cx - w / 2 + 60 + i * 85, top + 40 + ph * 60, 5, (0.7, 0.85, 1.0), lw=0, alpha=0.6 * (1 - ph))
+
+
+def tomato(cr, x, y, r=60, dull=0.0):
+    col = (E.lerp(0.90, 0.75, dull), E.lerp(0.22, 0.35, dull), E.lerp(0.18, 0.30, dull))
+    E.circle(cr, x, y, r, col, lw=5)
+    cr.save()
+    cr.translate(x - r * 0.35, y - r * 0.35)
+    cr.scale(1, 0.6)
+    cr.arc(0, 0, r * 0.22, 0, 2 * math.pi)
+    cr.restore()
+    cr.set_source_rgba(1, 1, 1, 0.5)
+    cr.fill()
+    for i in range(5):
+        a = -math.pi / 2 + (i - 2) * 0.55
+        cr.move_to(x, y - r + 4)
+        cr.line_to(x + math.cos(a) * r * 0.45, y - r + 4 + math.sin(a) * r * 0.25 + 8)
+    cr.set_source_rgb(0.20, 0.55, 0.22)
+    cr.set_line_width(9)
+    cr.set_line_cap(1)
+    cr.stroke()
+    cr.set_line_cap(0)
+
+
+def salad_bowl(cr, cx, y, w=560, t=0.0, wet=1.0, oil=0.0):
+    """Ciotola d'insalata: foglie verdi; wet = goccioline d'acqua; oil = gocce d'olio che scivolano (se bagnate) o restano."""
+    rnd = random.Random(29)
+    for i in range(16):
+        lx, ly = cx + rnd.uniform(-w * 0.38, w * 0.38), y - 40 - rnd.uniform(0, 150)
+        cr.save()
+        cr.translate(lx, ly)
+        cr.rotate(rnd.uniform(-1.2, 1.2))
+        cr.scale(1, 0.5)
+        cr.arc(0, 0, 70, 0, 2 * math.pi)
+        cr.restore()
+        cr.set_source_rgb(0.35 + 0.1 * (i % 3), 0.72, 0.30)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(4)
+        cr.stroke()
+        if wet > 0:
+            E.circle(cr, lx + 20, ly - 6, 9, (0.75, 0.90, 1.0), lw=2, alpha=wet)
+    cr.move_to(cx - w / 2, y - 60)
+    cr.curve_to(cx - w / 2 + 40, y + 160, cx + w / 2 - 40, y + 160, cx + w / 2, y - 60)
+    cr.close_path()
+    cr.set_source_rgb(0.95, 0.93, 0.88)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()

@@ -1,0 +1,162 @@
+{
+ "id": "26_pomodori_frigo",
+ "topic": "I pomodori vanno tenuti in frigo?",
+ "paragraphs": [
+  {
+   "text": "I pomodori vanno tenuti in frigo? Falso. Al freddo perdono il loro sapore.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "I POMODORI",
+     "VANNO IN FRIGO?"
+    ],
+    "prop": {
+     "appliance": "fridge_tomato",
+     "thermo": {
+      "from": 20,
+      "to": 5,
+      "start": 0.0,
+      "end": 3.0,
+      "x": 300,
+      "y": 800,
+      "hot": 0.0
+     }
+    },
+    "stamp": {
+     "text": "FALSO MITO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Il profumo del pomodoro sono molecole volatili, prodotte dai geni del frutto.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "IL PROFUMO",
+     "SONO MOLECOLE"
+    ],
+    "surface": false,
+    "heat": 0.4,
+    "water": false,
+    "bg": "#FCE0D6",
+    "layers": [
+     {
+      "kind": "aroma",
+      "level": 1.0
+     }
+    ],
+    "labels": [
+     {
+      "text": "AROMI",
+      "at": "molecole",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Sotto i dodici gradi quei geni si spengono: dopo una settimana in frigo gli aromi calano fino al sessantacinque per cento.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "SOTTO I 12 °C",
+     "SI SPENGONO"
+    ],
+    "surface": false,
+    "heat": 0.2,
+    "water": false,
+    "bg": "#E3EEF8",
+    "layers": [
+     {
+      "kind": "aroma",
+      "stop_at": "spengono",
+      "keep": 0.35
+     }
+    ],
+    "thermo": {
+     "from": 20,
+     "to": 5,
+     "start": 0.0,
+     "end": "dodici"
+    },
+    "labels": [
+     {
+      "text": "−65% AROMI",
+      "at": "sessantacinque",
+      "pos": [
+       540,
+       560
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: tienili fuori dal frigo, all'ombra. E se sono già in frigo, tirali fuori qualche ora prima.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "FUORI DAL FRIGO",
+      "ok": true,
+      "at": "fuori"
+     },
+     {
+      "text": "ALL'OMBRA",
+      "ok": true,
+      "at": "ombra"
+     },
+     {
+      "text": "UNA SETTIMANA IN FRIGO",
+      "ok": false,
+      "at": "prima"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quale mito vuoi che smontiamo? Scrivilo nei commenti.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Scrivilo",
+    "stamp": "IL TUO MITO?"
+   }
+  }
+ ],
+ "caption": "Vero o falso #24 · I pomodori non vanno tenuti in frigo 🍅 Il profumo sono molecole volatili prodotte dai geni del frutto: sotto i 12 °C si spengono, e dopo una settimana a 5 °C gli aromi calano fino al 65%.\n\nTienili fuori, all'ombra. Uno studio dell'Università della Florida ha visto che il sapore non torna nemmeno dopo qualche giorno fuori.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Zhang, Klee et al., PNAS 2016: chilling-induced tomato flavor loss",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5098663"
+  },
+  {
+   "titolo": "Cosmos: why you shouldn't store tomatoes in the fridge (−65% volatili)",
+   "url": "https://cosmosmagazine.com/science/chemistry/why-you-shouldnt-store-tomatoes-in-the-fridge"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "volatili sensibili sotto 12 °C",
+   "esito": "confermato",
+   "fonte": "PNAS 2016"
+  },
+  {
+   "affermazione": "fino a −65% dopo ~7 giorni a 5 °C, non recuperato dopo 3 giorni a 20 °C",
+   "esito": "confermato",
+   "fonte": "Cosmos/Gizmodo su PNAS 2016"
+  }
+ ],
+ "theme": "cucina_notte"
+}

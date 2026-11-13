@@ -358,6 +358,54 @@
    "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
    "nota": "quinto reel extra richiesto da Lorenzo per ven e sab",
    "vidiq_post_id": "d6bcf305-9613-453b-9b6b-e8863477b932"
+  },
+  {
+   "id": "25_cibo_caldo_frigo",
+   "tema": "Il cibo caldo non va messo in frigo?",
+   "stato": "in_preparazione",
+   "video": "media/25_cibo_caldo_frigo/25_cibo_caldo_frigo.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "uscita": "2026-11-15T12:30:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00"
+  },
+  {
+   "id": "26_pomodori_frigo",
+   "tema": "I pomodori vanno tenuti in frigo?",
+   "stato": "in_preparazione",
+   "video": "media/26_pomodori_frigo/26_pomodori_frigo.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "uscita": "2026-11-15T15:30:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00"
+  },
+  {
+   "id": "27_cucchiaio_legno",
+   "tema": "Il cucchiaio di legno sulla pentola evita che trabocchi?",
+   "stato": "in_preparazione",
+   "video": "media/27_cucchiaio_legno/27_cucchiaio_legno.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "uscita": "2026-11-15T18:00:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00"
+  },
+  {
+   "id": "28_insalata_asciutta",
+   "tema": "L'insalata va asciugata prima di condirla?",
+   "stato": "in_preparazione",
+   "video": "media/28_insalata_asciutta/28_insalata_asciutta.mp4",
+   "voce": "Francesco (eleven_v3)",
+   "uscita": "2026-11-15T20:00:00+01:00",
+   "piattaforme": [
+    "instagram"
+   ],
+   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00"
   }
  ],
  "lezioni": [

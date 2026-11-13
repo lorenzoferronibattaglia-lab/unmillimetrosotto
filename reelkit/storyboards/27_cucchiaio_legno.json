@@ -1,0 +1,154 @@
+{
+ "id": "27_cucchiaio_legno",
+ "topic": "Il cucchiaio di legno sulla pentola evita che trabocchi?",
+ "paragraphs": [
+  {
+   "text": "Il cucchiaio di legno sulla pentola evita che l'acqua della pasta trabocchi? Vero. Ma solo per poco.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "IL CUCCHIAIO DI LEGNO",
+     "FERMA LA SCHIUMA?"
+    ],
+    "prop": {
+     "appliance": "foam_pot",
+     "spoon": true,
+     "thermo": {
+      "from": 98,
+      "to": 100,
+      "start": 0.0,
+      "end": 2.0,
+      "x": 300,
+      "y": 770,
+      "hot": 1.0
+     }
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "L'amido della pasta rende le bolle robuste: si impilano e salgono. Quando toccano il legno, freddo e asciutto, scoppiano.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "LE BOLLE",
+     "SCOPPIANO"
+    ],
+    "surface": false,
+    "heat": 0.8,
+    "layers": [
+     {
+      "kind": "foam",
+      "wood": true
+     }
+    ],
+    "labels": [
+     {
+      "text": "LEGNO FREDDO E ASCIUTTO",
+      "at": "legno",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 46
+     }
+    ]
+   }
+  },
+  {
+   "text": "Ma dopo qualche minuto il cucchiaio si scalda e si bagna, e le bolle passano.",
+   "scene": {
+    "type": "lens",
+    "title": [
+     "POI SI",
+     "SCALDA"
+    ],
+    "surface": false,
+    "heat": 0.9,
+    "layers": [
+     {
+      "kind": "foam",
+      "wood": true,
+      "hot_at": "bagna"
+     }
+    ],
+    "labels": [
+     {
+      "text": "LE BOLLE PASSANO",
+      "at": "passano",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 50
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco vero: abbassa la fiamma appena bolle, e usa una pentola grande. Il cucchiaio ti compra solo qualche minuto.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "ABBASSA LA FIAMMA",
+      "ok": true,
+      "at": "abbassa"
+     },
+     {
+      "text": "PENTOLA GRANDE",
+      "ok": true,
+      "at": "pentola"
+     },
+     {
+      "text": "CUCCHIAIO E VAI VIA",
+      "ok": false,
+      "at": "compra"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quale mito vuoi che smontiamo? Scrivilo nei commenti.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Scrivilo",
+    "stamp": "IL TUO MITO?"
+   }
+  }
+ ],
+ "caption": "Vero o falso #25 · Il cucchiaio di legno sulla pentola ferma la schiuma… ma solo per poco 🥄 L'amido rende le bolle robuste; quando toccano il legno, più freddo e asciutto, scoppiano. Dopo qualche minuto il cucchiaio si scalda e si bagna, e smette di funzionare.\n\nIl trucco vero: abbassa la fiamma appena bolle e usa una pentola grande.\n\nQuale mito vuoi che smontiamo? Scrivilo nei commenti 👇\n\n#veroofalso #scienzaincucina #truccidicucina #curiosità #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "CQUniversity: can a wooden spoon really stop a pot from boiling over?",
+   "url": "https://www.cqu.edu.au/news/1213779/can-a-wooden-spoon-really-stop-a-pot-from-boiling-over"
+  },
+  {
+   "titolo": "Mental Floss: wooden spoon and boil-over",
+   "url": "https://www.mentalfloss.com/live-smarter/home/why-does-placing-wooden-spoon-across-pot-keep-pasta-water-boiling-over"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "il legno fa scoppiare le bolle di amido (più freddo, poroso)",
+   "esito": "confermato",
+   "fonte": "CQUniversity, Mental Floss"
+  },
+  {
+   "affermazione": "funziona solo per un tempo limitato",
+   "esito": "confermato",
+   "fonte": "CQUniversity"
+  }
+ ],
+ "theme": "cucina_notte"
+}
