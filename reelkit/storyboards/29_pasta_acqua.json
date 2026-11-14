@@ -1,0 +1,137 @@
+{
+ "id": "29_pasta_acqua",
+ "topic": "Per la pasta serve un litro d'acqua ogni etto?",
+ "paragraphs": [
+  {
+   "text": "Per la pasta serve un litro d'acqua ogni etto? Falso. E se cambi tre cose, consumi la metà del gas.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "1 LITRO D'ACQUA",
+     "OGNI ETTO?"
+    ],
+    "prop": {
+     "appliance": "pasta_pot",
+     "fire_off_at": "metà",
+     "lid_at": "cambi"
+    },
+    "stamp": {
+     "text": "FALSO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Alla pasta non serve una piscina: le basta restare coperta d'acqua sopra gli ottanta gradi. I pastai italiani ne usano zero virgola sette litri ogni etto.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "NE BASTA",
+     "MENO"
+    ],
+    "card": {
+     "main": "ogni 100 g",
+     "sub": "di pasta",
+     "at": "pastai"
+    },
+    "big": {
+     "text": "0,7 LITRI",
+     "at": "zero",
+     "size": 170
+    },
+    "labels": [
+     {
+      "text": "BASTA CHE SIA COPERTA",
+      "at": "coperta",
+      "pos": [
+       540,
+       1170
+      ],
+      "size": 50
+     },
+     {
+      "text": "SOPRA GLI 80 °C",
+      "at": "ottanta",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 50,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Fatto cento il consumo classico: col coperchio scendi a novantatré, con meno acqua a ottantasette, e a fuoco spento a cinquanta.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "QUANTO",
+     "CONSUMI"
+    ],
+    "items": [
+     {
+      "text": "COPERCHIO: 93",
+      "ok": true,
+      "at": "coperchio"
+     },
+     {
+      "text": "0,7 LITRI: 87",
+      "ok": true,
+      "at": "acqua"
+     },
+     {
+      "text": "FUOCO SPENTO: 50",
+      "ok": true,
+      "at": "spento"
+     }
+    ]
+   }
+  },
+  {
+   "text": "E tu quanta acqua metti? Scrivilo nei commenti.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Scrivilo",
+    "stamp": "QUANTA NE METTI?"
+   }
+  }
+ ],
+ "caption": "Vero o falso #27 · Per la pasta non serve un litro d'acqua ogni etto 🍝 Basta che resti coperta e sopra gli 80 °C: lo studio dei pastai italiani usa 0,7 litri ogni 100 g.\n\nFatto 100 il consumo classico:\n• coperchio sempre → 93\n• 0,7 litri ogni etto → 87\n• fuoco spento dopo il bollore → 50\n\nCon poca acqua e pentola sottile si raffredda prima: coperchio della misura giusta e mescola nei primi minuti.\n\nSalvalo per la prossima pasta 📌 E tu quanta acqua metti? Scrivilo nei commenti 👇\n\n#veroofalso #pasta #risparmio #bollette #scienzaincucina #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Il Post: dati Unione Italiana Food, scala 100/93/87/50",
+   "url": "https://www.ilpost.it/2022/09/09/cottura-pasta-fuoco-spento/"
+  },
+  {
+   "titolo": "Studio Pastai italiani (Perfect Food Consulting): 0,7 L invece di 1 L, -30% acqua, -13% energia",
+   "url": "https://www.meteoweb.eu/2022/09/come-cuocere-pasta-senza-gas/1001148571/"
+  },
+  {
+   "titolo": "Bressanini: la pasta cuoce sopra la soglia di gelatinizzazione, anche sotto i 100 °C",
+   "url": "https://www.dissapore.com/cucina/cottura-pasta/"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "0,7 L ogni 100 g di pasta usato nello studio dei pastai italiani",
+   "esito": "confermato",
+   "fonte": "Unione Italiana Food / Perfect Food Consulting, ripreso da Il Post e MeteoWeb"
+  },
+  {
+   "affermazione": "consumo: classico 100, coperchio 93, meno acqua 87, fuoco spento 50 (cumulativi)",
+   "esito": "confermato",
+   "fonte": "Il Post 09/09/2022, dati Unione Italiana Food"
+  },
+  {
+   "affermazione": "la pasta cuoce sopra circa 80 °C",
+   "esito": "confermato (gelatinizzazione amido, esperimento Bressanini a 86 °C)",
+   "fonte": "Dissapore / Bressanini"
+  }
+ ],
+ "hook_test": "disegno",
+ "theme": "cucina_notte"
+}
