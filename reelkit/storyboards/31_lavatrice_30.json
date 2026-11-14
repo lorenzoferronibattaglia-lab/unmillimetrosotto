@@ -1,0 +1,168 @@
+{
+ "id": "31_lavatrice_30",
+ "topic": "Lavare a 30 gradi pulisce lo stesso?",
+ "paragraphs": [
+  {
+   "text": "Lavare a trenta gradi pulisce lo stesso? Vero. E la lavatrice consuma la metà.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "LAVARE A 30°",
+     "PULISCE LO STESSO?"
+    ],
+    "prop": {
+     "appliance": "washer",
+     "display": "30°",
+     "thermo": {
+      "from": 60,
+      "to": 30,
+      "start": 0.0,
+      "end": 2.5,
+      "x": 300,
+      "y": 770,
+      "hot": 0.6
+     }
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "L'ottanta per cento dell'energia di un lavaggio serve a scaldare l'acqua, non a far girare il cestello.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "DOVE VA",
+     "LA CORRENTE"
+    ],
+    "card": {
+     "main": "energia",
+     "sub": "per scaldare l'acqua",
+     "at": "energia"
+    },
+    "big": {
+     "text": "80%",
+     "at": "ottanta",
+     "size": 200
+    },
+    "labels": [
+     {
+      "text": "NON IL CESTELLO",
+      "at": "cestello",
+      "pos": [
+       540,
+       1200
+      ],
+      "size": 50,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Da sessanta a trenta gradi il consumo si dimezza. Con quattro lavatrici a settimana sono circa quaranta euro l'anno.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "QUANTO",
+     "RISPARMI"
+    ],
+    "card": {
+     "main": "da 60 a 30 °C",
+     "sub": "metà energia",
+     "at": "sessanta"
+    },
+    "big": {
+     "text": "40 €",
+     "at": "quaranta",
+     "size": 220
+    },
+    "labels": [
+     {
+      "text": "OGNI ANNO",
+      "at": "quaranta",
+      "pos": [
+       540,
+       1180
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "I detersivi di oggi lavorano bene a trenta gradi. Quaranta per le macchie, sessanta per asciugamani e lenzuola.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "TUTTI I GIORNI: 30°",
+      "ok": true,
+      "at": "detersivi"
+     },
+     {
+      "text": "MACCHIE: 40°",
+      "ok": true,
+      "at": "macchie"
+     },
+     {
+      "text": "ASCIUGAMANI E LENZUOLA: 60°",
+      "ok": true,
+      "at": "asciugamani"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi lava tutto a sessanta.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Vero o falso #29 · Lavare a 30 gradi pulisce lo stesso, e la lavatrice consuma la metà 👕 L'80% dell'energia di un lavaggio serve a scaldare l'acqua, non a far girare il cestello.\n\nDa 60 a 30 °C il consumo si dimezza: con 4 lavatrici a settimana sono circa 40 € l'anno.\n\n• bucato di tutti i giorni: 30°\n• macchie: 40°\n• asciugamani e lenzuola: 60°\n\nI detersivi di oggi sono fatti per lavorare a temperature moderate.\n\nSalvalo 📌 e mandalo a chi lava tutto a 60 👇\n\n#veroofalso #risparmio #bollette #lavatrice #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Selectra: 80% dell'energia per scaldare l'acqua; 60→30 °C dimezza; ~40 €/anno con 4 lavaggi/settimana (dati Ademe)",
+   "url": "https://selectra.net/energia/attualita/lavatrice-30-gradi-invece-di-60-quanto-risparmi"
+  },
+  {
+   "titolo": "GreenStyle: 30° sporco leggero, 40° macchie, 60° sporco ostinato",
+   "url": "https://www.greenstyle.it/?p=378050"
+  },
+  {
+   "titolo": "BusinessOnline: detersivi con enzimi ottimali a 30-40 °C; 60 °C per lenzuola e asciugamani",
+   "url": "https://www.businessonline.it/news/due-ore-di-lavatrice-costano-meno-di-30-minuti-il-paradosso-che-pochi-conoscono-che-fa-aumentare-bolletta_n88712.html"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "~80% dell'energia per scaldare l'acqua",
+   "esito": "confermato",
+   "fonte": "Selectra (80%), altre fonti 80-90%"
+  },
+  {
+   "affermazione": "da 60 a 30 °C il consumo si dimezza; ~40 €/anno con 4 lavaggi/settimana",
+   "esito": "confermato (Ademe via Selectra)",
+   "fonte": "Selectra"
+  },
+  {
+   "affermazione": "30 tutti i giorni, 40 macchie, 60 asciugamani/lenzuola",
+   "esito": "confermato",
+   "fonte": "GreenStyle, BusinessOnline"
+  }
+ ],
+ "hook_test": "disegno",
+ "theme": "cucina_notte"
+}

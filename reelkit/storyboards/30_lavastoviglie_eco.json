@@ -1,0 +1,167 @@
+{
+ "id": "30_lavastoviglie_eco",
+ "topic": "Il programma Eco della lavastoviglie dura ore: consuma di più?",
+ "paragraphs": [
+  {
+   "text": "Il programma Eco della lavastoviglie dura tre ore e mezza: consuma di più? Falso. Consuma meno del rapido.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "L'ECO DURA 3 ORE:",
+     "CONSUMA DI PIÙ?"
+    ],
+    "prop": {
+     "appliance": "dishwasher",
+     "display": "3:30",
+     "sub": "ECO 50°"
+    },
+    "stamp": {
+     "text": "FALSO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Quasi tutta la corrente serve a scaldare l'acqua. L'Eco la scalda meno, sui cinquanta gradi, e compensa con un ammollo più lungo.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "PIÙ TEMPO,",
+     "MENO CALORE"
+    ],
+    "card": {
+     "main": "Eco",
+     "sub": "acqua meno calda",
+     "at": "Eco"
+    },
+    "big": {
+     "text": "≈ 50 °C",
+     "at": "cinquanta"
+    },
+    "labels": [
+     {
+      "text": "LA CORRENTE SCALDA L'ACQUA",
+      "at": "corrente",
+      "pos": [
+       540,
+       1170
+      ],
+      "size": 46
+     },
+     {
+      "text": "PIÙ AMMOLLO",
+      "at": "ammollo",
+      "pos": [
+       540,
+       1290
+      ],
+      "size": 50,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Su una lavastoviglie misurata: zero virgola nove chilowattora contro uno virgola due del rapido. Circa venticinque euro l'anno.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "QUANTO",
+     "RISPARMI"
+    ],
+    "card": {
+     "main": "Eco 0,9 kWh",
+     "sub": "rapido 1,2",
+     "at": "zero"
+    },
+    "big": {
+     "text": "25 €",
+     "at": "venticinque",
+     "size": 220
+    },
+    "labels": [
+     {
+      "text": "OGNI ANNO",
+      "at": "venticinque",
+      "pos": [
+       540,
+       1180
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "E l'errore che costa di più: due mezzi carichi col rapido costano più del doppio di un Eco pieno.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "PROGRAMMA ECO",
+      "ok": true,
+      "at": "errore"
+     },
+     {
+      "text": "SEMPRE A PIENO CARICO",
+      "ok": true,
+      "at": "mezzi"
+     },
+     {
+      "text": "DUE MEZZI CARICHI RAPIDI",
+      "ok": false,
+      "at": "doppio"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi usa sempre il rapido.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Vero o falso #28 · Il programma Eco della lavastoviglie dura ore ma consuma meno del rapido 🍽️ Quasi tutta la corrente serve a scaldare l'acqua: l'Eco la scalda meno (sui 50 °C) e compensa con un ammollo più lungo.\n\nSu un modello misurato: Eco 0,9 kWh contro 1,2 del rapido, circa 25 € l'anno.\nL'errore più caro: due mezzi carichi col rapido costano più del doppio di un Eco pieno.\n\nEco + pieno carico. Per pentole incrostate serve un ciclo più forte.\n\nSalvalo 📌 e mandalo a chi usa sempre il rapido 👇\n\n#veroofalso #risparmio #bollette #lavastoviglie #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Selectra: Eco 0,923 kWh vs rapido 1,2 kWh (~25 €/anno); due mezzi carichi rapidi 69 cent vs Eco pieno 28 cent",
+   "url": "https://selectra.net/energia/attualita/lavastoviglie-programma-eco-conviene-davvero"
+  },
+  {
+   "titolo": "Haier: Eco consuma meno per temperatura più bassa e riscaldamento più lento",
+   "url": "https://www.haier-europe.com/it_IT/blogs/news/lavaggio-eco-della-lavastoviglie-come-funziona"
+  },
+  {
+   "titolo": "Bosch: Eco 50 °C, temperatura media intorno ai 50 gradi",
+   "url": "https://www.bosch-home.com/it/scopri-bosch/bosch-stories/risparmiare-energia-con-la-modalita-eco"
+  }
+ ],
+ "fact_check": [
+  {
+   "affermazione": "quasi tutta l'elettricità serve a scaldare l'acqua; Eco scalda meno e ammolla di più",
+   "esito": "confermato",
+   "fonte": "Selectra, Haier"
+  },
+  {
+   "affermazione": "Eco 0,9 kWh vs rapido 1,2 kWh, ~25 €/anno",
+   "esito": "confermato su un modello (Bosch SMS4HTI49E)",
+   "fonte": "Selectra"
+  },
+  {
+   "affermazione": "due mezzi carichi rapidi > doppio di un Eco pieno",
+   "esito": "confermato su un modello (69 vs 28 cent)",
+   "fonte": "Selectra"
+  }
+ ],
+ "hook_test": "disegno",
+ "theme": "cucina_notte"
+}
