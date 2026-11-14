@@ -468,6 +468,12 @@
       "data": "2026-11-13T18:36",
       "follower": 45,
       "fonte": "API"
+    },
+    {
+      "data": "2026-11-14T08:04",
+      "follower": 166,
+      "raggiunti_13_11": 49580,
+      "fonte": "API"
     }
   ]
 }
