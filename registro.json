@@ -463,6 +463,58 @@
       ],
       "formato": "extra risparmio, approvato da Lorenzo",
       "vidiq_post_id": "217a9eb5-4d57-4530-94af-c60bb1786032"
+    },
+    {
+      "id": "33_termosifoni_grado",
+      "tema": "Un grado in meno sul termostato quanto fa risparmiare?",
+      "stato": "programmato",
+      "video": "media/33_termosifoni_grado/33_termosifoni_grado.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T10:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
+      "vidiq_post_id": "66bf0600-a8af-4b43-9e3f-0ef2e458b5bb"
+    },
+    {
+      "id": "34_standby_lucina",
+      "tema": "Quanto costano gli apparecchi in standby?",
+      "stato": "programmato",
+      "video": "media/34_standby_lucina/34_standby_lucina.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-16T15:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
+      "vidiq_post_id": "9bd534a7-ac3f-41f1-ba95-6f0a4c9bfeb3"
+    },
+    {
+      "id": "35_doccia_bagno",
+      "tema": "La doccia può costare più del bagno?",
+      "stato": "programmato",
+      "video": "media/35_doccia_bagno/35_doccia_bagno.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-16T18:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
+      "vidiq_post_id": "3cc8ac9c-9473-4c5b-aa1c-9e6e5feaef52"
+    },
+    {
+      "id": "36_frigo_freddo",
+      "tema": "Il frigo troppo freddo consuma di più?",
+      "stato": "programmato",
+      "video": "media/36_frigo_freddo/36_frigo_freddo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-16T20:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
+      "vidiq_post_id": "d137a32f-6982-4f09-9ad7-d591b108a2f0"
     }
   ],
   "lezioni": [
@@ -486,7 +538,8 @@
     },
     "13/11: pasta a fuoco spento = breakout (9.129 views in ~4h, 27 condivisioni, 30 salvataggi). Pattern vincente: VERO + risparmio gas/tempo/soldi + termometro nell'hook. Intro con clip reali AI: skip peggiore, abbandonate.",
     "14/11: Lorenzo ha bocciato il 29 (acqua della pasta) già programmato. Regola: gli extra si mandano a Lorenzo PRIMA di programmarli. Vuole risparmio 'vero' in euro (lavatrice 30°, lavastoviglie Eco).",
-    "14/11: Lorenzo vuole hook piu' acchiappalike. Lavatrice: 57% skip con hook-domanda. Da ora: hook con perdita/soldi/sfida nei primi 2 secondi."
+    "14/11: Lorenzo vuole hook piu' acchiappalike. Lavatrice: 57% skip con hook-domanda. Da ora: hook con perdita/soldi/sfida nei primi 2 secondi.",
+    "15/11: virali = abitudine universale + risparmio in euro + condivisione (pasta 65k, lavatrice 22k). Flop friggitrice: 30 min dopo un altro reel e pubblico ristretto. Regola: >=150 min tra uscite, solo abitudini universali."
   ],
   "voce_attuale": {
     "nome": "Francesco - Natural, Warm and Confident",
