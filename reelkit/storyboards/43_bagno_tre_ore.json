@@ -1,0 +1,118 @@
+{
+ "id": "43_bagno_tre_ore",
+ "topic": "Bisogna aspettare tre ore dopo mangiato per fare il bagno?",
+ "paragraphs": [
+  {
+   "text": "Tre ore dopo mangiato prima del bagno? Falso. È un mito tutto italiano.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "3 ORE",
+     "PRIMA DEL BAGNO?"
+    ],
+    "title_size": 108,
+    "prop": {
+     "appliance": "beach"
+    },
+    "stamp": {
+     "text": "FALSO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Nessuna società medica raccomanda di aspettare ore. Lo dice anche la Croce Rossa, e nelle statistiche sugli annegamenti i pasti non compaiono.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "NESSUNA",
+     "PROVA"
+    ],
+    "labels": [
+     {
+      "text": "NESSUNA REGOLA MEDICA",
+      "at": "medica",
+      "pos": [
+       540,
+       620
+      ],
+      "size": 56
+     },
+     {
+      "text": "CROCE ROSSA: NESSUNA ATTESA",
+      "at": "Croce",
+      "pos": [
+       540,
+       800
+      ],
+      "size": 52,
+      "color": "#2E78BF"
+     },
+     {
+      "text": "PASTI NON C'ENTRANO",
+      "at": "pasti",
+      "pos": [
+       540,
+       980
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il vero rischio è lo sbalzo di temperatura. Entra in acqua piano, bagnandoti un po' alla volta, soprattutto se fa molto caldo.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL VERO",
+     "RISCHIO"
+    ],
+    "items": [
+     {
+      "text": "SBALZO DI TEMPERATURA",
+      "ok": false,
+      "at": "sbalzo"
+     },
+     {
+      "text": "ENTRA PIANO",
+      "ok": true,
+      "at": "piano"
+     },
+     {
+      "text": "BAGNATI A POCO A POCO",
+      "ok": true,
+      "at": "volta"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi ti faceva aspettare tre ore.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Le 3 ore dopo mangiato prima del bagno sono un mito tutto italiano 🌊 Nessun organismo medico raccomanda di aspettare ore: lo ricorda anche la Croce Rossa, e nelle statistiche sugli annegamenti i pasti non compaiono.\n\nIl rischio vero è lo sbalzo di temperatura: entra in acqua piano, bagnandoti un po' alla volta, soprattutto dopo ore al sole.\n\nSalvalo 📌 e mandalo a chi ti faceva aspettare tre ore 👇\n\n#veroofalso #rimedidellanonna #mare #mitisfatati #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "La Sicilia: Croce Rossa, nessuna raccomandazione di attesa; mito italiano",
+   "url": "https://www.lasicilia.it/news/attualita/3048788/bagno-dopo-mangiato-la-congestione-fa-davvero-paura-cosa-dice-la-scienza-e-cosa-no.html"
+  },
+  {
+   "titolo": "Blitz: annegamenti, pasti non compaiono nelle statistiche",
+   "url": "https://archivio.blitzquotidiano.it/salute/quanto-deve-aspettare-fare-bagno-3071307"
+  },
+  {
+   "titolo": "Focus: International Life Saving Federation",
+   "url": "https://www.focus.it/scienza/salute/attenti-al-bagno"
+  }
+ ],
+ "hook_test": "vecchi_metodi",
+ "theme": "cucina_notte"
+}

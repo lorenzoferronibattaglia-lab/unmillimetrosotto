@@ -1,0 +1,114 @@
+{
+ "id": "41_aceto_bicarbonato",
+ "topic": "Aceto e bicarbonato insieme puliscono meglio?",
+ "paragraphs": [
+  {
+   "text": "Aceto e bicarbonato insieme puliscono meglio? Falso. Si annullano.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "ACETO + BICARBONATO",
+     "PULISCONO?"
+    ],
+    "title_size": 108,
+    "prop": {
+     "appliance": "vinegar_soda"
+    },
+    "stamp": {
+     "text": "FALSO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "L'aceto è acido, il bicarbonato è basico. Mescolati reagiscono: fanno tante bolle, ma restano acqua, sale e anidride carbonica.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "ACIDO + BASE",
+     "= SI ANNULLANO"
+    ],
+    "labels": [
+     {
+      "text": "ACETO: ACIDO",
+      "at": "acido",
+      "pos": [
+       540,
+       620
+      ],
+      "size": 58
+     },
+     {
+      "text": "BICARBONATO: BASICO",
+      "at": "basico",
+      "pos": [
+       540,
+       800
+      ],
+      "size": 58,
+      "color": "#2E78BF"
+     },
+     {
+      "text": "RESTANO ACQUA E SALE",
+      "at": "acqua",
+      "pos": [
+       540,
+       980
+      ],
+      "size": 58
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: usali separati. L'aceto contro il calcare, il bicarbonato come polvere abrasiva.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "MAI INSIEME",
+      "ok": false,
+      "at": "separati"
+     },
+     {
+      "text": "ACETO: CALCARE",
+      "ok": true,
+      "at": "calcare"
+     },
+     {
+      "text": "BICARBONATO: ABRASIVO",
+      "ok": true,
+      "at": "abrasiva"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi fa la schiuma nel lavandino.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Aceto e bicarbonato insieme NON puliscono meglio 🫧 L'aceto è acido, il bicarbonato è basico: mescolati si neutralizzano. Le bolle sono anidride carbonica, quello che resta è acqua e un sale.\n\n• aceto da solo: contro il calcare\n• bicarbonato da solo: come polvere abrasiva\n• insieme: solo schiuma\n\nSalvalo 📌 e mandalo a chi fa la schiuma nel lavandino 👇\n\n#veroofalso #rimedidellanonna #pulizie #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Altroconsumo: aceto e bicarbonato insieme si annullano",
+   "url": "https://www.altroconsumo.it/casa-energia/pulizie/consigli/sgrassatori-naturali-e-fai-da-te"
+  },
+  {
+   "titolo": "Altroconsumo: acido + base, neutralizzazione",
+   "url": "https://www.altroconsumo.it/casa-energia/nc/consigli/pulizie-col-bicarbonato"
+  }
+ ],
+ "hook_test": "vecchi_metodi",
+ "theme": "cucina_notte"
+}

@@ -1,0 +1,29 @@
+{
+ "id": "38_pane_frigo",
+ "topic": "Il pane in frigo si conserva meglio?",
+ "paragraphs": [
+  {"text": "Il pane in frigo dura di più? Falso. Diventa raffermo prima.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["IL PANE IN FRIGO", "DURA DI PIÙ?"], "title_size": 110,
+     "prop": {"appliance": "fridge_bread", "thermo": {"from": 20, "to": 4, "start": 0.0, "end": 2.0, "x": 200, "y": 860, "hot": 0.0}},
+     "stamp": {"text": "FALSO", "at": "Falso"}}},
+  {"text": "Raffermo non vuol dire secco: le catene di amido si rimettono in fila e si irrigidiscono. E il freddo del frigo le fa allineare molto più in fretta.",
+   "scene": {"type": "lens", "no_open": true, "title": ["L'AMIDO", "SI METTE IN FILA"], "surface": false, "heat": 0.1, "water": false,
+     "layers": [{"kind": "chains", "align_at": "fila"}], "bg": "#E8C98E",
+     "labels": [{"text": "COL FREDDO: PIÙ IN FRETTA", "at": "freddo", "pos": [540, 1290], "size": 50}]}},
+  {"text": "Il trucco: per pochi giorni, sacchetto di carta a temperatura ambiente. Per di più, a fette nel congelatore: il gelo blocca tutto.",
+   "scene": {"type": "checklist", "title": ["DOVE", "CONSERVARLO"], "items": [
+     {"text": "SACCHETTO DI CARTA", "ok": true, "at": "sacchetto"},
+     {"text": "A FETTE IN CONGELATORE", "ok": true, "at": "congelatore"},
+     {"text": "IN FRIGO", "ok": false, "at": "gelo"}]}},
+  {"text": "Mandalo a chi tiene il pane in frigo.",
+   "scene": {"type": "end", "line": "E ORA TOCCA A TE", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Il pane in frigo diventa raffermo prima 🍞 Raffermo non vuol dire secco: le catene di amido si rimettono in fila e si irrigidiscono (retrogradazione), e alle temperature del frigo succede molto più in fretta che a temperatura ambiente.\n\n• pochi giorni: sacchetto di carta, a temperatura ambiente\n• più a lungo: a fette nel congelatore, il gelo blocca il processo\n• in frigo: no (unica eccezione, con il caldo umido per evitare la muffa)\n\nSalvalo 📌 e mandalo a chi tiene il pane in frigo 👇\n\n#veroofalso #pane #scienzaincucina #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Idealista: il freddo indurisce il pane più in fretta (retrogradazione dell'amido)", "url": "https://www.idealista.it/news/node/421281"},
+  {"titolo": "Blitz Quotidiano: in frigo l'amido cristallizza più in fretta, il congelamento blocca", "url": "https://archivio.blitzquotidiano.it/salute/alimenti-che-non-vanno-messi-in-frigo-ecco-quali-e-perche-2399772"},
+  {"titolo": "Liebherr: pane non in frigorifero, eccezione col caldo", "url": "https://www.liebherr.com/it-ch/frigoriferi-congelatori/freshmag/idee-per-la-freschezza/conservazione-del-pane-8274884"}
+ ],
+ "hook_test": "curiosita_pratica",
+ "theme": "cucina_notte"
+}

@@ -1,0 +1,118 @@
+{
+ "id": "39_telefono_riso",
+ "topic": "Il telefono bagnato va messo nel riso?",
+ "paragraphs": [
+  {
+   "text": "Il telefono bagnato va messo nel riso? Falso. Lo dice proprio Apple.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "TELEFONO BAGNATO",
+     "NEL RISO?"
+    ],
+    "title_size": 108,
+    "prop": {
+     "appliance": "rice_phone"
+    },
+    "stamp": {
+     "text": "FALSO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Il riso asciuga pochissimo, e i granelli e la polvere di amido possono entrare nelle fessure e fare danni.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "IL RISO",
+     "NON AIUTA"
+    ],
+    "labels": [
+     {
+      "text": "ASCIUGA POCHISSIMO",
+      "at": "pochissimo",
+      "pos": [
+       540,
+       620
+      ],
+      "size": 58
+     },
+     {
+      "text": "GRANELLI NELLE FESSURE",
+      "at": "granelli",
+      "pos": [
+       540,
+       800
+      ],
+      "size": 58,
+      "color": "#2E78BF"
+     },
+     {
+      "text": "POLVERE DI AMIDO",
+      "at": "polvere",
+      "pos": [
+       540,
+       980
+      ],
+      "size": 58
+     }
+    ]
+   }
+  },
+  {
+   "text": "Cosa fare: spegnilo, scuotilo piano con la presa in giù, e lascialo asciugare all'aria. Niente phon, niente caricabatterie.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "COSA",
+     "FARE"
+    ],
+    "items": [
+     {
+      "text": "SCUOTILO, PRESA IN GIÙ",
+      "ok": true,
+      "at": "scuotilo"
+     },
+     {
+      "text": "ASCIUGA ALL'ARIA",
+      "ok": true,
+      "at": "aria"
+     },
+     {
+      "text": "PHON E CARICABATTERIE",
+      "ok": false,
+      "at": "phon"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi ha ancora il telefono nel riso.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Il telefono bagnato NON va messo nel riso 📱 Lo scrive Apple nella sua pagina di assistenza: piccole particelle di riso potrebbero danneggiarlo. E il riso asciuga pochissimo.\n\n• spegnilo e scuotilo piano con la presa verso il basso\n• lascialo asciugare all'aria\n• niente phon, niente aria compressa, niente caricabatterie finché è bagnato\n\nSalvalo 📌 e mandalo a chi ha ancora il telefono nel riso 👇\n\n#veroofalso #rimedidellanonna #telefono #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Geopop: Apple sconsiglia il riso",
+   "url": "https://www.geopop.it/se-lo-smartphone-cade-in-acqua-serve-a-qualcosa-immergerlo-nel-riso-no-anzi-sfatiamo-il-mito/"
+  },
+  {
+   "titolo": "SmartWorld: indicazioni Apple (scuotere, asciugare, no phon)",
+   "url": "https://www.smartworld.it/news/apple-iphone-bagnato-riso.html"
+  },
+  {
+   "titolo": "Selectra: il riso asciuga male",
+   "url": "https://selectra.net/internet/attualita/telefono-caduto-in-acqua-riso-cosa-fare"
+  }
+ ],
+ "hook_test": "vecchi_metodi",
+ "theme": "cucina_notte"
+}

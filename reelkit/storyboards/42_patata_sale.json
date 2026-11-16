@@ -1,0 +1,114 @@
+{
+ "id": "42_patata_sale",
+ "topic": "La patata toglie il sale dal sugo?",
+ "paragraphs": [
+  {
+   "text": "Sugo troppo salato? La patata non lo salva. Falso.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "LA PATATA",
+     "TOGLIE IL SALE?"
+    ],
+    "title_size": 108,
+    "prop": {
+     "appliance": "potato_pot"
+    },
+    "stamp": {
+     "text": "FALSO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "La patata assorbe liquido come una spugna, ma lo assorbe già salato: il sugo che resta è salato uguale. I test col misuratore di sodio non trovano differenze.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "È SOLO",
+     "UNA SPUGNA"
+    ],
+    "labels": [
+     {
+      "text": "ASSORBE IL SUGO",
+      "at": "spugna",
+      "pos": [
+       540,
+       620
+      ],
+      "size": 58
+     },
+     {
+      "text": "MA GIÀ SALATO",
+      "at": "salato",
+      "pos": [
+       540,
+       800
+      ],
+      "size": 58,
+      "color": "#2E78BF"
+     },
+     {
+      "text": "STESSO SALE",
+      "at": "uguale",
+      "pos": [
+       540,
+       980
+      ],
+      "size": 58
+     }
+    ]
+   }
+  },
+  {
+   "text": "Cosa funziona davvero: allunga il sugo. Più pomodoro, o una parte senza sale da unire.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "COSA",
+     "FUNZIONA"
+    ],
+    "items": [
+     {
+      "text": "ALLUNGA IL SUGO",
+      "ok": true,
+      "at": "allunga"
+     },
+     {
+      "text": "AGGIUNGI POMODORO",
+      "ok": true,
+      "at": "pomodoro"
+     },
+     {
+      "text": "LA PATATA",
+      "ok": false,
+      "at": "unire"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi giura sulla patata.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "La patata NON toglie il sale dal sugo 🥔 Assorbe liquido come una spugna, ma lo assorbe già salato: il sugo che resta ha la stessa concentrazione. Nei test con il misuratore di sodio non ci sono differenze.\n\nCosa funziona davvero: allungare. Più pomodoro, o una parte di sugo senza sale da unire.\n\nSalvalo 📌 e mandalo a chi giura sulla patata 👇\n\n#veroofalso #rimedidellanonna #scienzaincucina #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "El Español: Robert Wolke, la patata assorbe come una spugna senza cambiare la concentrazione",
+   "url": "https://www.elespanol.com/cocinillas/cocinar/20260402/expertos-coinciden-clave-arreglar-guiso-salado-no-anadir-agua-echar-patata-usar-caldo/1003744193637_0.amp.html"
+  },
+  {
+   "titolo": "Test con sonda di sodio: nessuna differenza",
+   "url": "https://boards.straightdope.com/t/do-potatoes-absorb-excess-salt-in-food/506416"
+  }
+ ],
+ "hook_test": "vecchi_metodi",
+ "theme": "cucina_notte"
+}

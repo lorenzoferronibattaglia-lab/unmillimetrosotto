@@ -1,0 +1,129 @@
+{
+ "id": "40_piatti_risciacquo",
+ "topic": "Bisogna sciacquare i piatti prima della lavastoviglie?",
+ "paragraphs": [
+  {
+   "text": "Sciacqui i piatti prima di metterli in lavastoviglie? Smetti: è acqua buttata.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "SCIACQUI I PIATTI",
+     "PRIMA?"
+    ],
+    "title_size": 108,
+    "prop": {
+     "appliance": "faucet"
+    },
+    "stamp": {
+     "text": "SMETTI",
+     "at": "SMETTI"
+    }
+   }
+  },
+  {
+   "text": "Due minuti di rubinetto aperto sono cinque o sei litri. Quasi metà di un intero lavaggio in lavastoviglie.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "2 MINUTI",
+     "DI RUBINETTO"
+    ],
+    "card": {
+     "main": "2 minuti",
+     "sub": "di rubinetto aperto",
+     "at": "Due"
+    },
+    "big": {
+     "text": "5-6 LITRI",
+     "at": "cinque",
+     "size": 180
+    }
+   }
+  },
+  {
+   "text": "E il detersivo ha bisogno di un po' di sporco: gli enzimi lavorano proprio su quello.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "IL DETERSIVO",
+     "VUOLE LO SPORCO"
+    ],
+    "labels": [
+     {
+      "text": "SERVE UN PO' DI SPORCO",
+      "at": "sporco",
+      "pos": [
+       540,
+       700
+      ],
+      "size": 60
+     },
+     {
+      "text": "GLI ENZIMI LAVORANO LÌ",
+      "at": "enzimi",
+      "pos": [
+       540,
+       880
+      ],
+      "size": 60,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: togli solo gli avanzi grossi col tovagliolo, poi dritti in lavastoviglie, a pieno carico.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "VIA GLI AVANZI GROSSI",
+      "ok": true,
+      "at": "avanzi"
+     },
+     {
+      "text": "NIENTE RISCIACQUO",
+      "ok": true,
+      "at": "dritti"
+     },
+     {
+      "text": "A PIENO CARICO",
+      "ok": true,
+      "at": "pieno"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi lava i piatti due volte.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Non sciacquare i piatti prima della lavastoviglie 🍽️ Due minuti di rubinetto aperto sono 5-6 litri d'acqua, e il detersivo ha bisogno di un po' di sporco: gli enzimi lavorano proprio su quello.\n\nTogli solo gli avanzi grossi col tovagliolo, poi dritti in lavastoviglie, a pieno carico.\n\nSalvalo 📌 e mandalo a chi lava i piatti due volte 👇\n\n#risparmio #lavastoviglie #truccidicasa #bollette #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Il Fatto Alimentare / Altroconsumo: sciacquare è inutile, gli enzimi hanno bisogno di sporco",
+   "url": "https://ilfattoalimentare.it/?p=155011"
+  },
+  {
+   "titolo": "Altroconsumo: togli i residui, non pulire troppo i piatti",
+   "url": "https://www.altroconsumo.it/elettrodomestici/lavastoviglie/consigli/consigli-lavastoviglie"
+  },
+  {
+   "titolo": "Rubinetto aperto 2 minuti = 5-6 litri",
+   "url": "https://valtellinamobile.it/perche-non-serve-sciacquare-i-piatti-prima-di-metterli-in-lavastoviglie/"
+  }
+ ],
+ "hook_test": "vecchi_metodi",
+ "theme": "cucina_notte"
+}
