@@ -1,0 +1,103 @@
+{
+ "id": "37_abitudini_225",
+ "topic": "Quanto costano le piccole abitudini in casa?",
+ "paragraphs": [
+  {
+   "text": "Queste quattro abitudini ti costano fino a duecentoventicinque euro l'anno. Termostato a ventuno invece di venti: novantacinque euro. Le lucine in standby: sessantacinque. Lavatrice a sessanta invece che a trenta: quaranta. Lavastoviglie col rapido invece dell'Eco: venticinque.",
+   "scene": {
+    "type": "table_sum",
+    "title": [
+     "4 ABITUDINI",
+     "TI COSTANO 225 €"
+    ],
+    "title_size": 110,
+    "rows": [
+     {
+      "label": "TERMOSTATO A 21 °C",
+      "value": 95,
+      "at": "Termostato"
+     },
+     {
+      "label": "LUCINE IN STANDBY",
+      "value": 65,
+      "at": "lucine"
+     },
+     {
+      "label": "LAVATRICE A 60°",
+      "value": 40,
+      "at": "Lavatrice"
+     },
+     {
+      "label": "LAVASTOVIGLIE RAPIDO",
+      "value": 25,
+      "at": "rapido"
+     }
+    ]
+   }
+  },
+  {
+   "text": "In tutto, duecentoventicinque euro l'anno.",
+   "scene": {
+    "type": "table_sum",
+    "title": [
+     "4 ABITUDINI",
+     "TI COSTANO 225 €"
+    ],
+    "title_size": 110,
+    "rows": [
+     {
+      "label": "TERMOSTATO A 21 °C",
+      "value": 95,
+      "at": -1.0
+     },
+     {
+      "label": "LUCINE IN STANDBY",
+      "value": 65,
+      "at": -1.0
+     },
+     {
+      "label": "LAVATRICE A 60°",
+      "value": 40,
+      "at": -1.0
+     },
+     {
+      "label": "LAVASTOVIGLIE RAPIDO",
+      "value": 25,
+      "at": -1.0
+     }
+    ],
+    "total_at": "tutto"
+   }
+  },
+  {
+   "text": "Quattro gesti da zero secondi. Salvalo e mandalo a chi paga le bollette a casa tua.",
+   "scene": {
+    "type": "end",
+    "line": "ZERO FATICA",
+    "follow_at": "Salvalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "4 abitudini ti costano fino a 225 € l'anno 💸\n\n• termostato a 21 invece di 20 °C → fino a 95 € (stima Facile.it, riscaldamento autonomo)\n• lucine in standby → 65 € (media Altroconsumo)\n• lavatrice a 60 invece di 30 °C → circa 40 € (4 lavaggi a settimana, Selectra)\n• lavastoviglie col rapido invece dell'Eco → circa 25 € (modello misurato da Selectra)\n\nSono stime: dipendono da casa, tariffa e abitudini. Ma sono quattro gesti da zero secondi.\n\nSalvalo 📌 e mandalo a chi paga le bollette a casa tua 👇\n\n#risparmio #bollette #truccidicasa #risparmiareincasa #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Facile.it via Open: un grado in meno fino a quasi 95 €",
+   "url": "https://www.open.online/2026/10/15/riscaldamento-inverno-bollette-termosifoni-consigli-facile-it-spesa/"
+  },
+  {
+   "titolo": "Altroconsumo via Domani: standby 65 €/anno",
+   "url": "https://www.editorialedomani.it/economia/consumi-elettricita-bollette-costo-risparmio-regolamento-ue-dispositivi-modalita-standby-buone-pratiche-yhwm84wh"
+  },
+  {
+   "titolo": "Selectra: lavatrice 30 vs 60, circa 40 €/anno",
+   "url": "https://selectra.net/energia/attualita/lavatrice-30-gradi-invece-di-60-quanto-risparmi"
+  },
+  {
+   "titolo": "Selectra: lavastoviglie Eco vs rapido, circa 25 €/anno",
+   "url": "https://selectra.net/energia/attualita/lavastoviglie-programma-eco-conviene-davvero"
+  }
+ ],
+ "hook_test": "totale",
+ "theme": "cucina_notte"
+}
