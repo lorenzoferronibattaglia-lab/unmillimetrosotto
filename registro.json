@@ -693,5 +693,16 @@
   "id": "47_sale_bollore",
   "stato": "in_attesa_ok",
   "uscita": null
+ },
+ "48_amaro_digestivo": {
+  "id": "48_amaro_digestivo",
+  "stato": "scartato",
+  "note": "non piaciuto a Lorenzo"
+ },
+ "49_pollo_lavato": {
+  "id": "49_pollo_lavato",
+  "stato": "programmato",
+  "uscita": "2026-11-18T17:00+01:00",
+  "vidiq_post_id": "7199ad82-87cf-45ca-8ddd-55db86de36f7"
  }
 }
