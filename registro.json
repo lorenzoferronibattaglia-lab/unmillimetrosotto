@@ -676,5 +676,22 @@
   "uscita": "2026-11-17T08:20+01:00",
   "vidiq_post_id": "71fea413-ddd4-4c24-a739-f4f28ee68def",
   "tipo": "curiosita_vecchio_metodo"
+ },
+ "46_moka_pressare": {
+  "id": "46_moka_pressare",
+  "stato": "pubblicato",
+  "uscita": "2026-11-18T09:10+01:00",
+  "vidiq_post_id": "b28f5421-6b11-49ef-9a48-3257900562c1"
+ },
+ "45_spaghetti_due": {
+  "id": "45_spaghetti_due",
+  "stato": "programmato",
+  "uscita": "2026-11-18T13:00+01:00",
+  "vidiq_post_id": "cad73138-a570-4cf7-86ac-3505149a72ef"
+ },
+ "47_sale_bollore": {
+  "id": "47_sale_bollore",
+  "stato": "in_attesa_ok",
+  "uscita": null
  }
 }
