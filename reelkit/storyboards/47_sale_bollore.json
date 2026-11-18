@@ -1,0 +1,27 @@
+{
+ "id": "47_sale_bollore",
+ "topic": "Il sale fa bollire prima l'acqua della pasta?",
+ "paragraphs": [
+  {"text": "Il sale fa bollire prima l'acqua della pasta? Falso. Semmai la fa bollire un pelo più tardi.",
+   "scene": {"type": "hook", "title": ["IL SALE FA BOLLIRE", "PRIMA L'ACQUA?"], "title_size": 96, "prop": {"pour": "salt", "label": "SALE"},
+     "stamp": {"text": "FALSO", "at": "Falso"}}},
+  {"text": "Il sale disciolto alza il punto di ebollizione. Ma con dieci grammi per litro, la dose giusta per la pasta, parliamo di meno di due decimi di grado: non te ne accorgi.",
+   "scene": {"type": "number", "title": ["DI QUANTO", "CAMBIA?"], "card": {"main": "10 g", "sub": "per litro", "at": "alza"}, "big": {"text": "+0,18 °C", "at": "decimi", "size": 160},
+     "labels": [{"text": "IMPERCETTIBILE", "at": "accorgi", "pos": [540, 1180], "size": 60}]}},
+  {"text": "Quindi salala quando vuoi: prima o dopo il bollore la pasta viene uguale. E sale grosso o fino è lo stesso: conta solo quanto ne metti.",
+   "scene": {"type": "checklist", "title": ["QUINDI", "TRANQUILLO"], "items": [
+     {"text": "PRIMA O DOPO: UGUALE", "ok": true, "at": "salala"},
+     {"text": "GROSSO O FINO: UGUALE", "ok": true, "at": "fino"},
+     {"text": "CONTA LA DOSE", "ok": true, "at": "quanto"}]}},
+  {"text": "Mandalo a chi aspetta il bollore per salare.",
+   "scene": {"type": "end", "line": "E ORA TOCCA A TE", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Il sale NON fa bollire prima l'acqua 🧂 Anzi: il sale disciolto alza il punto di ebollizione (innalzamento ebullioscopico). Con circa 10 g per litro, però, parliamo di meno di 0,2 °C: in cucina non cambia niente.\n\n• prima o dopo il bollore: la pasta viene uguale\n• sale grosso o fino: uguale, conta la quantità\n• se lo metti quando bolle, si scioglie prima e non lo dimentichi: è solo comodità\n\nMandalo a chi aspetta il bollore per salare 👇\n\n#pasta #sale #veroofalso #scienzaincucina #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Geopop: sale prima o dopo l'ebollizione, non fa differenza", "url": "https://www.geopop.it/il-sale-nellacqua-per-la-pasta-va-aggiunto-prima-o-dopo-lebollizione-la-spiegazione-scientifica/"},
+  {"titolo": "Geopop: sale grosso o fino, nessuna differenza; il sale alza leggermente il punto di ebollizione", "url": "https://www.geopop.it/perche-usiamo-il-sale-grosso-per-cuocere-la-pasta-anche-se-non-ce-differenza-con-quello-fino/"},
+  {"titolo": "Calcolo: ΔTb = i·Kb·m = 2 × 0,512 × 0,171 ≈ 0,18 °C per 10 g NaCl/L", "url": ""}
+ ],
+ "hook_test": "curiosita_pratica",
+ "theme": "cucina_notte"
+}

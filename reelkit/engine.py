@@ -212,10 +212,15 @@ def caption(cr, chunk, words_t, t, y=1400, size=80):
     if not chunk:
         return
     cr.select_font_face(FONT, cairo.FONT_SLANT_NORMAL, cairo.FONT_WEIGHT_BOLD)
-    cr.set_font_size(size)
-    space = cr.text_extents(" ").x_advance
-    widths = [cr.text_extents(w.upper()).x_advance for w, _, _ in chunk]
-    total = sum(widths) + space * (len(chunk) - 1)
+    # il gruppo di parole si restringe da solo per stare in 960 px (mai tagliato ai bordi)
+    while True:
+        cr.set_font_size(size)
+        space = cr.text_extents(" ").x_advance
+        widths = [cr.text_extents(w.upper()).x_advance for w, _, _ in chunk]
+        total = sum(widths) + space * (len(chunk) - 1)
+        if total <= 960 or size <= 44:
+            break
+        size -= 4
     x = W / 2 - total / 2
     start = chunk[0][1]
     pop = ease_out_back(prog(t, start - 0.02, start + 0.15), 2.2)

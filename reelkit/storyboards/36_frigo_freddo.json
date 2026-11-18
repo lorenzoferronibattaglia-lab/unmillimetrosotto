@@ -1,0 +1,115 @@
+{
+ "id": "36_frigo_freddo",
+ "topic": "Il frigo troppo freddo consuma di più?",
+ "paragraphs": [
+  {
+   "text": "Il tuo frigo è troppo freddo, e lo stai pagando.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "FRIGO TROPPO",
+     "FREDDO = SOLDI"
+    ],
+    "title_size": 120,
+    "prop": {
+     "appliance": "fridge_cold",
+     "thermo": {
+      "from": 4,
+      "to": 1,
+      "start": 0.0,
+      "end": 2.0,
+      "x": 200,
+      "y": 860,
+      "hot": 0.0
+     }
+    },
+    "stamp": {
+     "text": "E LO PAGHI",
+     "at": "pagando"
+    }
+   }
+  },
+  {
+   "text": "Per conservare bene il cibo bastano quattro gradi. Ogni grado in meno aggiunge circa il cinque per cento ai consumi, e il frigo è acceso tutto l'anno.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "BASTANO",
+     "4 GRADI"
+    ],
+    "card": {
+     "main": "+5%",
+     "sub": "ogni grado in meno",
+     "at": "grado"
+    },
+    "big": {
+     "text": "4 °C",
+     "at": "quattro",
+     "size": 220
+    },
+    "labels": [
+     {
+      "text": "ACCESO 24 ORE SU 24",
+      "at": "tutto",
+      "pos": [
+       540,
+       1180
+      ],
+      "size": 50,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il test: un bicchiere d'acqua sul ripiano centrale, una notte, poi il termometro. Sotto i quattro gradi, gira la rotella verso meno freddo.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TEST",
+     "DEL BICCHIERE"
+    ],
+    "items": [
+     {
+      "text": "BICCHIERE D'ACQUA IN FRIGO",
+      "ok": true,
+      "at": "bicchiere"
+     },
+     {
+      "text": "TERMOMETRO DOPO UNA NOTTE",
+      "ok": true,
+      "at": "termometro"
+     },
+     {
+      "text": "SOTTO 4 °C: MENO FREDDO",
+      "ok": true,
+      "at": "rotella"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi tiene il frigo al massimo.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Il tuo frigo è troppo freddo, e lo stai pagando 🧊 Per conservare bene il cibo bastano 4 °C nel punto più freddo: ogni grado in meno aggiunge circa il 5% ai consumi, e il frigo è acceso 24 ore su 24.\n\nIl test del bicchiere: un bicchiere d'acqua sul ripiano centrale, una notte, poi il termometro. Sotto i 4 °C gira la rotella verso meno freddo.\n\nAttenzione: i numeri della rotella non sono gradi, indicano la potenza del freddo.\n\nSalvalo 📌 e mandalo a chi tiene il frigo al massimo 👇\n\n#risparmio #bollette #frigorifero #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Selectra: 4 °C, +5% per grado in meno (ENEA), test del bicchiere",
+   "url": "https://selectra.net/energia/attualita/trucco-frigorifero-risparmio-1-minuto"
+  },
+  {
+   "titolo": "DiLei: i numeri della rotella non sono gradi",
+   "url": "https://dilei.it/cucina/frigorifero-temperatura-conservare-cibo/2524929/amp/"
+  }
+ ],
+ "hook_test": "perdita",
+ "theme": "cucina_notte"
+}

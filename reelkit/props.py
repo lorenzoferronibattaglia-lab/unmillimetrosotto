@@ -1165,3 +1165,600 @@ def salad_bowl(cr, cx, y, w=560, t=0.0, wet=1.0, oil=0.0):
     cr.set_source_rgb(*E.INK)
     cr.set_line_width(6)
     cr.stroke()
+
+
+def _appliance_body(cr, cx, top, w, h):
+    """Corpo bianco di un elettrodomestico da incasso visto di fronte."""
+    E.rounded_rect(cr, cx - w / 2, top, w, h, 30)
+    cr.set_source_rgb(0.95, 0.96, 0.97)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(7)
+    cr.stroke()
+
+
+def _display(cr, x, y, w, h, text, sub=None):
+    """Display digitale scuro con testo verde chiaro."""
+    E.rounded_rect(cr, x, y, w, h, 14)
+    cr.set_source_rgb(0.10, 0.13, 0.16)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(4)
+    cr.stroke()
+    E.outlined_text(cr, text, x + w / 2, y + h / 2 + (2 if sub else 16), 50 if sub else 56, fill=(0.55, 0.95, 0.70), lw=0)
+    if sub:
+        E.outlined_text(cr, sub, x + w / 2, y + h - 14, 26, fill=(0.55, 0.95, 0.70), lw=0)
+
+
+def washing_machine(cr, cx, top, t=0.0, w=640, h=560, spin=1.0, display="30°"):
+    """Lavatrice a oblò: cestello con acqua e panni che girano, display della temperatura."""
+    _appliance_body(cr, cx, top, w, h)
+    # pannello comandi
+    cr.move_to(cx - w / 2 + 6, top + 120)
+    cr.line_to(cx + w / 2 - 6, top + 120)
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    _display(cr, cx - 40, top + 26, 190, 70, display)
+    E.circle(cr, cx - w / 2 + 80, top + 61, 34, (0.85, 0.87, 0.90), lw=5)
+    cr.move_to(cx - w / 2 + 80, top + 61)
+    cr.line_to(cx - w / 2 + 80, top + 33)
+    cr.set_line_width(5)
+    cr.stroke()
+    # oblò
+    ocx, ocy, r = cx, top + 120 + (h - 120) / 2, min(w, h - 120) * 0.38
+    E.circle(cr, ocx, ocy, r + 28, (0.80, 0.83, 0.87), lw=7)
+    cr.save()
+    cr.arc(ocx, ocy, r, 0, 2 * math.pi)
+    cr.clip()
+    cr.set_source_rgb(0.20, 0.27, 0.36)
+    cr.paint()
+    # acqua
+    lvl = ocy + r * 0.15 + 6 * math.sin(t * 4)
+    cr.rectangle(ocx - r, lvl, 2 * r, 2 * r)
+    cr.set_source_rgba(0.45, 0.72, 0.95, 0.85)
+    cr.fill()
+    # panni che girano
+    cols = [(0.90, 0.35, 0.35), (0.98, 0.80, 0.30), (0.40, 0.65, 0.90), (0.95, 0.95, 0.95)]
+    ang0 = t * 2.2 * spin
+    for i, col in enumerate(cols):
+        a = ang0 + i * math.pi / 2
+        px, py = ocx + math.cos(a) * r * 0.48, ocy + math.sin(a) * r * 0.48
+        cr.save()
+        cr.translate(px, py)
+        cr.rotate(a)
+        E.rounded_rect(cr, -58, -26, 116, 52, 22)
+        cr.set_source_rgb(*col)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(4)
+        cr.stroke()
+        cr.restore()
+    cr.restore()
+    cr.arc(ocx, ocy, r, 0, 2 * math.pi)
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(7)
+    cr.stroke()
+    # riflesso del vetro
+    cr.arc(ocx, ocy, r * 0.82, math.pi * 1.1, math.pi * 1.45)
+    cr.set_source_rgba(1, 1, 1, 0.45)
+    cr.set_line_width(10)
+    cr.stroke()
+
+
+def dishwasher(cr, cx, top, t=0.0, w=640, h=560, display="3:30", sub="ECO 50°", open_k=0.0):
+    """Lavastoviglie chiusa con display del programma; open_k 0..1 mostra i piatti nel cestello."""
+    _appliance_body(cr, cx, top, w, h)
+    # fascia comandi
+    E.rounded_rect(cr, cx - w / 2 + 6, top + 6, w - 12, 120, 24)
+    cr.set_source_rgb(0.82, 0.85, 0.89)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    _display(cr, cx - 110, top + 22, 220, 88, display, sub=sub)
+    for k, x in enumerate((cx - w / 2 + 60, cx - w / 2 + 120, cx + w / 2 - 120, cx + w / 2 - 60)):
+        E.circle(cr, x, top + 66, 16, (0.95, 0.96, 0.97), lw=4)
+    # maniglia
+    E.rounded_rect(cr, cx - 140, top + 150, 280, 26, 13)
+    cr.set_source_rgb(0.62, 0.67, 0.72)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(4)
+    cr.stroke()
+    # finestra con i piatti (stilizzata) e vapore leggero
+    wx0, wy0, ww, wh = cx - w / 2 + 50, top + 210, w - 100, h - 260
+    E.rounded_rect(cr, wx0, wy0, ww, wh, 22)
+    cr.set_source_rgb(0.25, 0.32, 0.42)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    cr.save()
+    E.rounded_rect(cr, wx0, wy0, ww, wh, 22)
+    cr.clip()
+    for row, yy in enumerate((wy0 + wh * 0.27, wy0 + wh * 0.72)):
+        for i in range(7):
+            px = wx0 + 50 + i * (ww - 100) / 6
+            cr.save()
+            cr.translate(px, yy)
+            cr.scale(0.32, 1)
+            cr.arc(0, 0, wh * 0.19, 0, 2 * math.pi)
+            cr.restore()
+            cr.set_source_rgb(0.97, 0.97, 0.95)
+            cr.fill_preserve()
+            cr.set_source_rgb(*E.INK)
+            cr.set_line_width(4)
+            cr.stroke()
+        cr.move_to(wx0 + 10, yy + wh * 0.2)
+        cr.line_to(wx0 + ww - 10, yy + wh * 0.2)
+        cr.set_source_rgb(0.62, 0.67, 0.72)
+        cr.set_line_width(8)
+        cr.stroke()
+    # goccioline d'acqua che scendono
+    rnd = random.Random(5)
+    for j in range(22):
+        ph = (t * 0.8 + rnd.random()) % 1.0
+        E.circle(cr, wx0 + rnd.uniform(20, ww - 20), wy0 + ph * wh, 6, (0.60, 0.82, 1.0), lw=0, alpha=0.8 * (1 - ph))
+    cr.restore()
+
+
+def air_fryer(cr, cx, top, t=0.0, w=440, h=520, display="200°"):
+    """Friggitrice ad aria vista di fronte: corpo scuro, display, cassetto con patatine e aria calda che gira."""
+    E.rounded_rect(cr, cx - w / 2, top, w, h, 70)
+    cr.set_source_rgb(0.20, 0.22, 0.26)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(7)
+    cr.stroke()
+    _display(cr, cx - 95, top + 40, 190, 70, display)
+    # cassetto
+    dx0, dy0, dw, dh = cx - w / 2 + 40, top + h * 0.42, w - 80, h * 0.48
+    E.rounded_rect(cr, dx0, dy0, dw, dh, 30)
+    cr.set_source_rgb(0.30, 0.33, 0.38)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    # finestra con patatine
+    wx0, wy0, ww, wh = dx0 + 40, dy0 + 30, dw - 80, dh * 0.55
+    E.rounded_rect(cr, wx0, wy0, ww, wh, 18)
+    cr.set_source_rgb(0.95, 0.55, 0.20)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(4)
+    cr.stroke()
+    cr.save()
+    E.rounded_rect(cr, wx0, wy0, ww, wh, 18)
+    cr.clip()
+    rnd = random.Random(11)
+    for j in range(16):
+        px = wx0 + rnd.uniform(10, ww - 10)
+        py = wy0 + wh - rnd.uniform(5, wh * 0.7) + 4 * math.sin(t * 6 + j)
+        cr.save()
+        cr.translate(px, py)
+        cr.rotate(rnd.uniform(-1.2, 1.2))
+        E.rounded_rect(cr, -40, -9, 80, 18, 6)
+        cr.restore()
+        cr.set_source_rgb(0.99, 0.82, 0.35)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(3)
+        cr.stroke()
+    cr.restore()
+    # maniglia
+    E.rounded_rect(cr, cx - 70, dy0 + dh - 50, 140, 30, 15)
+    cr.set_source_rgb(0.12, 0.13, 0.15)
+    cr.fill()
+    # aria calda che gira sopra
+    for k in range(3):
+        ph = (t * 0.7 + k / 3) % 1.0
+        a = 1 - ph
+        cr.arc(cx, top - 10, 60 + ph * 120, math.pi * (1.15 + ph), math.pi * (1.55 + ph))
+        cr.set_source_rgba(1.0, 0.55, 0.25, 0.7 * a)
+        cr.set_line_width(10)
+        cr.stroke()
+
+
+def radiator(cr, cx, top, t=0.0, w=620, h=420, heat=1.0):
+    """Termosifone a elementi con onde di calore e banconote che volano via (perdita)."""
+    n = 9
+    ew = w / n
+    for i in range(n):
+        x = cx - w / 2 + i * ew
+        E.rounded_rect(cr, x + 4, top, ew - 8, h, 22)
+        cr.set_source_rgb(0.95, 0.95, 0.93)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(5)
+        cr.stroke()
+    for y in (top + 50, top + h - 50):
+        E.rounded_rect(cr, cx - w / 2 - 20, y - 14, w + 40, 28, 14)
+        cr.set_source_rgb(0.85, 0.86, 0.84)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(4)
+        cr.stroke()
+    # valvola
+    E.circle(cr, cx + w / 2 + 40, top + h - 50, 30, (0.85, 0.20, 0.25), lw=5)
+    # onde di calore
+    for k in range(4):
+        ph = (t * 0.6 + k / 4) % 1.0
+        x = cx - w / 3 + k * w / 4.5
+        cr.move_to(x, top - 20 - ph * 160)
+        for j in range(6):
+            cr.rel_curve_to(18, -12, -18, -24, 0, -36)
+        cr.set_source_rgba(1.0, 0.55, 0.25, 0.7 * (1 - ph) * heat)
+        cr.set_line_width(7)
+        cr.stroke()
+
+
+def banknote(cr, x, y, angle=0.0, alpha=1.0, label="€"):
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    E.rounded_rect(cr, -70, -38, 140, 76, 10)
+    cr.set_source_rgba(0.55, 0.80, 0.55, alpha)
+    cr.fill_preserve()
+    cr.set_source_rgba(*E.INK, alpha)
+    cr.set_line_width(4)
+    cr.stroke()
+    E.outlined_text(cr, label, 0, 16, 46, fill=(0.15, 0.40, 0.20), lw=0, alpha=alpha)
+    cr.restore()
+
+
+def flying_money(cr, cx, y0, t, n=5, seed=4):
+    """Banconote che salgono e svaniscono lentamente (niente lampeggi)."""
+    rnd = random.Random(seed)
+    for j in range(n):
+        ph = (t * 0.25 + j / n) % 1.0
+        x = cx + rnd.uniform(-260, 260) + 40 * math.sin(t + j)
+        banknote(cr, x, y0 - ph * 420, angle=0.4 * math.sin(t * 1.3 + j), alpha=E.clamp(1.2 - ph * 1.2))
+
+
+def tv_standby(cr, cx, top, t=0.0, w=640, h=380):
+    """Televisore spento con la lucina rossa di standby che pulsa piano."""
+    E.rounded_rect(cr, cx - w / 2, top, w, h, 24)
+    cr.set_source_rgb(0.10, 0.11, 0.13)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(8)
+    cr.stroke()
+    E.rounded_rect(cr, cx - w / 2 + 22, top + 22, w - 44, h - 70, 10)
+    cr.set_source_rgb(0.18, 0.20, 0.24)
+    cr.fill()
+    cr.move_to(cx - w / 2 + 60, top + 60)
+    cr.line_to(cx - w / 2 + 160, top + 60)
+    cr.set_source_rgba(1, 1, 1, 0.15)
+    cr.set_line_width(14)
+    cr.stroke()
+    # piede
+    cr.move_to(cx - 90, top + h + 60)
+    cr.line_to(cx + 90, top + h + 60)
+    cr.line_to(cx + 30, top + h)
+    cr.line_to(cx - 30, top + h)
+    cr.close_path()
+    cr.set_source_rgb(0.20, 0.21, 0.24)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(5)
+    cr.stroke()
+    # lucina: pulsazione lenta (periodo 2 s, niente lampeggio)
+    g = 0.55 + 0.45 * (0.5 + 0.5 * math.sin(t * math.pi))
+    E.circle(cr, cx + w / 2 - 50, top + h - 24, 26 * g, (1.0, 0.25, 0.25), lw=0, alpha=0.35)
+    E.circle(cr, cx + w / 2 - 50, top + h - 24, 11, (1.0, 0.20, 0.20), lw=3)
+
+
+def shower(cr, cx, top, t=0.0, flow=1.0, saver=False):
+    """Soffione con getto d'acqua; saver=True getto più fine."""
+    cr.move_to(cx - 260, top - 120)
+    cr.line_to(cx - 260, top)
+    cr.line_to(cx - 40, top)
+    cr.set_source_rgb(0.75, 0.78, 0.82)
+    cr.set_line_width(26)
+    cr.stroke()
+    cr.move_to(cx - 260, top - 120)
+    cr.line_to(cx - 260, top)
+    cr.line_to(cx - 40, top)
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(4)
+    cr.stroke()
+    cr.save()
+    cr.translate(cx, top + 20)
+    cr.scale(1, 0.45)
+    cr.arc(0, 0, 130, 0, 2 * math.pi)
+    cr.restore()
+    cr.set_source_rgb(0.86, 0.88, 0.91)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    rnd = random.Random(9)
+    nd = 14 if saver else 34
+    for j in range(nd):
+        x0 = cx + rnd.uniform(-110, 110)
+        ph = (t * 1.4 + rnd.random()) % 1.0
+        y = top + 70 + ph * 520
+        x = x0 + (x0 - cx) * ph * 0.5
+        E.circle(cr, x, y, 7 if saver else 10, (0.55, 0.80, 1.0), lw=0, alpha=0.85 * flow * (1 - ph * 0.6))
+
+
+def bread_loaf(cr, x, y, w=300, h=150, stale=0.0):
+    """Pagnotta vista di lato con tagli sulla crosta; stale 0..1 la rende più chiara e opaca."""
+    col = (E.lerp(0.80, 0.86, stale), E.lerp(0.55, 0.72, stale), E.lerp(0.25, 0.50, stale))
+    cr.save()
+    cr.translate(x, y)
+    cr.move_to(-w / 2, h / 2)
+    cr.curve_to(-w / 2, -h * 0.9, w / 2, -h * 0.9, w / 2, h / 2)
+    cr.close_path()
+    cr.set_source_rgb(*col)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    for k in (-1, 0, 1):
+        cr.move_to(k * w * 0.25 - 30, -h * 0.05)
+        cr.line_to(k * w * 0.25 + 30, -h * 0.30)
+        cr.set_source_rgba(1, 0.92, 0.75, 0.9)
+        cr.set_line_width(8)
+        cr.stroke()
+    cr.restore()
+
+
+def _bowl(cr, cx, y, w, h, fill=(0.95, 0.95, 0.93)):
+    cr.move_to(cx - w / 2, y)
+    cr.curve_to(cx - w / 2, y + h * 1.3, cx + w / 2, y + h * 1.3, cx + w / 2, y)
+    cr.close_path()
+    cr.set_source_rgb(*fill)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+
+
+def phone(cr, x, y, w=150, h=290, angle=0.0, wet=0.0, t=0.0):
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    E.rounded_rect(cr, -w / 2, -h / 2, w, h, 26)
+    cr.set_source_rgb(0.12, 0.13, 0.16)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    E.rounded_rect(cr, -w / 2 + 12, -h / 2 + 16, w - 24, h - 32, 16)
+    cr.set_source_rgb(0.30, 0.45, 0.65)
+    cr.fill()
+    for k in range(5):
+        ph = (t * 0.6 + k / 5) % 1.0
+        E.circle(cr, -w / 2 + 20 + k * 27, h / 2 + 8 + ph * 60, 8, (0.55, 0.80, 1.0), lw=0, alpha=wet * (1 - ph))
+    cr.restore()
+
+
+def rice_bowl_phone(cr, cx, y, t=0.0):
+    """Ciotola di riso con un telefono infilato dentro."""
+    phone(cr, cx + 20, y - 40, angle=0.25, wet=1.0, t=t)
+    _bowl(cr, cx, y + 40, 480, 170, fill=(0.93, 0.92, 0.88))
+    rnd = random.Random(21)
+    for j in range(70):
+        gx = cx + rnd.uniform(-220, 220)
+        gy = y + 40 + rnd.uniform(-14, 6)
+        cr.save()
+        cr.translate(gx, gy)
+        cr.rotate(rnd.uniform(0, 3.1))
+        cr.scale(1, 0.45)
+        cr.arc(0, 0, 9, 0, 2 * math.pi)
+        cr.restore()
+        cr.set_source_rgb(1, 1, 0.97)
+        cr.fill()
+
+
+def vinegar_soda(cr, cx, y, t=0.0, foam=1.0):
+    """Bottiglia di aceto, barattolo di bicarbonato e bicchiere che schiuma."""
+    wine_bottle(cr, cx - 240, y, scale=1.0, angle=0.0, label="ACETO", cork=False)
+    E.rounded_rect(cr, cx + 140, y - 230, 190, 230, 22)
+    cr.set_source_rgb(0.95, 0.96, 0.98)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    E.outlined_text(cr, "BICARB.", cx + 235, y - 110, 30, fill=(0.15, 0.35, 0.75), lw=0)
+    glass_of(cr, cx - 20, y, liquid=(0.92, 0.88, 0.70), fill=0.5, t=t, scale=1.0)
+    rnd = random.Random(31)
+    for j in range(26):
+        ph = (t * 0.5 + rnd.random()) % 1.0
+        bx = cx - 20 + rnd.uniform(-70, 70)
+        by = y - 150 - ph * 160 * foam
+        E.circle(cr, bx, by, rnd.uniform(10, 22), (1, 1, 0.97), lw=3, alpha=foam * (1 - ph * 0.7))
+
+
+def potato_pot(cr, t=0.0):
+    """Pentola di sugo con fette di patata che galleggiano."""
+    ix0, ix1, surf, bot = kitchen_pot(cr, t, top=860, w=560, h=380, liquid=((0.82, 0.18, 0.12), (0.62, 0.10, 0.08)), fire=0.6)
+    rnd = random.Random(8)
+    for j in range(6):
+        px = rnd.uniform(ix0 + 70, ix1 - 70)
+        py = surf + 22 + 6 * math.sin(t * 2 + j)
+        cr.save()
+        cr.translate(px, py)
+        cr.scale(1, 0.5)
+        cr.arc(0, 0, 44, 0, 2 * math.pi)
+        cr.restore()
+        cr.set_source_rgb(0.98, 0.92, 0.62)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(4)
+        cr.stroke()
+    pot_rim(cr, 540, 860, 560)
+
+
+def beach_clock(cr, cx, y, t=0.0):
+    """Mare con onde, ombrellone e un orologio con '3 ORE'."""
+    for k in range(3):
+        yy = y + k * 60
+        cr.move_to(cx - 480, yy)
+        for i in range(12):
+            x0 = cx - 480 + i * 80
+            cr.curve_to(x0 + 20, yy - 18 + 4 * math.sin(t * 2 + k), x0 + 60, yy + 18, x0 + 80, yy)
+        cr.line_to(cx + 480, y + 260)
+        cr.line_to(cx - 480, y + 260)
+        cr.close_path()
+        cr.set_source_rgba(0.30 + 0.1 * k, 0.60 + 0.08 * k, 0.90, 0.9)
+        cr.fill()
+    # sabbia
+    cr.rectangle(cx - 480, y + 200, 960, 80)
+    cr.set_source_rgb(0.96, 0.86, 0.60)
+    cr.fill()
+    # ombrellone
+    cr.move_to(cx + 280, y + 220)
+    cr.line_to(cx + 280, y - 200)
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(8)
+    cr.stroke()
+    cr.move_to(cx + 120, y - 180)
+    cr.curve_to(cx + 160, y - 300, cx + 400, y - 300, cx + 440, y - 180)
+    cr.close_path()
+    cr.set_source_rgb(0.90, 0.25, 0.27)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    # orologio
+    ox, oy, r = cx - 200, y - 200, 110
+    E.circle(cr, ox, oy, r, (1, 1, 1), lw=8)
+    ang = -math.pi / 2 + (t * 0.8) % (2 * math.pi)
+    cr.move_to(ox, oy)
+    cr.line_to(ox + 80 * math.cos(ang), oy + 80 * math.sin(ang))
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(8)
+    cr.stroke()
+    cr.move_to(ox, oy)
+    cr.line_to(ox + 55, oy)
+    cr.stroke()
+
+
+def faucet_plate(cr, cx, y, t=0.0):
+    """Rubinetto aperto su un piatto sporco: acqua che scorre via."""
+    cr.move_to(cx - 260, y - 320)
+    cr.line_to(cx - 260, y - 380)
+    cr.line_to(cx + 20, y - 380)
+    cr.line_to(cx + 20, y - 330)
+    cr.set_source_rgb(0.72, 0.75, 0.80)
+    cr.set_line_width(40)
+    cr.stroke()
+    rnd = random.Random(14)
+    for j in range(30):
+        ph = (t * 1.6 + rnd.random()) % 1.0
+        E.circle(cr, cx + 20 + rnd.uniform(-14, 14), y - 300 + ph * 280, 9, (0.55, 0.80, 1.0), lw=0, alpha=0.85)
+    cr.save()
+    cr.translate(cx, y)
+    cr.scale(1, 0.3)
+    cr.arc(0, 0, 230, 0, 2 * math.pi)
+    cr.restore()
+    cr.set_source_rgb(0.97, 0.97, 0.95)
+    cr.fill_preserve()
+    cr.set_source_rgb(*E.INK)
+    cr.set_line_width(6)
+    cr.stroke()
+    for j in range(7):
+        E.circle(cr, cx + rnd.uniform(-120, 120), y + rnd.uniform(-25, 20), rnd.uniform(8, 16), (0.75, 0.30, 0.15), lw=0)
+
+
+def moka(cr, cx, base_y, scale=1.0, t=0.0, steam_on=True, crust=0.0):
+    """Moka ottagonale stilizzata sul fornello, con vapore e caffè che sale."""
+    s = scale
+    cr.save()
+    cr.translate(cx, base_y)
+    cr.scale(s, s)
+    alu = (0.80, 0.82, 0.85)
+    def poly(pts, fill):
+        cr.move_to(*pts[0])
+        for p in pts[1:]:
+            cr.line_to(*p)
+        cr.close_path()
+        cr.set_source_rgb(*fill)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(6)
+        cr.stroke()
+    # caldaia
+    poly([(-130, 0), (130, 0), (95, -170), (-95, -170)], alu)
+    # vita
+    poly([(-80, -170), (80, -170), (80, -195), (-80, -195)], (0.62, 0.65, 0.70))
+    # raccoglitore
+    poly([(-95, -195), (95, -195), (125, -380), (-125, -380)], alu)
+    # coperchio e pomello
+    poly([(-125, -380), (125, -380), (70, -430), (-70, -430)], (0.70, 0.73, 0.77))
+    cr.move_to(-20, -430); cr.line_to(20, -430); cr.line_to(14, -460); cr.line_to(-14, -460); cr.close_path()
+    cr.set_source_rgb(*E.INK); cr.fill()
+    # becco
+    poly([(-125, -360), (-185, -390), (-122, -330)], alu)
+    # manico
+    cr.move_to(118, -350)
+    cr.curve_to(230, -350, 230, -220, 110, -220)
+    cr.set_source_rgb(0.12, 0.12, 0.14)
+    cr.set_line_width(26)
+    cr.stroke()
+    # riflessi
+    for xx in (-60, 40):
+        cr.move_to(xx, -20); cr.line_to(xx + 10, -150)
+        cr.set_source_rgba(1, 1, 1, 0.5); cr.set_line_width(8); cr.stroke()
+    # crosta scura sul bordo (patina)
+    if crust > 0:
+        cr.move_to(-120, -370); cr.line_to(120, -370)
+        cr.set_source_rgba(0.30, 0.18, 0.08, crust); cr.set_line_width(22); cr.stroke()
+    cr.restore()
+    if steam_on:
+        steam(cr, cx - 185 * s, base_y - 400 * s, t, n=3, alpha=0.55, spread=70)
+
+
+def chicken_leg(cr, x, y, scale=1.0, angle=-0.3):
+    """Coscia di pollo cruda (rosata), centro della parte carnosa in (x, y)."""
+    cr.save()
+    cr.translate(x, y)
+    cr.rotate(angle)
+    cr.scale(scale, scale)
+    # osso
+    cr.move_to(90, -10); cr.line_to(210, -10)
+    cr.set_source_rgb(0.97, 0.94, 0.86); cr.set_line_width(34); cr.stroke()
+    for dy in (-22, 2):
+        E.circle(cr, 222, dy, 20, (0.97, 0.94, 0.86), lw=5)
+    # carne
+    cr.move_to(-150, 0)
+    cr.curve_to(-150, -120, 40, -110, 110, -30)
+    cr.curve_to(130, -5, 130, 15, 110, 25)
+    cr.curve_to(40, 110, -150, 120, -150, 0)
+    cr.close_path()
+    cr.set_source_rgb(0.98, 0.76, 0.72); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    for (a, b) in ((-80, -30), (-20, 20), (-90, 40)):
+        cr.move_to(a, b); cr.curve_to(a + 20, b - 12, a + 40, b - 12, a + 60, b)
+        cr.set_source_rgba(0.85, 0.55, 0.52, 0.9); cr.set_line_width(5); cr.stroke()
+    cr.restore()
+
+
+def faucet_chicken(cr, cx, y, t=0.0, splash=1.0, microbes=True):
+    """Rubinetto aperto sul pollo crudo: schizzi che portano batteri tutto intorno."""
+    cr.move_to(cx - 260, y - 360); cr.line_to(cx - 260, y - 420)
+    cr.line_to(cx + 20, y - 420); cr.line_to(cx + 20, y - 370)
+    cr.set_source_rgb(0.72, 0.75, 0.80); cr.set_line_width(40); cr.stroke()
+    rnd = random.Random(14)
+    for j in range(26):
+        ph = (t * 1.6 + rnd.random()) % 1.0
+        E.circle(cr, cx + 20 + rnd.uniform(-14, 14), y - 340 + ph * 270, 9, (0.55, 0.80, 1.0), lw=0, alpha=0.85)
+    chicken_leg(cr, cx - 30, y, scale=1.55)
+    if splash > 0:
+        rnd = random.Random(77)
+        for j in range(22):
+            ang = rnd.uniform(math.pi * 1.05, math.pi * 1.95)
+            spd = rnd.uniform(0.6, 1.0)
+            ph = (t * 1.2 + rnd.random()) % 1.0
+            d = ph * 520 * spd * splash
+            px = cx + 20 + math.cos(ang) * d
+            py = y - 60 + math.sin(ang) * d * 0.7 + 420 * ph * ph
+            al = (1 - ph) * splash
+            E.circle(cr, px, py, 15, (0.55, 0.80, 1.0), lw=0, alpha=0.9 * al)
+            if microbes and j % 3 == 0:
+                cr.save(); cr.translate(px, py); cr.scale(0.32, 0.32)
+                microbe(cr, 0, 0, scale=1.0, t=t)
+                cr.restore()

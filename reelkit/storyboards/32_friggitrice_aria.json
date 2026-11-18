@@ -1,0 +1,65 @@
+{
+ "id": "32_friggitrice_aria",
+ "topic": "La friggitrice ad aria consuma meno del forno?",
+ "paragraphs": [
+  {
+   "text": "La friggitrice ad aria consuma meno del forno? Vero: meno della metà.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": ["FRIGGITRICE AD ARIA:", "METÀ DEL FORNO?"],
+    "prop": {"appliance": "air_fryer", "display": "200°"},
+    "stamp": {"text": "VERO", "at": "Vero", "color": "green"}
+   }
+  },
+  {
+   "text": "Nel test di Altroconsumo sulle patatine surgelate, il forno ha consumato uno virgola sedici chilowattora. La friggitrice zero virgola cinquantaquattro.",
+   "scene": {
+    "type": "number",
+    "title": ["IL TEST", "SULLE PATATINE"],
+    "card": {"main": "forno 1,16 kWh", "sub": "friggitrice 0,54", "at": "forno"},
+    "big": {"text": "-53%", "at": "cinquantaquattro", "size": 220},
+    "labels": [{"text": "CON LA FRIGGITRICE", "at": "cinquantaquattro", "pos": [540, 1180], "size": 52}]
+   }
+  },
+  {
+   "text": "È piccola: scalda poca aria, vicina al cibo, e non serve un lungo preriscaldamento.",
+   "scene": {
+    "type": "number",
+    "title": ["PERCHÉ", "CONSUMA MENO"],
+    "labels": [
+     {"text": "SCALDA POCA ARIA", "at": "poca", "pos": [540, 650], "size": 60},
+     {"text": "VICINA AL CIBO", "at": "vicina", "pos": [540, 820], "size": 60, "color": "#2E78BF"},
+     {"text": "PRERISCALDO BREVE", "at": "preriscaldamento", "pos": [540, 990], "size": 60}
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: per una o due porzioni usa la friggitrice, senza riempire troppo il cestello. Per tutta la famiglia, meglio il forno.",
+   "scene": {
+    "type": "checklist",
+    "title": ["IL TRUCCO", "GIUSTO"],
+    "items": [
+     {"text": "1-2 PORZIONI: FRIGGITRICE", "ok": true, "at": "porzioni"},
+     {"text": "CESTELLO NON STRAPIENO", "ok": true, "at": "cestello"},
+     {"text": "TUTTA LA FAMIGLIA: FORNO", "ok": true, "at": "famiglia"}
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi accende il forno per due patatine.",
+   "scene": {"type": "end", "line": "E ORA TOCCA A TE", "follow_at": "Mandalo", "stamp": "MANDALO!"}
+  }
+ ],
+ "caption": "Vero o falso #30 · La friggitrice ad aria consuma meno della metà del forno 🍟 Nel test di Altroconsumo sulle patatine surgelate: forno 1,16 kWh, friggitrice 0,54 kWh.\n\nÈ piccola, scalda poca aria vicino al cibo e il preriscaldamento è breve.\n\n• 1-2 porzioni: friggitrice\n• cestello non strapieno\n• tutta la famiglia: forno\n\nSalvalo 📌 e mandalo a chi accende il forno per due patatine 👇\n\n#veroofalso #risparmio #bollette #friggitriceadaria #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Altroconsumo: forno vs friggitrice ad aria, patatine surgelate 1,157 kWh vs 0,54 kWh", "url": "https://www.altroconsumo.it/elettrodomestici/friggitrici-ad-aria/consigli/scegliere-tra-forno-o-friggitrice-ad-aria"},
+  {"titolo": "GreenStyle: friggitrice conveniente per piccoli pasti, forno per grandi quantità", "url": "https://www.greenstyle.it/e-questo-lelettrodomestico-che-ti-fa-schizzare-i-costi-in-bolletta-non-lo-immagineresti-mai-426344.html"}
+ ],
+ "fact_check": [
+  {"affermazione": "forno 1,157 kWh vs friggitrice 0,54 kWh sulle patatine surgelate (-53%)", "esito": "confermato", "fonte": "Altroconsumo"},
+  {"affermazione": "per grandi quantità conviene il forno", "esito": "confermato", "fonte": "GreenStyle"}
+ ],
+ "hook_test": "disegno",
+ "theme": "cucina_notte"
+}

@@ -1,0 +1,105 @@
+{
+ "id": "34_standby_lucina",
+ "topic": "Quanto costano gli apparecchi in standby?",
+ "paragraphs": [
+  {
+   "text": "Quella lucina rossa ti costa sessantacinque euro l'anno.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "LUCINA ROSSA",
+     "= 65 €"
+    ],
+    "title_size": 130,
+    "prop": {
+     "appliance": "tv_standby"
+    },
+    "stamp": {
+     "text": "OGNI ANNO",
+     "at": "anno"
+    }
+   }
+  },
+  {
+   "text": "Tv, decoder, console, caricatori: spenti ma attaccati alla presa continuano a consumare. Secondo Altroconsumo è l'otto per cento della bolletta.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "SPENTI",
+     "MA NON TROPPO"
+    ],
+    "card": {
+     "main": "standby",
+     "sub": "della bolletta",
+     "at": "Altroconsumo"
+    },
+    "big": {
+     "text": "8%",
+     "at": "otto",
+     "size": 220
+    },
+    "labels": [
+     {
+      "text": "TV · DECODER · CONSOLE",
+      "at": "decoder",
+      "pos": [
+       540,
+       1180
+      ],
+      "size": 48
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: una ciabatta con l'interruttore. La spegni la sera e non ci pensi più. Ma frigo e congelatore, mai.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "CIABATTA CON INTERRUTTORE",
+      "ok": true,
+      "at": "ciabatta"
+     },
+     {
+      "text": "SPEGNILA LA SERA",
+      "ok": true,
+      "at": "sera"
+     },
+     {
+      "text": "FRIGO E CONGELATORE",
+      "ok": false,
+      "at": "frigo"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi lascia tutto in standby.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Quella lucina rossa ti costa 65 € l'anno 🔴 Tv, decoder, console e caricatori, spenti ma attaccati alla presa, continuano a consumare: secondo Altroconsumo lo standby pesa in media 65 € l'anno a famiglia, l'8% della bolletta.\n\nIl trucco: una ciabatta con l'interruttore, la spegni la sera. Frigo e congelatore invece restano sempre accesi.\n\nSalvalo 📌 e mandalo a chi lascia tutto in standby 👇\n\n#risparmio #bollette #standby #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Domani / Altroconsumo: standby 65 €/anno, 8% della bolletta",
+   "url": "https://www.editorialedomani.it/economia/consumi-elettricita-bollette-costo-risparmio-regolamento-ue-dispositivi-modalita-standby-buone-pratiche-yhwm84wh"
+  },
+  {
+   "titolo": "GreenMe: ciabatta con interruttore",
+   "url": "https://www.greenme.it/?p=1262101"
+  }
+ ],
+ "hook_test": "perdita",
+ "theme": "cucina_notte"
+}

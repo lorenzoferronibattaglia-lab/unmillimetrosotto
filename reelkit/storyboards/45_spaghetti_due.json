@@ -1,0 +1,22 @@
+{
+ "id": "45_spaghetti_due",
+ "topic": "Perché uno spaghetto non si spezza mai in due?",
+ "paragraphs": [
+  {"text": "Prova a spezzare uno spaghetto in due. Non ci riesci: si rompe sempre in tre pezzi, o di più.",
+   "scene": {"type": "snap", "title": ["PROVA A SPEZZARLO", "IN DUE"], "title_size": 100, "pieces": 3, "bend_at": "spezzare", "snap_at": "riesci"}},
+  {"text": "Ci ha perso una notte anche Richard Feynman, premio Nobel per la fisica. La risposta è arrivata nel duemilacinque: quando si spezza, il pezzo che resta in mano scatta come una frusta, e quella vibrazione lo piega così tanto da romperlo di nuovo.",
+   "scene": {"type": "snap", "title": ["L'EFFETTO", "FRUSTA"], "pieces": 3, "bend_at": "risposta", "snap_at": "frusta", "count_text": "DI NUOVO!",
+     "labels": [{"text": "NEANCHE FEYNMAN", "at": "Feynman", "pos": [540, 1100], "size": 60}]}},
+  {"text": "Il trucco l'ha trovato il MIT: prima torcilo di tre quarti di giro, poi piegalo. Si spezza in due, perché la torsione smorza la frusta.",
+   "scene": {"type": "snap", "title": ["IL TRUCCO", "DEL MIT"], "pieces": 2, "twist_at": "torcilo", "bend_at": "piegalo", "snap_at": "due", "count_text": "2 PEZZI!"}},
+  {"text": "Mandalo a chi spezza gli spaghetti.",
+   "scene": {"type": "end", "line": "E ORA PROVACI TU", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Uno spaghetto crudo non si spezza quasi mai in due 🍝 Ci aveva provato anche Richard Feynman, senza riuscire a spiegarlo. Nel 2005 due fisici francesi (Audoly e Neukirch) hanno capito perché: dopo la prima rottura, il pezzo che resta in mano vibra come una frusta e si spezza di nuovo.\n\nNel 2018 un gruppo del MIT ha trovato il trucco: torci lo spaghetto di circa 270° (tre quarti di giro) prima di piegarlo, e si spezza in due.\n\n(Per la cronaca: in pentola gli spaghetti non si spezzano 😄)\n\nProvaci e mandalo a chi spezza gli spaghetti 👇\n\n#spaghetti #fisica #curiosità #scienzaincucina #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Il Post: Provate a spezzare uno spaghetto in due (MIT, PNAS 2018; Audoly-Neukirch 2005; Feynman)", "url": "https://www.ilpost.it/2018/08/26/spaghetto-due-parti-rotto-mit/"},
+  {"titolo": "AGI: esperimento MIT sugli spaghetti", "url": "https://www.agi.it/cronaca/news/2018-08-14/spaghetti_esperimento_fisica_mit-4267228/"}
+ ],
+ "hook_test": "curiosita_pura_con_prova",
+ "theme": "cucina_notte"
+}

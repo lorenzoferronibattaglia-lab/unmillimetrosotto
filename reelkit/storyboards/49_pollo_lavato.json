@@ -1,0 +1,31 @@
+{
+ "id": "49_pollo_lavato",
+ "topic": "Il pollo crudo va lavato prima di cuocerlo?",
+ "paragraphs": [
+  {"text": "Lavi il pollo prima di cuocerlo? Fermati. Lo fa un italiano su quattro, ed è un errore.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["LAVI IL POLLO", "PRIMA DI CUOCERLO?"], "title_size": 100,
+     "prop": {"appliance": "chicken", "splash_at": "Fermati"},
+     "stamp": {"text": "ERRORE", "at": "errore"}}},
+  {"text": "L'acqua non toglie i batteri: li fa schizzare. Salmonella e Campylobacter finiscono sul lavello, sul tagliere, e magari sull'insalata che poi mangi cruda.",
+   "scene": {"type": "splash", "title": ["L'ACQUA", "LI SPARGE"], "splash_at": "schizzare",
+     "targets": [{"text": "LAVELLO", "at": "lavello"}, {"text": "TAGLIERE", "at": "tagliere"}, {"text": "INSALATA", "at": "insalata"}]}},
+  {"text": "A ucciderli è solo la cottura: almeno settantacinque gradi al cuore, come indica il Ministero della Salute.",
+   "scene": {"type": "number", "title": ["LI UCCIDE", "SOLO IL CALORE"], "card": {"main": "al cuore", "sub": "del pezzo", "at": "cottura"}, "big": {"text": "75 °C", "at": "settantacinque", "size": 200}}},
+  {"text": "Quindi: dalla confezione dritto in padella, e lavati bene le mani. Mandalo a chi lava ancora il pollo.",
+   "scene": {"type": "checklist", "title": ["COSA", "FARE"], "items": [
+     {"text": "LAVARE IL POLLO", "ok": false, "at": "confezione"},
+     {"text": "DRITTO IN PADELLA", "ok": true, "at": "padella"},
+     {"text": "LAVARSI LE MANI", "ok": true, "at": "mani"}]}},
+  {"text": "E tu lo lavi?",
+   "scene": {"type": "end", "line": "E TU LO LAVI?", "follow_at": "lavi", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Il pollo crudo NON si lava 🍗 L'acqua non elimina i batteri: li fa schizzare. Salmonella e Campylobacter finiscono su lavello, tagliere, utensili e magari sull'insalata che poi mangi cruda (contaminazione crociata). A ucciderli è solo la cottura: almeno 75 °C al cuore del pezzo, come indica il Ministero della Salute.\n\n• dalla confezione dritto in padella o in forno\n• lavati bene le mani dopo averlo toccato\n• tagliere e coltelli: lavali prima di usarli per altro\n\nE tu lo lavi? 👇 Mandalo a chi lava ancora il pollo.\n\n#pollo #sicurezzaalimentare #veroofalso #falsimiti #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Altroconsumo: il pollo si lava prima di cucinarlo? No (linee guida Ministero della Salute)", "url": "https://www.altroconsumo.it/alimentazione/sicurezza-alimentare/consigli/lavare-il-pollo"},
+  {"titolo": "Il Fatto Alimentare: FSA e Antonia Ricci (IZSVe), il lavaggio non elimina i patogeni e aumenta la contaminazione crociata", "url": "https://ilfattoalimentare.it/lavare-pollo-campylobacter.html"},
+  {"titolo": "Il Fatto Alimentare: Ministero della Salute, cottura ad almeno 75 °C a cuore", "url": "https://ilfattoalimentare.it/?p=78591"},
+  {"titolo": "Scatti di Gusto: un italiano su quattro crede sia necessario lavare il pollo", "url": "https://www.scattidigusto.it/pollo-come-scegliere-conservare-cuocere"}
+ ],
+ "hook_test": "controverso_abitudine",
+ "theme": "cucina_notte"
+}

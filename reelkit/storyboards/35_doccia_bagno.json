@@ -1,0 +1,133 @@
+{
+ "id": "35_doccia_bagno",
+ "topic": "La doccia può costare più del bagno?",
+ "paragraphs": [
+  {
+   "text": "La tua doccia può costare più di un bagno in vasca. Vero, se il soffione è vecchio.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "DOCCIA",
+     "PIÙ CARA DEL BAGNO?"
+    ],
+    "title_size": 120,
+    "prop": {
+     "appliance": "shower"
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "Vero",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Un soffione vecchio butta venti litri al minuto. Dopo sette minuti e mezzo hai già usato una vasca da centocinquanta litri.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "SOFFIONE",
+     "VECCHIO"
+    ],
+    "card": {
+     "main": "20 litri",
+     "sub": "al minuto",
+     "at": "venti"
+    },
+    "big": {
+     "text": "7,5 MIN",
+     "at": "sette",
+     "size": 190
+    },
+    "labels": [
+     {
+      "text": "= UNA VASCA PIENA",
+      "at": "vasca",
+      "pos": [
+       540,
+       1180
+      ],
+      "size": 52
+     }
+    ]
+   }
+  },
+  {
+   "text": "Con uno a risparmio, cinque minuti di doccia passano da un euro e ventidue a cinquantatré centesimi.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "SOFFIONE",
+     "A RISPARMIO"
+    ],
+    "card": {
+     "main": "5 minuti",
+     "sub": "di doccia",
+     "at": "cinque"
+    },
+    "big": {
+     "text": "0,53 €",
+     "at": "cinquantatré",
+     "size": 210
+    },
+    "labels": [
+     {
+      "text": "INVECE DI 1,22 €",
+      "at": "ventidue",
+      "pos": [
+       540,
+       1180
+      ],
+      "size": 52
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: soffione a risparmio, chiudi l'acqua mentre ti insaponi, e resta sotto i cinque minuti.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "SOFFIONE A RISPARMIO",
+      "ok": true,
+      "at": "soffione"
+     },
+     {
+      "text": "CHIUDI MENTRE TI INSAPONI",
+      "ok": true,
+      "at": "insaponi"
+     },
+     {
+      "text": "SOTTO I 5 MINUTI",
+      "ok": true,
+      "at": "sotto"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi fa docce da un quarto d'ora.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "La doccia può costare più di un bagno in vasca 🚿 Con un soffione vecchio da 20 litri al minuto, dopo 7 minuti e mezzo hai già usato quanto una vasca da 150 litri.\n\nCon un soffione a risparmio (7 litri al minuto) 5 minuti di doccia costano circa 0,53 € invece di 1,22 € (stima Selectra con scaldabagno elettrico; col gas cifre più basse, proporzioni simili).\n\n• soffione a risparmio\n• chiudi l'acqua mentre ti insaponi\n• sotto i 5 minuti\n\nSalvalo 📌 e mandalo a chi fa docce da un quarto d'ora 👇\n\n#risparmio #bollette #doccia #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Selectra: vasca o doccia, 7'30\" con soffione da 20 l/min; 1,22 € vs 0,53 €",
+   "url": "https://selectra.net/energia/attualita/vasca-o-doccia-quanti-minuti-costa-di-piu"
+  }
+ ],
+ "hook_test": "perdita",
+ "theme": "cucina_notte"
+}

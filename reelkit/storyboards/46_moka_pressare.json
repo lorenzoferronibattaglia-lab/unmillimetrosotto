@@ -1,0 +1,29 @@
+{
+ "id": "46_moka_pressare",
+ "topic": "Il caffè nella moka va pressato?",
+ "paragraphs": [
+  {"text": "Il caffè nella moka va pressato, magari con la montagnetta? No. Così lo rovini.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["IL CAFFÈ NELLA MOKA", "VA PRESSATO?"], "title_size": 96,
+     "prop": {"appliance": "moka", "crust": 0.0},
+     "stamp": {"text": "NO!", "at": "No"}}},
+  {"text": "L'acqua deve risalire attraverso la polvere. Se è soffice, passa ovunque e scioglie gli aromi in modo uniforme. Se la pressi, i granelli si chiudono: l'acqua fatica, si surriscalda e il caffè viene amaro. Nei casi peggiori interviene la valvola.",
+   "scene": {"type": "filter", "title": ["SOFFICE", "O PRESSATO?"], "flow_at": "risalire", "press_at": "pressi", "valve_at": "peggiori",
+     "labels_side": [{"text": "SOFFICE", "ok": true, "at": "soffice"}, {"text": "PRESSATO", "ok": false, "at": "pressi"}]}},
+  {"text": "Come si fa: acqua fino alla valvola, filtro pieno fino al bordo e solo livellato. Niente montagnetta: la polvere finisce sulla guarnizione e la moka non chiude bene.",
+   "scene": {"type": "checklist", "title": ["COME", "CARICARLA"], "items": [
+     {"text": "ACQUA FINO ALLA VALVOLA", "ok": true, "at": "valvola"},
+     {"text": "FILTRO PIENO, LIVELLATO", "ok": true, "at": "livellato"},
+     {"text": "PRESSATO", "ok": false, "at": "Niente"},
+     {"text": "MONTAGNETTA", "ok": false, "at": "guarnizione"}]}},
+  {"text": "Mandalo a chi fa la montagnetta.",
+   "scene": {"type": "end", "line": "E ORA TOCCA A TE", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Il caffè nella moka NON va pressato ☕ L'acqua deve risalire attraverso la polvere: se è soffice passa in modo uniforme, se la comprimi trova meno spazio, fatica, si surriscalda ed estrae le note amare. Se il filtro si intasa, la pressione sale finché non interviene la valvola di sicurezza.\n\n• acqua fino alla valvola, non oltre\n• filtro pieno fino al bordo, solo livellato\n• niente pressatura\n• niente montagnetta: la polvere va sulla guarnizione e la moka chiude male\n\nSalvalo 📌 e mandalo a chi fa la montagnetta 👇\n\n#moka #caffè #veroofalso #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Geopop: moka perfetta secondo la chimica, caffè livellato senza pressarlo", "url": "https://www.geopop.it/come-fare-il-caffe-con-la-moka-in-modo-perfetto-secondo-la-chimica-acqua-polvere-e-fiamma/"},
+  {"titolo": "Gambero Rosso: montagnetta no, la polvere va sulla guarnizione", "url": "https://www.gamberorosso.it/notizie/storie/caffe-fatto-in-casa-7-consigli-per-una-moka-e-napoletana-perfetta/"},
+  {"titolo": "Dissapore: no montagnetta, fuoco medio", "url": "https://www.dissapore.com/bere/caffe-con-la-moka-come-farlo-perfetto/"}
+ ],
+ "hook_test": "curiosita_pratica",
+ "theme": "cucina_notte"
+}

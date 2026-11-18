@@ -1,0 +1,32 @@
+{
+ "id": "44_moka_sapone",
+ "topic": "La moka non va mai lavata col sapone?",
+ "paragraphs": [
+  {"text": "La moka non va mai lavata col sapone? Falso. È un mito della nonna.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["LA MOKA", "MAI COL SAPONE?"], "title_size": 110,
+     "prop": {"appliance": "moka", "crust": 1.0},
+     "stamp": {"text": "FALSO", "at": "Falso"}}},
+  {"text": "Quella patina scura non dà sapore: sono oli del caffè che restano attaccati. E con l'aria, giorno dopo giorno, irrancidiscono. Quel retrogusto di vecchio nella tazza viene da lì.",
+   "scene": {"type": "lens", "no_open": true, "title": ["LA PATINA", "NON È SAPORE"], "surface": true, "heat": 0.0, "bg": "#6B4A2E",
+     "layers": [{"kind": "oil", "at": "oli"}],
+     "labels": [{"text": "OLI DEL CAFFÈ", "at": "oli", "pos": [540, 1195], "size": 56},
+                {"text": "CON L'ARIA: RANCIDI", "at": "irrancidiscono", "pos": [540, 1290], "size": 56}]}},
+  {"text": "Come si lava davvero: acqua calda e una goccia di sapone neutro, poi risciacqui bene. Niente detersivi profumati. E mai in lavastoviglie: l'alluminio si annerisce.",
+   "scene": {"type": "checklist", "title": ["COME", "LAVARLA"], "items": [
+     {"text": "ACQUA CALDA + SAPONE NEUTRO", "ok": true, "at": "neutro"},
+     {"text": "RISCIACQUO ABBONDANTE", "ok": true, "at": "risciacqui"},
+     {"text": "DETERSIVO PROFUMATO", "ok": false, "at": "profumati"},
+     {"text": "LAVASTOVIGLIE", "ok": false, "at": "lavastoviglie"}]}},
+  {"text": "Mandalo a chi non lava mai la moka.",
+   "scene": {"type": "end", "line": "E ORA TOCCA A TE", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "La moka non si lava col sapone? È un mito ☕ Quella patina scura non “insaporisce”: sono oli del caffè che restano sulle pareti e, a contatto con l'aria, irrancidiscono. Il retrogusto di vecchio viene da lì.\n\n• acqua calda e, se serve, una goccia di sapone neutro\n• risciacquo abbondante, poi asciugala aperta\n• niente detersivi profumati (lasciano odore)\n• mai in lavastoviglie: l'alluminio si annerisce\n\nNota onesta: Bialetti consiglia solo acqua calda; un po' di sapone neutro ben risciacquato non fa danni, ma non serve esagerare.\n\nSalvalo 📌 e mandalo a chi non lava mai la moka 👇\n\n#moka #caffè #veroofalso #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Geopop: lavare la moka col sapone, il divieto è un falso mito", "url": "https://www.geopop.it"},
+  {"titolo": "Dissapore: lavate la moka, la patina non migliora il caffè", "url": "https://www.dissapore.com"},
+  {"titolo": "Linkiesta Gastronomika: gli oli residui ossidano e danno sapore rancido", "url": "https://www.linkiesta.it"},
+  {"titolo": "Bialetti, istruzioni d'uso: lavare a mano con acqua calda, non in lavastoviglie", "url": "https://www.bialetti.com"}
+ ],
+ "hook_test": "curiosita_pratica",
+ "theme": "cucina_notte"
+}

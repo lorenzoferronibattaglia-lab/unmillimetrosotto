@@ -1,0 +1,134 @@
+{
+ "id": "33_termosifoni_grado",
+ "topic": "Un grado in meno sul termostato quanto fa risparmiare?",
+ "paragraphs": [
+  {
+   "text": "Quel grado in più sul termostato ti costa quasi novantacinque euro a inverno.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "1 GRADO IN PIÙ",
+     "= 95 €"
+    ],
+    "title_size": 130,
+    "prop": {
+     "appliance": "radiator",
+     "thermo": {
+      "from": 20,
+      "to": 21,
+      "start": 0.0,
+      "end": 2.0,
+      "x": 300,
+      "y": 770,
+      "hot": 0.8
+     }
+    },
+    "stamp": {
+     "text": "OGNI INVERNO",
+     "at": "inverno"
+    }
+   }
+  },
+  {
+   "text": "Ogni grado in meno taglia dal cinque al dieci per cento del combustibile. Lo dice l'ENEA.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "OGNI GRADO",
+     "IN MENO"
+    ],
+    "card": {
+     "main": "1 grado in meno",
+     "sub": "dati ENEA",
+     "at": "grado"
+    },
+    "big": {
+     "text": "FINO A -10%",
+     "at": "dieci",
+     "size": 150
+    }
+   }
+  },
+  {
+   "text": "E per stare bene in casa bastano diciannove gradi.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "QUANTO",
+     "SERVE DAVVERO"
+    ],
+    "big": {
+     "text": "19 °C",
+     "at": "diciannove",
+     "size": 220
+    },
+    "labels": [
+     {
+      "text": "BASTANO",
+      "at": "bastano",
+      "pos": [
+       540,
+       1180
+      ],
+      "size": 56,
+      "color": "#2E78BF"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Il trucco: termostato a diciannove, niente tende o mobili davanti ai termosifoni, e non tenerli accesi giorno e notte.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "IL TRUCCO",
+     "GIUSTO"
+    ],
+    "items": [
+     {
+      "text": "TERMOSTATO A 19 °C",
+      "ok": true,
+      "at": "termostato"
+     },
+     {
+      "text": "NIENTE TENDE DAVANTI",
+      "ok": true,
+      "at": "tende"
+     },
+     {
+      "text": "ACCESI GIORNO E NOTTE",
+      "ok": false,
+      "at": "notte"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi in casa tiene ventitré gradi.",
+   "scene": {
+    "type": "end",
+    "line": "E ORA TOCCA A TE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Quel grado in più sul termostato ti costa quasi 95 € a inverno 🔥 Per l'ENEA ogni grado in meno taglia dal 5 al 10% del combustibile, e per stare bene in casa bastano 19 °C.\n\n• termostato a 19 °C\n• niente tende o mobili davanti ai termosifoni\n• non tenerli accesi giorno e notte\n\nLa stima di 95 € è di Facile.it, per una famiglia con riscaldamento autonomo.\n\nSalvalo 📌 e mandalo a chi in casa tiene 23 gradi 👇\n\n#risparmio #bollette #riscaldamento #termosifoni #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Open / Facile.it: un grado in meno fino a quasi 95 €",
+   "url": "https://www.open.online/2026/10/15/riscaldamento-inverno-bollette-termosifoni-consigli-facile-it-spesa/"
+  },
+  {
+   "titolo": "ENEA via GreenMe: ogni grado in meno 5-10% di combustibile; non tenere acceso giorno e notte",
+   "url": "https://www.greenme.it/casa-e-giardino/10-trucchi-per-usare-al-meglio-i-termosifoni-risparmiando-soldi-ed-evitando-inutili-sanzioni/"
+  },
+  {
+   "titolo": "QuiFinanza: 19 gradi sufficienti, niente ostacoli davanti ai termosifoni (ENEA)",
+   "url": "https://quifinanza.it/info-utili/video/riscaldamenti-consigli-scaldare-casa-risparmiare-bolletta/552007/"
+  }
+ ],
+ "hook_test": "perdita",
+ "theme": "cucina_notte"
+}

@@ -132,8 +132,49 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad"):
-        if pr["appliance"] == "soup_pot":
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken"):
+        if pr["appliance"] == "chicken":
+            sp = E.ease(E.prog(t, ctx.at(par, pr.get("splash_at", 0.0)), ctx.at(par, pr.get("splash_at", 0.0)) + 0.8))
+            P.faucet_chicken(cr, 540, 1110, t=t, splash=sp)
+        elif pr["appliance"] == "amaro":
+            P.wine_bottle(cr, 400, 1260, scale=1.35, label="AMARO")
+            P.glass_of(cr, 690, 1260, liquid=(0.36, 0.17, 0.08), fill=0.6, t=t, scale=0.55)
+        elif pr["appliance"] == "moka":
+            P.stove(cr, 540, 1250, 560)
+            P.flames(cr, 540, 1250, 300, t, intensity=0.8)
+            P.moka(cr, 540, 1240, scale=1.05, t=t, crust=pr.get("crust", 1.0))
+        elif pr["appliance"] == "rice_phone":
+            P.rice_bowl_phone(cr, 540, 1150, t=t)
+        elif pr["appliance"] == "vinegar_soda":
+            P.vinegar_soda(cr, 540, 1280, t=t, foam=E.ease(E.clamp((t - s) / 1.5)))
+        elif pr["appliance"] == "potato_pot":
+            P.potato_pot(cr, t=t)
+        elif pr["appliance"] == "beach":
+            P.beach_clock(cr, 540, 1080, t=t)
+        elif pr["appliance"] == "faucet":
+            P.faucet_plate(cr, 540, 1250, t=t)
+        elif pr["appliance"] == "fridge_bread":
+            P.fridge_box(cr, 540, 790, t=t, w=460, h=500)
+            P.bread_loaf(cr, 540, 1100, w=300, h=150, stale=E.ease(E.clamp((t - s) / 4.0)))
+        elif pr["appliance"] == "radiator":
+            P.radiator(cr, 540, 980, t=t, w=560, h=380)
+            P.flying_money(cr, 540, 940, t)
+        elif pr["appliance"] == "tv_standby":
+            P.tv_standby(cr, 540, 860, t=t, w=620, h=360)
+            P.flying_money(cr, 540, 860, t, n=4, seed=7)
+        elif pr["appliance"] == "shower":
+            P.shower(cr, 600, 780, t=t, saver=pr.get("saver", False))
+            P.flying_money(cr, 540, 1180, t, n=4, seed=3)
+        elif pr["appliance"] == "fridge_cold":
+            P.fridge_box(cr, 540, 790, t=t, w=460, h=500)
+            P.flying_money(cr, 540, 1200, t, n=4, seed=5)
+        elif pr["appliance"] == "air_fryer":
+            P.air_fryer(cr, 540, 860, t=t, w=520, h=500, display=pr.get("display", "200°"))
+        elif pr["appliance"] == "washer":
+            P.washing_machine(cr, 540, 820, t=t, h=450, w=600, display=pr.get("display", "30°"))
+        elif pr["appliance"] == "dishwasher":
+            P.dishwasher(cr, 540, 820, t=t, h=450, w=600, display=pr.get("display", "3:30"), sub=pr.get("sub", "ECO 50°"))
+        elif pr["appliance"] == "soup_pot":
             ix0, ix1, surf, bot = P.kitchen_pot(cr, t, top=860, w=560, h=380, liquid=((0.93, 0.62, 0.25), (0.75, 0.45, 0.15)), fire=0.0)
             P.pot_rim(cr, 540, 860, 560)
             P.steam(cr, 540 - 200, 820, t, n=4, alpha=0.6, spread=300)
@@ -1222,4 +1263,258 @@ def egg_scene(cr, t, ctx, par, spec):
     labels(cr, t, ctx, par, spec.get("labels"))
 
 
-TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene}
+
+# ---------------------------------------------------------------- TABELLA CHE SI SOMMA
+def table_sum(cr, t, ctx, par, spec):
+    """Righe 'abitudine -> euro' che entrano sulla parola indicata; in fondo il totale sale piano.
+    Banconote che volano via sullo sfondo. Nessun lampeggio: tutto entra con dissolvenza/scala."""
+    s = scene_start(ctx, par)
+    E.background(cr)
+    P.flying_money(cr, 540, 1500, t, n=4, seed=12)
+    E.title(cr, spec["title"], t, s - 1.0, y=230, size=spec.get("title_size", 104))
+    rows = spec["rows"]
+    y0, rh = 520, 165
+    shown = 0.0
+    for i, r in enumerate(rows):
+        t0 = ctx.at(par, r["at"])
+        p = E.ease_out_back(E.prog(t, t0, t0 + 0.35))
+        if p <= 0:
+            continue
+        shown += r["value"] * E.clamp((t - t0) / 0.6)
+        y = y0 + i * rh
+        cr.save()
+        cr.translate(540, y)
+        cr.scale(p, p)
+        E.rounded_rect(cr, -450, -62, 900, 124, 30)
+        cr.set_source_rgb(*E.WHITE)
+        cr.fill_preserve()
+        cr.set_source_rgb(*E.INK)
+        cr.set_line_width(6)
+        cr.stroke()
+        ls = 46
+        while ls > 30 and E.text_extents(cr, r["label"], ls).x_advance > 600:
+            ls -= 2
+        E.outlined_text(cr, r["label"], -420, 16, ls, fill=E.INK, lw=0, anchor="left")
+        E.outlined_text(cr, f"{r['value']} €", 420, 20, 64, fill=E.RED, lw=0, anchor="right")
+        cr.restore()
+    tot_at = spec.get("total_at")
+    if tot_at is not None:
+        t0 = ctx.at(par, tot_at)
+        p = E.ease_out_back(E.prog(t, t0, t0 + 0.4))
+        if p > 0:
+            total = sum(r["value"] for r in rows)
+            cr.save()
+            cr.translate(540, y0 + len(rows) * rh + 60)
+            cr.scale(p, p)
+            E.outlined_text(cr, f"= {total} € L'ANNO", 0, 40, 110, fill=E.YELLOW, lw=16)
+            cr.restore()
+    else:
+        pass
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+# ---------------------------------------------------------------- SNAP (spaghetto che si spezza)
+def snap(cr, t, ctx, par, spec):
+    """Uno spaghetto crudo tenuto ai capi: si piega e si spezza in N pezzi.
+    spec: title, pieces (2|3|4), bend_at, snap_at, twist_at (opz., torsione prima della piega), stamp, labels."""
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s, y=270, size=spec.get("title_size", 104))
+    pieces = spec.get("pieces", 3)
+    t_bend = ctx.at(par, spec.get("bend_at", 0.3))
+    t_snap = ctx.at(par, spec.get("snap_at"), t_bend + 1.2)
+    tw = spec.get("twist_at")
+    t_tw = ctx.at(par, tw) if tw is not None else None
+    cy = 940
+    L = 760
+    twist = E.ease(E.prog(t, t_tw, t_tw + 1.2)) if t_tw is not None else 0.0
+    bend = E.ease(E.prog(t, t_bend, t_snap)) if t < t_snap else 1.0
+    sag = 190 * bend
+    # mani (pugni stilizzati)
+    def fist(x, y, ang):
+        cr.save(); cr.translate(x, y); cr.rotate(ang); cr.scale(1.5, 1.5)
+        E.rounded_rect(cr, -55, -60, 110, 120, 34)
+        cr.set_source_rgb(0.96, 0.78, 0.62); cr.fill_preserve()
+        cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+        for k in range(3):
+            cr.move_to(-40, -25 + k * 28); cr.line_to(30, -25 + k * 28)
+            cr.set_line_width(4); cr.stroke()
+        cr.restore()
+    def arc_pt(u):
+        # u in [-1,1]; parabola verso l'alto (le mani spingono i capi in basso)
+        x = 540 + u * L / 2 * (1 - 0.08 * bend)
+        y = cy - sag * (1 - u * u)
+        return x, y
+    hand_y = cy + 20 * bend
+    cr.set_line_cap(_cairo.LINE_CAP_ROUND)
+    if t < t_snap:
+        cr.move_to(*arc_pt(-1))
+        for i in range(1, 41):
+            cr.line_to(*arc_pt(-1 + 2 * i / 40))
+        cr.set_source_rgb(*P.PASTA_DARK); cr.set_line_width(36); cr.stroke_preserve()
+        cr.set_source_rgb(*P.PASTA); cr.set_line_width(24); cr.stroke()
+        if twist > 0:
+            # strisce di torsione lungo lo spaghetto
+            for i in range(14):
+                u = -0.9 + i * 0.14
+                x, y = arc_pt(u)
+                ph = math.sin(twist * 4.7 + i * 0.9)
+                cr.move_to(x - 6 * ph, y - 10); cr.line_to(x + 6 * ph, y + 10)
+                cr.set_source_rgba(*P.PASTA_DARK, 0.8); cr.set_line_width(4); cr.stroke()
+    else:
+        dt = t - t_snap
+        # punti di rottura
+        cuts = {2: [0.0], 3: [-0.12, 0.38], 4: [-0.45, 0.05, 0.42]}[pieces]
+        bounds = [-1] + cuts + [1]
+        rnd = random.Random(5)
+        for j in range(len(bounds) - 1):
+            a, b = bounds[j], bounds[j + 1]
+            outer = (j == 0 or j == len(bounds) - 2)
+            if outer:
+                # i pezzi in mano restano, con un piccolo contraccolpo (la frusta)
+                vib = 18 * math.exp(-dt * 4) * math.sin(dt * 40)
+                sgn = -1 if j == 0 else 1
+                k_sep = E.ease(E.clamp(dt * 4))
+                ox, oy, rot = 0, vib, sgn * 0.30 * k_sep
+            else:
+                vx = rnd.uniform(-160, 160); vy = -520
+                ox = vx * dt; oy = vy * dt + 900 * dt * dt
+                rot = rnd.choice([-1, 1]) * dt * 7
+            mx, my = arc_pt((a + b) / 2)
+            cr.save()
+            if outer:
+                hx, hy = arc_pt(-1 if j == 0 else 1)
+                cr.translate(hx, hy); cr.rotate(rot); cr.translate(-hx, -hy)
+                cr.translate(mx + ox, my + oy)
+            else:
+                cr.translate(mx + ox, my + oy); cr.rotate(rot)
+            n = 12
+            cr.move_to(*[v - w for v, w in zip(arc_pt(a), (mx, my))])
+            for i in range(1, n + 1):
+                px, py = arc_pt(a + (b - a) * i / n)
+                cr.line_to(px - mx, py - my)
+            cr.set_source_rgb(*P.PASTA_DARK); cr.set_line_width(36); cr.stroke_preserve()
+            cr.set_source_rgb(*P.PASTA); cr.set_line_width(24); cr.stroke()
+            cr.restore()
+        # schegge
+        if dt < 1.0:
+            for c in cuts:
+                x, y = arc_pt(c)
+                for k in range(5):
+                    ang = rnd.uniform(0, 2 * math.pi); d = 260 * dt
+                    E.circle(cr, x + math.cos(ang) * d, y + math.sin(ang) * d + 400 * dt * dt, 6, P.PASTA, lw=2, alpha=1 - dt)
+    cr.set_line_cap(_cairo.LINE_CAP_BUTT)
+    fist(540 - L / 2 * (1 - 0.08 * bend), hand_y, 0.35 * bend)
+    fist(540 + L / 2 * (1 - 0.08 * bend), hand_y, -0.35 * bend)
+    if t_tw is not None and twist > 0 and t < t_snap:
+        # freccia di torsione
+        cx2, cy2 = 540, cy - 330
+        cr.arc(cx2, cy2, 80, -math.pi / 2, -math.pi / 2 + twist * 1.5 * math.pi)
+        cr.set_source_rgb(*E.YELLOW); cr.set_line_width(14); cr.stroke()
+        E.outlined_text(cr, "%d°" % int(270 * twist), cx2, cy2 + 22, 60, fill=E.YELLOW, lw=8)
+    if t >= t_snap:
+        cnt = E.ease_out_back(E.prog(t, t_snap + 0.35, t_snap + 0.75))
+        if cnt > 0:
+            cr.save(); cr.translate(540, 1230); cr.scale(cnt, cnt)
+            E.outlined_text(cr, spec.get("count_text", "%d PEZZI" % pieces), 0, 0, 130,
+                            fill=(P.GREEN_OK if pieces == 2 else E.YELLOW), lw=14)
+            cr.restore()
+    st = spec.get("stamp")
+    if st:
+        E.stamp(cr, st["text"], 540, 610, t, ctx.at(par, st.get("at")), size=104,
+                color=(P.GREEN_OK if st.get("color") == "green" else None))
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+# ---------------------------------------------------------------- FILTER (moka: livellato vs pressato)
+def filter_scene(cr, t, ctx, par, spec):
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s, y=270, size=spec.get("title_size", 104))
+    t_flow = ctx.at(par, spec.get("flow_at", 0.5))
+    t_press = ctx.at(par, spec.get("press_at"), t_flow + 1.0)
+    t_valve = ctx.at(par, spec.get("valve_at"), t_press + 1.5)
+    COFFEE = (0.33, 0.20, 0.11)
+    COFFEE_L = (0.47, 0.30, 0.17)
+    WATER = (0.35, 0.65, 0.95)
+    for side, cx in ((0, 290), (1, 790)):
+        top, depth, w = 600, 380, 420
+        # imbuto (sezione)
+        cr.move_to(cx - w / 2, top); cr.line_to(cx + w / 2, top)
+        cr.line_to(cx + w / 2 - 40, top + depth); cr.line_to(cx + 30, top + depth)
+        cr.line_to(cx + 30, top + depth + 180); cr.line_to(cx - 30, top + depth + 180)
+        cr.line_to(cx - 30, top + depth); cr.line_to(cx - w / 2 + 40, top + depth); cr.close_path()
+        cr.set_source_rgb(0.80, 0.82, 0.85); cr.fill_preserve()
+        cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+        # polvere
+        press = E.ease(E.prog(t, t_press, t_press + 0.8)) if side == 1 else 0.0
+        h = depth - 20
+        ptop = top + 10 + press * 110
+        rnd = random.Random(40 + side)
+        sp = 30 - press * 10
+        y = ptop + 8
+        cr.save()
+        cr.rectangle(cx - w / 2 + 10, ptop, w - 20, top + depth - ptop - 6); cr.clip()
+        cr.rectangle(cx - w / 2, ptop, w, top + depth - ptop)
+        cr.set_source_rgb(*COFFEE_L); cr.fill()
+        while y < top + depth:
+            x = cx - w / 2 + 14 + rnd.uniform(0, sp)
+            while x < cx + w / 2 - 14:
+                E.circle(cr, x, y, 9 - press * 1.5, COFFEE, lw=0)
+                x += sp + rnd.uniform(-3, 3)
+            y += sp * 0.85
+        cr.restore()
+        # acqua che sale dal basso
+        if t >= t_flow:
+            for k in range(12):
+                ph = ((t - t_flow) * 0.7 + k / 12.0) % 1.0
+                yy = top + depth + 170 - ph * (depth + 240)
+                spread = 0 if yy > top + depth else (top + depth - yy) / depth * (w / 2 - 50)
+                xx = cx + math.sin(k * 1.9) * spread
+                blocked = side == 1 and press > 0.5
+                if blocked and yy < top + depth - 10:
+                    continue
+                E.circle(cr, xx, yy, 19, WATER, lw=4)
+        if side == 1 and t >= t_valve:
+            # sbuffo dalla valvola + allarme
+            k = E.prog(t, t_valve, t_valve + 0.6)
+            P.steam(cr, cx + 235, top + depth - 20, t, n=4, alpha=0.8, spread=80)
+            E.outlined_text(cr, "VALVOLA!", cx, top - 50, 66, fill=E.WHITE, lw=8, alpha=k)
+        lab = spec["labels_side"][side]
+        t_lab = ctx.at(par, lab.get("at", 0.3))
+        a = E.prog(t, t_lab, t_lab + 0.3)
+        if a > 0:
+            E.label(cr, lab["text"], cx, 1250, t, t_lab, size=66, bg=(P.GREEN_OK if lab["ok"] else E.RED))
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+# ---------------------------------------------------------------- SPLASH (schizzi con batteri verso i bersagli)
+def splash_scene(cr, t, ctx, par, spec):
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s, y=270, size=spec.get("title_size", 104))
+    t_sp = ctx.at(par, spec.get("splash_at", 0.3))
+    sp = E.ease(E.prog(t, t_sp, t_sp + 0.8))
+    P.faucet_chicken(cr, 540, 960, t=t, splash=sp)
+    targets = spec.get("targets", [])
+    n = len(targets)
+    for i, tg in enumerate(targets):
+        x = 540 + (i - (n - 1) / 2) * 330
+        y = 1230
+        t0 = ctx.at(par, tg.get("at", 0.5 + i))
+        # batteri che volano verso il bersaglio
+        if t >= t0:
+            for k in range(3):
+                ph = E.clamp((t - t0 - k * 0.15) / 0.7)
+                if ph <= 0:
+                    continue
+                bx = E.lerp(560, x + (k - 1) * 30, ph)
+                by = E.lerp(900, y - 70, ph) - 160 * math.sin(math.pi * ph)
+                cr.save(); cr.translate(bx, by); cr.scale(0.3, 0.3)
+                P.microbe(cr, 0, 0, scale=1.0, t=t)
+                cr.restore()
+        E.label(cr, tg["text"], x, y, t, t0, size=56)
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene, "table_sum": table_sum, "snap": snap, "filter": filter_scene, "splash": splash_scene}
