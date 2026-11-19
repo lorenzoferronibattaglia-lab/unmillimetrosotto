@@ -677,11 +677,20 @@
   },
   {
    "id": "50_colpo_aria",
-   "stato": "proposto"
+   "stato": "pubblicato",
+   "uscita": "2026-11-19T09:00+01:00",
+   "vidiq_post_id": "7ab7c0e7-3ec2-4bd9-a96e-5f36d00097cc"
   },
   {
    "id": "51_moka_nuova",
-   "stato": "proposto"
+   "stato": "in_magazzino",
+   "nota": "Lorenzo: troppe moka di fila"
+  },
+  {
+   "id": "52_uova_lavate",
+   "stato": "programmato",
+   "uscita": "2026-11-19T13:00+01:00",
+   "vidiq_post_id": "9303ccec-4633-419e-883c-e528b3158581"
   }
  ],
  "lezioni": [
