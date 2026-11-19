@@ -553,7 +553,12 @@
     "instagram"
    ],
    "formato": "vecchi metodi / permesso, senza banconote",
-   "vidiq_post_id": "c92f0ee5-a75e-4cad-b620-e2624990c489"
+   "vidiq_post_id": "c92f0ee5-a75e-4cad-b620-e2624990c489",
+   "metriche_19_11": {
+    "views": 379,
+    "shares": 0,
+    "saves": 2
+   }
   },
   {
    "id": "41_aceto_bicarbonato",
@@ -566,7 +571,12 @@
     "instagram"
    ],
    "formato": "vecchi metodi / permesso, senza banconote",
-   "vidiq_post_id": "1ef835d0-69e5-4b3b-be66-63a69de88e44"
+   "vidiq_post_id": "1ef835d0-69e5-4b3b-be66-63a69de88e44",
+   "metriche_19_11": {
+    "views": 1158,
+    "shares": 1,
+    "saves": 3
+   }
   },
   {
    "id": "42_patata_sale",
@@ -579,7 +589,12 @@
     "instagram"
    ],
    "formato": "vecchi metodi / permesso, senza banconote",
-   "vidiq_post_id": "8db2ff7f-2cb9-45c2-9461-ec70eafac455"
+   "vidiq_post_id": "8db2ff7f-2cb9-45c2-9461-ec70eafac455",
+   "metriche_19_11": {
+    "views": 2118,
+    "shares": 0,
+    "saves": 5
+   }
   },
   {
    "id": "43_bagno_tre_ore",
@@ -592,13 +607,81 @@
     "instagram"
    ],
    "formato": "vecchi metodi / permesso, senza banconote",
-   "vidiq_post_id": "ea2c8441-eb7b-499c-8f6a-bd4d939c98f2"
+   "vidiq_post_id": "ea2c8441-eb7b-499c-8f6a-bd4d939c98f2",
+   "metriche_19_11": {
+    "views": 2155,
+    "shares": 11,
+    "saves": 3
+   }
   },
   {
    "id": "39_telefono_riso",
    "tema": "Telefono bagnato nel riso?",
    "stato": "scartato",
    "nota": "Lorenzo: 'fa ridere'"
+  },
+  {
+   "id": "44_moka_sapone",
+   "stato": "pubblicato",
+   "uscita": "2026-11-17T08:20+01:00",
+   "vidiq_post_id": "71fea413-ddd4-4c24-a739-f4f28ee68def",
+   "tipo": "curiosita_vecchio_metodo",
+   "metriche_19_11": {
+    "views": 27487,
+    "shares": 193,
+    "saves": 69
+   }
+  },
+  {
+   "id": "46_moka_pressare",
+   "stato": "pubblicato",
+   "uscita": "2026-11-18T09:10+01:00",
+   "vidiq_post_id": "b28f5421-6b11-49ef-9a48-3257900562c1",
+   "metriche_19_11": {
+    "views": 3535,
+    "shares": 20,
+    "saves": 7
+   }
+  },
+  {
+   "id": "45_spaghetti_due",
+   "stato": "pubblicato",
+   "uscita": "2026-11-18T13:00+01:00",
+   "vidiq_post_id": "cad73138-a570-4cf7-86ac-3505149a72ef",
+   "metriche_19_11": {
+    "views": 2554,
+    "shares": 1,
+    "saves": 0
+   }
+  },
+  {
+   "id": "47_sale_bollore",
+   "stato": "in_attesa_ok",
+   "uscita": null
+  },
+  {
+   "id": "48_amaro_digestivo",
+   "stato": "scartato",
+   "note": "non piaciuto a Lorenzo"
+  },
+  {
+   "id": "49_pollo_lavato",
+   "stato": "pubblicato",
+   "uscita": "2026-11-18T17:00+01:00",
+   "vidiq_post_id": "7199ad82-87cf-45ca-8ddd-55db86de36f7",
+   "metriche_19_11": {
+    "views": 2097,
+    "shares": 6,
+    "saves": 6
+   }
+  },
+  {
+   "id": "50_colpo_aria",
+   "stato": "proposto"
+  },
+  {
+   "id": "51_moka_nuova",
+   "stato": "proposto"
   }
  ],
  "lezioni": [
@@ -625,7 +708,8 @@
   "14/11: Lorenzo vuole hook piu' acchiappalike. Lavatrice: 57% skip con hook-domanda. Da ora: hook con perdita/soldi/sfida nei primi 2 secondi.",
   "15/11: virali = abitudine universale + risparmio in euro + condivisione (pasta 65k, lavatrice 22k). Flop friggitrice: 30 min dopo un altro reel e pubblico ristretto. Regola: >=150 min tra uscite, solo abitudini universali.",
   "16/11: svolta. Formula da outlier IT: titolo 'Usa X, non Y' e tabella che somma i costi annui. Meno reel (3/giorno), solo potenziali virali.",
-  "16/11 sera: crollo distribuzione (4 reel a ~200 views). Compagna di Lorenzo: troppi risparmi, piu' curiosita'. Nuovo mix: rimedi della nonna smontati + 1 risparmio 'permesso'. Telefono nel riso scartato (troppo banale)."
+  "16/11 sera: crollo distribuzione (4 reel a ~200 views). Compagna di Lorenzo: troppi risparmi, piu' curiosita'. Nuovo mix: rimedi della nonna smontati + 1 risparmio 'permesso'. Telefono nel riso scartato (troppo banale).",
+  "19/11: le condivisioni nascono dal 'mandalo a chi...' su oggetti identitari (moka sapone 193 share). Spaghetti: record visione 45% ma 1 share: la curiosità pura trattiene ma non si manda. Seguito moka (pressata) 0,57 share/100 views: buono, non virale. Pollo: 6 share su 2.1k."
  ],
  "voce_attuale": {
   "nome": "Francesco - Natural, Warm and Confident",
@@ -668,41 +752,21 @@
    "follower": 166,
    "raggiunti_13_11": 49580,
    "fonte": "API"
+  },
+  {
+   "data": "2026-11-17T23:16",
+   "follower": 496,
+   "fonte": "API"
+  },
+  {
+   "data": "2026-11-18T11:50",
+   "follower": 507,
+   "fonte": "API"
+  },
+  {
+   "data": "2026-11-19T08:01",
+   "follower": 526,
+   "fonte": "API"
   }
- ],
- "44_moka_sapone": {
-  "id": "44_moka_sapone",
-  "stato": "pubblicato",
-  "uscita": "2026-11-17T08:20+01:00",
-  "vidiq_post_id": "71fea413-ddd4-4c24-a739-f4f28ee68def",
-  "tipo": "curiosita_vecchio_metodo"
- },
- "46_moka_pressare": {
-  "id": "46_moka_pressare",
-  "stato": "pubblicato",
-  "uscita": "2026-11-18T09:10+01:00",
-  "vidiq_post_id": "b28f5421-6b11-49ef-9a48-3257900562c1"
- },
- "45_spaghetti_due": {
-  "id": "45_spaghetti_due",
-  "stato": "programmato",
-  "uscita": "2026-11-18T13:00+01:00",
-  "vidiq_post_id": "cad73138-a570-4cf7-86ac-3505149a72ef"
- },
- "47_sale_bollore": {
-  "id": "47_sale_bollore",
-  "stato": "in_attesa_ok",
-  "uscita": null
- },
- "48_amaro_digestivo": {
-  "id": "48_amaro_digestivo",
-  "stato": "scartato",
-  "note": "non piaciuto a Lorenzo"
- },
- "49_pollo_lavato": {
-  "id": "49_pollo_lavato",
-  "stato": "programmato",
-  "uscita": "2026-11-18T17:00+01:00",
-  "vidiq_post_id": "7199ad82-87cf-45ca-8ddd-55db86de36f7"
- }
+ ]
 }
