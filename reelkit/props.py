@@ -1816,3 +1816,28 @@ def virus(cr, x, y, r=40, t=0.0, alpha=1.0):
         cr.set_source_rgba(*E.INK, alpha); cr.set_line_width(5); cr.stroke()
         E.circle(cr, x + math.cos(a) * (r + 20), y + math.sin(a) * (r + 20), 7, (0.95, 0.45, 0.35), lw=3, alpha=alpha)
     E.circle(cr, x, y, r, (0.40, 0.75, 0.45), lw=6, alpha=alpha)
+
+
+def egg_carton(cr, cx, base_y, t=0.0, n=6, scale=1.0, drops=0.0):
+    """Cartone di uova aperto (2 file da 3), opzionale condensa sui gusci."""
+    cr.save(); cr.translate(cx, base_y); cr.scale(scale, scale)
+    # coperchio aperto dietro
+    cr.move_to(-250, -120); cr.line_to(250, -120); cr.line_to(220, -300); cr.line_to(-220, -300); cr.close_path()
+    cr.set_source_rgb(0.80, 0.72, 0.60); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    rnd = random.Random(3)
+    for i in range(n):
+        x = -160 + (i % 3) * 160
+        y = -150 - (i // 3) * 0
+        egg_whole(cr, x, y - (40 if i >= 3 else 0), scale=1.0)
+        if drops > 0:
+            for k in range(4):
+                E.circle(cr, x + rnd.uniform(-30, 30), y - 40 + rnd.uniform(-40, 40) - (40 if i >= 3 else 0), 6, (0.75, 0.88, 1.0), lw=2, alpha=drops)
+    # vaschetta
+    cr.move_to(-270, -120); cr.line_to(270, -120); cr.line_to(240, 0); cr.line_to(-240, 0); cr.close_path()
+    cr.set_source_rgb(0.86, 0.78, 0.66); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    for k in range(4):
+        cr.move_to(-240 + k * 160, -110); cr.line_to(-230 + k * 160, -10)
+        cr.set_source_rgba(*E.INK, 0.4); cr.set_line_width(3); cr.stroke()
+    cr.restore()

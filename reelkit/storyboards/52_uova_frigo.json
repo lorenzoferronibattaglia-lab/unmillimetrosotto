@@ -1,0 +1,30 @@
+{
+ "id": "52_uova_frigo",
+ "topic": "Le uova vanno tenute fuori dal frigo?",
+ "paragraphs": [
+  {"text": "Tieni le uova fuori dal frigo perché al supermercato stanno sullo scaffale? Sbagliato.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["LE UOVA", "FUORI DAL FRIGO?"], "title_size": 110,
+     "prop": {"appliance": "eggs"},
+     "stamp": {"text": "SBAGLIATO", "at": "Sbagliato"}}},
+  {"text": "Al supermercato sono fuori per un motivo preciso: non devono passare dal freddo al caldo. Se lo fanno, sul guscio si forma condensa, e i batteri entrano più facilmente dai pori. Ma a casa le regole cambiano: frigo, subito, per frenare la salmonella.",
+   "scene": {"type": "eggs", "title": ["SCAFFALE", "O FRIGO?"], "condensa_at": "condensa", "home_at": "casa",
+     "labels": [{"text": "CONDENSA = BATTERI NEI PORI", "at": "pori", "pos": [540, 1210], "size": 50},
+                {"text": "A CASA: FRIGO SUBITO", "at": "subito", "pos": [540, 1300], "size": 56, "color": "#2FB860"}]}},
+  {"text": "E non nello sportello, come fanno quasi tutti: lì la temperatura sale e scende ogni volta che apri. Tienile nel loro cartone, su un ripiano centrale.",
+   "scene": {"type": "checklist", "title": ["DOVE", "METTERLE"], "items": [
+     {"text": "IN FRIGO, SUBITO", "ok": true, "at": "sportello"},
+     {"text": "NELLO SPORTELLO", "ok": false, "at": "scende"},
+     {"text": "CARTONE, RIPIANO CENTRALE", "ok": true, "at": "centrale"}]}},
+  {"text": "Mandalo a chi tiene le uova nello sportello.",
+   "scene": {"type": "end", "line": "E TU DOVE LE TIENI?", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Le uova al supermercato stanno fuori dal frigo, ma a casa vanno in frigo 🥚 In negozio non devono subire sbalzi di temperatura: passando dal freddo al caldo sul guscio si forma condensa, che aiuta i batteri a entrare attraverso i pori. Per questo in vendita non si refrigerano. Una volta a casa, invece, la refrigerazione subito è il modo per frenare un'eventuale salmonella (c'è scritto anche sulla confezione: “conservare in frigorifero dopo l'acquisto”).\n\n• in frigo appena arrivi a casa\n• nel loro cartone, su un ripiano centrale\n• NON nello sportello: lì la temperatura sale e scende a ogni apertura\n\nE tu dove le tieni? 👇 Mandalo a chi le tiene nello sportello.\n\n#uova #frigorifero #veroofalso #sicurezzaalimentare #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Il Fatto Alimentare: uova a temperatura ambiente in vendita (condensa), a casa refrigerazione immediata", "url": "https://ilfattoalimentare.it/?p=209566"},
+  {"titolo": "Il Fatto Alimentare (Antonello Paparella): condensa sul guscio via d'ingresso dei microrganismi; cartone su ripiano centrale", "url": "https://ilfattoalimentare.it/dove-vanno-conservate-uova-antonello-paparella.html"},
+  {"titolo": "GreenMe: risposta il frigorifero; sportello soggetto a sbalzi termici", "url": "https://www.greenme.it/?p=934483"},
+  {"titolo": "GreenMe: EFSA, parere 2014 su conservazione uova e Salmonella", "url": "https://www.greenme.it/?p=1370448"}
+ ],
+ "hook_test": "controverso_abitudine",
+ "theme": "cucina_notte"
+}

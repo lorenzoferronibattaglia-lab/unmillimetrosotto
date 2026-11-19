@@ -1,0 +1,30 @@
+{
+ "id": "52_uova_lavate",
+ "topic": "Le uova vanno lavate prima di metterle in frigo?",
+ "paragraphs": [
+  {"text": "Lavi le uova prima di metterle in frigo? Errore. Così le rendi meno sicure.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["LAVI LE UOVA", "PRIMA DEL FRIGO?"], "title_size": 104,
+     "prop": {"appliance": "eggs"},
+     "stamp": {"text": "ERRORE", "at": "Errore"}}},
+  {"text": "Il guscio è pieno di pori, ma è sigillato da una pellicola invisibile: la cuticola. Se lo lavi, la cuticola se ne va, e batteri come la salmonella passano più facilmente dai pori. Per questo in Europa le uova in vendita non si possono lavare.",
+   "scene": {"type": "cuticle", "title": ["LA PELLICOLA", "INVISIBILE"], "wash_at": "lavi", "enter_at": "salmonella",
+     "labels": [{"text": "CUTICOLA", "at": "cuticola", "pos": [540, 1250], "size": 60, "color": "#2FB860"},
+                {"text": "VIETATO LAVARLE IN UE", "at": "Europa", "pos": [540, 1250], "size": 58}]}},
+  {"text": "Se sono sporche, puliscile con un panno umido, solo un attimo prima di usarle. E in frigo nel loro cartone, non nello sportello.",
+   "scene": {"type": "checklist", "title": ["COSA", "FARE"], "items": [
+     {"text": "LAVARLE PRIMA DEL FRIGO", "ok": false, "at": "sporche"},
+     {"text": "PANNO UMIDO, PRIMA DELL'USO", "ok": true, "at": "panno"},
+     {"text": "CARTONE, NON SPORTELLO", "ok": true, "at": "sportello"}]}},
+  {"text": "Mandalo a chi lava le uova.",
+   "scene": {"type": "end", "line": "E TU LE LAVI?", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Le uova NON si lavano prima di metterle in frigo 🥚 Il guscio è poroso, ma è sigillato da una pellicola invisibile, la cuticola. Lavandolo la togli, e batteri come la Salmonella passano più facilmente attraverso i pori. È anche il motivo per cui in UE le uova di categoria A non si possono lavare prima della vendita.\n\n• mai lavarle prima di conservarle\n• se sporche: panno appena umido, subito prima di usarle\n• in frigo nel loro cartone, su un ripiano centrale (non nello sportello, dove la temperatura sale e scende)\n\nE tu le lavi? 👇 Mandalo a chi lava le uova.\n\n#uova #salmonella #veroofalso #sicurezzaalimentare #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Geopop: perché le uova non vanno lavate (cuticola, normativa UE)", "url": "https://www.geopop.it/perche-le-uova-non-vanno-lavate-danneggia-la-cuticola-protettiva-contro-i-batteri-la-normativa-ue/"},
+  {"titolo": "Altroconsumo: le uova si lavano o no? Se necessario, solo subito prima dell'utilizzo", "url": "https://www.altroconsumo.it/alimentazione/sicurezza-alimentare/consigli/lavare-le-uova"},
+  {"titolo": "Il Fatto Alimentare: il lavaggio rimuove la cuticola che chiude i pori", "url": "https://ilfattoalimentare.it/uova-conservazione-frigorifero.html"},
+  {"titolo": "GreenMe: sportello del frigo soggetto a sbalzi termici", "url": "https://www.greenme.it/?p=934483"}
+ ],
+ "hook_test": "controverso_abitudine",
+ "theme": "cucina_notte"
+}

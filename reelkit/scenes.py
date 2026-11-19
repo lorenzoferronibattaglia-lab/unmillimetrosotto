@@ -132,8 +132,12 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new"):
-        if pr["appliance"] == "window":
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs"):
+        if pr["appliance"] == "eggs":
+            E.rounded_rect(cr, 120, 1250, 840, 40, 12)
+            cr.set_source_rgb(0.75, 0.62, 0.48); cr.fill()
+            P.egg_carton(cr, 540, 1250, t=t, scale=1.2)
+        elif pr["appliance"] == "window":
             P.window_draft(cr, 520, 1000, t=t, wind=1.0)
         elif pr["appliance"] == "moka_new":
             P.stove(cr, 540, 1250, 560)
@@ -1556,4 +1560,67 @@ def virus_scene(cr, t, ctx, par, spec):
     labels(cr, t, ctx, par, spec.get("labels"))
 
 
-TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene, "table_sum": table_sum, "snap": snap, "filter": filter_scene, "splash": splash_scene, "virus": virus_scene}
+# ---------------------------------------------------------------- EGGS (supermercato vs casa)
+def eggs_scene(cr, t, ctx, par, spec):
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s, y=270, size=spec.get("title_size", 104))
+    t_c = ctx.at(par, spec.get("condensa_at", 0.5))
+    t_h = ctx.at(par, spec.get("home_at", 1.0))
+    # sinistra: scaffale supermercato
+    E.rounded_rect(cr, 70, 560, 440, 560, 30)
+    cr.set_source_rgba(1, 1, 1, 0.08); cr.fill()
+    E.rounded_rect(cr, 100, 930, 380, 24, 8); cr.set_source_rgb(0.75, 0.62, 0.48); cr.fill()
+    dr = E.clamp((t - t_c) / 0.6) * (0.5 + 0.5 * math.sin(t * 3)) if t >= t_c else 0.0
+    P.egg_carton(cr, 290, 930, t=t, scale=0.62, drops=dr)
+    E.outlined_text(cr, "SUPERMERCATO", 290, 1060, 46, fill=E.WHITE, lw=8)
+    # destra: frigo di casa
+    k = E.ease_out_back(E.prog(t, t_h, t_h + 0.5))
+    if k > 0:
+        cr.save(); cr.translate(790, 840); cr.scale(k, k); cr.translate(-790, -840)
+        P.fridge_box(cr, 790, 600, w=360, h=440, t=t)
+        P.egg_carton(cr, 790, 860, t=t, scale=0.5)
+        cr.restore()
+        E.outlined_text(cr, "CASA", 790, 1110, 46, fill=E.WHITE, lw=8)
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+# ---------------------------------------------------------------- CUTICLE (uovo: cuticola e pori)
+def cuticle_scene(cr, t, ctx, par, spec):
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s, y=270, size=spec.get("title_size", 104))
+    t_wash = ctx.at(par, spec.get("wash_at", 1.0))
+    t_in = ctx.at(par, spec.get("enter_at"), t_wash + 1.0)
+    cx, cy, rx, ry = 540, 860, 250, 320
+    P.egg_whole(cr, cx, cy, scale=1.0, rx=rx, ry=ry)
+    rnd = random.Random(9)
+    pores = []
+    for i in range(26):
+        a = rnd.uniform(0, 2 * math.pi)
+        pores.append((cx + math.cos(a) * rx * 0.93, cy + math.sin(a) * ry * 0.93, a))
+    for (x, y, a) in pores:
+        E.circle(cr, x, y, 7, (0.55, 0.42, 0.30), lw=0)
+    wash = E.clamp((t - t_wash) / 1.0)
+    # acqua che scorre
+    if t >= t_wash and t < t_wash + 2.5:
+        for j in range(18):
+            ph = (t * 1.5 + j / 18.0) % 1.0
+            E.circle(cr, cx - 60 + (j % 6) * 25, cy - ry - 120 + ph * 300, 10, (0.55, 0.80, 1.0), lw=0, alpha=0.8)
+    # cuticola: contorno verde che sparisce col lavaggio
+    cr.save(); cr.translate(cx, cy); cr.scale(rx + 14, ry + 14)
+    cr.arc(0, 0, 1, 0, 2 * math.pi); cr.restore()
+    cr.set_source_rgba(0.30, 0.80, 0.45, 0.9 * (1 - wash)); cr.set_line_width(14); cr.stroke()
+    # batteri che entrano dopo il lavaggio
+    if t >= t_in:
+        for k, (x, y, a) in enumerate(pores[:10]):
+            ph = E.clamp((t - t_in - k * 0.1) / 0.8)
+            bx = x + math.cos(a) * 120 * (1 - ph) - math.cos(a) * 60 * ph
+            by = y + math.sin(a) * 120 * (1 - ph) - math.sin(a) * 60 * ph
+            cr.save(); cr.translate(bx, by); cr.scale(0.28, 0.28)
+            P.microbe(cr, 0, 0, scale=1.0, t=t, angle=a)
+            cr.restore()
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene, "table_sum": table_sum, "snap": snap, "filter": filter_scene, "splash": splash_scene, "virus": virus_scene, "eggs": eggs_scene, "cuticle": cuticle_scene}
