@@ -1,0 +1,29 @@
+{
+ "id": "50_colpo_aria",
+ "topic": "Il colpo d'aria fa venire il raffreddore?",
+ "paragraphs": [
+  {"text": "Copriti, che prendi il colpo d'aria! Falso. Il raffreddore non viene dal freddo.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["IL COLPO D'ARIA", "FA AMMALARE?"], "title_size": 104,
+     "prop": {"appliance": "window"},
+     "stamp": {"text": "FALSO", "at": "Falso"}}},
+  {"text": "Raffreddore e influenza li causano i virus. Senza un virus puoi stare sotto la finestra aperta quanto vuoi: non ti ammali. Il freddo al massimo abbassa un po' le difese del naso, ma da solo non basta.",
+   "scene": {"type": "virus", "title": ["SENZA VIRUS", "NIENTE RAFFREDDORE"], "title_size": 96, "virus_at": "virus",
+     "verdicts": [{"text": "NON TI AMMALI", "ok": true, "at": "ammali"}, {"text": "RAFFREDDORE", "ok": false, "at": "virus"}]}},
+  {"text": "E allora perché d'inverno ci si ammala di più? Perché si sta chiusi in casa, tutti insieme, con le finestre sigillate. È lì che il virus passa da uno all'altro.",
+   "scene": {"type": "checklist", "title": ["IL VERO", "COLPEVOLE"], "items": [
+     {"text": "FREDDO DA SOLO", "ok": false, "at": "inverno"},
+     {"text": "STARE CHIUSI INSIEME", "ok": true, "at": "insieme"},
+     {"text": "FINESTRE SEMPRE CHIUSE", "ok": true, "at": "sigillate"}]}},
+  {"text": "Quindi apri le finestre. Mandalo a chi ti dice copriti, che prendi il colpo d'aria.",
+   "scene": {"type": "end", "line": "APRI LE FINESTRE", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Il colpo d'aria non fa venire il raffreddore 🌬️ Raffreddore e influenza sono causati dai virus: senza un virus in circolazione, una corrente d'aria da sola non ti fa ammalare. Il freddo al massimo abbassa un po' le difese del naso, ma non basta.\n\nPerché d'inverno ci si ammala di più? Perché si sta al chiuso, tutti insieme, con poco ricambio d'aria: è lì che i virus passano da uno all'altro.\n\n• arieggia una stanza per volta\n• lavati le mani\n• il torcicollo è un'altra storia: è un muscolo contratto, non un'infezione\n\nMandalo a chi ti dice “copriti che prendi il colpo d'aria” 👇\n\n#colpodaria #raffreddore #veroofalso #falsimiti #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Il Post: Il freddo non fa ammalare", "url": "https://www.ilpost.it/2018/02/26/freddo-malattie/"},
+  {"titolo": "Il Post: Cosa funziona davvero contro il raffreddore (2026)", "url": "https://www.ilpost.it/2026/10/29/raffreddore-rimedi/"},
+  {"titolo": "Geopop: Il colpo d'aria non esiste", "url": "https://www.geopop.it/colpo-d-aria-freddo-cose-sintomi-spiegazione/"},
+  {"titolo": "Geopop: Il freddo fa davvero venire il raffreddore? (aumenta la probabilità, non è la causa)", "url": "https://www.geopop.it/il-freddo-fa-davvero-venire-il-raffreddore/"}
+ ],
+ "hook_test": "controverso_famiglia",
+ "theme": "cucina_notte"
+}

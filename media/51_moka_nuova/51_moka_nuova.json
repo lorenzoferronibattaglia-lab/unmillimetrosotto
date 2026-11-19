@@ -1,0 +1,29 @@
+{
+ "id": "51_moka_nuova",
+ "topic": "Moka nuova: i primi caffè vanno buttati?",
+ "paragraphs": [
+  {"text": "Moka nuova: i primi tre caffè vanno buttati? Vero. Lo scrive Bialetti nel libretto.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["MOKA NUOVA", "I PRIMI SI BUTTANO?"], "title_size": 104,
+     "prop": {"appliance": "moka_new", "tag_at": 0.2},
+     "stamp": {"text": "VERO", "at": "Vero", "color": "green"}}},
+  {"text": "Una moka nuova ha ancora addosso i residui della lavorazione in fabbrica. E gli studi trovano un po' più di alluminio nel caffè proprio quando la caffettiera è nuova. I primi caffè fanno da lavaggio.",
+   "scene": {"type": "number", "title": ["I PRIMI", "FANNO DA LAVAGGIO"], "card": {"main": "moka", "sub": "appena comprata", "at": "nuova"}, "big": {"text": "3 CAFFÈ", "at": "primi", "size": 170},
+     "labels": [{"text": "RESIDUI DI FABBRICA", "at": "residui", "pos": [540, 1150], "size": 56}, {"text": "PIÙ ALLUMINIO DA NUOVA", "at": "alluminio", "pos": [540, 1250], "size": 56}]}},
+  {"text": "Quindi: lavala solo con acqua, fai almeno tre caffè a perdere, e il primo che bevi sarà già buono.",
+   "scene": {"type": "checklist", "title": ["PRIMO", "UTILIZZO"], "items": [
+     {"text": "LAVALA SOLO CON ACQUA", "ok": true, "at": "acqua"},
+     {"text": "3 CAFFÈ A PERDERE", "ok": true, "at": "perdere"},
+     {"text": "BERE IL PRIMISSIMO", "ok": false, "at": "primo"}]}},
+  {"text": "Mandalo a chi ha appena comprato una moka.",
+   "scene": {"type": "end", "line": "E ORA TOCCA A TE", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Moka nuova? I primi caffè vanno buttati ☕ È proprio Bialetti a scriverlo nelle istruzioni: al primo utilizzo lavala bene solo con acqua e fai almeno 3 caffè “a perdere”, da non bere.\n\nPerché: una caffettiera appena comprata ha ancora residui della lavorazione industriale, e gli studi rilevano un po' più di alluminio nel caffè proprio quando la moka è nuova (livelli comunque sotto i limiti di sicurezza).\n\n• primo utilizzo: lavala solo con acqua\n• almeno 3 caffè a perdere\n• poi goditela\n\nMandalo a chi ha appena comprato una moka 👇\n\n#moka #caffè #veroofalso #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Bialetti, istruzioni d'uso Moka Express: lavarla solo con acqua e fare almeno 3 caffè a perdere", "url": "https://cdn.shopify.com/s/files/1/1656/1527/files/Bialetti_Moka_Express_User_Guide.pdf"},
+  {"titolo": "My-personaltrainer: tracce di alluminio più alte soprattutto quando la caffettiera è nuova", "url": "https://www.my-personaltrainer.it/benessere/moka-pulirla-solo-con-acqua-e-davvero-la-scelta-giusta-la-verita-scientifica-per-evitare-alluminio-e-rischi-per-la-salute.html"},
+  {"titolo": "Cose di Casa: moka nuova, lavarla per rimuovere i residui della lavorazione industriale", "url": "https://www.cosedicasa.com/fai-da-te/cura-pulizia/come-lavare-la-moka-internamente-ed-esternamente-in-pochi-passaggi-13788"},
+  {"titolo": "Geopop: migrazione di alluminio sotto i limiti EFSA", "url": "https://www.geopop.it/come-pulire-la-moka-nel-modo-giusto-cosa-dicono-gli-esperti-su-sapone-lavastoviglie-e-residui-di-caffe/"}
+ ],
+ "hook_test": "vero_rompe_schema",
+ "theme": "cucina_notte"
+}

@@ -1762,3 +1762,57 @@ def faucet_chicken(cr, cx, y, t=0.0, splash=1.0, microbes=True):
                 cr.save(); cr.translate(px, py); cr.scale(0.32, 0.32)
                 microbe(cr, 0, 0, scale=1.0, t=t)
                 cr.restore()
+
+
+def window_draft(cr, cx, cy, t=0.0, wind=1.0):
+    """Finestra aperta con tenda che svolazza e righe di vento (corrente d'aria)."""
+    w, h = 460, 560
+    x0, y0 = cx - w / 2, cy - h / 2
+    # cielo
+    E.rounded_rect(cr, x0, y0, w, h, 16)
+    cr.set_source_rgb(0.62, 0.80, 0.95); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(10); cr.stroke()
+    # anta aperta (in prospettiva)
+    cr.move_to(x0 + w, y0); cr.line_to(x0 + w + 150, y0 + 50)
+    cr.line_to(x0 + w + 150, y0 + h - 50); cr.line_to(x0 + w, y0 + h); cr.close_path()
+    cr.set_source_rgba(0.85, 0.92, 0.98, 0.9); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(8); cr.stroke()
+    # davanzale
+    E.rounded_rect(cr, x0 - 40, y0 + h - 10, w + 80, 36, 10)
+    cr.set_source_rgb(0.92, 0.90, 0.86); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    # tenda che svolazza verso l'interno (a sinistra)
+    for k in range(2):
+        cr.move_to(x0 + 20 + k * 60, y0 + 10)
+        pts = []
+        for i in range(1, 9):
+            yy = y0 + 10 + i * (h - 60) / 8
+            xx = x0 + 20 + k * 60 - wind * (i * 22) * (0.8 + 0.2 * math.sin(t * 5 + i * 0.7 + k))
+            pts.append((xx, yy))
+        for p in pts:
+            cr.line_to(*p)
+        cr.line_to(pts[-1][0] + 90, pts[-1][1])
+        cr.line_to(x0 + 110 + k * 60, y0 + 10)
+        cr.close_path()
+        cr.set_source_rgba(0.98, 0.96, 0.90, 0.95); cr.fill_preserve()
+        cr.set_source_rgb(*E.INK); cr.set_line_width(5); cr.stroke()
+    # righe di vento
+    for j in range(5):
+        ph = (t * 0.9 + j / 5.0) % 1.0
+        yy = cy - 180 + j * 85
+        xs = cx + 200 - ph * 900
+        cr.move_to(xs, yy)
+        cr.curve_to(xs - 60, yy - 20 * wind, xs - 120, yy + 20 * wind, xs - 200, yy)
+        cr.set_source_rgba(1, 1, 1, 0.8 * (1 - abs(ph - 0.5) * 2) * wind)
+        cr.set_line_width(8); cr.stroke()
+
+
+def virus(cr, x, y, r=40, t=0.0, alpha=1.0):
+    """Virus stilizzato: sfera con spine."""
+    for i in range(12):
+        a = i * math.pi / 6 + t * 0.6
+        cr.move_to(x + math.cos(a) * r, y + math.sin(a) * r)
+        cr.line_to(x + math.cos(a) * (r + 18), y + math.sin(a) * (r + 18))
+        cr.set_source_rgba(*E.INK, alpha); cr.set_line_width(5); cr.stroke()
+        E.circle(cr, x + math.cos(a) * (r + 20), y + math.sin(a) * (r + 20), 7, (0.95, 0.45, 0.35), lw=3, alpha=alpha)
+    E.circle(cr, x, y, r, (0.40, 0.75, 0.45), lw=6, alpha=alpha)

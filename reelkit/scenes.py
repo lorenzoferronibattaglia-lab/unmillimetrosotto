@@ -132,8 +132,17 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken"):
-        if pr["appliance"] == "chicken":
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new"):
+        if pr["appliance"] == "window":
+            P.window_draft(cr, 520, 1000, t=t, wind=1.0)
+        elif pr["appliance"] == "moka_new":
+            P.stove(cr, 540, 1250, 560)
+            P.flames(cr, 540, 1250, 300, t, intensity=0.8)
+            P.moka(cr, 540, 1240, scale=1.05, t=t, crust=0.0)
+            k = E.ease(E.prog(t, ctx.at(par, pr.get("tag_at", 0.0)), ctx.at(par, pr.get("tag_at", 0.0)) + 0.4))
+            if k > 0:
+                E.label(cr, "NUOVA", 800, 860, t, ctx.at(par, pr.get("tag_at", 0.0)), size=58, bg=P.GREEN_OK)
+        elif pr["appliance"] == "chicken":
             sp = E.ease(E.prog(t, ctx.at(par, pr.get("splash_at", 0.0)), ctx.at(par, pr.get("splash_at", 0.0)) + 0.8))
             P.faucet_chicken(cr, 540, 1110, t=t, splash=sp)
         elif pr["appliance"] == "amaro":
@@ -1517,4 +1526,34 @@ def splash_scene(cr, t, ctx, par, spec):
     labels(cr, t, ctx, par, spec.get("labels"))
 
 
-TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene, "table_sum": table_sum, "snap": snap, "filter": filter_scene, "splash": splash_scene}
+# ---------------------------------------------------------------- VIRUS (senza virus niente raffreddore)
+def virus_scene(cr, t, ctx, par, spec):
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s, y=270, size=spec.get("title_size", 104))
+    # sinistra: solo freddo (vento) -> naso ok; destra: virus -> raffreddore
+    t_v = ctx.at(par, spec.get("virus_at", 0.5))
+    for side, cx in ((0, 290), (1, 790)):
+        E.rounded_rect(cr, cx - 220, 560, 440, 560, 30)
+        cr.set_source_rgba(1, 1, 1, 0.08); cr.fill_preserve()
+        cr.set_source_rgba(1, 1, 1, 0.35); cr.set_line_width(4); cr.stroke()
+        if side == 0:
+            for j in range(4):
+                ph = (t * 0.9 + j / 4.0) % 1.0
+                yy = 680 + j * 90; xs = cx + 200 - ph * 420
+                cr.move_to(xs, yy); cr.curve_to(xs - 50, yy - 18, xs - 100, yy + 18, xs - 160, yy)
+                cr.set_source_rgba(0.75, 0.88, 1.0, 0.9 * (1 - abs(ph - 0.5) * 2)); cr.set_line_width(9); cr.stroke()
+            E.outlined_text(cr, "SOLO FREDDO", cx, 1060, 50, fill=E.WHITE, lw=8)
+        else:
+            k = E.ease_out_back(E.prog(t, t_v, t_v + 0.5))
+            if k > 0:
+                for j, (dx, dy) in enumerate(((0, 0), (-110, 120), (100, 150), (-60, 260), (90, 290))):
+                    P.virus(cr, cx + dx, 700 + dy, r=38 * k, t=t + j)
+            E.outlined_text(cr, "VIRUS", cx, 1060, 50, fill=E.WHITE, lw=8)
+    for i, lab in enumerate(spec.get("verdicts", [])):
+        t0 = ctx.at(par, lab.get("at", 0.5))
+        E.label(cr, lab["text"], 290 if i == 0 else 790, 1200, t, t0, size=52, bg=(P.GREEN_OK if lab.get("ok") else E.RED))
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene, "table_sum": table_sum, "snap": snap, "filter": filter_scene, "splash": splash_scene, "virus": virus_scene}
