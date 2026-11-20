@@ -724,19 +724,27 @@
   },
   {
    "id": "53_tv_vicina",
-   "stato": "proposto"
+   "stato": "programmato",
+   "uscita": "2026-11-20T08:45+01:00",
+   "vidiq_post_id": "3d97677a-377d-4a70-8b07-b354dfaa92d7"
   },
   {
    "id": "54_frutta_fine_pasto",
-   "stato": "proposto"
+   "stato": "programmato",
+   "uscita": "2026-11-20T12:30+01:00",
+   "vidiq_post_id": "3982c5ff-627e-4800-94b0-7f7511c4a98d"
   },
   {
    "id": "55_carote_buio",
-   "stato": "proposto"
+   "stato": "programmato",
+   "uscita": "2026-11-20T16:30+01:00",
+   "vidiq_post_id": "08a451d2-a8ba-4280-bf35-e4d074f6fd0a"
   },
   {
    "id": "56_gomma_sette_anni",
-   "stato": "proposto"
+   "stato": "programmato",
+   "uscita": "2026-11-20T20:00+01:00",
+   "vidiq_post_id": "f3a06033-0678-4f91-a62d-99a67174002e"
   }
  ],
  "lezioni": [
