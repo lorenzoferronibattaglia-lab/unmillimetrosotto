@@ -1,0 +1,27 @@
+{
+ "id": "56_gomma_sette_anni",
+ "topic": "La gomma ingoiata resta nello stomaco 7 anni?",
+ "paragraphs": [
+  {"text": "Non ingoiare la gomma, che ti resta nello stomaco sette anni! Falso. Era solo per spaventarti.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["LA GOMMA INGOIATA", "RESTA 7 ANNI?"], "title_size": 100,
+     "prop": {"appliance": "gum"},
+     "stamp": {"text": "FALSO", "at": "Falso"}}},
+  {"text": "La base della gomma non si digerisce, è vero. Ma non si attacca da nessuna parte: zuccheri e aromi vengono assorbiti, il resto attraversa l'intestino ed esce in pochi giorni, quasi intatta.",
+   "scene": {"type": "number", "title": ["NON SI DIGERISCE,", "MA ESCE"], "title_size": 100, "card": {"main": "gomma base", "sub": "indigeribile", "at": "digerisce"}, "big": {"text": "POCHI GIORNI", "at": "giorni", "size": 150},
+     "labels": [{"text": "NON SI ATTACCA", "at": "attacca", "pos": [540, 1200], "size": 58, "color": "#2FB860"}]}},
+  {"text": "Una ogni tanto non è un problema. Tante insieme, soprattutto nei bambini, raramente possono bloccare l'intestino: lì meglio evitare.",
+   "scene": {"type": "checklist", "title": ["QUINDI", "TRANQUILLO"], "items": [
+     {"text": "UNA OGNI TANTO", "ok": true, "at": "tanto"},
+     {"text": "TANTE INSIEME, BAMBINI", "ok": false, "at": "bambini"}]}},
+  {"text": "Mandalo a chi ti diceva che resta sette anni.",
+   "scene": {"type": "end", "line": "TE LO DICEVANO?", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "La gomma ingoiata NON resta nello stomaco 7 anni 🫧 La gomma base non si digerisce, è vero, ma non si attacca da nessuna parte: zuccheri e aromi vengono assorbiti, il resto attraversa l'intestino e viene espulso quasi intatto, in pochi giorni.\n\n• una ogni tanto: nessun problema\n• tante gomme ingoiate insieme, soprattutto dai bambini: raramente possono causare un blocco intestinale, meglio evitare\n\nMandalo a chi ti diceva che resta 7 anni 👇\n\n#chewinggum #falsimiti #veroofalso #curiosità #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Geopop: cosa succede se si ingoia una chewing gum (falso mito dei 7 anni)", "url": "https://www.geopop.it/cosa-succede-se-si-ingoia-accidentalmente-una-chewing-gum/"},
+  {"titolo": "My-personaltrainer: il mito dei sette anni, la gomma base non viene scissa", "url": "https://www.my-personaltrainer.it/salute/cosa-succede-se-inghiotti-la-gomma-da-masticare-e-pericoloso.html"},
+  {"titolo": "GreenMe (Mayo Clinic): raramente blocco intestinale nei bambini", "url": "https://www.greenme.it/?p=760541"}
+ ],
+ "hook_test": "smentisci_la_mamma",
+ "theme": "cucina_notte"
+}

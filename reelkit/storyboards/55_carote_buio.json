@@ -1,0 +1,28 @@
+{
+ "id": "55_carote_buio",
+ "topic": "Le carote fanno vedere al buio?",
+ "paragraphs": [
+  {"text": "Mangia le carote, che ci vedi al buio! Te l'hanno detto anche a te? È una bugia di guerra.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["LE CAROTE FANNO", "VEDERE AL BUIO?"], "title_size": 100,
+     "prop": {"appliance": "carrot"},
+     "stamp": {"text": "BUGIA", "at": "bugia"}}},
+  {"text": "Seconda guerra mondiale: i piloti inglesi abbattono i bombardieri tedeschi di notte. Il segreto era un radar nuovissimo. Ma per nasconderlo, il governo britannico fece girare una storia: i piloti mangiano tante carote.",
+   "scene": {"type": "radar", "title": ["IL VERO SEGRETO:", "IL RADAR"], "title_size": 100, "radar_at": "radar",
+     "labels": [{"text": "1940: RADAR SEGRETO", "at": "radar", "pos": [540, 1240], "size": 56, "color": "#2FB860"},
+                {"text": "LA SCUSA: LE CAROTE", "at": "carote", "pos": [540, 1240], "size": 58}]}},
+  {"text": "Le carote fanno bene, ma se non hai carenze di vitamina A non ti danno nessuna vista notturna in più.",
+   "scene": {"type": "checklist", "title": ["E QUINDI", "LE CAROTE?"], "items": [
+     {"text": "CAROTE: FANNO BENE", "ok": true, "at": "bene"},
+     {"text": "VISTA AL BUIO EXTRA", "ok": false, "at": "notturna"}]}},
+  {"text": "Mandalo a chi te le faceva mangiare per vedere al buio.",
+   "scene": {"type": "end", "line": "TE LO DICEVANO?", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Le carote non fanno vedere al buio 🥕 Il mito l'ha diffuso la propaganda britannica nella Seconda guerra mondiale: i piloti della RAF abbattevano i bombardieri tedeschi di notte grazie a un nuovo radar di bordo, segretissimo. Per non svelarlo, si fece girare la storia che mangiassero tante carote. Manifesti compresi.\n\n• le carote fanno bene (vitamina A)\n• ma se non sei carente, non ti danno una vista notturna “extra”\n\nMandalo a chi te le faceva mangiare per vedere al buio 👇\n\n#carote #storia #veroofalso #falsimiti #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Il Post: Da dove arriva la credenza per cui le carote aiutano a vedere di notte", "url": "https://www.ilpost.it/2017/06/11/credenza-carote-vedere-di-notte/"},
+  {"titolo": "Smithsonian: A WWII propaganda campaign popularized the myth that carrots help you see in the dark", "url": "https://www.smithsonianmag.com/history/a-wwii-propaganda-campaign-popularized-the-myth-that-carrots-help-you-see-in-the-dark-28812484/"},
+  {"titolo": "My-personaltrainer: mangiare carote migliora la vista? Falso", "url": "https://www.my-personaltrainer.it/salute/verita-e-falsi-miti-su-vista-e-occhi-a-cosa-credere-e-a-cosa-no.html"}
+ ],
+ "hook_test": "smentisci_la_mamma_storia",
+ "theme": "cucina_notte"
+}

@@ -1901,3 +1901,41 @@ def fruit_plate(cr, cx, y, t=0.0):
     cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
     cr.move_to(px, py - 120); cr.line_to(px - 5, py - 160)
     cr.set_source_rgb(0.40, 0.25, 0.12); cr.set_line_width(9); cr.stroke()
+
+
+def carrot(cr, x, y, scale=1.0, angle=-0.5, t=0.0):
+    """Carota con ciuffo verde; punta in basso a destra."""
+    cr.save(); cr.translate(x, y); cr.rotate(angle); cr.scale(scale, scale)
+    cr.move_to(-60, -150); cr.curve_to(-70, 0, -20, 120, 0, 200)
+    cr.curve_to(20, 120, 70, 0, 60, -150); cr.close_path()
+    cr.set_source_rgb(0.98, 0.52, 0.12); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    for k in range(5):
+        yy = -100 + k * 55
+        cr.move_to(-40 + k * 6, yy); cr.line_to(-10 + k * 4, yy + 8)
+        cr.set_source_rgba(*E.INK, 0.6); cr.set_line_width(4); cr.stroke()
+    for k in range(3):
+        a = -0.5 + k * 0.5 + 0.08 * math.sin(t * 3 + k)
+        cr.save(); cr.translate(0, -150); cr.rotate(a)
+        cr.move_to(0, 0); cr.curve_to(-40, -60, -20, -140, 0, -170); cr.curve_to(20, -140, 40, -60, 0, 0)
+        cr.set_source_rgb(0.30, 0.68, 0.28); cr.fill_preserve()
+        cr.set_source_rgb(*E.INK); cr.set_line_width(5); cr.stroke()
+        cr.restore()
+    cr.restore()
+
+
+def gum(cr, x, y, scale=1.0, t=0.0):
+    """Gomma da masticare rosa (pallina) con incarto aperto accanto."""
+    cr.save(); cr.translate(x, y); cr.scale(scale, scale)
+    # incarto
+    cr.save(); cr.rotate(-0.2)
+    E.rounded_rect(cr, 60, -40, 220, 90, 12)
+    cr.set_source_rgb(0.30, 0.65, 0.95); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.outlined_text(cr, "GUM", 170, 22, 46, fill=E.WHITE, lw=6)
+    cr.restore()
+    # bolla che si gonfia
+    r = 110 + 12 * math.sin(t * 2.2)
+    E.circle(cr, -60, 0, r, (0.98, 0.55, 0.72), lw=7)
+    E.circle(cr, -95, -40, r * 0.18, (1.0, 0.85, 0.92), lw=0)
+    cr.restore()

@@ -132,8 +132,16 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit"):
-        if pr["appliance"] == "tv_kid":
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum"):
+        if pr["appliance"] == "carrot":
+            P.carrot(cr, 470, 1030, scale=1.4, angle=-0.45, t=t)
+            # occhio luminoso nel buio
+            gl = 0.5 + 0.5 * math.sin(t * 3)
+            E.circle(cr, 790, 820, 70, (1.0, 0.95, 0.70), lw=6, alpha=0.6 + 0.4 * gl)
+            E.circle(cr, 790, 820, 30, (0.10, 0.10, 0.12), lw=0)
+        elif pr["appliance"] == "gum":
+            P.gum(cr, 540, 1030, scale=1.5, t=t)
+        elif pr["appliance"] == "tv_kid":
             ap = E.ease(E.clamp((t - s) / 3.0))
             P.tv_on_kid(cr, 540, 640, t=t, approach=ap)
         elif pr["appliance"] == "fruit":
@@ -1630,4 +1638,43 @@ def cuticle_scene(cr, t, ctx, par, spec):
     labels(cr, t, ctx, par, spec.get("labels"))
 
 
-TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene, "table_sum": table_sum, "snap": snap, "filter": filter_scene, "splash": splash_scene, "virus": virus_scene, "eggs": eggs_scene, "cuticle": cuticle_scene}
+# ---------------------------------------------------------------- RADAR (aereo di notte + radar segreto)
+def radar_scene(cr, t, ctx, par, spec):
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s, y=270, size=spec.get("title_size", 104))
+    t_r = ctx.at(par, spec.get("radar_at", 0.5))
+    cx, cy = 540, 860
+    # cielo notturno
+    E.rounded_rect(cr, 80, 520, 920, 640, 30)
+    cr.set_source_rgb(0.05, 0.07, 0.15); cr.fill()
+    rnd = random.Random(4)
+    for i in range(40):
+        E.circle(cr, rnd.uniform(100, 980), rnd.uniform(540, 1140), rnd.uniform(1.5, 4), (1, 1, 1), lw=0, alpha=0.4 + 0.4 * math.sin(t * 2 + i))
+    # onde radar
+    if t >= t_r:
+        for k in range(4):
+            ph = ((t - t_r) * 0.6 + k / 4.0) % 1.0
+            cr.arc(330, 900, 40 + ph * 520, -0.9, 0.9)
+            cr.set_source_rgba(0.35, 1.0, 0.55, 0.8 * (1 - ph)); cr.set_line_width(6); cr.stroke()
+    # aereo (sagoma)
+    px = 330
+    cr.save(); cr.translate(px, 900)
+    cr.move_to(-120, 0); cr.line_to(110, 0); cr.line_to(130, -10); cr.line_to(110, -22); cr.line_to(-100, -22); cr.close_path()
+    cr.set_source_rgb(0.65, 0.70, 0.75); cr.fill()
+    cr.move_to(-20, -10); cr.line_to(-60, -110); cr.line_to(0, -110); cr.line_to(40, -10); cr.close_path(); cr.fill()
+    cr.move_to(-20, -10); cr.line_to(-60, 90); cr.line_to(0, 90); cr.line_to(40, -10); cr.close_path(); cr.fill()
+    cr.restore()
+    # bombardiere nemico individuato
+    if t >= t_r + 0.8:
+        k = E.ease(E.prog(t, t_r + 0.8, t_r + 1.3))
+        bx, by = 800, 760 + 10 * math.sin(t)
+        E.circle(cr, bx, by, 60 * k, (0.35, 1.0, 0.55), lw=0, alpha=0.25)
+        cr.save(); cr.translate(bx, by); cr.scale(-0.6, 0.6)
+        cr.move_to(-120, 0); cr.line_to(110, 0); cr.line_to(130, -10); cr.line_to(110, -22); cr.line_to(-100, -22); cr.close_path()
+        cr.set_source_rgb(0.85, 0.30, 0.30); cr.fill()
+        cr.restore()
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene, "table_sum": table_sum, "snap": snap, "filter": filter_scene, "splash": splash_scene, "virus": virus_scene, "eggs": eggs_scene, "cuticle": cuticle_scene, "radar": radar_scene}
