@@ -630,6 +630,11 @@
     "views": 27487,
     "shares": 193,
     "saves": 69
+   },
+   "metriche_20_11": {
+    "views": 28121,
+    "shares": 195,
+    "saves": 75
    }
   },
   {
@@ -641,6 +646,11 @@
     "views": 3535,
     "shares": 20,
     "saves": 7
+   },
+   "metriche_20_11": {
+    "views": 3962,
+    "shares": 20,
+    "saves": 7
    }
   },
   {
@@ -650,6 +660,11 @@
    "vidiq_post_id": "cad73138-a570-4cf7-86ac-3505149a72ef",
    "metriche_19_11": {
     "views": 2554,
+    "shares": 1,
+    "saves": 0
+   },
+   "metriche_20_11": {
+    "views": 2668,
     "shares": 1,
     "saves": 0
    }
@@ -673,13 +688,23 @@
     "views": 2097,
     "shares": 6,
     "saves": 6
+   },
+   "metriche_20_11": {
+    "views": 2187,
+    "shares": 6,
+    "saves": 7
    }
   },
   {
    "id": "50_colpo_aria",
    "stato": "pubblicato",
    "uscita": "2026-11-19T09:00+01:00",
-   "vidiq_post_id": "7ab7c0e7-3ec2-4bd9-a96e-5f36d00097cc"
+   "vidiq_post_id": "7ab7c0e7-3ec2-4bd9-a96e-5f36d00097cc",
+   "metriche_20_11": {
+    "views": 1374,
+    "shares": 23,
+    "saves": 5
+   }
   },
   {
    "id": "51_moka_nuova",
@@ -690,7 +715,20 @@
    "id": "52_uova_lavate",
    "stato": "programmato",
    "uscita": "2026-11-19T13:00+01:00",
-   "vidiq_post_id": "9303ccec-4633-419e-883c-e528b3158581"
+   "vidiq_post_id": "9303ccec-4633-419e-883c-e528b3158581",
+   "metriche_20_11": {
+    "views": 1058,
+    "shares": 2,
+    "saves": 2
+   }
+  },
+  {
+   "id": "53_tv_vicina",
+   "stato": "proposto"
+  },
+  {
+   "id": "54_frutta_fine_pasto",
+   "stato": "proposto"
   }
  ],
  "lezioni": [
@@ -718,7 +756,8 @@
   "15/11: virali = abitudine universale + risparmio in euro + condivisione (pasta 65k, lavatrice 22k). Flop friggitrice: 30 min dopo un altro reel e pubblico ristretto. Regola: >=150 min tra uscite, solo abitudini universali.",
   "16/11: svolta. Formula da outlier IT: titolo 'Usa X, non Y' e tabella che somma i costi annui. Meno reel (3/giorno), solo potenziali virali.",
   "16/11 sera: crollo distribuzione (4 reel a ~200 views). Compagna di Lorenzo: troppi risparmi, piu' curiosita'. Nuovo mix: rimedi della nonna smontati + 1 risparmio 'permesso'. Telefono nel riso scartato (troppo banale).",
-  "19/11: le condivisioni nascono dal 'mandalo a chi...' su oggetti identitari (moka sapone 193 share). Spaghetti: record visione 45% ma 1 share: la curiosità pura trattiene ma non si manda. Seguito moka (pressata) 0,57 share/100 views: buono, non virale. Pollo: 6 share su 2.1k."
+  "19/11: le condivisioni nascono dal 'mandalo a chi...' su oggetti identitari (moka sapone 193 share). Spaghetti: record visione 45% ma 1 share: la curiosità pura trattiene ma non si manda. Seguito moka (pressata) 0,57 share/100 views: buono, non virale. Pollo: 6 share su 2.1k.",
+  "20/11: colpo d'aria 1,67 share/100 views (record): il filone 'smentisci la mamma' è il più condivisibile. Ma 61% skip e distribuzione bassa (reach 18/11 4,3k). Da ora hook in movimento dal frame 0 e frase che chiama in causa chi guarda."
  ],
  "voce_attuale": {
   "nome": "Francesco - Natural, Warm and Confident",
@@ -776,6 +815,12 @@
    "data": "2026-11-19T08:01",
    "follower": 526,
    "fonte": "API"
+  },
+  {
+   "data": "2026-11-20T08:01",
+   "follower": 535,
+   "fonte": "API",
+   "raggiunti_18_11": 4349
   }
  ]
 }

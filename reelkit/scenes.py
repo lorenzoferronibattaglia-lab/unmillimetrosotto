@@ -132,8 +132,15 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs"):
-        if pr["appliance"] == "eggs":
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit"):
+        if pr["appliance"] == "tv_kid":
+            ap = E.ease(E.clamp((t - s) / 3.0))
+            P.tv_on_kid(cr, 540, 640, t=t, approach=ap)
+        elif pr["appliance"] == "fruit":
+            cr.save(); cr.translate(540, 1150); cr.scale(1.6, 1.6); cr.translate(-540, -1150)
+            P.fruit_plate(cr, 540, 1150, t=t)
+            cr.restore()
+        elif pr["appliance"] == "eggs":
             E.rounded_rect(cr, 120, 1250, 840, 40, 12)
             cr.set_source_rgb(0.75, 0.62, 0.48); cr.fill()
             P.egg_carton(cr, 540, 1250, t=t, scale=1.2)

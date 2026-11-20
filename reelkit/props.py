@@ -1841,3 +1841,63 @@ def egg_carton(cr, cx, base_y, t=0.0, n=6, scale=1.0, drops=0.0):
         cr.move_to(-240 + k * 160, -110); cr.line_to(-230 + k * 160, -10)
         cr.set_source_rgba(*E.INK, 0.4); cr.set_line_width(3); cr.stroke()
     cr.restore()
+
+
+def tv_on_kid(cr, cx, top, t=0.0, approach=0.0):
+    """TV accesa (schermo che cambia colore) con la sagoma di un bambino che si avvicina."""
+    s = 1.0 + 0.25 * approach
+    w, h = 640 * s, 380 * s
+    x0 = cx - w / 2
+    E.rounded_rect(cr, x0 - 20, top - 20, w + 40, h + 40, 28)
+    cr.set_source_rgb(0.10, 0.11, 0.13); cr.fill()
+    hue = (t * 0.25) % 1.0
+    r = 0.35 + 0.35 * math.sin(2 * math.pi * hue)
+    g = 0.55 + 0.30 * math.sin(2 * math.pi * (hue + 0.33))
+    b = 0.75 + 0.20 * math.sin(2 * math.pi * (hue + 0.66))
+    E.rounded_rect(cr, x0, top, w, h, 14)
+    cr.set_source_rgb(r, g, b); cr.fill()
+    # cartone animato astratto sullo schermo
+    E.circle(cr, cx - w * 0.2 + 40 * math.sin(t * 2), top + h * 0.55, 50 * s, (1.0, 0.85, 0.30), lw=4)
+    E.circle(cr, cx + w * 0.22, top + h * 0.45 + 25 * math.cos(t * 2.5), 38 * s, (0.95, 0.40, 0.40), lw=4)
+    # piede TV
+    cr.move_to(cx - 90, top + h + 20); cr.line_to(cx + 90, top + h + 20); cr.line_to(cx + 60, top + h + 60); cr.line_to(cx - 60, top + h + 60); cr.close_path()
+    cr.set_source_rgb(0.18, 0.19, 0.22); cr.fill()
+    # bambino di spalle (sagoma) che si avvicina
+    ky = top + h + 260 - 120 * approach
+    ks = 1.0 + 0.35 * approach
+    cr.save(); cr.translate(cx, ky); cr.scale(ks, ks)
+    cr.move_to(-150, 220); cr.curve_to(-150, 60, -80, 40, 0, 40); cr.curve_to(80, 40, 150, 60, 150, 220); cr.close_path()
+    cr.set_source_rgb(0.20, 0.35, 0.60); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.circle(cr, 0, -40, 85, (0.30, 0.20, 0.14), lw=6)
+    cr.restore()
+
+
+def fruit_plate(cr, cx, y, t=0.0):
+    """Piatto con mela e pera, a fine pasto."""
+    cr.save(); cr.translate(cx, y); cr.scale(1, 0.32)
+    cr.arc(0, 0, 300, 0, 2 * math.pi); cr.restore()
+    cr.set_source_rgb(0.97, 0.97, 0.95); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    bob = 6 * math.sin(t * 2)
+    # mela
+    ax, ay = cx - 100, y - 110 + bob
+    cr.move_to(ax, ay - 70)
+    cr.curve_to(ax + 120, ay - 140, ax + 140, ay + 60, ax, ay + 90)
+    cr.curve_to(ax - 140, ay + 60, ax - 120, ay - 140, ax, ay - 70)
+    cr.set_source_rgb(0.86, 0.18, 0.20); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    cr.move_to(ax, ay - 70); cr.line_to(ax + 10, ay - 120)
+    cr.set_source_rgb(0.40, 0.25, 0.12); cr.set_line_width(10); cr.stroke()
+    cr.move_to(ax + 12, ay - 105); cr.curve_to(ax + 60, ay - 140, ax + 90, ay - 110, ax + 60, ay - 95); cr.close_path()
+    cr.set_source_rgb(0.30, 0.65, 0.30); cr.fill()
+    # pera
+    px, py = cx + 120, y - 120 - bob
+    cr.move_to(px, py - 120)
+    cr.curve_to(px + 50, py - 120, px + 40, py - 30, px + 90, py + 30)
+    cr.curve_to(px + 120, py + 110, px - 120, py + 110, px - 90, py + 30)
+    cr.curve_to(px - 40, py - 30, px - 50, py - 120, px, py - 120)
+    cr.set_source_rgb(0.80, 0.82, 0.30); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    cr.move_to(px, py - 120); cr.line_to(px - 5, py - 160)
+    cr.set_source_rgb(0.40, 0.25, 0.12); cr.set_line_width(9); cr.stroke()
