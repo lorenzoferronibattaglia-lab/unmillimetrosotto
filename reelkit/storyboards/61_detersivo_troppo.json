@@ -1,0 +1,29 @@
+{
+ "id": "61_detersivo_troppo",
+ "topic": "Più detersivo in lavatrice lava meglio?",
+ "paragraphs": [
+  {"text": "Metti un tappo in più di detersivo, così il bucato viene più pulito? Falso. Viene peggio, e lo paghi due volte.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["PIÙ DETERSIVO", "LAVA MEGLIO?"], "title_size": 110,
+     "prop": {"appliance": "washer_foam"},
+     "stamp": {"text": "FALSO", "at": "Falso"}}},
+  {"text": "Quello in eccesso non si sciacqua via: resta nei tessuti come una patina, li rende rigidi e trattiene gli odori. E dentro la lavatrice si accumula, fino a far venire la muffa nella guarnizione.",
+   "scene": {"type": "number", "title": ["L'ECCESSO", "RESTA DENTRO"], "card": {"main": "detersivo in più", "sub": "non si sciacqua", "at": "eccesso"}, "big": {"text": "PATINA + MUFFA", "at": "muffa", "size": 120},
+     "labels": [{"text": "TESSUTI RIGIDI", "at": "rigidi", "pos": [540, 1220], "size": 58}]}},
+  {"text": "Basta la dose scritta sull'etichetta, regolata sul carico e sulla durezza dell'acqua. Vale anche per l'ammorbidente: di più non vuol dire più morbido.",
+   "scene": {"type": "checklist", "title": ["QUANTO", "METTERNE"], "items": [
+     {"text": "LA DOSE DELL'ETICHETTA", "ok": true, "at": "etichetta"},
+     {"text": "AMMORBIDENTE: POCO", "ok": true, "at": "ammorbidente"},
+     {"text": "UN TAPPO IN PIÙ", "ok": false, "at": "morbido"}]}},
+  {"text": "Mandalo a chi riempie la vaschetta fino all'orlo.",
+   "scene": {"type": "end", "line": "E TU QUANTO NE METTI?", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Più detersivo NON lava meglio 🫧 Quello in eccesso non si risciacqua del tutto: resta sui tessuti come una patina, li irrigidisce e trattiene gli odori. Nel tempo si accumula anche nella lavatrice, intasa la vaschetta e favorisce la muffa nella guarnizione dell'oblò.\n\n• usa la dose dell'etichetta, regolata su carico e durezza dell'acqua\n• ammorbidente: ne basta poco, di più non rende i capi più morbidi\n• risparmi detersivo e la lavatrice dura di più\n\nMandalo a chi riempie la vaschetta fino all'orlo 👇\n\n#lavatrice #bucato #risparmio #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {"titolo": "MeteoWeb (2026): il sovradosaggio di detersivo è l'errore più grave del bucato", "url": "https://www.meteoweb.eu/2026/02/larte-del-bucato-perfetto-perche-nel-2026-stiamo-ancora-rovinando-i-nostri-vestiti-e-le-nostre-bollette/1001893277/"},
+  {"titolo": "Blitz Quotidiano: detersivo in eccesso si accumula, intasa vaschetta e filtri, muffa nella guarnizione", "url": "https://www.blitzquotidiano.it/?p=3776998"},
+  {"titolo": "Altroconsumo: ammorbidente, ne basta poco; più dose non rende i capi più morbidi", "url": "https://www.altroconsumo.it/elettrodomestici/lavatrici/guida-acquisto/ammorbidenti"},
+  {"titolo": "GreenMe: troppo detersivo lascia una patina di sapone sui tessuti", "url": "https://www.greenme.it/casa-e-giardino/trucchi-e-consigli/la-tua-lavatrice-sembra-non-finire-mai-i-lavaggi-forse-stai-commettendo-uno-di-questi-7-errori/"}
+ ],
+ "hook_test": "formula_virale_risparmio",
+ "theme": "cucina_notte"
+}

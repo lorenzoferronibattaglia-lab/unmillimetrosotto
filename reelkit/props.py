@@ -2010,3 +2010,42 @@ def burn_remedies(cr, cx, y, t=0.0, cross=0.0):
         for x0 in (cx - 280, cx, cx + 280):
             cr.move_to(x0 - 90 * cross, y - 120); cr.line_to(x0 - 90 * cross + 180 * cross, y + 40)
             cr.set_source_rgb(*E.RED); cr.set_line_width(14); cr.stroke()
+
+
+def oven(cr, cx, top, t=0.0, w=600, h=480, temp_text="180°", glow=0.6, waiting=0.0):
+    """Forno da incasso: vetro con luce arancio, manopole, display temperatura."""
+    _appliance_body(cr, cx, top, w, h)
+    # pannello comandi
+    E.rounded_rect(cr, cx - w / 2 + 20, top + 20, w - 40, 80, 14)
+    cr.set_source_rgb(0.18, 0.19, 0.22); cr.fill()
+    for k in (-1, 1):
+        E.circle(cr, cx + k * 200, top + 60, 26, (0.85, 0.86, 0.88), lw=4)
+    E.rounded_rect(cr, cx - 80, top + 35, 160, 50, 8)
+    cr.set_source_rgb(0.05, 0.05, 0.06); cr.fill()
+    E.outlined_text(cr, temp_text, cx, top + 75, 40, fill=(1.0, 0.55, 0.20), lw=0)
+    # porta a vetro
+    E.rounded_rect(cr, cx - w / 2 + 40, top + 130, w - 80, h - 170, 20)
+    cr.set_source_rgb(0.12, 0.10, 0.10); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    g = glow * (0.85 + 0.15 * math.sin(t * 2))
+    E.rounded_rect(cr, cx - w / 2 + 60, top + 150, w - 120, h - 210, 14)
+    cr.set_source_rgba(1.0, 0.55, 0.15, 0.55 * g); cr.fill()
+    # maniglia
+    E.rounded_rect(cr, cx - 160, top + 110, 320, 18, 9)
+    cr.set_source_rgb(0.80, 0.82, 0.85); cr.fill()
+    # forno vuoto che aspetta: orologio che gira
+    if waiting > 0:
+        ox, oy = cx + w / 2 - 40, top - 40
+        E.circle(cr, ox, oy, 60, E.WHITE, lw=6)
+        a = -math.pi / 2 + t * 2.0
+        cr.move_to(ox, oy); cr.line_to(ox + 42 * math.cos(a), oy + 42 * math.sin(a))
+        cr.set_source_rgb(*E.RED); cr.set_line_width(7); cr.stroke()
+
+
+def foam_over(cr, cx, cy, t=0.0, amount=1.0, w=520):
+    """Schiuma che trabocca (detersivo in eccesso)."""
+    rnd = random.Random(12)
+    for i in range(int(40 * amount)):
+        x = cx + rnd.uniform(-w / 2, w / 2)
+        y = cy + rnd.uniform(-60, 140) * amount + 6 * math.sin(t * 2 + i)
+        E.circle(cr, x, y, rnd.uniform(18, 42), (0.97, 0.98, 1.0), lw=3, alpha=0.95)

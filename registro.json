@@ -787,6 +787,14 @@
   {
    "id": "59_scottatura_burro",
    "stato": "proposto"
+  },
+  {
+   "id": "60_forno_preriscaldo",
+   "stato": "proposto"
+  },
+  {
+   "id": "61_detersivo_troppo",
+   "stato": "proposto"
   }
  ],
  "lezioni": [

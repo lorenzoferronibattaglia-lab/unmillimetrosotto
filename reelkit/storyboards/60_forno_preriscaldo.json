@@ -1,0 +1,29 @@
+{
+ "id": "60_forno_preriscaldo",
+ "topic": "Preriscaldare il forno serve sempre?",
+ "paragraphs": [
+  {"text": "Accendi il forno e aspetti dieci minuti prima di infornare? Spesso stai solo pagando il forno vuoto.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["PRERISCALDI", "IL FORNO?"], "title_size": 110,
+     "prop": {"appliance": "oven_wait"},
+     "stamp": {"text": "SPRECO", "at": "vuoto"}}},
+  {"text": "I forni moderni arrivano in temperatura in pochi minuti. Per arrosti, verdure, lasagne o piatti da scaldare puoi infornare subito: cuociono mentre il forno si scalda.",
+   "scene": {"type": "number", "title": ["PER MOLTI PIATTI", "NON SERVE"], "card": {"main": "arrosti, verdure", "sub": "lasagne", "at": "arrosti"}, "big": {"text": "INFORNA SUBITO", "at": "subito", "size": 96},
+     "labels": [{"text": "CUOCE MENTRE SI SCALDA", "at": "cuociono", "pos": [540, 1220], "size": 56, "color": "#2FB860"}]}},
+  {"text": "Pane, pizza e dolci invece il preriscaldo lo vogliono. E per risparmiare davvero: usa il ventilato, e spegni il forno cinque minuti prima della fine.",
+   "scene": {"type": "checklist", "title": ["E PER RISPARMIARE", "DAVVERO"], "title_size": 96, "items": [
+     {"text": "PANE, PIZZA, DOLCI: SÌ", "ok": true, "at": "dolci"},
+     {"text": "VENTILATO", "ok": true, "at": "ventilato"},
+     {"text": "SPEGNI 5 MINUTI PRIMA", "ok": true, "at": "cinque"}]}},
+  {"text": "Mandalo a chi accende il forno mezz'ora prima.",
+   "scene": {"type": "end", "line": "E TU QUANTO ASPETTI?", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Il forno non va sempre preriscaldato 🔥 I forni moderni raggiungono la temperatura in pochi minuti: per arrosti, verdure, lasagne o piatti da riscaldare puoi infornare subito, e cuociono mentre il forno si scalda. Tenerlo acceso vuoto è energia buttata.\n\n• pane, pizza, lievitati e dolci: il preriscaldo serve\n• usa il ventilato: consuma circa un terzo in meno dello statico\n• spegni qualche minuto prima: il calore residuo finisce la cottura\n\nMandalo a chi accende il forno mezz'ora prima 👇\n\n#forno #risparmio #bolletta #truccidicasa #unmillimetrosotto",
+ "sources": [
+  {"titolo": "QuiFinanza: non sempre è necessario preriscaldare, i forni moderni raggiungono la temperatura in breve", "url": "https://quifinanza.it/green/il-vademecum-per-ridurre-i-consumi-in-cucina-e-tagliare-la-bolletta/678194/amp/"},
+  {"titolo": "GreenMe: evitare il preriscaldamento quando non serve; ventilato circa un terzo di energia in meno", "url": "https://www.greenme.it/energia/risparmio-energetico-trucchi-forno/"},
+  {"titolo": "Siemens: non tutte le ricette richiedono il preriscaldamento (pane sì)", "url": "https://www.siemens-home.bsh-group.com/it/inspiration/blog/preriscaldare-il-forno"},
+  {"titolo": "Beko: spegni il forno cinque minuti prima, il calore residuo prosegue la cottura", "url": "https://www.beko.com/it-it/supporto/forno--uso--articolo/9-metodi-per-aumentare-l'efficienza-energetica-del-forno"}
+ ],
+ "hook_test": "formula_virale_risparmio",
+ "theme": "cucina_notte"
+}
