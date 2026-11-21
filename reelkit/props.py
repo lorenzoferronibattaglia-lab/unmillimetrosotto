@@ -2049,3 +2049,49 @@ def foam_over(cr, cx, cy, t=0.0, amount=1.0, w=520):
         x = cx + rnd.uniform(-w / 2, w / 2)
         y = cy + rnd.uniform(-60, 140) * amount + 6 * math.sin(t * 2 + i)
         E.circle(cr, x, y, rnd.uniform(18, 42), (0.97, 0.98, 1.0), lw=3, alpha=0.95)
+
+
+def dog(cr, cx, cy, scale=1.0, t=0.0):
+    """Cane seduto stilizzato (beagle), coda che scodinzola."""
+    cr.save(); cr.translate(cx, cy); cr.scale(scale, scale)
+    brown, cream = (0.72, 0.45, 0.22), (0.98, 0.93, 0.84)
+    # coda
+    a = 0.5 * math.sin(t * 8)
+    cr.save(); cr.translate(150, 120); cr.rotate(-0.6 + a)
+    E.rounded_rect(cr, -14, -130, 28, 140, 14); cr.set_source_rgb(*brown); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke(); cr.restore()
+    # corpo
+    cr.save(); cr.scale(1.0, 1.1); E.circle(cr, 40, 120, 140, brown, lw=6); cr.restore()
+    E.circle(cr, 10, 160, 80, cream, lw=0)
+    # zampe
+    for dx in (-60, 40):
+        E.rounded_rect(cr, dx, 220, 60, 110, 26); cr.set_source_rgb(*cream); cr.fill_preserve()
+        cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    # testa
+    E.circle(cr, -10, -110, 120, brown, lw=6)
+    cr.save(); cr.translate(-10, -60); cr.scale(1.0, 0.75); E.circle(cr, 0, 0, 80, cream, lw=0); cr.restore()
+    # orecchie
+    for sx in (-1, 1):
+        cr.save(); cr.translate(-10 + sx * 105, -120); cr.rotate(sx * 0.15 + 0.05 * math.sin(t * 3))
+        E.rounded_rect(cr, -38, -20, 76, 190, 38); cr.set_source_rgb(0.45, 0.26, 0.12); cr.fill_preserve()
+        cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke(); cr.restore()
+    # occhi e naso
+    for sx in (-1, 1):
+        E.circle(cr, -10 + sx * 45, -135, 16, (0.08, 0.08, 0.10), lw=0)
+        E.circle(cr, -10 + sx * 45 + 5, -140, 5, (1, 1, 1), lw=0)
+    E.circle(cr, -10, -70, 26, (0.10, 0.08, 0.08), lw=0)
+    cr.move_to(-10, -46); cr.curve_to(-30, -20, -55, -25, -60, -40)
+    cr.move_to(-10, -46); cr.curve_to(10, -20, 35, -25, 40, -40)
+    cr.set_source_rgb(*E.INK); cr.set_line_width(5); cr.stroke()
+    cr.restore()
+
+
+def birthday_cake(cr, cx, y, label="1", t=0.0):
+    E.rounded_rect(cr, cx - 120, y - 110, 240, 110, 18)
+    cr.set_source_rgb(0.98, 0.75, 0.80); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, cx - 18, y - 200, 36, 90, 10); cr.set_source_rgb(0.40, 0.70, 0.95); cr.fill()
+    fl = 1 + 0.15 * math.sin(t * 9)
+    cr.save(); cr.translate(cx, y - 225); cr.scale(fl, 1.0)
+    cr.move_to(0, -35); cr.curve_to(22, -5, 14, 20, 0, 20); cr.curve_to(-14, 20, -22, -5, 0, -35)
+    cr.set_source_rgb(1.0, 0.75, 0.20); cr.fill(); cr.restore()
+    E.outlined_text(cr, label, cx, y - 40, 70, fill=E.WHITE, lw=8)

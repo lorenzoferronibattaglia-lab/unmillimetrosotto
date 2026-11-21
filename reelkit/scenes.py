@@ -132,8 +132,11 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum", "knuckles", "shower_storm", "burn", "oven_wait", "washer_foam"):
-        if pr["appliance"] == "oven_wait":
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum", "knuckles", "shower_storm", "burn", "oven_wait", "washer_foam", "dog_cake"):
+        if pr["appliance"] == "dog_cake":
+            P.dog(cr, 400, 930, scale=0.95, t=t)
+            P.birthday_cake(cr, 790, 1250, label=pr.get("cake", "1"), t=t)
+        elif pr["appliance"] == "oven_wait":
             P.oven(cr, 540, 760, t=t, temp_text="180°", waiting=1.0)
         elif pr["appliance"] == "washer_foam":
             P.washing_machine(cr, 540, 820, t=t, h=450, w=600, display="40°")

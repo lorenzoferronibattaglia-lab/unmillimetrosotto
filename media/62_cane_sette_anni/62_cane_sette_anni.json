@@ -1,0 +1,28 @@
+{
+ "id": "62_cane_sette_anni",
+ "topic": "Un anno di cane vale 7 anni umani?",
+ "paragraphs": [
+  {"text": "Un anno di cane vale sette anni umani? Falso. Il tuo cane è molto più grande di quanto pensi.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["1 ANNO DI CANE", "= 7 ANNI UMANI?"], "title_size": 104,
+     "prop": {"appliance": "dog_cake", "cake": "1"},
+     "stamp": {"text": "FALSO", "at": "Falso"}}},
+  {"text": "Uno studio sul DNA di centoquattro labrador ha trovato il vero rapporto: un cane di un anno è come una persona di trent'anni. A quattro anni ne ha cinquantadue, a nove sessantotto.",
+   "scene": {"type": "number", "title": ["UN CANE DI 1 ANNO", "NE HA..."], "title_size": 96, "card": {"main": "cane di 1 anno", "sub": "in anni umani", "at": "rapporto"}, "big": {"text": "30 ANNI", "at": "trent'anni", "size": 190},
+     "labels": [{"text": "4 ANNI ≈ 52", "at": "cinquantadue", "pos": [540, 1160], "size": 60}, {"text": "9 ANNI ≈ 68", "at": "sessantotto", "pos": [540, 1260], "size": 60}]}},
+  {"text": "Da cucciolo invecchia velocissimo, poi rallenta. Per questo moltiplicare per sette sbaglia sempre. E conta anche la taglia: i cani piccoli in genere vivono di più.",
+   "scene": {"type": "checklist", "title": ["PERCHÉ IL 7", "SBAGLIA"], "items": [
+     {"text": "CUCCIOLO: VELOCISSIMO", "ok": true, "at": "velocissimo"},
+     {"text": "ADULTO: RALLENTA", "ok": true, "at": "rallenta"},
+     {"text": "×7 PER TUTTA LA VITA", "ok": false, "at": "sette"}]}},
+  {"text": "Mandalo a chi ha un cane.",
+   "scene": {"type": "end", "line": "QUANTI ANNI HA IL TUO?", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Un anno di cane NON vale 7 anni umani 🐶 Uno studio dell'Università della California a San Diego, basato sul DNA (metilazione) di oltre 100 Labrador, ha trovato che il rapporto non è lineare: un cane di 1 anno è paragonabile a una persona di circa 30 anni, a 4 anni a 52, a 9 anni a 68.\n\nDa cucciolo invecchia molto in fretta, poi rallenta: per questo il “×7” sbaglia sempre. La formula proposta è età umana ≈ 16 × ln(età del cane) + 31 (studiata sui Labrador: la taglia conta, i cani piccoli in genere vivono di più).\n\nQuanti anni ha il tuo? 👇 Mandalo a chi ha un cane.\n\n#cani #cane #veroofalso #curiosità #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Sky TG24: un cane di 1 anno come una persona di 30, a 4 come 52, a 9 come 68 (Cell Systems, UCSD)", "url": "https://tg24.sky.it/scienze/2020/07/02/anni-cani-formula-come-calcolarli"},
+  {"titolo": "Geopop: la formula 16 × ln(età) + 31 da 104 Labrador", "url": "https://www.geopop.it/quanti-anni-ha-il-cane-come-si-calcola-leta-con-una-formula-al-posto-della-regola-del-per-7/"},
+  {"titolo": "Focus: addio alla regola del ×7, studio su Cell Systems", "url": "https://www.focus.it/ambiente/animali/nuovo-metodo-per-calcolare-eta-cane"}
+ ],
+ "hook_test": "nuovo_tema_animali",
+ "theme": "cucina_notte"
+}
