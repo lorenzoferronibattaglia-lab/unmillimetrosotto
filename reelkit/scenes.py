@@ -132,8 +132,18 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum"):
-        if pr["appliance"] == "carrot":
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum", "knuckles", "shower_storm", "burn"):
+        if pr["appliance"] == "knuckles":
+            P.knuckle_pops(cr, 540, 1050, t=t)
+        elif pr["appliance"] == "shower_storm":
+            P.storm_cloud(cr, 300, 620, t=t)
+            P.shower(cr, 680, 820, t=t)
+        elif pr["appliance"] == "burn":
+            cr_t0 = ctx.at(par, pr.get("cross_at", 0.0))
+            cr.save(); cr.translate(540, 1050); cr.scale(1.12, 1.12); cr.translate(-540, -1050)
+            P.burn_remedies(cr, 540, 1100, t=t, cross=E.ease(E.prog(t, cr_t0, cr_t0 + 0.5)))
+            cr.restore()
+        elif pr["appliance"] == "carrot":
             P.carrot(cr, 470, 1030, scale=1.4, angle=-0.45, t=t)
             # occhio luminoso nel buio
             gl = 0.5 + 0.5 * math.sin(t * 3)
@@ -1677,4 +1687,23 @@ def radar_scene(cr, t, ctx, par, spec):
     labels(cr, t, ctx, par, spec.get("labels"))
 
 
-TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene, "table_sum": table_sum, "snap": snap, "filter": filter_scene, "splash": splash_scene, "virus": virus_scene, "eggs": eggs_scene, "cuticle": cuticle_scene, "radar": radar_scene}
+# ---------------------------------------------------------------- TWO HANDS (esperimento di Unger)
+def two_hands(cr, t, ctx, par, spec):
+    s = scene_start(ctx, par)
+    E.background(cr)
+    E.title(cr, spec["title"], t, s, y=270, size=spec.get("title_size", 104))
+    t_l = ctx.at(par, spec.get("left_at", 0.3))
+    t_v = ctx.at(par, spec.get("verdict_at", 1.5))
+    P.open_hand(cr, 300, 860, scale=1.05)
+    P.open_hand(cr, 780, 860, scale=1.05, mirror=True)
+    if t >= t_l:
+        ph = ((t - t_l) % 1.2) / 1.2
+        for k in range(4):
+            E.circle(cr, 230 + k * 45, 640 - ph * 120, 12 * (1 - ph) + 3, (0.75, 0.88, 1.0), lw=3, alpha=1 - ph)
+    E.label(cr, spec.get("left_label", "SCROCCHIATA"), 300, 1120, t, t_l, size=50)
+    E.label(cr, spec.get("right_label", "MAI"), 780, 1120, t, t_l + 0.3, size=50, bg=(0.35, 0.40, 0.50))
+    E.label(cr, spec.get("verdict", "NESSUNA DIFFERENZA"), 540, 1250, t, t_v, size=60, bg=P.GREEN_OK)
+    labels(cr, t, ctx, par, spec.get("labels"))
+
+
+TYPES = {"hook": hook, "lens": lens, "pot": pot_scene, "number": number, "checklist": checklist, "end": end, "section": section, "real": real, "egg": egg_scene, "table_sum": table_sum, "snap": snap, "filter": filter_scene, "splash": splash_scene, "virus": virus_scene, "eggs": eggs_scene, "cuticle": cuticle_scene, "radar": radar_scene, "two_hands": two_hands}

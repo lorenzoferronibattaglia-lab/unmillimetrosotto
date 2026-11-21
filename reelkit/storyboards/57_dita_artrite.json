@@ -1,0 +1,28 @@
+{
+ "id": "57_dita_artrite",
+ "topic": "Scrocchiare le dita fa venire l'artrite?",
+ "paragraphs": [
+  {"text": "Smettila di scrocchiare le dita, che ti viene l'artrite! Falso. E c'è un medico che l'ha dimostrato su sé stesso.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["SCROCCHIARE LE DITA", "FA VENIRE L'ARTRITE?"], "title_size": 92,
+     "prop": {"appliance": "knuckles"},
+     "stamp": {"text": "FALSO", "at": "Falso"}}},
+  {"text": "Il dottor Donald Unger, per sessant'anni, ha scrocchiato le dita di una mano sola, almeno due volte al giorno. L'altra mai. Alla fine nessuna differenza: niente artrite in nessuna delle due.",
+   "scene": {"type": "two_hands", "title": ["60 ANNI,", "UNA MANO SOLA"], "left_at": "mano", "verdict_at": "differenza",
+     "left_label": "SCROCCHIATA", "right_label": "MAI", "verdict": "NESSUNA DIFFERENZA"}},
+  {"text": "Quel crack non sono le ossa: sono bollicine di gas che scoppiano nel liquido dell'articolazione. Per questo non puoi rifarlo subito: ci vogliono una ventina di minuti.",
+   "scene": {"type": "checklist", "title": ["E QUEL", "CRACK?"], "items": [
+     {"text": "OSSA CHE SI ROMPONO", "ok": false, "at": "ossa"},
+     {"text": "BOLLICINE DI GAS", "ok": true, "at": "bollicine"},
+     {"text": "PAUSA DI ~20 MINUTI", "ok": true, "at": "minuti"}]}},
+  {"text": "Mandalo a chi ti diceva di smetterla.",
+   "scene": {"type": "end", "line": "TE LO DICEVANO?", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Scrocchiare le dita NON fa venire l'artrite 🤞 Il dottor Donald Unger ha scrocchiato le dita di una sola mano, almeno due volte al giorno, per oltre 60 anni, e mai quelle dell'altra: alla fine nessuna differenza. Per questo ha vinto un (ironico) Ig Nobel.\n\nQuel “crack” non sono le ossa: sono bollicine di gas nel liquido sinoviale che lubrifica l'articolazione. Per rifarlo serve qualche decina di minuti.\n\n• artrite: no\n• forzarlo di continuo o con dolore: meglio di no\n\nMandalo a chi ti diceva di smetterla 👇\n\n#dita #falsimiti #veroofalso #curiosità #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Geopop: scrocchiare le dita fa venire l'artrite? No, è un falso mito", "url": "https://www.geopop.it/scrocchiare-le-dita-fa-venire-lartrite-no-e-un-falso-mito/"},
+  {"titolo": "Arthritis UK: Donald Unger, 60 anni di dita scrocchiate su una mano sola", "url": "https://arthritis-uk.org/news/does-cracking-your-knuckles-cause-arthritis"},
+  {"titolo": "Il Meteo: periodo refrattario di circa 20 minuti", "url": "https://www.ilmeteo.net/notizie/scienza/che-suono-fa-quando-schiocchi-le-dita-la-risposta-scientifica-e-piu-strana-di-quanto-pensi.html"}
+ ],
+ "hook_test": "smentisci_la_mamma",
+ "theme": "cucina_notte"
+}

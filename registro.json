@@ -704,6 +704,11 @@
     "views": 1374,
     "shares": 23,
     "saves": 5
+   },
+   "metriche_21_11": {
+    "views": 1392,
+    "shares": 24,
+    "saves": 5
    }
   },
   {
@@ -720,31 +725,68 @@
     "views": 1058,
     "shares": 2,
     "saves": 2
+   },
+   "metriche_21_11": {
+    "views": 1430,
+    "shares": 5,
+    "saves": 2
    }
   },
   {
    "id": "53_tv_vicina",
-   "stato": "programmato",
+   "stato": "pubblicato",
    "uscita": "2026-11-20T08:45+01:00",
-   "vidiq_post_id": "3d97677a-377d-4a70-8b07-b354dfaa92d7"
+   "vidiq_post_id": "3d97677a-377d-4a70-8b07-b354dfaa92d7",
+   "metriche_21_11": {
+    "views": 2538,
+    "shares": 26,
+    "saves": 15
+   }
   },
   {
    "id": "54_frutta_fine_pasto",
-   "stato": "programmato",
+   "stato": "pubblicato",
    "uscita": "2026-11-20T12:30+01:00",
-   "vidiq_post_id": "3982c5ff-627e-4800-94b0-7f7511c4a98d"
+   "vidiq_post_id": "3982c5ff-627e-4800-94b0-7f7511c4a98d",
+   "metriche_21_11": {
+    "views": 862,
+    "shares": 2,
+    "saves": 1
+   }
   },
   {
    "id": "55_carote_buio",
-   "stato": "programmato",
+   "stato": "pubblicato",
    "uscita": "2026-11-20T16:30+01:00",
-   "vidiq_post_id": "08a451d2-a8ba-4280-bf35-e4d074f6fd0a"
+   "vidiq_post_id": "08a451d2-a8ba-4280-bf35-e4d074f6fd0a",
+   "metriche_21_11": {
+    "views": 193,
+    "shares": 0,
+    "saves": 0
+   }
   },
   {
    "id": "56_gomma_sette_anni",
-   "stato": "programmato",
+   "stato": "pubblicato",
    "uscita": "2026-11-20T20:00+01:00",
-   "vidiq_post_id": "f3a06033-0678-4f91-a62d-99a67174002e"
+   "vidiq_post_id": "f3a06033-0678-4f91-a62d-99a67174002e",
+   "metriche_21_11": {
+    "views": 1533,
+    "shares": 8,
+    "saves": 2
+   }
+  },
+  {
+   "id": "57_dita_artrite",
+   "stato": "proposto"
+  },
+  {
+   "id": "58_doccia_temporale",
+   "stato": "proposto"
+  },
+  {
+   "id": "59_scottatura_burro",
+   "stato": "proposto"
   }
  ],
  "lezioni": [
@@ -773,7 +815,8 @@
   "16/11: svolta. Formula da outlier IT: titolo 'Usa X, non Y' e tabella che somma i costi annui. Meno reel (3/giorno), solo potenziali virali.",
   "16/11 sera: crollo distribuzione (4 reel a ~200 views). Compagna di Lorenzo: troppi risparmi, piu' curiosita'. Nuovo mix: rimedi della nonna smontati + 1 risparmio 'permesso'. Telefono nel riso scartato (troppo banale).",
   "19/11: le condivisioni nascono dal 'mandalo a chi...' su oggetti identitari (moka sapone 193 share). Spaghetti: record visione 45% ma 1 share: la curiosità pura trattiene ma non si manda. Seguito moka (pressata) 0,57 share/100 views: buono, non virale. Pollo: 6 share su 2.1k.",
-  "20/11: colpo d'aria 1,67 share/100 views (record): il filone 'smentisci la mamma' è il più condivisibile. Ma 61% skip e distribuzione bassa (reach 18/11 4,3k). Da ora hook in movimento dal frame 0 e frase che chiama in causa chi guarda."
+  "20/11: colpo d'aria 1,67 share/100 views (record): il filone 'smentisci la mamma' è il più condivisibile. Ma 61% skip e distribuzione bassa (reach 18/11 4,3k). Da ora hook in movimento dal frame 0 e frase che chiama in causa chi guarda.",
+  "21/11: 4 reel/giorno = più views totali (5,1k vs 2,8k) ma il più debole affonda (carote 193). Hook in movimento: skip 44-46% invece di 61%. TV vicina 1 share/100. I più forti a 08:45 e 20:00."
  ],
  "voce_attuale": {
   "nome": "Francesco - Natural, Warm and Confident",
@@ -837,6 +880,12 @@
    "follower": 535,
    "fonte": "API",
    "raggiunti_18_11": 4349
+  },
+  {
+   "data": "2026-11-21T08:01",
+   "follower": 543,
+   "fonte": "API",
+   "raggiunti_19_11": 5545
   }
  ]
 }

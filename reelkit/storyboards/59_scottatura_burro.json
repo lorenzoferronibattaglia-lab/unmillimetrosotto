@@ -1,0 +1,28 @@
+{
+ "id": "59_scottatura_burro",
+ "topic": "Sulla scottatura burro, dentifricio o ghiaccio?",
+ "paragraphs": [
+  {"text": "Ti sei scottato? Burro, dentifricio, ghiaccio? Fermo! Così peggiori la bruciatura.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["TI SEI SCOTTATO?", "COSA CI METTI?"], "title_size": 104,
+     "prop": {"appliance": "burn", "cross_at": "Fermo"},
+     "stamp": {"text": "NO!", "at": "peggiori"}}},
+  {"text": "Burro e dentifricio trattengono il calore dentro la pelle e possono portare batteri. Il ghiaccio fa il contrario: è troppo freddo e danneggia ancora di più i tessuti.",
+   "scene": {"type": "number", "title": ["IL CALORE", "RESTA DENTRO"], "card": {"main": "burro e pasta", "sub": "tengono il calore", "at": "trattengono"}, "big": {"text": "+ DANNO", "at": "tessuti", "size": 180},
+     "labels": [{"text": "GHIACCIO: TROPPO FREDDO", "at": "ghiaccio", "pos": [540, 1220], "size": 56}]}},
+  {"text": "La cosa giusta è una sola: acqua corrente fresca, non gelata, per venti minuti. Poi una garza pulita. E se è grande o fa la bolla, dal medico.",
+   "scene": {"type": "checklist", "title": ["COSA FARE", "DAVVERO"], "items": [
+     {"text": "ACQUA FRESCA, 20 MINUTI", "ok": true, "at": "venti"},
+     {"text": "GARZA PULITA", "ok": true, "at": "garza"},
+     {"text": "BURRO, DENTIFRICIO, GHIACCIO", "ok": false, "at": "medico"}]}},
+  {"text": "Mandalo a chi ci mette il burro.",
+   "scene": {"type": "end", "line": "E TU COSA CI METTI?", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Sulla scottatura: niente burro, dentifricio o ghiaccio 🔥 Burro, oli e dentifricio trattengono il calore e possono portare batteri; il ghiaccio è troppo freddo e può peggiorare il danno ai tessuti.\n\nCosa fare davvero:\n• acqua corrente fresca (non gelata) per circa 20 minuti\n• togli anelli e braccialetti vicino alla zona\n• copri con una garza pulita, non rompere le bolle\n• se è estesa, profonda o su viso, mani, genitali: subito dal medico\n\nMandalo a chi ci mette il burro 👇\n\n#scottature #primosoccorso #veroofalso #falsimiti #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Torrinomedica: rimedi della nonna (burro, dentifricio, ghiaccio) peggiorano il danno; OMS sconsiglia", "url": "https://www.torrinomedica.it/farmaci/connettivina-plus/cosa-mettere-sulle-bruciature-se-non-si-ha-la-crema/"},
+  {"titolo": "MSD Manuals: acqua corrente 20-25 °C, non ghiaccio", "url": "https://www.msdmanuals.com/it/professionale/traumi-avvelenamento/come-eseguire-procedure-chirurgiche-cutanee-dei-tessuti-molli-e-minori/come-sbrigliare-e-medicare-una-bruciatura"},
+  {"titolo": "Dr. Max: acqua fresca 15-20 minuti, niente burro o dentifricio", "url": "https://www.drmax.it/blog/come-trattare-le-bruciature-per-farle-guarire-meglio"}
+ ],
+ "hook_test": "smentisci_la_nonna_pratico",
+ "theme": "cucina_notte"
+}

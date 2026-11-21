@@ -1,0 +1,29 @@
+{
+ "id": "58_doccia_temporale",
+ "topic": "Non fare la doccia durante il temporale: è vero?",
+ "paragraphs": [
+  {"text": "Non fare la doccia mentre c'è il temporale! Sembra una fissa di tua nonna. E invece è vero.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["DOCCIA DURANTE", "IL TEMPORALE?"], "title_size": 104,
+     "prop": {"appliance": "shower_storm"},
+     "stamp": {"text": "VERO", "at": "vero", "color": "green"}}},
+  {"text": "Se un fulmine colpisce la casa o la rete vicina, la scarica può viaggiare lungo le tubature di metallo e arrivare fino al rubinetto. E l'acqua, con chi ci sta sotto, chiude il circuito.",
+   "scene": {"type": "number", "title": ["IL FULMINE", "VIAGGIA NEI TUBI"], "card": {"main": "tubature", "sub": "di metallo", "at": "tubature"}, "big": {"text": "FINO AL RUBINETTO", "at": "rubinetto", "size": 110},
+     "labels": [{"text": "RISCHIO BASSO, NON ZERO", "at": "circuito", "pos": [540, 1220], "size": 58}]}},
+  {"text": "Il rischio è basso, ma la regola è semplice: niente doccia, bagno o piatti finché c'è il temporale. E aspetta una mezz'ora dopo l'ultimo tuono.",
+   "scene": {"type": "checklist", "title": ["COL TEMPORALE", "ASPETTA"], "items": [
+     {"text": "DOCCIA E BAGNO", "ok": false, "at": "doccia"},
+     {"text": "LAVARE I PIATTI", "ok": false, "at": "piatti"},
+     {"text": "30 MIN DOPO L'ULTIMO TUONO", "ok": true, "at": "tuono"}]}},
+  {"text": "Mandalo a chi si fa la doccia durante il temporale.",
+   "scene": {"type": "end", "line": "AVEVA RAGIONE LA NONNA", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Non fare la doccia durante il temporale: è VERO ⚡ Se un fulmine colpisce l'edificio o la rete vicina, la scarica può viaggiare lungo l'impianto idraulico di metallo e raggiungere chi è a contatto con un rubinetto. La probabilità è bassa, ma non è zero.\n\n• niente doccia, bagno o piatti durante il temporale\n• evita anche apparecchi attaccati alla corrente\n• riprendi una mezz'ora dopo l'ultimo tuono\n\nMandalo a chi si fa la doccia durante il temporale 👇\n\n#temporale #fulmini #veroofalso #sicurezza #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Internazionale (2025): non si fa la doccia durante i temporali, vero (National lightning safety council)", "url": "https://www.internazionale.it/magazine/2025/06/05/non-si-fa-la-doccia-durante-i-temporali"},
+  {"titolo": "Prefettura: in caso di temporali e fulmini, regole di autoprotezione", "url": "https://prefettura.interno.gov.it/sites/default/files/93/2024-02/in_caso_di_temporali_e_fulmini.pdf"},
+  {"titolo": "Focus: perché durante un temporale è meglio evitare la doccia", "url": "https://www.focus.it/cultura/curiosita/perche-meglio-non-fare-doccia-durante-temporale-fulmini"},
+  {"titolo": "Centro Meteo Italiano: aspettare mezz'ora dopo l'ultimo tuono", "url": "https://www.centrometeoitaliano.it/scienza-e-tecnologia/fare-la-doccia-o-il-bagno-durante-un-temporale-puo-causare-la-morte-ecco-perche-124251/amp/"}
+ ],
+ "hook_test": "vero_della_nonna",
+ "theme": "cucina_notte"
+}

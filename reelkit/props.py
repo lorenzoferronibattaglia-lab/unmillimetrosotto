@@ -1939,3 +1939,74 @@ def gum(cr, x, y, scale=1.0, t=0.0):
     E.circle(cr, -60, 0, r, (0.98, 0.55, 0.72), lw=7)
     E.circle(cr, -95, -40, r * 0.18, (1.0, 0.85, 0.92), lw=0)
     cr.restore()
+
+
+def open_hand(cr, cx, cy, scale=1.0, mirror=False, tint=(0.96, 0.78, 0.62)):
+    """Mano aperta stilizzata (palmo + 5 dita)."""
+    cr.save(); cr.translate(cx, cy); cr.scale(-scale if mirror else scale, scale)
+    E.rounded_rect(cr, -90, -40, 180, 170, 50)
+    cr.set_source_rgb(*tint); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    for i, (dx, h) in enumerate(((-70, 120), (-25, 150), (20, 145), (62, 115))):
+        E.rounded_rect(cr, dx - 20, -40 - h, 40, h + 20, 20)
+        cr.set_source_rgb(*tint); cr.fill_preserve()
+        cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    cr.save(); cr.translate(95, 40); cr.rotate(-0.7)
+    E.rounded_rect(cr, -20, -100, 40, 110, 20)
+    cr.set_source_rgb(*tint); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    cr.restore()
+    cr.restore()
+
+
+def knuckle_pops(cr, cx, cy, t=0.0, period=1.4):
+    """Mani intrecciate con bollicine che scoppiano (il 'crack')."""
+    for side in (-1, 1):
+        cr.save(); cr.translate(cx + side * 90, cy); cr.rotate(side * 0.25)
+        E.rounded_rect(cr, -110, -90, 220, 180, 60)
+        cr.set_source_rgb(0.96, 0.78, 0.62); cr.fill_preserve()
+        cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+        for k in range(4):
+            cr.move_to(-80 + k * 50, -90); cr.line_to(-80 + k * 50, -40)
+            cr.set_line_width(5); cr.stroke()
+        cr.restore()
+    ph = (t % period) / period
+    rnd = random.Random(int(t / period))
+    for k in range(6):
+        a = rnd.uniform(-2.6, -0.5)
+        d = 60 + 160 * ph
+        E.circle(cr, cx + math.cos(a) * d, cy - 90 + math.sin(a) * d, 16 * (1 - ph) + 4, (0.75, 0.88, 1.0), lw=3, alpha=1 - ph)
+    if ph < 0.45:
+        E.outlined_text(cr, "CRACK!", cx, cy - 210, 80, fill=E.YELLOW, lw=10, alpha=1 - ph / 0.45)
+
+
+def storm_cloud(cr, cx, cy, t=0.0):
+    """Nuvola temporalesca con fulmine che pulsa lentamente (niente flash)."""
+    for (dx, dy, r) in ((-120, 20, 90), (-20, -30, 120), (100, 10, 95), (0, 50, 100)):
+        E.circle(cr, cx + dx, cy + dy, r, (0.38, 0.40, 0.48), lw=0)
+    glow = 0.55 + 0.45 * (0.5 + 0.5 * math.sin(t * 2.0))
+    cr.move_to(cx - 10, cy + 110); cr.line_to(cx - 60, cy + 250); cr.line_to(cx - 5, cy + 250)
+    cr.line_to(cx - 50, cy + 400); cr.line_to(cx + 60, cy + 210); cr.line_to(cx + 5, cy + 210); cr.line_to(cx + 40, cy + 110); cr.close_path()
+    cr.set_source_rgba(1.0, 0.85, 0.20, glow); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+
+
+def burn_remedies(cr, cx, y, t=0.0, cross=0.0):
+    """Burro, dentifricio e ghiaccio in fila; cross 0..1 li barra in rosso."""
+    # burro
+    E.rounded_rect(cr, cx - 370, y - 95, 190, 110, 14)
+    cr.set_source_rgb(1.0, 0.92, 0.55); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.outlined_text(cr, "BURRO", cx - 280, y - 22, 40, fill=E.INK, lw=0)
+    # dentifricio
+    cr.save(); cr.translate(cx, y - 40); cr.rotate(-0.3)
+    E.rounded_rect(cr, -110, -40, 200, 80, 30)
+    cr.set_source_rgb(0.95, 0.97, 1.0); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, 90, -20, 40, 40, 8); cr.set_source_rgb(0.20, 0.55, 0.95); cr.fill()
+    E.outlined_text(cr, "PASTA", -10, 14, 34, fill=(0.20, 0.55, 0.95), lw=0)
+    cr.restore()
+    # ghiaccio
+    ice_cube(cr, cx + 280, y - 40, 90, angle=0.2)
+    if cross > 0:
+        for x0 in (cx - 280, cx, cx + 280):
+            cr.move_to(x0 - 90 * cross, y - 120); cr.line_to(x0 - 90 * cross + 180 * cross, y + 40)
+            cr.set_source_rgb(*E.RED); cr.set_line_width(14); cr.stroke()
