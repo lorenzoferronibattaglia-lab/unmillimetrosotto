@@ -821,32 +821,44 @@
     },
     {
       "id": "62_cane_sette_anni",
-      "stato": "proposto"
+      "stato": "programmato",
+      "uscita": "2026-11-22T15:45+01:00",
+      "vidiq_post_id": "4f92e85d-e8c9-4756-9191-83b1e6c4ef70"
     },
     {
       "id": "63_candeggina_anticalcare",
-      "stato": "proposto",
-      "serie": "la mamma aveva ragione"
+      "stato": "programmato",
+      "serie": "la mamma aveva ragione",
+      "uscita": "2026-11-22T10:40+01:00",
+      "vidiq_post_id": "ae0509ad-3c80-4213-9169-6d57d116bebc"
     },
     {
       "id": "64_stufa_notte",
-      "stato": "proposto",
-      "serie": "la mamma aveva ragione"
+      "stato": "programmato",
+      "serie": "la mamma aveva ragione",
+      "uscita": "2026-11-22T12:15+01:00",
+      "vidiq_post_id": "007df22b-37d0-4609-b1ec-a5b578e90920"
     },
     {
       "id": "65_riso_avanzato",
-      "stato": "proposto",
-      "serie": "la mamma aveva ragione"
+      "stato": "programmato",
+      "serie": "la mamma aveva ragione",
+      "uscita": "2026-11-22T14:00+01:00",
+      "vidiq_post_id": "718910de-3bc1-4681-bf60-41380236ff42"
     },
     {
       "id": "66_telefono_cuscino",
-      "stato": "proposto",
-      "serie": "la mamma aveva ragione"
+      "stato": "programmato",
+      "serie": "la mamma aveva ragione",
+      "uscita": "2026-11-22T17:45+01:00",
+      "vidiq_post_id": "1dcac895-c783-4886-9321-164d06a25a4c"
     },
     {
       "id": "67_miele_neonati",
-      "stato": "proposto",
-      "serie": "la mamma aveva ragione"
+      "stato": "programmato",
+      "serie": "la mamma aveva ragione",
+      "uscita": "2026-11-22T20:00+01:00",
+      "vidiq_post_id": "35ac4f4f-b354-458f-9145-fdfcb1b05033"
     }
   ],
   "lezioni": [
