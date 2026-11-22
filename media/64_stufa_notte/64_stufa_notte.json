@@ -1,0 +1,28 @@
+{
+ "id": "64_stufa_notte",
+ "topic": "Mai dormire con la stufetta a gas accesa: è vero?",
+ "paragraphs": [
+  {"text": "Non andare a dormire con la stufetta accesa! Tua nonna lo diceva ogni inverno. E aveva ragione.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["DORMIRE CON LA", "STUFETTA ACCESA?"], "title_size": 98,
+     "prop": {"appliance": "heater_bed"},
+     "stamp": {"text": "VERO", "at": "ragione", "color": "green"}}},
+  {"text": "Le stufette a gas, a kerosene o a legna bruciano ossigeno. Se la stanza è chiusa e la combustione peggiora, si forma monossido di carbonio: non ha odore, non ha colore, e mentre dormi non te ne accorgi.",
+   "scene": {"type": "number", "title": ["IL GAS CHE", "NON SENTI"], "card": {"main": "monossido", "sub": "di carbonio", "at": "monossido"}, "big": {"text": "ZERO ODORE", "at": "odore", "size": 130},
+     "labels": [{"text": "MAL DI TESTA, NAUSEA, SONNO", "at": "dormi", "pos": [540, 1220], "size": 54}]}},
+  {"text": "Quindi: spegni la stufetta prima di dormire, lascia sempre un po' d'aria e metti un rilevatore di monossido vicino alla camera. Costa una ventina di euro.",
+   "scene": {"type": "checklist", "title": ["PRIMA DI", "DORMIRE"], "items": [
+     {"text": "SPEGNI LA STUFETTA", "ok": true, "at": "spegni"},
+     {"text": "UN PO' D'ARIA", "ok": true, "at": "aria"},
+     {"text": "RILEVATORE DI CO", "ok": true, "at": "rilevatore"}]}},
+  {"text": "Mandalo a chi si addormenta con la stufetta accesa.",
+   "scene": {"type": "end", "line": "AVEVA RAGIONE LA NONNA", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Mai dormire con la stufetta a gas accesa: è VERO 🔥 Stufette a gas, GPL, kerosene o legna consumano l'ossigeno della stanza; se la combustione peggiora si forma monossido di carbonio, un gas senza odore né colore che durante il sonno non si avverte. Ogni inverno in Italia causa intossicazioni, anche mortali.\n\n• spegni la stufetta prima di andare a dormire\n• lascia sempre un minimo di aerazione\n• metti un rilevatore di monossido vicino alla camera\n• fai controllare stufe e caldaie ogni anno\n\nMandalo a chi si addormenta con la stufetta accesa 👇\n\n#monossido #stufa #inverno #sicurezzaincasa #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Altroconsumo: stufe e camini, come evitare il monossido di carbonio", "url": "https://www.altroconsumo.it/casa-energia/pellet/news/monossido-di-carbonio"},
+  {"titolo": "Vigili del Fuoco: ogni combustione genera monossido, gas inodore e incolore", "url": "https://www.vigilfuoco.it/media/notizie/genova-una-donna-intossicata-dal-monossido-di-carbonio"},
+  {"titolo": "Immobiliare.it: si può dormire con la stufa a gas accesa? (morte bianca)", "url": "https://www.immobiliare.it/news/progettare-casa/manutenzione-e-pulizia/si-puo-dormire-con-la-stufa-a-gas-accesa-242655/"}
+ ],
+ "hook_test": "mamma_aveva_ragione",
+ "theme": "cucina_notte"
+}

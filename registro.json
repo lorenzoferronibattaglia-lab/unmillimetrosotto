@@ -1,914 +1,933 @@
 {
- "serie": "cucina",
- "obiettivo_serie": 20,
- "palette": "cucina_notte",
- "reel": [
-  {
-   "id": "01_sale",
-   "tema": "Il sale fa bollire prima l'acqua?",
-   "stato": "programmato",
-   "video": "media/01_sale/01_sale.mp4",
-   "uscita": "2026-11-11T13:00:00+01:00",
-   "vidiq_post_id": "c2b0c9d7-e9e9-4832-a24c-39fc5ee7a8bc",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "02_olio_pasta",
-   "tema": "L'olio nella pasta evita che si attacchi?",
-   "stato": "programmato",
-   "video": "media/02_olio_pasta/02_olio_pasta.mp4",
-   "nota": "tema già trattato da Geopop (feb 2026)",
-   "uscita": "2026-11-11T19:30:00+01:00",
-   "vidiq_post_id": "1d0f0050-3341-4873-8018-3b4c00b91645",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "03_microonde",
-   "tema": "Il microonde cuoce dall'interno?",
-   "stato": "programmato",
-   "video": "media/03_microonde/03_microonde_v2.mp4",
-   "nota": "v2: inversione del campo fluida e lenta (prima: alternanza rosso/blu a 2,5 Hz)",
-   "uscita": "2026-11-10T21:00:00+01:00",
-   "vidiq_post_id": "c0f8e5cb-4329-4fc3-a69f-38c5681adb63",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "04_sale_ghiaccio",
-   "tema": "Il sale nel ghiaccio raffredda il vino più in fretta? (VERO)",
-   "stato": "programmato",
-   "video": "media/04_sale_ghiaccio/04_sale_ghiaccio_v2.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-11T21:00:00+01:00",
-   "vidiq_post_id": "f1670971-d565-4629-84b9-6fbc67e62512",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "05_coperchio",
-   "tema": "Il coperchio fa bollire prima l'acqua? (VERO)",
-   "stato": "programmato",
-   "video": "media/05_coperchio/05_coperchio.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-11T15:30:00+01:00",
-   "vidiq_post_id": "d061b128-8645-403b-8288-f59ac8ccca36",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "06_vino_temperatura",
-   "tema": "Il rosso va servito a temperatura ambiente? (FALSO)",
-   "stato": "programmato",
-   "video": "media/06_vino_temperatura/06_vino_temperatura.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "da_verificare": "forbice 14-18 °C con Lorenzo",
-   "uscita": "2026-11-11T18:00:00+01:00",
-   "vidiq_post_id": "96de76c6-6c27-40a0-8dc0-d354134b4a3f",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ]
-  },
-  {
-   "id": "07_pasta_sciacquata",
-   "tema": "La pasta va sciacquata dopo la cottura?",
-   "stato": "programmato",
-   "video": "media/07_pasta_sciacquata/07_pasta_sciacquata.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T19:30:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "320fba9c-6c7f-4cf8-a3da-7cfc7b74f918"
-  },
-  {
-   "id": "08_microonde_vitamine",
-   "tema": "Il microonde distrugge le vitamine?",
-   "stato": "programmato",
-   "video": "media/08_microonde_vitamine/08_microonde_vitamine.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T21:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "ddc69dd8-d4e2-4a0f-952c-9fb42f69a5e8"
-  },
-  {
-   "id": "09_ghiaccio_galleggia",
-   "tema": "Perché il ghiaccio galleggia?",
-   "stato": "programmato",
-   "video": "media/09_ghiaccio_galleggia/09_ghiaccio_galleggia.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T15:30:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "3b93a023-5493-4faa-a237-07df33d6cddb"
-  },
-  {
-   "id": "10_cucchiaino_spumante",
-   "tema": "Il cucchiaino nel collo tiene le bollicine?",
-   "stato": "programmato",
-   "video": "media/10_cucchiaino_spumante/10_cucchiaino_spumante.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T18:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "b3045ce5-bcfd-418c-b389-806b440259e1"
-  },
-  {
-   "id": "11_olio_evo_frittura",
-   "tema": "L'extravergine non va usato per friggere?",
-   "stato": "programmato",
-   "video": "media/11_olio_evo_frittura/11_olio_evo_frittura.mp4",
-   "gancio": "v2 payoff",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-12T13:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "vidiq_post_id": "89866375-874d-460c-8054-6832b307edd6"
-  },
-  {
-   "id": "12_miele_non_scade",
-   "tema": "Il miele non scade mai?",
-   "stato": "programmato",
-   "video": "media/12_miele_non_scade/12_miele_non_scade.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-13T15:30:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "bdc3a3ba-57cb-4bf7-9816-4d8a3d2d6cdc"
-  },
-  {
-   "id": "13_uova_galleggiano",
-   "tema": "Le uova vecchie galleggiano?",
-   "stato": "programmato",
-   "video": "media/13_uova_galleggiano/13_uova_galleggiano_v2.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-13T18:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Wan 3.0 480p via Higgsfield)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "2a6f3e03-4d97-42a2-bb3a-570e5a3de17f"
-  },
-  {
-   "id": "14_cottura_passiva",
-   "tema": "Si può cuocere la pasta a fuoco spento?",
-   "stato": "programmato",
-   "video": "media/14_cottura_passiva/14_cottura_passiva.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-13T13:00:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "v2 payoff (disegno)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "5032daa1-7bdf-44fc-845e-b8c59c075b67"
-  },
-  {
-   "id": "15_pane_raffermo",
-   "tema": "Il pane raffermo torna morbido in forno?",
-   "stato": "programmato",
-   "video": "media/15_pane_raffermo/15_pane_raffermo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-11T22:15:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "acf11830-ae49-451d-8ed0-170580d6896f",
-   "nota": "extra di oggi, anticipato da venerdì su richiesta"
-  },
-  {
-   "id": "16_zucchero_sugo",
-   "tema": "Lo zucchero toglie l'acidità al sugo?",
-   "stato": "programmato",
-   "video": "media/16_zucchero_sugo/16_zucchero_sugo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-13T19:30:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "v2 payoff (disegno)",
-   "test": "A/B gancio reale vs disegno",
-   "vidiq_post_id": "0e78dbb3-872a-4687-a640-6d816cb5d7be"
-  },
-  {
-   "id": "17_mela_limone",
-   "tema": "La mela tagliata diventa marrone: il limone la salva?",
-   "stato": "pubblicato",
-   "video": "media/17_mela_limone/17_mela_limone.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-11T18:17+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "nota": "extra di oggi",
-   "vidiq_post_id": "782831a4-3861-4e2e-abaf-bd2bb656a91b"
-  },
-  {
-   "id": "18_banana_etilene",
-   "tema": "La banana fa maturare la frutta vicina?",
-   "stato": "programmato",
-   "video": "media/18_banana_etilene/18_banana_etilene.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-11T20:15:00+01:00",
-   "piattaforme": [
-    "instagram",
-    "tiktok"
-   ],
-   "gancio": "reale (Kling 3.0 via Higgsfield)",
-   "nota": "extra di oggi",
-   "vidiq_post_id": "fec08e50-a713-468c-8c9c-516558f2f4b4"
-  },
-  {
-   "id": "19_scongelare_acqua",
-   "tema": "Scongelare in acqua fredda è più veloce che in frigo?",
-   "stato": "programmato",
-   "video": "media/19_scongelare_acqua/19_scongelare_acqua.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-14T13:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti",
-   "vidiq_post_id": "0da8bf69-011f-4cc4-aafd-dd622cf4a471"
-  },
-  {
-   "id": "20_pentola_pressione",
-   "tema": "La pentola a pressione cuoce più in fretta?",
-   "stato": "programmato",
-   "video": "media/20_pentola_pressione/20_pentola_pressione.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-14T15:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti",
-   "vidiq_post_id": "e3c486c9-2e2f-45fd-9413-f677ebcd4d4e"
-  },
-  {
-   "id": "21_carne_asciutta",
-   "tema": "Asciugare la carne fa venire la crosticina?",
-   "stato": "programmato",
-   "video": "media/21_carne_asciutta/21_carne_asciutta.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-14T18:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti",
-   "vidiq_post_id": "bc8420d6-1883-4d3a-bc14-667d32b3caea"
-  },
-  {
-   "id": "22_riso_lavato",
-   "tema": "Lavare il riso lo rende meno colloso?",
-   "stato": "programmato",
-   "video": "media/22_riso_lavato/22_riso_lavato.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "camera": "automatica",
-   "uscita": "2026-11-14T21:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "gancio": "v2 payoff (disegno) + termometro",
-   "formato": "serie numerata + domanda nei commenti",
-   "vidiq_post_id": "42728014-72f5-4518-bfc9-c9122d046414"
-  },
-  {
-   "id": "23_uovo_sodo_verde",
-   "tema": "Il bordo verde nel tuorlo dell'uovo sodo è normale?",
-   "stato": "programmato",
-   "video": "media/23_uovo_sodo_verde/23_uovo_sodo_verde.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-13T21:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
-   "nota": "quinto reel extra richiesto da Lorenzo per ven e sab",
-   "vidiq_post_id": "db7df21d-468d-4ac5-acaf-e26c3950ce45"
-  },
-  {
-   "id": "24_verdure_verdi",
-   "tema": "Le verdure restano verdi se le metti nel ghiaccio?",
-   "stato": "programmato",
-   "video": "media/24_verdure_verdi/24_verdure_verdi.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-14T11:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
-   "nota": "quinto reel extra richiesto da Lorenzo per ven e sab",
-   "vidiq_post_id": "d6bcf305-9613-453b-9b6b-e8863477b932"
-  },
-  {
-   "id": "25_cibo_caldo_frigo",
-   "tema": "Il cibo caldo non va messo in frigo?",
-   "stato": "programmato",
-   "video": "media/25_cibo_caldo_frigo/25_cibo_caldo_frigo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-15T12:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
-   "vidiq_post_id": "792120ea-632d-492a-8921-2a0658e25e2b"
-  },
-  {
-   "id": "26_pomodori_frigo",
-   "tema": "I pomodori vanno tenuti in frigo?",
-   "stato": "programmato",
-   "video": "media/26_pomodori_frigo/26_pomodori_frigo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-15T15:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
-   "vidiq_post_id": "43c8a12b-1cfa-4e8f-ad69-fd9a8c6e6d12"
-  },
-  {
-   "id": "27_cucchiaio_legno",
-   "tema": "Il cucchiaio di legno sulla pentola evita che trabocchi?",
-   "stato": "programmato",
-   "video": "media/27_cucchiaio_legno/27_cucchiaio_legno.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-15T18:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
-   "vidiq_post_id": "723abd96-def9-4baa-bcfd-0209c9ced657"
-  },
-  {
-   "id": "28_insalata_asciutta",
-   "tema": "L'insalata va asciugata prima di condirla?",
-   "stato": "programmato",
-   "video": "media/28_insalata_asciutta/28_insalata_asciutta.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-15T20:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
-   "vidiq_post_id": "6dcab96c-467a-4547-aabd-8e96295189cf"
-  },
-  {
-   "id": "29_pasta_acqua",
-   "tema": "Per la pasta serve un litro d'acqua ogni etto? (FALSO, sequel risparmio della pasta a fuoco spento)",
-   "stato": "programmato",
-   "video": "media/29_pasta_acqua/29_pasta_acqua.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-14T12:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "extra richiesto da Lorenzo il 14/11, cavalca il breakout della pasta",
-   "caption": "Vero o falso #27 · Per la pasta non serve un litro d'acqua ogni etto 🍝 Basta che resti coperta e sopra gli 80 °C: lo studio dei pastai italiani usa 0,7 litri ogni 100 g.\n\nFatto 100 il consumo classico:\n• coperchio sempre → 93\n• 0,7 litri ogni etto → 87\n• fuoco spento dopo il bollore → 50\n\nCon poca acqua e pentola sottile si raffredda prima: coperchio della misura giusta e mescola nei primi minuti.\n\nSalvalo per la prossima pasta 📌 E tu quanta acqua metti? Scrivilo nei commenti 👇\n\n#veroofalso #pasta #risparmio #bollette #scienzaincucina #unmillimetrosotto",
-   "vidiq_post_id": "b4e3abea-2868-45be-a20a-ab8e3dfbdc3b"
-  },
-  {
-   "id": "30_lavastoviglie_eco",
-   "tema": "Il programma Eco della lavastoviglie dura ore: consuma di più?",
-   "stato": "programmato",
-   "video": "media/30_lavastoviglie_eco/30_lavastoviglie_eco.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-16T12:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "risparmio vero (casa), finale 'mandalo a...'; approvato da Lorenzo prima della programmazione",
-   "vidiq_post_id": "b3f0aa07-5466-46f1-8619-d3f7e888f18e"
-  },
-  {
-   "id": "31_lavatrice_30",
-   "tema": "Lavare a 30 gradi pulisce lo stesso?",
-   "stato": "programmato",
-   "video": "media/31_lavatrice_30/31_lavatrice_30.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-14T10:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "risparmio vero (casa), finale 'mandalo a...'; approvato da Lorenzo prima della programmazione",
-   "vidiq_post_id": "3e5b735d-7cac-4024-a42f-1c84b2f02998"
-  },
-  {
-   "id": "32_friggitrice_aria",
-   "tema": "La friggitrice ad aria consuma meno del forno?",
-   "stato": "programmato",
-   "video": "media/32_friggitrice_aria/32_friggitrice_aria.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-14T19:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "extra risparmio, approvato da Lorenzo",
-   "vidiq_post_id": "217a9eb5-4d57-4530-94af-c60bb1786032"
-  },
-  {
-   "id": "33_termosifoni_grado",
-   "tema": "Un grado in meno sul termostato quanto fa risparmiare?",
-   "stato": "programmato",
-   "video": "media/33_termosifoni_grado/33_termosifoni_grado.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-15T10:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
-   "vidiq_post_id": "66bf0600-a8af-4b43-9e3f-0ef2e458b5bb"
-  },
-  {
-   "id": "34_standby_lucina",
-   "tema": "Quanto costano gli apparecchi in standby?",
-   "stato": "programmato",
-   "video": "media/34_standby_lucina/34_standby_lucina.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-16T15:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
-   "vidiq_post_id": "9bd534a7-ac3f-41f1-ba95-6f0a4c9bfeb3"
-  },
-  {
-   "id": "35_doccia_bagno",
-   "tema": "La doccia può costare più del bagno?",
-   "stato": "programmato",
-   "video": "media/35_doccia_bagno/35_doccia_bagno.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-16T18:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
-   "vidiq_post_id": "3cc8ac9c-9473-4c5b-aa1c-9e6e5feaef52"
-  },
-  {
-   "id": "36_frigo_freddo",
-   "tema": "Il frigo troppo freddo consuma di più?",
-   "stato": "programmato",
-   "video": "media/36_frigo_freddo/36_frigo_freddo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-16T20:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
-   "vidiq_post_id": "d137a32f-6982-4f09-9ad7-d591b108a2f0"
-  },
-  {
-   "id": "37_abitudini_225",
-   "tema": "4 abitudini ti costano 225 € l'anno (tabella che si somma)",
-   "stato": "programmato",
-   "video": "media/37_abitudini_225/37_abitudini_225.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-16T19:15:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "table_sum, modello @francescaperrinagold; approvato da Lorenzo",
-   "vidiq_post_id": "2a729c40-c1b6-47df-9410-1ad03683304f"
-  },
-  {
-   "id": "38_pane_frigo",
-   "tema": "Il pane in frigo si conserva meglio? (FALSO)",
-   "stato": "uscito",
-   "video": "media/38_pane_frigo/38_pane_frigo.mp4",
-   "uscita": "2026-11-16T21:29:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "vidiq_post_id": "325a68f6-c740-4c84-be85-f1348f4c3b26",
-   "link": "https://www.instagram.com/reel/Df0Nz3uk9mD/",
-   "nota": "pubblicato subito su richiesta di Lorenzo"
-  },
-  {
-   "id": "40_piatti_risciacquo",
-   "tema": "Bisogna sciacquare i piatti prima della lavastoviglie?",
-   "stato": "programmato",
-   "video": "media/40_piatti_risciacquo/40_piatti_risciacquo.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-17T12:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "vecchi metodi / permesso, senza banconote",
-   "vidiq_post_id": "c92f0ee5-a75e-4cad-b620-e2624990c489",
-   "metriche_19_11": {
-    "views": 379,
-    "shares": 0,
-    "saves": 2
-   }
-  },
-  {
-   "id": "41_aceto_bicarbonato",
-   "tema": "Aceto e bicarbonato insieme puliscono meglio?",
-   "stato": "programmato",
-   "video": "media/41_aceto_bicarbonato/41_aceto_bicarbonato.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-17T15:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "vecchi metodi / permesso, senza banconote",
-   "vidiq_post_id": "1ef835d0-69e5-4b3b-be66-63a69de88e44",
-   "metriche_19_11": {
-    "views": 1158,
-    "shares": 1,
-    "saves": 3
-   }
-  },
-  {
-   "id": "42_patata_sale",
-   "tema": "La patata toglie il sale dal sugo?",
-   "stato": "programmato",
-   "video": "media/42_patata_sale/42_patata_sale.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-17T17:30:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "vecchi metodi / permesso, senza banconote",
-   "vidiq_post_id": "8db2ff7f-2cb9-45c2-9461-ec70eafac455",
-   "metriche_19_11": {
-    "views": 2118,
-    "shares": 0,
-    "saves": 5
-   }
-  },
-  {
-   "id": "43_bagno_tre_ore",
-   "tema": "Bisogna aspettare tre ore dopo mangiato per fare il bagno?",
-   "stato": "programmato",
-   "video": "media/43_bagno_tre_ore/43_bagno_tre_ore.mp4",
-   "voce": "Francesco (eleven_v3)",
-   "uscita": "2026-11-17T20:00:00+01:00",
-   "piattaforme": [
-    "instagram"
-   ],
-   "formato": "vecchi metodi / permesso, senza banconote",
-   "vidiq_post_id": "ea2c8441-eb7b-499c-8f6a-bd4d939c98f2",
-   "metriche_19_11": {
-    "views": 2155,
-    "shares": 11,
-    "saves": 3
-   }
-  },
-  {
-   "id": "39_telefono_riso",
-   "tema": "Telefono bagnato nel riso?",
-   "stato": "scartato",
-   "nota": "Lorenzo: 'fa ridere'"
-  },
-  {
-   "id": "44_moka_sapone",
-   "stato": "pubblicato",
-   "uscita": "2026-11-17T08:20+01:00",
-   "vidiq_post_id": "71fea413-ddd4-4c24-a739-f4f28ee68def",
-   "tipo": "curiosita_vecchio_metodo",
-   "metriche_19_11": {
-    "views": 27487,
-    "shares": 193,
-    "saves": 69
-   },
-   "metriche_20_11": {
-    "views": 28121,
-    "shares": 195,
-    "saves": 75
-   }
-  },
-  {
-   "id": "46_moka_pressare",
-   "stato": "pubblicato",
-   "uscita": "2026-11-18T09:10+01:00",
-   "vidiq_post_id": "b28f5421-6b11-49ef-9a48-3257900562c1",
-   "metriche_19_11": {
-    "views": 3535,
-    "shares": 20,
-    "saves": 7
-   },
-   "metriche_20_11": {
-    "views": 3962,
-    "shares": 20,
-    "saves": 7
-   }
-  },
-  {
-   "id": "45_spaghetti_due",
-   "stato": "pubblicato",
-   "uscita": "2026-11-18T13:00+01:00",
-   "vidiq_post_id": "cad73138-a570-4cf7-86ac-3505149a72ef",
-   "metriche_19_11": {
-    "views": 2554,
-    "shares": 1,
-    "saves": 0
-   },
-   "metriche_20_11": {
-    "views": 2668,
-    "shares": 1,
-    "saves": 0
-   }
-  },
-  {
-   "id": "47_sale_bollore",
-   "stato": "programmato",
-   "uscita": "2026-11-21T15:30+01:00",
-   "vidiq_post_id": "7acaede2-7e83-408d-85f9-ff558f6908e6"
-  },
-  {
-   "id": "48_amaro_digestivo",
-   "stato": "scartato",
-   "note": "non piaciuto a Lorenzo"
-  },
-  {
-   "id": "49_pollo_lavato",
-   "stato": "pubblicato",
-   "uscita": "2026-11-18T17:00+01:00",
-   "vidiq_post_id": "7199ad82-87cf-45ca-8ddd-55db86de36f7",
-   "metriche_19_11": {
-    "views": 2097,
-    "shares": 6,
-    "saves": 6
-   },
-   "metriche_20_11": {
-    "views": 2187,
-    "shares": 6,
-    "saves": 7
-   }
-  },
-  {
-   "id": "50_colpo_aria",
-   "stato": "pubblicato",
-   "uscita": "2026-11-19T09:00+01:00",
-   "vidiq_post_id": "7ab7c0e7-3ec2-4bd9-a96e-5f36d00097cc",
-   "metriche_20_11": {
-    "views": 1374,
-    "shares": 23,
-    "saves": 5
-   },
-   "metriche_21_11": {
-    "views": 1392,
-    "shares": 24,
-    "saves": 5
-   }
-  },
-  {
-   "id": "51_moka_nuova",
-   "stato": "in_magazzino",
-   "nota": "Lorenzo: troppe moka di fila"
-  },
-  {
-   "id": "52_uova_lavate",
-   "stato": "programmato",
-   "uscita": "2026-11-19T13:00+01:00",
-   "vidiq_post_id": "9303ccec-4633-419e-883c-e528b3158581",
-   "metriche_20_11": {
-    "views": 1058,
-    "shares": 2,
-    "saves": 2
-   },
-   "metriche_21_11": {
-    "views": 1430,
-    "shares": 5,
-    "saves": 2
-   }
-  },
-  {
-   "id": "53_tv_vicina",
-   "stato": "pubblicato",
-   "uscita": "2026-11-20T08:45+01:00",
-   "vidiq_post_id": "3d97677a-377d-4a70-8b07-b354dfaa92d7",
-   "metriche_21_11": {
-    "views": 2538,
-    "shares": 26,
-    "saves": 15
-   }
-  },
-  {
-   "id": "54_frutta_fine_pasto",
-   "stato": "pubblicato",
-   "uscita": "2026-11-20T12:30+01:00",
-   "vidiq_post_id": "3982c5ff-627e-4800-94b0-7f7511c4a98d",
-   "metriche_21_11": {
-    "views": 862,
-    "shares": 2,
-    "saves": 1
-   }
-  },
-  {
-   "id": "55_carote_buio",
-   "stato": "pubblicato",
-   "uscita": "2026-11-20T16:30+01:00",
-   "vidiq_post_id": "08a451d2-a8ba-4280-bf35-e4d074f6fd0a",
-   "metriche_21_11": {
-    "views": 193,
-    "shares": 0,
-    "saves": 0
-   }
-  },
-  {
-   "id": "56_gomma_sette_anni",
-   "stato": "pubblicato",
-   "uscita": "2026-11-20T20:00+01:00",
-   "vidiq_post_id": "f3a06033-0678-4f91-a62d-99a67174002e",
-   "metriche_21_11": {
-    "views": 1533,
-    "shares": 8,
-    "saves": 2
-   }
-  },
-  {
-   "id": "57_dita_artrite",
-   "stato": "programmato",
-   "uscita": "2026-11-21T08:45+01:00",
-   "vidiq_post_id": "850b3f03-272f-4e3e-be94-0f6be31d5789"
-  },
-  {
-   "id": "58_doccia_temporale",
-   "stato": "programmato",
-   "uscita": "2026-11-21T11:00+01:00",
-   "vidiq_post_id": "105aef89-faa6-4653-a342-19eb5580a621"
-  },
-  {
-   "id": "59_scottatura_burro",
-   "stato": "programmato",
-   "uscita": "2026-11-21T20:00+01:00",
-   "vidiq_post_id": "35697332-5786-4e26-acc8-27adf26bf3fb"
-  },
-  {
-   "id": "60_forno_preriscaldo",
-   "stato": "programmato",
-   "uscita": "2026-11-21T13:15+01:00",
-   "vidiq_post_id": "9fd4d07c-c906-4a49-920f-44c26b0cb430"
-  },
-  {
-   "id": "61_detersivo_troppo",
-   "stato": "programmato",
-   "uscita": "2026-11-21T17:45+01:00",
-   "vidiq_post_id": "fd564388-6e47-4237-b9c7-fdebfeb9f369"
-  },
-  {
-   "id": "62_cane_sette_anni",
-   "stato": "proposto"
-  }
- ],
- "lezioni": [
-  {
-   "data": "2026-11-11",
-   "fonte": "reel 03 IG: 206 views, 6,4 s medi su 51, skip 55,8%",
-   "lezione": "gancio v2: immagine-risposta in movimento dal frame 0, domanda concreta, timbro dopo; 35-45 s"
-  },
-  {
-   "data": "2026-11-11",
-   "lezione": "camera dinamica (stacchi e zoom sugli eventi) come costruttore.spiega; testi <= 650 caratteri per stare sotto i 45 s"
-  },
-  {
-   "data": "2026-11-12",
-   "fonte": "insights IG mattina",
-   "lezione": "Migliori: sale nel ghiaccio (2.439) e coperchio (2.338): VERO + trucco pratico + processo visibile + termometro. Aperture reali (Kling) ultime 3/3 con skip 52-62%: abbandonate. TikTok: 0 views pubbliche su 9 video, da verificare. Da sabato: 4/giorno distanziati, solo Instagram."
-  },
-  {
-   "data": "2026-11-12 sera",
-   "lezione": "Cucchiaino spumante: skip 18% (miti di casa che tutti praticano). Olio EVO 1.497 in 7h (FALSO pratico + termometro). Ghiaccio galleggia (curiosità pura) più debole. Profilo converte ~75% delle visite: serve portare gente al profilo."
-  },
-  "13/11: pasta a fuoco spento = breakout (9.129 views in ~4h, 27 condivisioni, 30 salvataggi). Pattern vincente: VERO + risparmio gas/tempo/soldi + termometro nell'hook. Intro con clip reali AI: skip peggiore, abbandonate.",
-  "14/11: Lorenzo ha bocciato il 29 (acqua della pasta) già programmato. Regola: gli extra si mandano a Lorenzo PRIMA di programmarli. Vuole risparmio 'vero' in euro (lavatrice 30°, lavastoviglie Eco).",
-  "14/11: Lorenzo vuole hook piu' acchiappalike. Lavatrice: 57% skip con hook-domanda. Da ora: hook con perdita/soldi/sfida nei primi 2 secondi.",
-  "15/11: virali = abitudine universale + risparmio in euro + condivisione (pasta 65k, lavatrice 22k). Flop friggitrice: 30 min dopo un altro reel e pubblico ristretto. Regola: >=150 min tra uscite, solo abitudini universali.",
-  "16/11: svolta. Formula da outlier IT: titolo 'Usa X, non Y' e tabella che somma i costi annui. Meno reel (3/giorno), solo potenziali virali.",
-  "16/11 sera: crollo distribuzione (4 reel a ~200 views). Compagna di Lorenzo: troppi risparmi, piu' curiosita'. Nuovo mix: rimedi della nonna smontati + 1 risparmio 'permesso'. Telefono nel riso scartato (troppo banale).",
-  "19/11: le condivisioni nascono dal 'mandalo a chi...' su oggetti identitari (moka sapone 193 share). Spaghetti: record visione 45% ma 1 share: la curiosità pura trattiene ma non si manda. Seguito moka (pressata) 0,57 share/100 views: buono, non virale. Pollo: 6 share su 2.1k.",
-  "20/11: colpo d'aria 1,67 share/100 views (record): il filone 'smentisci la mamma' è il più condivisibile. Ma 61% skip e distribuzione bassa (reach 18/11 4,3k). Da ora hook in movimento dal frame 0 e frase che chiama in causa chi guarda.",
-  "21/11: 4 reel/giorno = più views totali (5,1k vs 2,8k) ma il più debole affonda (carote 193). Hook in movimento: skip 44-46% invece di 61%. TV vicina 1 share/100. I più forti a 08:45 e 20:00."
- ],
- "voce_attuale": {
-  "nome": "Francesco - Natural, Warm and Confident",
-  "voice_id": "PJucOeN3PPVPnud4XocS",
-  "modello": "eleven_v3",
-  "dal": "2026-11-11",
-  "prima": "SimoneF (scartata: suonava finta)"
- },
- "autorizzazione": "2026-11-12: Lorenzo autorizza a programmare senza chiedere conferma; l'agente controlla ogni reel e manda i video.",
- "follower_storico": [
-  {
-   "data": "2026-11-11",
-   "follower": "4-5",
-   "fonte": "Lorenzo"
-  },
-  {
-   "data": "2026-11-12",
-   "follower": "13-14",
-   "fonte": "Lorenzo",
-   "raggiunti": "~10000 (Lorenzo)"
-  },
-  {
-   "data": "2026-11-13T17:20",
-   "follower": 34,
-   "fonte": "API owner insights",
-   "raggiunti": 21626
-  },
-  {
-   "data": "2026-11-13T17:45",
-   "follower": 38,
-   "fonte": "API"
-  },
-  {
-   "data": "2026-11-13T18:36",
-   "follower": 45,
-   "fonte": "API"
-  },
-  {
-   "data": "2026-11-14T08:04",
-   "follower": 166,
-   "raggiunti_13_11": 49580,
-   "fonte": "API"
-  },
-  {
-   "data": "2026-11-17T23:16",
-   "follower": 496,
-   "fonte": "API"
-  },
-  {
-   "data": "2026-11-18T11:50",
-   "follower": 507,
-   "fonte": "API"
-  },
-  {
-   "data": "2026-11-19T08:01",
-   "follower": 526,
-   "fonte": "API"
-  },
-  {
-   "data": "2026-11-20T08:01",
-   "follower": 535,
-   "fonte": "API",
-   "raggiunti_18_11": 4349
-  },
-  {
-   "data": "2026-11-21T08:01",
-   "follower": 543,
-   "fonte": "API",
-   "raggiunti_19_11": 5545
-  }
- ]
+  "serie": "cucina",
+  "obiettivo_serie": 20,
+  "palette": "cucina_notte",
+  "reel": [
+    {
+      "id": "01_sale",
+      "tema": "Il sale fa bollire prima l'acqua?",
+      "stato": "programmato",
+      "video": "media/01_sale/01_sale.mp4",
+      "uscita": "2026-11-11T13:00:00+01:00",
+      "vidiq_post_id": "c2b0c9d7-e9e9-4832-a24c-39fc5ee7a8bc",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "02_olio_pasta",
+      "tema": "L'olio nella pasta evita che si attacchi?",
+      "stato": "programmato",
+      "video": "media/02_olio_pasta/02_olio_pasta.mp4",
+      "nota": "tema già trattato da Geopop (feb 2026)",
+      "uscita": "2026-11-11T19:30:00+01:00",
+      "vidiq_post_id": "1d0f0050-3341-4873-8018-3b4c00b91645",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "03_microonde",
+      "tema": "Il microonde cuoce dall'interno?",
+      "stato": "programmato",
+      "video": "media/03_microonde/03_microonde_v2.mp4",
+      "nota": "v2: inversione del campo fluida e lenta (prima: alternanza rosso/blu a 2,5 Hz)",
+      "uscita": "2026-11-10T21:00:00+01:00",
+      "vidiq_post_id": "c0f8e5cb-4329-4fc3-a69f-38c5681adb63",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "04_sale_ghiaccio",
+      "tema": "Il sale nel ghiaccio raffredda il vino più in fretta? (VERO)",
+      "stato": "programmato",
+      "video": "media/04_sale_ghiaccio/04_sale_ghiaccio_v2.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-11T21:00:00+01:00",
+      "vidiq_post_id": "f1670971-d565-4629-84b9-6fbc67e62512",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "05_coperchio",
+      "tema": "Il coperchio fa bollire prima l'acqua? (VERO)",
+      "stato": "programmato",
+      "video": "media/05_coperchio/05_coperchio.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-11T15:30:00+01:00",
+      "vidiq_post_id": "d061b128-8645-403b-8288-f59ac8ccca36",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "06_vino_temperatura",
+      "tema": "Il rosso va servito a temperatura ambiente? (FALSO)",
+      "stato": "programmato",
+      "video": "media/06_vino_temperatura/06_vino_temperatura.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "da_verificare": "forbice 14-18 °C con Lorenzo",
+      "uscita": "2026-11-11T18:00:00+01:00",
+      "vidiq_post_id": "96de76c6-6c27-40a0-8dc0-d354134b4a3f",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ]
+    },
+    {
+      "id": "07_pasta_sciacquata",
+      "tema": "La pasta va sciacquata dopo la cottura?",
+      "stato": "programmato",
+      "video": "media/07_pasta_sciacquata/07_pasta_sciacquata.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T19:30:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "320fba9c-6c7f-4cf8-a3da-7cfc7b74f918"
+    },
+    {
+      "id": "08_microonde_vitamine",
+      "tema": "Il microonde distrugge le vitamine?",
+      "stato": "programmato",
+      "video": "media/08_microonde_vitamine/08_microonde_vitamine.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T21:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "ddc69dd8-d4e2-4a0f-952c-9fb42f69a5e8"
+    },
+    {
+      "id": "09_ghiaccio_galleggia",
+      "tema": "Perché il ghiaccio galleggia?",
+      "stato": "programmato",
+      "video": "media/09_ghiaccio_galleggia/09_ghiaccio_galleggia.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T15:30:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "3b93a023-5493-4faa-a237-07df33d6cddb"
+    },
+    {
+      "id": "10_cucchiaino_spumante",
+      "tema": "Il cucchiaino nel collo tiene le bollicine?",
+      "stato": "programmato",
+      "video": "media/10_cucchiaino_spumante/10_cucchiaino_spumante.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T18:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "b3045ce5-bcfd-418c-b389-806b440259e1"
+    },
+    {
+      "id": "11_olio_evo_frittura",
+      "tema": "L'extravergine non va usato per friggere?",
+      "stato": "programmato",
+      "video": "media/11_olio_evo_frittura/11_olio_evo_frittura.mp4",
+      "gancio": "v2 payoff",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-12T13:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "vidiq_post_id": "89866375-874d-460c-8054-6832b307edd6"
+    },
+    {
+      "id": "12_miele_non_scade",
+      "tema": "Il miele non scade mai?",
+      "stato": "programmato",
+      "video": "media/12_miele_non_scade/12_miele_non_scade.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-13T15:30:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Kling 3.0 via Higgsfield)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "bdc3a3ba-57cb-4bf7-9816-4d8a3d2d6cdc"
+    },
+    {
+      "id": "13_uova_galleggiano",
+      "tema": "Le uova vecchie galleggiano?",
+      "stato": "programmato",
+      "video": "media/13_uova_galleggiano/13_uova_galleggiano_v2.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-13T18:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Wan 3.0 480p via Higgsfield)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "2a6f3e03-4d97-42a2-bb3a-570e5a3de17f"
+    },
+    {
+      "id": "14_cottura_passiva",
+      "tema": "Si può cuocere la pasta a fuoco spento?",
+      "stato": "programmato",
+      "video": "media/14_cottura_passiva/14_cottura_passiva.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-13T13:00:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "v2 payoff (disegno)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "5032daa1-7bdf-44fc-845e-b8c59c075b67"
+    },
+    {
+      "id": "15_pane_raffermo",
+      "tema": "Il pane raffermo torna morbido in forno?",
+      "stato": "programmato",
+      "video": "media/15_pane_raffermo/15_pane_raffermo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-11T22:15:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Kling 3.0 via Higgsfield)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "acf11830-ae49-451d-8ed0-170580d6896f",
+      "nota": "extra di oggi, anticipato da venerdì su richiesta"
+    },
+    {
+      "id": "16_zucchero_sugo",
+      "tema": "Lo zucchero toglie l'acidità al sugo?",
+      "stato": "programmato",
+      "video": "media/16_zucchero_sugo/16_zucchero_sugo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-13T19:30:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "v2 payoff (disegno)",
+      "test": "A/B gancio reale vs disegno",
+      "vidiq_post_id": "0e78dbb3-872a-4687-a640-6d816cb5d7be"
+    },
+    {
+      "id": "17_mela_limone",
+      "tema": "La mela tagliata diventa marrone: il limone la salva?",
+      "stato": "pubblicato",
+      "video": "media/17_mela_limone/17_mela_limone.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-11T18:17+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Kling 3.0 via Higgsfield)",
+      "nota": "extra di oggi",
+      "vidiq_post_id": "782831a4-3861-4e2e-abaf-bd2bb656a91b"
+    },
+    {
+      "id": "18_banana_etilene",
+      "tema": "La banana fa maturare la frutta vicina?",
+      "stato": "programmato",
+      "video": "media/18_banana_etilene/18_banana_etilene.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-11T20:15:00+01:00",
+      "piattaforme": [
+        "instagram",
+        "tiktok"
+      ],
+      "gancio": "reale (Kling 3.0 via Higgsfield)",
+      "nota": "extra di oggi",
+      "vidiq_post_id": "fec08e50-a713-468c-8c9c-516558f2f4b4"
+    },
+    {
+      "id": "19_scongelare_acqua",
+      "tema": "Scongelare in acqua fredda è più veloce che in frigo?",
+      "stato": "programmato",
+      "video": "media/19_scongelare_acqua/19_scongelare_acqua.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-14T13:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "gancio": "v2 payoff (disegno) + termometro",
+      "formato": "serie numerata + domanda nei commenti",
+      "vidiq_post_id": "0da8bf69-011f-4cc4-aafd-dd622cf4a471"
+    },
+    {
+      "id": "20_pentola_pressione",
+      "tema": "La pentola a pressione cuoce più in fretta?",
+      "stato": "programmato",
+      "video": "media/20_pentola_pressione/20_pentola_pressione.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-14T15:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "gancio": "v2 payoff (disegno) + termometro",
+      "formato": "serie numerata + domanda nei commenti",
+      "vidiq_post_id": "e3c486c9-2e2f-45fd-9413-f677ebcd4d4e"
+    },
+    {
+      "id": "21_carne_asciutta",
+      "tema": "Asciugare la carne fa venire la crosticina?",
+      "stato": "programmato",
+      "video": "media/21_carne_asciutta/21_carne_asciutta.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-14T18:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "gancio": "v2 payoff (disegno) + termometro",
+      "formato": "serie numerata + domanda nei commenti",
+      "vidiq_post_id": "bc8420d6-1883-4d3a-bc14-667d32b3caea"
+    },
+    {
+      "id": "22_riso_lavato",
+      "tema": "Lavare il riso lo rende meno colloso?",
+      "stato": "programmato",
+      "video": "media/22_riso_lavato/22_riso_lavato.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "camera": "automatica",
+      "uscita": "2026-11-14T21:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "gancio": "v2 payoff (disegno) + termometro",
+      "formato": "serie numerata + domanda nei commenti",
+      "vidiq_post_id": "42728014-72f5-4518-bfc9-c9122d046414"
+    },
+    {
+      "id": "23_uovo_sodo_verde",
+      "tema": "Il bordo verde nel tuorlo dell'uovo sodo è normale?",
+      "stato": "programmato",
+      "video": "media/23_uovo_sodo_verde/23_uovo_sodo_verde.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-13T21:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
+      "nota": "quinto reel extra richiesto da Lorenzo per ven e sab",
+      "vidiq_post_id": "db7df21d-468d-4ac5-acaf-e26c3950ce45"
+    },
+    {
+      "id": "24_verdure_verdi",
+      "tema": "Le verdure restano verdi se le metti nel ghiaccio?",
+      "stato": "programmato",
+      "video": "media/24_verdure_verdi/24_verdure_verdi.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-14T11:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "da salvare (dose/tempo/risultato) + 'Salvalo'",
+      "nota": "quinto reel extra richiesto da Lorenzo per ven e sab",
+      "vidiq_post_id": "d6bcf305-9613-453b-9b6b-e8863477b932"
+    },
+    {
+      "id": "25_cibo_caldo_frigo",
+      "tema": "Il cibo caldo non va messo in frigo?",
+      "stato": "programmato",
+      "video": "media/25_cibo_caldo_frigo/25_cibo_caldo_frigo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T12:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
+      "vidiq_post_id": "792120ea-632d-492a-8921-2a0658e25e2b"
+    },
+    {
+      "id": "26_pomodori_frigo",
+      "tema": "I pomodori vanno tenuti in frigo?",
+      "stato": "programmato",
+      "video": "media/26_pomodori_frigo/26_pomodori_frigo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T15:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
+      "vidiq_post_id": "43c8a12b-1cfa-4e8f-ad69-fd9a8c6e6d12"
+    },
+    {
+      "id": "27_cucchiaio_legno",
+      "tema": "Il cucchiaio di legno sulla pentola evita che trabocchi?",
+      "stato": "programmato",
+      "video": "media/27_cucchiaio_legno/27_cucchiaio_legno.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T18:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
+      "vidiq_post_id": "723abd96-def9-4baa-bcfd-0209c9ced657"
+    },
+    {
+      "id": "28_insalata_asciutta",
+      "tema": "L'insalata va asciugata prima di condirla?",
+      "stato": "programmato",
+      "video": "media/28_insalata_asciutta/28_insalata_asciutta.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T20:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "miti di casa / da salvare, orari fissi 12:30-15:30-18:00-20:00",
+      "vidiq_post_id": "6dcab96c-467a-4547-aabd-8e96295189cf"
+    },
+    {
+      "id": "29_pasta_acqua",
+      "tema": "Per la pasta serve un litro d'acqua ogni etto? (FALSO, sequel risparmio della pasta a fuoco spento)",
+      "stato": "programmato",
+      "video": "media/29_pasta_acqua/29_pasta_acqua.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-14T12:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "extra richiesto da Lorenzo il 14/11, cavalca il breakout della pasta",
+      "caption": "Vero o falso #27 · Per la pasta non serve un litro d'acqua ogni etto 🍝 Basta che resti coperta e sopra gli 80 °C: lo studio dei pastai italiani usa 0,7 litri ogni 100 g.\n\nFatto 100 il consumo classico:\n• coperchio sempre → 93\n• 0,7 litri ogni etto → 87\n• fuoco spento dopo il bollore → 50\n\nCon poca acqua e pentola sottile si raffredda prima: coperchio della misura giusta e mescola nei primi minuti.\n\nSalvalo per la prossima pasta 📌 E tu quanta acqua metti? Scrivilo nei commenti 👇\n\n#veroofalso #pasta #risparmio #bollette #scienzaincucina #unmillimetrosotto",
+      "vidiq_post_id": "b4e3abea-2868-45be-a20a-ab8e3dfbdc3b"
+    },
+    {
+      "id": "30_lavastoviglie_eco",
+      "tema": "Il programma Eco della lavastoviglie dura ore: consuma di più?",
+      "stato": "programmato",
+      "video": "media/30_lavastoviglie_eco/30_lavastoviglie_eco.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-16T12:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio vero (casa), finale 'mandalo a...'; approvato da Lorenzo prima della programmazione",
+      "vidiq_post_id": "b3f0aa07-5466-46f1-8619-d3f7e888f18e"
+    },
+    {
+      "id": "31_lavatrice_30",
+      "tema": "Lavare a 30 gradi pulisce lo stesso?",
+      "stato": "programmato",
+      "video": "media/31_lavatrice_30/31_lavatrice_30.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-14T10:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio vero (casa), finale 'mandalo a...'; approvato da Lorenzo prima della programmazione",
+      "vidiq_post_id": "3e5b735d-7cac-4024-a42f-1c84b2f02998"
+    },
+    {
+      "id": "32_friggitrice_aria",
+      "tema": "La friggitrice ad aria consuma meno del forno?",
+      "stato": "programmato",
+      "video": "media/32_friggitrice_aria/32_friggitrice_aria.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-14T19:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "extra risparmio, approvato da Lorenzo",
+      "vidiq_post_id": "217a9eb5-4d57-4530-94af-c60bb1786032"
+    },
+    {
+      "id": "33_termosifoni_grado",
+      "tema": "Un grado in meno sul termostato quanto fa risparmiare?",
+      "stato": "programmato",
+      "video": "media/33_termosifoni_grado/33_termosifoni_grado.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-15T10:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
+      "vidiq_post_id": "66bf0600-a8af-4b43-9e3f-0ef2e458b5bb"
+    },
+    {
+      "id": "34_standby_lucina",
+      "tema": "Quanto costano gli apparecchi in standby?",
+      "stato": "programmato",
+      "video": "media/34_standby_lucina/34_standby_lucina.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-16T15:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
+      "vidiq_post_id": "9bd534a7-ac3f-41f1-ba95-6f0a4c9bfeb3"
+    },
+    {
+      "id": "35_doccia_bagno",
+      "tema": "La doccia può costare più del bagno?",
+      "stato": "programmato",
+      "video": "media/35_doccia_bagno/35_doccia_bagno.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-16T18:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
+      "vidiq_post_id": "3cc8ac9c-9473-4c5b-aa1c-9e6e5feaef52"
+    },
+    {
+      "id": "36_frigo_freddo",
+      "tema": "Il frigo troppo freddo consuma di più?",
+      "stato": "programmato",
+      "video": "media/36_frigo_freddo/36_frigo_freddo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-16T20:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "risparmio casa universale, hook 'perdita' con cifra in euro",
+      "vidiq_post_id": "d137a32f-6982-4f09-9ad7-d591b108a2f0"
+    },
+    {
+      "id": "37_abitudini_225",
+      "tema": "4 abitudini ti costano 225 € l'anno (tabella che si somma)",
+      "stato": "programmato",
+      "video": "media/37_abitudini_225/37_abitudini_225.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-16T19:15:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "table_sum, modello @francescaperrinagold; approvato da Lorenzo",
+      "vidiq_post_id": "2a729c40-c1b6-47df-9410-1ad03683304f"
+    },
+    {
+      "id": "38_pane_frigo",
+      "tema": "Il pane in frigo si conserva meglio? (FALSO)",
+      "stato": "uscito",
+      "video": "media/38_pane_frigo/38_pane_frigo.mp4",
+      "uscita": "2026-11-16T21:29:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "vidiq_post_id": "325a68f6-c740-4c84-be85-f1348f4c3b26",
+      "link": "https://www.instagram.com/reel/Df0Nz3uk9mD/",
+      "nota": "pubblicato subito su richiesta di Lorenzo"
+    },
+    {
+      "id": "40_piatti_risciacquo",
+      "tema": "Bisogna sciacquare i piatti prima della lavastoviglie?",
+      "stato": "programmato",
+      "video": "media/40_piatti_risciacquo/40_piatti_risciacquo.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-17T12:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "vecchi metodi / permesso, senza banconote",
+      "vidiq_post_id": "c92f0ee5-a75e-4cad-b620-e2624990c489",
+      "metriche_19_11": {
+        "views": 379,
+        "shares": 0,
+        "saves": 2
+      }
+    },
+    {
+      "id": "41_aceto_bicarbonato",
+      "tema": "Aceto e bicarbonato insieme puliscono meglio?",
+      "stato": "programmato",
+      "video": "media/41_aceto_bicarbonato/41_aceto_bicarbonato.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-17T15:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "vecchi metodi / permesso, senza banconote",
+      "vidiq_post_id": "1ef835d0-69e5-4b3b-be66-63a69de88e44",
+      "metriche_19_11": {
+        "views": 1158,
+        "shares": 1,
+        "saves": 3
+      }
+    },
+    {
+      "id": "42_patata_sale",
+      "tema": "La patata toglie il sale dal sugo?",
+      "stato": "programmato",
+      "video": "media/42_patata_sale/42_patata_sale.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-17T17:30:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "vecchi metodi / permesso, senza banconote",
+      "vidiq_post_id": "8db2ff7f-2cb9-45c2-9461-ec70eafac455",
+      "metriche_19_11": {
+        "views": 2118,
+        "shares": 0,
+        "saves": 5
+      }
+    },
+    {
+      "id": "43_bagno_tre_ore",
+      "tema": "Bisogna aspettare tre ore dopo mangiato per fare il bagno?",
+      "stato": "programmato",
+      "video": "media/43_bagno_tre_ore/43_bagno_tre_ore.mp4",
+      "voce": "Francesco (eleven_v3)",
+      "uscita": "2026-11-17T20:00:00+01:00",
+      "piattaforme": [
+        "instagram"
+      ],
+      "formato": "vecchi metodi / permesso, senza banconote",
+      "vidiq_post_id": "ea2c8441-eb7b-499c-8f6a-bd4d939c98f2",
+      "metriche_19_11": {
+        "views": 2155,
+        "shares": 11,
+        "saves": 3
+      }
+    },
+    {
+      "id": "39_telefono_riso",
+      "tema": "Telefono bagnato nel riso?",
+      "stato": "scartato",
+      "nota": "Lorenzo: 'fa ridere'"
+    },
+    {
+      "id": "44_moka_sapone",
+      "stato": "pubblicato",
+      "uscita": "2026-11-17T08:20+01:00",
+      "vidiq_post_id": "71fea413-ddd4-4c24-a739-f4f28ee68def",
+      "tipo": "curiosita_vecchio_metodo",
+      "metriche_19_11": {
+        "views": 27487,
+        "shares": 193,
+        "saves": 69
+      },
+      "metriche_20_11": {
+        "views": 28121,
+        "shares": 195,
+        "saves": 75
+      }
+    },
+    {
+      "id": "46_moka_pressare",
+      "stato": "pubblicato",
+      "uscita": "2026-11-18T09:10+01:00",
+      "vidiq_post_id": "b28f5421-6b11-49ef-9a48-3257900562c1",
+      "metriche_19_11": {
+        "views": 3535,
+        "shares": 20,
+        "saves": 7
+      },
+      "metriche_20_11": {
+        "views": 3962,
+        "shares": 20,
+        "saves": 7
+      }
+    },
+    {
+      "id": "45_spaghetti_due",
+      "stato": "pubblicato",
+      "uscita": "2026-11-18T13:00+01:00",
+      "vidiq_post_id": "cad73138-a570-4cf7-86ac-3505149a72ef",
+      "metriche_19_11": {
+        "views": 2554,
+        "shares": 1,
+        "saves": 0
+      },
+      "metriche_20_11": {
+        "views": 2668,
+        "shares": 1,
+        "saves": 0
+      }
+    },
+    {
+      "id": "47_sale_bollore",
+      "stato": "pubblicato",
+      "uscita": "2026-11-21T15:30+01:00",
+      "vidiq_post_id": "7acaede2-7e83-408d-85f9-ff558f6908e6",
+      "views_22_11": 1543,
+      "condivisioni_22_11": 0
+    },
+    {
+      "id": "48_amaro_digestivo",
+      "stato": "scartato",
+      "note": "non piaciuto a Lorenzo"
+    },
+    {
+      "id": "49_pollo_lavato",
+      "stato": "pubblicato",
+      "uscita": "2026-11-18T17:00+01:00",
+      "vidiq_post_id": "7199ad82-87cf-45ca-8ddd-55db86de36f7",
+      "metriche_19_11": {
+        "views": 2097,
+        "shares": 6,
+        "saves": 6
+      },
+      "metriche_20_11": {
+        "views": 2187,
+        "shares": 6,
+        "saves": 7
+      }
+    },
+    {
+      "id": "50_colpo_aria",
+      "stato": "pubblicato",
+      "uscita": "2026-11-19T09:00+01:00",
+      "vidiq_post_id": "7ab7c0e7-3ec2-4bd9-a96e-5f36d00097cc",
+      "metriche_20_11": {
+        "views": 1374,
+        "shares": 23,
+        "saves": 5
+      },
+      "metriche_21_11": {
+        "views": 1392,
+        "shares": 24,
+        "saves": 5
+      }
+    },
+    {
+      "id": "51_moka_nuova",
+      "stato": "in_magazzino",
+      "nota": "Lorenzo: troppe moka di fila"
+    },
+    {
+      "id": "52_uova_lavate",
+      "stato": "programmato",
+      "uscita": "2026-11-19T13:00+01:00",
+      "vidiq_post_id": "9303ccec-4633-419e-883c-e528b3158581",
+      "metriche_20_11": {
+        "views": 1058,
+        "shares": 2,
+        "saves": 2
+      },
+      "metriche_21_11": {
+        "views": 1430,
+        "shares": 5,
+        "saves": 2
+      }
+    },
+    {
+      "id": "53_tv_vicina",
+      "stato": "pubblicato",
+      "uscita": "2026-11-20T08:45+01:00",
+      "vidiq_post_id": "3d97677a-377d-4a70-8b07-b354dfaa92d7",
+      "metriche_21_11": {
+        "views": 2538,
+        "shares": 26,
+        "saves": 15
+      }
+    },
+    {
+      "id": "54_frutta_fine_pasto",
+      "stato": "pubblicato",
+      "uscita": "2026-11-20T12:30+01:00",
+      "vidiq_post_id": "3982c5ff-627e-4800-94b0-7f7511c4a98d",
+      "metriche_21_11": {
+        "views": 862,
+        "shares": 2,
+        "saves": 1
+      }
+    },
+    {
+      "id": "55_carote_buio",
+      "stato": "pubblicato",
+      "uscita": "2026-11-20T16:30+01:00",
+      "vidiq_post_id": "08a451d2-a8ba-4280-bf35-e4d074f6fd0a",
+      "metriche_21_11": {
+        "views": 193,
+        "shares": 0,
+        "saves": 0
+      }
+    },
+    {
+      "id": "56_gomma_sette_anni",
+      "stato": "pubblicato",
+      "uscita": "2026-11-20T20:00+01:00",
+      "vidiq_post_id": "f3a06033-0678-4f91-a62d-99a67174002e",
+      "metriche_21_11": {
+        "views": 1533,
+        "shares": 8,
+        "saves": 2
+      }
+    },
+    {
+      "id": "57_dita_artrite",
+      "stato": "pubblicato",
+      "uscita": "2026-11-21T08:45+01:00",
+      "vidiq_post_id": "850b3f03-272f-4e3e-be94-0f6be31d5789",
+      "views_22_11": 183,
+      "condivisioni_22_11": 1
+    },
+    {
+      "id": "58_doccia_temporale",
+      "stato": "pubblicato",
+      "uscita": "2026-11-21T11:00+01:00",
+      "vidiq_post_id": "105aef89-faa6-4653-a342-19eb5580a621",
+      "views_22_11": 19938,
+      "condivisioni_22_11": 235
+    },
+    {
+      "id": "59_scottatura_burro",
+      "stato": "pubblicato",
+      "uscita": "2026-11-21T20:00+01:00",
+      "vidiq_post_id": "35697332-5786-4e26-acc8-27adf26bf3fb",
+      "views_22_11": 236,
+      "condivisioni_22_11": 0
+    },
+    {
+      "id": "60_forno_preriscaldo",
+      "stato": "pubblicato",
+      "uscita": "2026-11-21T13:15+01:00",
+      "vidiq_post_id": "9fd4d07c-c906-4a49-920f-44c26b0cb430",
+      "views_22_11": 179,
+      "condivisioni_22_11": 2
+    },
+    {
+      "id": "61_detersivo_troppo",
+      "stato": "pubblicato",
+      "uscita": "2026-11-21T17:45+01:00",
+      "vidiq_post_id": "fd564388-6e47-4237-b9c7-fdebfeb9f369",
+      "views_22_11": 1263,
+      "condivisioni_22_11": 8
+    },
+    {
+      "id": "62_cane_sette_anni",
+      "stato": "proposto"
+    }
+  ],
+  "lezioni": [
+    {
+      "data": "2026-11-11",
+      "fonte": "reel 03 IG: 206 views, 6,4 s medi su 51, skip 55,8%",
+      "lezione": "gancio v2: immagine-risposta in movimento dal frame 0, domanda concreta, timbro dopo; 35-45 s"
+    },
+    {
+      "data": "2026-11-11",
+      "lezione": "camera dinamica (stacchi e zoom sugli eventi) come costruttore.spiega; testi <= 650 caratteri per stare sotto i 45 s"
+    },
+    {
+      "data": "2026-11-12",
+      "fonte": "insights IG mattina",
+      "lezione": "Migliori: sale nel ghiaccio (2.439) e coperchio (2.338): VERO + trucco pratico + processo visibile + termometro. Aperture reali (Kling) ultime 3/3 con skip 52-62%: abbandonate. TikTok: 0 views pubbliche su 9 video, da verificare. Da sabato: 4/giorno distanziati, solo Instagram."
+    },
+    {
+      "data": "2026-11-12 sera",
+      "lezione": "Cucchiaino spumante: skip 18% (miti di casa che tutti praticano). Olio EVO 1.497 in 7h (FALSO pratico + termometro). Ghiaccio galleggia (curiosità pura) più debole. Profilo converte ~75% delle visite: serve portare gente al profilo."
+    },
+    "13/11: pasta a fuoco spento = breakout (9.129 views in ~4h, 27 condivisioni, 30 salvataggi). Pattern vincente: VERO + risparmio gas/tempo/soldi + termometro nell'hook. Intro con clip reali AI: skip peggiore, abbandonate.",
+    "14/11: Lorenzo ha bocciato il 29 (acqua della pasta) già programmato. Regola: gli extra si mandano a Lorenzo PRIMA di programmarli. Vuole risparmio 'vero' in euro (lavatrice 30°, lavastoviglie Eco).",
+    "14/11: Lorenzo vuole hook piu' acchiappalike. Lavatrice: 57% skip con hook-domanda. Da ora: hook con perdita/soldi/sfida nei primi 2 secondi.",
+    "15/11: virali = abitudine universale + risparmio in euro + condivisione (pasta 65k, lavatrice 22k). Flop friggitrice: 30 min dopo un altro reel e pubblico ristretto. Regola: >=150 min tra uscite, solo abitudini universali.",
+    "16/11: svolta. Formula da outlier IT: titolo 'Usa X, non Y' e tabella che somma i costi annui. Meno reel (3/giorno), solo potenziali virali.",
+    "16/11 sera: crollo distribuzione (4 reel a ~200 views). Compagna di Lorenzo: troppi risparmi, piu' curiosita'. Nuovo mix: rimedi della nonna smontati + 1 risparmio 'permesso'. Telefono nel riso scartato (troppo banale).",
+    "19/11: le condivisioni nascono dal 'mandalo a chi...' su oggetti identitari (moka sapone 193 share). Spaghetti: record visione 45% ma 1 share: la curiosità pura trattiene ma non si manda. Seguito moka (pressata) 0,57 share/100 views: buono, non virale. Pollo: 6 share su 2.1k.",
+    "20/11: colpo d'aria 1,67 share/100 views (record): il filone 'smentisci la mamma' è il più condivisibile. Ma 61% skip e distribuzione bassa (reach 18/11 4,3k). Da ora hook in movimento dal frame 0 e frase che chiama in causa chi guarda.",
+    "21/11: 4 reel/giorno = più views totali (5,1k vs 2,8k) ma il più debole affonda (carote 193). Hook in movimento: skip 44-46% invece di 61%. TV vicina 1 share/100. I più forti a 08:45 e 20:00.",
+    "22/11: doccia col temporale (mito VERO + pericolo) 19,9k views e 235 condivisioni (1,18/100), +43 follower. Dita/forno/scottatura sotto 240: i miti già sfatati da tutti non partono. Nuova serie 'La mamma aveva ragione'."
+  ],
+  "voce_attuale": {
+    "nome": "Francesco - Natural, Warm and Confident",
+    "voice_id": "PJucOeN3PPVPnud4XocS",
+    "modello": "eleven_v3",
+    "dal": "2026-11-11",
+    "prima": "SimoneF (scartata: suonava finta)"
+  },
+  "autorizzazione": "2026-11-12: Lorenzo autorizza a programmare senza chiedere conferma; l'agente controlla ogni reel e manda i video.",
+  "follower_storico": [
+    {
+      "data": "2026-11-11",
+      "follower": "4-5",
+      "fonte": "Lorenzo"
+    },
+    {
+      "data": "2026-11-12",
+      "follower": "13-14",
+      "fonte": "Lorenzo",
+      "raggiunti": "~10000 (Lorenzo)"
+    },
+    {
+      "data": "2026-11-13T17:20",
+      "follower": 34,
+      "fonte": "API owner insights",
+      "raggiunti": 21626
+    },
+    {
+      "data": "2026-11-13T17:45",
+      "follower": 38,
+      "fonte": "API"
+    },
+    {
+      "data": "2026-11-13T18:36",
+      "follower": 45,
+      "fonte": "API"
+    },
+    {
+      "data": "2026-11-14T08:04",
+      "follower": 166,
+      "raggiunti_13_11": 49580,
+      "fonte": "API"
+    },
+    {
+      "data": "2026-11-17T23:16",
+      "follower": 496,
+      "fonte": "API"
+    },
+    {
+      "data": "2026-11-18T11:50",
+      "follower": 507,
+      "fonte": "API"
+    },
+    {
+      "data": "2026-11-19T08:01",
+      "follower": 526,
+      "fonte": "API"
+    },
+    {
+      "data": "2026-11-20T08:01",
+      "follower": 535,
+      "fonte": "API",
+      "raggiunti_18_11": 4349
+    },
+    {
+      "data": "2026-11-21T08:01",
+      "follower": 543,
+      "fonte": "API",
+      "raggiunti_19_11": 5545
+    },
+    {
+      "data": "2026-11-22T08:01",
+      "follower": 586,
+      "fonte": "API",
+      "raggiunti_21_11": 20349
+    }
+  ]
 }
