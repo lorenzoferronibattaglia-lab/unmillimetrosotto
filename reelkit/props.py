@@ -2095,3 +2095,161 @@ def birthday_cake(cr, cx, y, label="1", t=0.0):
     cr.move_to(0, -35); cr.curve_to(22, -5, 14, 20, 0, 20); cr.curve_to(-14, 20, -22, -5, 0, -35)
     cr.set_source_rgb(1.0, 0.75, 0.20); cr.fill(); cr.restore()
     E.outlined_text(cr, label, cx, y - 40, 70, fill=E.WHITE, lw=8)
+
+
+def _bottle(cr, cx, base_y, w, h, body, cap, label, label_col=None, angle=0.0):
+    """Flacone detersivo generico con tappo ed etichetta."""
+    cr.save(); cr.translate(cx, base_y); cr.rotate(angle)
+    E.rounded_rect(cr, -w / 2, -h, w, h, 36)
+    cr.set_source_rgb(*body); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, -w * 0.22, -h - 70, w * 0.44, 80, 14)
+    cr.set_source_rgb(*cap); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, -w / 2 + 22, -h * 0.68, w - 44, h * 0.40, 14)
+    cr.set_source_rgb(1, 1, 1); cr.fill()
+    E.outlined_text(cr, label, 0, -h * 0.68 + h * 0.24, int(w * 0.115), fill=label_col or E.INK, lw=0)
+    cr.restore()
+
+
+def toxic_cloud(cr, cx, cy, t=0.0, amount=1.0, col=(0.62, 0.85, 0.30), label=None):
+    """Nube di gas che sale e si allarga."""
+    if amount <= 0:
+        return
+    rnd = random.Random(31)
+    for i in range(22):
+        ph = (t * 0.35 + rnd.random()) % 1.0
+        x = cx + rnd.uniform(-160, 160) * (0.5 + ph) * amount
+        y = cy - 420 * ph * amount
+        r = (40 + 70 * ph) * (0.6 + 0.4 * amount)
+        E.circle(cr, x, y, r, col, lw=0, alpha=0.55 * (1 - ph) * amount + 0.1)
+    if label and amount > 0.5:
+        E.outlined_text(cr, label, cx, cy - 260, 76, fill=col, lw=10)
+
+
+def bleach_mix(cr, cx, base_y, t=0.0, mix=1.0):
+    """Candeggina e anticalcare versati nello stesso secchio: nube verdastra di cloro."""
+    # secchio
+    cr.move_to(cx - 200, base_y - 230); cr.line_to(cx + 200, base_y - 230)
+    cr.line_to(cx + 160, base_y); cr.line_to(cx - 160, base_y); cr.close_path()
+    cr.set_source_rgb(0.30, 0.62, 0.95); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    cr.save(); cr.translate(cx, base_y - 230); cr.scale(1, 0.18); E.circle(cr, 0, 0, 200, (0.80, 0.90, 0.55), lw=7); cr.restore()
+    tilt = 0.55 * E.ease(E.clamp(mix * 1.5))
+    _bottle(cr, cx - 300, base_y - 330, 230, 340, (0.98, 0.95, 0.80), (0.95, 0.30, 0.25), "CANDEGGINA", angle=tilt)
+    _bottle(cr, cx + 300, base_y - 330, 230, 340, (0.55, 0.80, 0.98), (0.20, 0.35, 0.85), "ANTICALCARE", angle=-tilt)
+    toxic_cloud(cr, cx, base_y - 260, t=t, amount=mix, label="CLORO")
+
+
+def gas_heater_bed(cr, cx, base_y, t=0.0, co=1.0):
+    """Letto con persona che dorme e stufetta a gas accesa; nube grigia di CO."""
+    # letto
+    E.rounded_rect(cr, cx - 420, base_y - 170, 560, 130, 20)
+    cr.set_source_rgb(0.62, 0.45, 0.30); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, cx - 400, base_y - 250, 520, 110, 40)
+    cr.set_source_rgb(0.55, 0.70, 0.95); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, cx - 420, base_y - 280, 140, 80, 30)
+    cr.set_source_rgb(1, 1, 1); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(5); cr.stroke()
+    E.circle(cr, cx - 340, base_y - 300, 52, (0.96, 0.78, 0.62), lw=6)
+    # zzz
+    for i in range(3):
+        ph = (t * 0.6 + i / 3) % 1.0
+        E.outlined_text(cr, "z", cx - 300 + 60 * ph, base_y - 380 - 140 * ph, int(40 + 30 * ph), fill=E.WHITE, lw=6)
+    # stufetta a gas
+    hx = cx + 300
+    E.rounded_rect(cr, hx - 110, base_y - 360, 220, 340, 20)
+    cr.set_source_rgb(0.85, 0.86, 0.88); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, hx - 85, base_y - 330, 170, 170, 12)
+    cr.set_source_rgb(0.15, 0.10, 0.08); cr.fill()
+    for k in range(3):
+        gl = 0.7 + 0.3 * math.sin(t * 5 + k)
+        E.rounded_rect(cr, hx - 75, base_y - 320 + k * 55, 150, 40, 8)
+        cr.set_source_rgba(1.0, 0.45 + 0.1 * k, 0.15, gl); cr.fill()
+    for dx in (-60, 60):
+        E.rounded_rect(cr, hx + dx - 18, base_y - 20, 36, 20, 6); cr.set_source_rgb(*E.INK); cr.fill()
+    toxic_cloud(cr, cx, base_y - 380, t=t, amount=co, col=(0.55, 0.57, 0.62), label="CO")
+
+
+def phone_pillow(cr, cx, base_y, t=0.0, heat=1.0):
+    """Cuscino con il telefono in carica sotto: cavo, onde di calore, bordo rosso."""
+    # cavo
+    cr.move_to(cx + 330, base_y + 40); cr.curve_to(cx + 480, base_y + 20, cx + 420, base_y - 120, cx + 230, base_y - 110)
+    cr.set_source_rgb(0.95, 0.95, 0.95); cr.set_line_width(14); cr.stroke()
+    cr.move_to(cx + 330, base_y + 40); cr.curve_to(cx + 480, base_y + 20, cx + 420, base_y - 120, cx + 230, base_y - 110)
+    cr.set_source_rgb(*E.INK); cr.set_line_width(3); cr.stroke()
+    # telefono che spunta
+    glow = heat * (0.6 + 0.4 * math.sin(t * 4))
+    cr.save(); cr.translate(cx + 330, base_y - 110); cr.rotate(-0.15)
+    E.rounded_rect(cr, -120, -60, 240, 120, 22)
+    cr.set_source_rgb(0.15 + 0.6 * glow, 0.15, 0.18); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    cr.restore()
+    # cuscino sopra
+    cr.save(); cr.translate(cx - 60, base_y - 170)
+    cr.move_to(-330, -120); cr.curve_to(-120, -170, 120, -170, 330, -120)
+    cr.curve_to(370, -40, 370, 40, 330, 120)
+    cr.curve_to(120, 170, -120, 170, -330, 120)
+    cr.curve_to(-370, 40, -370, -40, -330, -120); cr.close_path()
+    cr.set_source_rgb(0.97, 0.97, 1.0); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    cr.restore()
+    # onde di calore
+    for k in range(3):
+        x0 = cx + 60 + k * 110
+        cr.move_to(x0, base_y - 330)
+        for j in range(6):
+            cr.line_to(x0 + 18 * math.sin(t * 4 + j + k), base_y - 330 - j * 40)
+        cr.set_source_rgba(1.0, 0.35, 0.15, 0.8 * heat); cr.set_line_width(9); cr.stroke()
+
+
+def honey_baby(cr, cx, base_y, t=0.0, cross=0.0):
+    """Barattolo di miele con cucchiaino che gocciola verso un biberon; croce rossa opzionale."""
+    # barattolo
+    E.rounded_rect(cr, cx - 330, base_y - 300, 260, 300, 40)
+    cr.set_source_rgb(0.98, 0.70, 0.15); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    E.rounded_rect(cr, cx - 345, base_y - 350, 290, 70, 16)
+    cr.set_source_rgb(0.85, 0.55, 0.25); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, cx - 300, base_y - 220, 200, 100, 12); cr.set_source_rgb(1, 1, 1); cr.fill()
+    E.outlined_text(cr, "MIELE", cx - 200, base_y - 152, 46, fill=(0.80, 0.45, 0.05), lw=0)
+    # cucchiaino con goccia
+    cr.save(); cr.translate(cx - 20, base_y - 440); cr.rotate(0.35)
+    E.rounded_rect(cr, -150, -10, 200, 20, 10); cr.set_source_rgb(0.80, 0.82, 0.86); cr.fill()
+    cr.save(); cr.translate(70, 0); cr.scale(1, 0.6); E.circle(cr, 0, 0, 45, (0.98, 0.70, 0.15), lw=6); cr.restore()
+    cr.restore()
+    ph = (t * 0.7) % 1.0
+    E.circle(cr, cx + 70, base_y - 390 + 160 * ph, 16 + 6 * ph, (0.98, 0.70, 0.15), lw=4)
+    # biberon
+    bx = cx + 220
+    E.rounded_rect(cr, bx - 90, base_y - 300, 180, 300, 40)
+    cr.set_source_rgb(0.95, 0.97, 1.0); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    E.rounded_rect(cr, bx - 90, base_y - 160, 180, 160, 40); cr.set_source_rgb(1.0, 0.98, 0.92); cr.fill()
+    E.rounded_rect(cr, bx - 100, base_y - 340, 200, 50, 12)
+    cr.set_source_rgb(0.55, 0.80, 0.98); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    cr.move_to(bx - 40, base_y - 340); cr.curve_to(bx - 40, base_y - 430, bx + 40, base_y - 430, bx + 40, base_y - 340)
+    cr.set_source_rgb(1.0, 0.85, 0.65); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    if cross > 0:
+        cr.move_to(bx - 160 * cross, base_y - 460); cr.line_to(bx - 160 * cross + 320 * cross, base_y + 20)
+        cr.move_to(bx + 160 * cross, base_y - 460); cr.line_to(bx + 160 * cross - 320 * cross, base_y + 20)
+        cr.set_source_rgb(*E.RED); cr.set_line_width(18); cr.stroke()
+
+
+def rice_left_out(cr, cx, base_y, t=0.0, hours=1.0):
+    """Pentola di riso lasciata sul fornello spento con orologio che corre e spore."""
+    stove(cr, cx, base_y, 620)
+    kitchen_pot(cr, t, top=base_y - 330, w=520, h=300, water_level=0.0, fire=0.0)
+    # cumulo di riso
+    rnd = random.Random(5)
+    for j in range(90):
+        gx = cx + rnd.uniform(-220, 220)
+        gy = base_y - 335 - rnd.uniform(0, 60) * (1 - abs(gx - cx) / 260)
+        cr.save(); cr.translate(gx, gy); cr.rotate(rnd.uniform(0, math.pi)); cr.scale(1, 0.45)
+        cr.arc(0, 0, 15, 0, 2 * math.pi); cr.set_source_rgb(0.98, 0.98, 0.96); cr.fill_preserve()
+        cr.set_source_rgb(0.55, 0.55, 0.55); cr.set_line_width(2); cr.stroke(); cr.restore()
+    # orologio
+    ox, oy = cx + 300, base_y - 620
+    E.circle(cr, ox, oy, 95, E.WHITE, lw=7)
+    a = -math.pi / 2 + t * 1.6
+    cr.move_to(ox, oy); cr.line_to(ox + 70 * math.cos(a), oy + 70 * math.sin(a))
+    cr.set_source_rgb(*E.RED); cr.set_line_width(8); cr.stroke()
+    cr.move_to(ox, oy); cr.line_to(ox + 45 * math.cos(a / 12), oy + 45 * math.sin(a / 12))
+    cr.set_source_rgb(*E.INK); cr.set_line_width(10); cr.stroke()
+    # spore che compaiono
+    n = int(10 * hours)
+    for i in range(n):
+        x = cx + rnd.uniform(-200, 200); y = base_y - 380 - rnd.uniform(0, 160) + 8 * math.sin(t * 2 + i)
+        E.circle(cr, x, y, 14, (0.55, 0.80, 0.30), lw=4, alpha=0.9)

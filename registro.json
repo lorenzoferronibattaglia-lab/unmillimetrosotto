@@ -822,6 +822,31 @@
     {
       "id": "62_cane_sette_anni",
       "stato": "proposto"
+    },
+    {
+      "id": "63_candeggina_anticalcare",
+      "stato": "proposto",
+      "serie": "la mamma aveva ragione"
+    },
+    {
+      "id": "64_stufa_notte",
+      "stato": "proposto",
+      "serie": "la mamma aveva ragione"
+    },
+    {
+      "id": "65_riso_avanzato",
+      "stato": "proposto",
+      "serie": "la mamma aveva ragione"
+    },
+    {
+      "id": "66_telefono_cuscino",
+      "stato": "proposto",
+      "serie": "la mamma aveva ragione"
+    },
+    {
+      "id": "67_miele_neonati",
+      "stato": "proposto",
+      "serie": "la mamma aveva ragione"
     }
   ],
   "lezioni": [

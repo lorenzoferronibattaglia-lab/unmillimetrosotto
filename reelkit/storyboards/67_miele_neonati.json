@@ -1,0 +1,28 @@
+{
+ "id": "67_miele_neonati",
+ "topic": "Niente miele ai bambini sotto l'anno: è vero?",
+ "paragraphs": [
+  {"text": "Un cucchiaino di miele nel latte del bimbo per farlo dormire? Le nonne dicono di no. E hanno ragione.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["MIELE AL BIMBO", "SOTTO L'ANNO?"], "title_size": 104,
+     "prop": {"appliance": "honey_baby", "cross_at": "ragione"},
+     "stamp": {"text": "NO", "at": "ragione"}}},
+  {"text": "Il miele può contenere spore del botulino. In un adulto non fanno niente, ma nell'intestino di un bambino sotto i dodici mesi possono germinare e produrre la tossina. Si chiama botulismo infantile: raro, ma grave.",
+   "scene": {"type": "number", "title": ["IL RISCHIO", "È IL BOTULINO"], "card": {"main": "spore", "sub": "nel miele", "at": "spore"}, "big": {"text": "SOTTO I 12 MESI", "at": "dodici", "size": 110},
+     "labels": [{"text": "RARO MA GRAVE", "at": "grave", "pos": [540, 1220], "size": 60}]}},
+  {"text": "Per questo pediatri e Ministero della Salute dicono: niente miele nel primo anno, neanche sul ciuccio. Dopo l'anno, nessun problema.",
+   "scene": {"type": "checklist", "title": ["LA", "REGOLA"], "items": [
+     {"text": "MIELE SUL CIUCCIO", "ok": false, "at": "ciuccio"},
+     {"text": "NIENTE NEL PRIMO ANNO", "ok": true, "at": "primo"},
+     {"text": "DOPO L'ANNO: SÌ", "ok": true, "at": "Dopo"}]}},
+  {"text": "Mandalo a chi ha appena avuto un bambino.",
+   "scene": {"type": "end", "line": "AVEVA RAGIONE LA NONNA", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Niente miele ai bambini sotto l'anno: è VERO 🍯🍼 Il miele può contenere spore di Clostridium botulinum: innocue per adulti e ragazzi, ma nell'intestino di un lattante possono germinare e produrre la tossina (botulismo infantile). È raro, ma grave: per questo pediatri, Istituto Superiore di Sanità e Ministero della Salute raccomandano di non dare miele nel primo anno di vita, neanche in piccole quantità o sul ciuccio.\n\n• niente miele prima dei 12 mesi\n• dopo l'anno si può mangiare senza problemi\n• nel dubbio, chiedi al pediatra\n\nMandalo a chi ha appena avuto un bambino 👇\n\n#neonati #svezzamento #genitori #veroofalso #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Istituto Superiore di Sanità: il botulismo infantile e il miele", "url": "https://www.iss.it/en/sicurezza-microbiologica-degli-alimenti/-/asset_publisher/3dUYTNU4YVv2/content/-il-botulismo-infantile-e-il-miele"},
+  {"titolo": "Manuale MSD: niente miele sotto i 12 mesi", "url": "https://www.msdmanuals.com/it/casa/infezioni/infezioni-batteriche-batteri-anaerobi/botulismo-infantile"},
+  {"titolo": "Il Fatto Alimentare: raccomandazioni del Ministero della Salute sullo svezzamento", "url": "https://ilfattoalimentare.it/svezzamento-prima-infanzia.html"}
+ ],
+ "hook_test": "mamma_aveva_ragione",
+ "theme": "cucina_notte"
+}

@@ -1,0 +1,28 @@
+{
+ "id": "63_candeggina_anticalcare",
+ "topic": "Mai mischiare candeggina e anticalcare: è vero?",
+ "paragraphs": [
+  {"text": "Mai mischiare la candeggina con altri detersivi! Sembra una fissazione di tua madre. E invece aveva ragione.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["CANDEGGINA +", "ANTICALCARE?"], "title_size": 104,
+     "prop": {"appliance": "bleach"},
+     "stamp": {"text": "VERO", "at": "ragione", "color": "green"}}},
+  {"text": "La candeggina a contatto con un acido, come l'anticalcare, il viakal o l'aceto, libera cloro. Un gas che brucia occhi, gola e polmoni, soprattutto in un bagno piccolo e chiuso.",
+   "scene": {"type": "number", "title": ["SI LIBERA", "CLORO"], "card": {"main": "candeggina", "sub": "+ un acido", "at": "acido"}, "big": {"text": "GAS TOSSICO", "at": "cloro", "size": 130},
+     "labels": [{"text": "OCCHI, GOLA, POLMONI", "at": "polmoni", "pos": [540, 1220], "size": 58}]}},
+  {"text": "Con l'ammoniaca è anche peggio. La regola è semplice: un prodotto alla volta, risciacqua bene prima di passare all'altro e tieni la finestra aperta.",
+   "scene": {"type": "checklist", "title": ["COME", "PULIRE"], "items": [
+     {"text": "MAI MESCOLARE", "ok": false, "at": "ammoniaca"},
+     {"text": "UN PRODOTTO ALLA VOLTA", "ok": true, "at": "volta"},
+     {"text": "FINESTRA APERTA", "ok": true, "at": "finestra"}]}},
+  {"text": "Mandalo a chi pulisce il bagno con tre prodotti insieme.",
+   "scene": {"type": "end", "line": "AVEVA RAGIONE LA MAMMA", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Mai mischiare la candeggina: è VERO ☣️ La candeggina (ipoclorito di sodio) a contatto con prodotti acidi, come anticalcare, disincrostanti per WC o aceto, libera cloro gassoso: irrita occhi, gola e vie respiratorie, soprattutto in un bagno piccolo e chiuso. Con l'ammoniaca si formano clorammine, altrettanto pericolose.\n\n• un prodotto alla volta, mai nello stesso secchio\n• risciacqua bene prima di passare all'altro\n• finestra aperta mentre pulisci\n\nMandalo a chi pulisce il bagno con tre prodotti insieme 👇\n\n#pulizie #candeggina #sicurezzaincasa #veroofalso #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Ufficio federale della sanità pubblica (CH): non mescolare la candeggina con acidi/decalcificanti (cloro gassoso) né con ammoniaca", "url": "https://www.bag.admin.ch/it/la-candeggina"},
+  {"titolo": "Tox Info Suisse: a contatto con acidi la candeggina libera cloro gassoso", "url": "https://www.toxinfo.ch/customer/files/379/20151110-Factsheet_Javel_IT.pdf"},
+  {"titolo": "Geopop: candeggina e ammoniaca producono gas tossici (richiamo ISS)", "url": "https://www.geopop.it/mischiare-detersivi-come-candeggina-e-ammoniaca-e-sconsigliato-perche-possono-produrre-gas-tossici/"}
+ ],
+ "hook_test": "mamma_aveva_ragione",
+ "theme": "cucina_notte"
+}

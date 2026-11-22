@@ -1,0 +1,28 @@
+{
+ "id": "66_telefono_cuscino",
+ "topic": "Il telefono in carica sotto il cuscino è pericoloso?",
+ "paragraphs": [
+  {"text": "Non mettere il telefono in carica sotto il cuscino! Sembra la solita paranoia di tua madre. E invece aveva ragione.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["TELEFONO IN CARICA", "SOTTO IL CUSCINO?"], "title_size": 92,
+     "prop": {"appliance": "phone_pillow"},
+     "stamp": {"text": "VERO", "at": "ragione", "color": "green"}}},
+  {"text": "Mentre si carica, la batteria scalda. Sotto un cuscino o una coperta quel calore non ha dove andare e il telefono si surriscalda. Lo scrive anche Apple nelle sue istruzioni: mai sotto cuscini o coperte quando è collegato.",
+   "scene": {"type": "number", "title": ["IL CALORE", "RESTA LÌ"], "card": {"main": "batteria", "sub": "in carica", "at": "batteria"}, "big": {"text": "SURRISCALDA", "at": "surriscalda", "size": 120},
+     "labels": [{"text": "LO DICE ANCHE APPLE", "at": "Apple", "pos": [540, 1220], "size": 58}]}},
+  {"text": "Caricalo su una superficie dura, comodino o mensola, con un caricatore originale o certificato. E se diventa bollente, staccalo.",
+   "scene": {"type": "checklist", "title": ["DOVE", "CARICARLO"], "items": [
+     {"text": "SOTTO IL CUSCINO", "ok": false, "at": "dura"},
+     {"text": "SU UNA SUPERFICIE DURA", "ok": true, "at": "mensola"},
+     {"text": "CARICATORE CERTIFICATO", "ok": true, "at": "certificato"}]}},
+  {"text": "Mandalo a chi dorme col telefono in carica sotto il cuscino.",
+   "scene": {"type": "end", "line": "AVEVA RAGIONE LA MAMMA", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Il telefono in carica sotto il cuscino: è VERO che è pericoloso 📱🔥 Durante la ricarica la batteria al litio si scalda; sotto un cuscino o una coperta il calore non si disperde e il telefono si surriscalda. Apple stessa avverte di non dormire su un dispositivo collegato e di non metterlo sotto cuscini o coperte. I vigili del fuoco di Madrid hanno lanciato lo stesso avviso: tessuti e materassi trattengono il calore.\n\n• caricalo su una superficie dura e libera\n• usa caricatori originali o certificati\n• se scotta, staccalo\n\nMandalo a chi dorme col telefono sotto il cuscino 👇\n\n#smartphone #batteria #sicurezzaincasa #veroofalso #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Apple, istruzioni di sicurezza (citate da Trend-online): non dormire su un dispositivo collegato né metterlo sotto un cuscino", "url": "https://www.trend-online.com/salute/dormire-vicino-telefono-in-carica/"},
+  {"titolo": "Money.it: caricarlo sotto cuscino o coperta impedisce la dispersione del calore", "url": "https://www.money.it/come-raffreddare-il-telefono-surriscaldato-consigli-utili-e-accessori"},
+  {"titolo": "Smartworld: caricarlo su tessuti o sotto il cuscino favorisce il surriscaldamento", "url": "https://www.smartworld.it/news/smartphone-spento-distanza-letto-dormire-meglio.html"}
+ ],
+ "hook_test": "mamma_aveva_ragione",
+ "theme": "cucina_notte"
+}

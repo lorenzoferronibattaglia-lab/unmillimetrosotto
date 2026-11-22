@@ -1,0 +1,28 @@
+{
+ "id": "65_riso_avanzato",
+ "topic": "Il riso avanzato lasciato fuori fa male: è vero?",
+ "paragraphs": [
+  {"text": "Il riso avanzato non lasciarlo sul fornello fino a sera! Tua madre lo ripeteva sempre. E aveva ragione.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["RISO AVANZATO", "LASCIATO FUORI?"], "title_size": 100,
+     "prop": {"appliance": "rice_left"},
+     "stamp": {"text": "VERO", "at": "ragione", "color": "green"}}},
+  {"text": "Il riso crudo può contenere le spore di un batterio, il Bacillus cereus, che sopravvivono alla cottura. Se il riso cotto resta ore a temperatura ambiente, si risvegliano e producono tossine che il riscaldamento non elimina.",
+   "scene": {"type": "number", "title": ["LE SPORE", "SOPRAVVIVONO"], "card": {"main": "Bacillus cereus", "sub": "nel riso cotto", "at": "Bacillus"}, "big": {"text": "TOSSINE", "at": "tossine", "size": 140},
+     "labels": [{"text": "VOMITO E DIARREA", "at": "elimina", "pos": [540, 1220], "size": 58}]}},
+  {"text": "La regola: in frigo entro un'ora dalla cottura, mangialo entro il giorno dopo e riscaldalo una volta sola, bene.",
+   "scene": {"type": "checklist", "title": ["COME", "CONSERVARLO"], "items": [
+     {"text": "IN FRIGO ENTRO 1 ORA", "ok": true, "at": "frigo"},
+     {"text": "ENTRO IL GIORNO DOPO", "ok": true, "at": "dopo"},
+     {"text": "RISCALDATO PIÙ VOLTE", "ok": false, "at": "sola"}]}},
+  {"text": "Mandalo a chi lascia la pentola di riso sul fornello tutto il giorno.",
+   "scene": {"type": "end", "line": "AVEVA RAGIONE LA MAMMA", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Il riso avanzato lasciato fuori fa male: è VERO 🍚 Il riso crudo può contenere spore di Bacillus cereus, che resistono alla cottura. Se il riso cotto resta ore a temperatura ambiente, le spore germinano e producono tossine che il riscaldamento non distrugge: nausea, vomito e diarrea già poche ore dopo.\n\n• mettilo in frigo entro un'ora dalla cottura\n• consumalo entro il giorno dopo\n• riscaldalo una volta sola, bene\n\nMandalo a chi lascia la pentola di riso sul fornello tutto il giorno 👇\n\n#riso #sicurezzaalimentare #avanzi #veroofalso #unmillimetrosotto",
+ "sources": [
+  {"titolo": "GreenMe: riso avanzato, il rischio Bacillus cereus (NHS ed EFSA)", "url": "https://www.greenme.it/?p=1421305"},
+  {"titolo": "GreenMe: il riso non dovrebbe restare più di un'ora fuori dal frigo (NHS)", "url": "https://www.greenme.it/?p=850213"},
+  {"titolo": "My Personal Trainer: riso cotto e Bacillus cereus", "url": "https://www.my-personaltrainer.it/alimentazione/e-vero-che-conservare-il-riso-cotto-in-frigorifero-e-pericoloso.html"}
+ ],
+ "hook_test": "mamma_aveva_ragione",
+ "theme": "cucina_notte"
+}

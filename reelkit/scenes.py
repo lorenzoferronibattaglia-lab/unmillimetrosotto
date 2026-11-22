@@ -132,8 +132,20 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum", "knuckles", "shower_storm", "burn", "oven_wait", "washer_foam", "dog_cake"):
-        if pr["appliance"] == "dog_cake":
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum", "knuckles", "shower_storm", "burn", "oven_wait", "washer_foam", "dog_cake", "bleach", "heater_bed", "phone_pillow", "honey_baby", "rice_left"):
+        if pr["appliance"] == "bleach":
+            mx = E.ease(E.clamp((t - s) / 2.5))
+            P.bleach_mix(cr, 540, 1340, t=t, mix=0.25 + 0.75 * mx)
+        elif pr["appliance"] == "heater_bed":
+            P.gas_heater_bed(cr, 540, 1330, t=t, co=0.3 + 0.7 * E.ease(E.clamp((t - s) / 4.0)))
+        elif pr["appliance"] == "phone_pillow":
+            P.phone_pillow(cr, 520, 1300, t=t, heat=0.4 + 0.6 * E.ease(E.clamp((t - s) / 3.0)))
+        elif pr["appliance"] == "rice_left":
+            P.rice_left_out(cr, 540, 1330, t=t, hours=0.2 + 0.8 * E.ease(E.clamp((t - s) / 4.0)))
+        elif pr["appliance"] == "honey_baby":
+            c0 = ctx.at(par, pr.get("cross_at", 0.0))
+            P.honey_baby(cr, 540, 1330, t=t, cross=E.ease(E.prog(t, c0, c0 + 0.5)) if pr.get("cross_at") else 0.0)
+        elif pr["appliance"] == "dog_cake":
             P.dog(cr, 400, 930, scale=0.95, t=t)
             P.birthday_cake(cr, 790, 1250, label=pr.get("cake", "1"), t=t)
         elif pr["appliance"] == "oven_wait":
@@ -1076,7 +1088,7 @@ def end(cr, t, ctx, par, spec):
     cr.save()
     cr.translate(540, 560)
     cr.scale(p, p)
-    E.outlined_text(cr, spec.get("line", "IL PROSSIMO"), 0, 0, 100, fill=E.WHITE, lw=14)
+    _ln = spec.get("line", "IL PROSSIMO"); E.outlined_text(cr, _ln, 0, 0, spec.get("line_size", 100 if len(_ln) <= 16 else int(1500 / len(_ln))), fill=E.WHITE, lw=14)
     cr.restore()
     st_txt = spec.get("stamp", "FALSO MITO")
     st_size = 120
