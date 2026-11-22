@@ -1,0 +1,29 @@
+{
+ "id": "68_temporale_parte2",
+ "topic": "Temporale parte 2: albero, telefono fisso e auto",
+ "paragraphs": [
+  {"text": "Parte due del temporale. Altre tre regole della nonna. E anche qui aveva ragione, tranne su un dettaglio.",
+   "scene": {"type": "hook", "mode": "payoff", "title": ["TEMPORALE", "PARTE 2"], "title_size": 120,
+     "prop": {"appliance": "storm_tree_car"},
+     "stamp": {"text": "VERO", "at": "ragione", "color": "green"}}},
+  {"text": "Uno: mai ripararsi sotto un albero, soprattutto se isolato. Il fulmine lo colpisce e la scarica passa dal tronco e dal terreno a chi sta vicino. Due: niente telefono fisso col filo, la carica può arrivare dai cavi. Il cellulare invece va bene.",
+   "scene": {"type": "checklist", "title": ["COL TEMPORALE", "EVITA"], "items": [
+     {"text": "RIPARARTI SOTTO UN ALBERO", "ok": false, "at": "albero"},
+     {"text": "TELEFONO FISSO COL FILO", "ok": false, "at": "filo"},
+     {"text": "CELLULARE", "ok": true, "at": "cellulare"}]}},
+  {"text": "Tre: in macchina sei al sicuro, con i finestrini chiusi. Ma non per merito delle gomme, come dicono tutti. È la carrozzeria di metallo che fa da gabbia e porta la scarica a terra lontano da te.",
+   "scene": {"type": "number", "title": ["IN AUTO SEI", "AL SICURO"], "card": {"main": "carrozzeria", "sub": "di metallo", "at": "carrozzeria"}, "big": {"text": "NON LE GOMME", "at": "gomme", "size": 120},
+     "labels": [{"text": "GABBIA DI FARADAY", "at": "gabbia", "pos": [540, 1220], "size": 60}]}},
+  {"text": "Mandalo a chi ha visto la parte uno.",
+   "scene": {"type": "end", "line": "AVEVA RAGIONE LA NONNA", "follow_at": "Mandalo", "stamp": "MANDALO!"}}
+ ],
+ "caption": "Temporale, parte 2 ⚡ Altre tre regole della nonna:\n\n• mai ripararsi sotto un albero, soprattutto isolato: il fulmine lo colpisce e la scarica passa dal tronco e dal terreno a chi è vicino\n• niente telefono fisso col filo: la carica può propagarsi lungo i cavi (cellulare e cordless sì)\n• in auto sei al sicuro, finestrini chiusi e mani lontane dal metallo: ma il merito è della carrozzeria che fa da gabbia di Faraday, non delle gomme\n\nHai visto la parte 1 sulla doccia? 👇 Mandalo a chi l'ha vista.\n\n#temporale #fulmini #veroofalso #sicurezza #unmillimetrosotto",
+ "sources": [
+  {"titolo": "Quotidiano.net: indicazioni ISS, niente albero né telefono fisso; l'auto è una gabbia metallica", "url": "https://www.quotidiano.net/medicina/cosa-succede-fulmine-rischi-salute-fj48w0vu"},
+  {"titolo": "Comune di Lucca: in auto protegge l'effetto gabbia di Faraday delle lamiere, non la gomma degli pneumatici", "url": "https://www.comune.lucca.it/app/uploads/2025/09/FULMINI-E-TEMPORALI.pdf"},
+  {"titolo": "Prefettura: evita il telefono fisso e le apparecchiature collegate alla rete", "url": "https://prefettura.interno.gov.it/sites/default/files/93/2024-02/in_caso_di_temporali_e_fulmini.pdf"},
+  {"titolo": "Focus: niente telefono fisso col filo, sì al cellulare; mai sotto un albero isolato", "url": "https://www.focus.it/cultura/curiosita/perche-meglio-non-fare-doccia-durante-temporale-fulmini"}
+ ],
+ "hook_test": "seguito_virale",
+ "theme": "cucina_notte"
+}

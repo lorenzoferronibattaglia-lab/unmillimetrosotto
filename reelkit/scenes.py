@@ -132,7 +132,7 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum", "knuckles", "shower_storm", "burn", "oven_wait", "washer_foam", "dog_cake", "bleach", "heater_bed", "phone_pillow", "honey_baby", "rice_left"):
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum", "knuckles", "shower_storm", "burn", "oven_wait", "washer_foam", "dog_cake", "bleach", "heater_bed", "phone_pillow", "honey_baby", "rice_left", "storm_tree_car"):
         if pr["appliance"] == "bleach":
             mx = E.ease(E.clamp((t - s) / 2.5))
             P.bleach_mix(cr, 540, 1340, t=t, mix=0.25 + 0.75 * mx)
@@ -140,6 +140,8 @@ def hook(cr, t, ctx, par, spec):
             P.gas_heater_bed(cr, 540, 1330, t=t, co=0.3 + 0.7 * E.ease(E.clamp((t - s) / 4.0)))
         elif pr["appliance"] == "phone_pillow":
             P.phone_pillow(cr, 520, 1300, t=t, heat=0.4 + 0.6 * E.ease(E.clamp((t - s) / 3.0)))
+        elif pr["appliance"] == "storm_tree_car":
+            P.storm_tree_car(cr, 540, 1380, t=t, bolt=E.ease(E.clamp((t - s) / 1.5)))
         elif pr["appliance"] == "rice_left":
             P.rice_left_out(cr, 540, 1330, t=t, hours=0.2 + 0.8 * E.ease(E.clamp((t - s) / 4.0)))
         elif pr["appliance"] == "honey_baby":

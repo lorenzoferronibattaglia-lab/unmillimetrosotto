@@ -2253,3 +2253,33 @@ def rice_left_out(cr, cx, base_y, t=0.0, hours=1.0):
     for i in range(n):
         x = cx + rnd.uniform(-200, 200); y = base_y - 380 - rnd.uniform(0, 160) + 8 * math.sin(t * 2 + i)
         E.circle(cr, x, y, 14, (0.55, 0.80, 0.30), lw=4, alpha=0.9)
+
+
+def storm_tree_car(cr, cx, base_y, t=0.0, bolt=1.0):
+    """Nuvola col fulmine che colpisce un albero isolato; a destra un'auto chiusa al sicuro."""
+    # prato
+    E.rounded_rect(cr, 80, base_y - 10, 920, 40, 14); cr.set_source_rgb(0.35, 0.62, 0.30); cr.fill()
+    # albero
+    tx = cx - 220
+    E.rounded_rect(cr, tx - 30, base_y - 260, 60, 260, 10)
+    cr.set_source_rgb(0.50, 0.32, 0.18); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    for (dx, dy, r) in ((0, -360, 130), (-90, -290, 95), (90, -290, 95)):
+        E.circle(cr, tx + dx, base_y + dy, r, (0.30, 0.58, 0.28), lw=6)
+    # auto
+    ax = cx + 250
+    cr.move_to(ax - 200, base_y - 40); cr.line_to(ax - 200, base_y - 120); cr.line_to(ax - 120, base_y - 130)
+    cr.line_to(ax - 70, base_y - 210); cr.line_to(ax + 80, base_y - 210); cr.line_to(ax + 140, base_y - 130)
+    cr.line_to(ax + 200, base_y - 120); cr.line_to(ax + 200, base_y - 40); cr.close_path()
+    cr.set_source_rgb(0.90, 0.30, 0.25); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    for (x0, x1) in ((ax - 60, ax), (ax + 15, ax + 110)):
+        cr.move_to(x0, base_y - 135); cr.line_to(x0 + 10, base_y - 195); cr.line_to(x1, base_y - 195); cr.line_to(x1 + 15, base_y - 135); cr.close_path()
+        cr.set_source_rgb(0.75, 0.88, 0.98); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(4); cr.stroke()
+    for wx in (ax - 120, ax + 120):
+        E.circle(cr, wx, base_y - 35, 42, (0.15, 0.15, 0.17), lw=6)
+        E.circle(cr, wx, base_y - 35, 16, (0.75, 0.76, 0.80), lw=0)
+    # nuvola sopra l'albero e fulmine che lo colpisce
+    storm_cloud(cr, tx + 40, base_y - 780, t=t)
+    if bolt > 0:
+        g = bolt * (0.6 + 0.4 * (0.5 + 0.5 * math.sin(t * 3)))
+        cr.move_to(tx + 20, base_y - 620); cr.line_to(tx - 30, base_y - 560); cr.line_to(tx + 10, base_y - 555); cr.line_to(tx - 20, base_y - 480)
+        cr.set_source_rgba(1.0, 0.90, 0.25, g); cr.set_line_width(14); cr.stroke()
