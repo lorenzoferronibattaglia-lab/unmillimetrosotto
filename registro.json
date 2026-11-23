@@ -883,11 +883,15 @@
     },
     {
       "id": "69_tubi_plastica",
-      "stato": "proposto"
+      "stato": "programmato",
+      "uscita": "2026-11-23T10:50+01:00",
+      "vidiq_post_id": "de921d08-75cb-4e6c-96fc-9143a93f00d2"
     },
     {
       "id": "71_spugna_cucina",
-      "stato": "proposto"
+      "stato": "programmato",
+      "uscita": "2026-11-23T18:00+01:00",
+      "vidiq_post_id": "1901b651-3515-4dd1-95cc-71550921a4eb"
     },
     {
       "id": "70_ciabatta_cascata",
