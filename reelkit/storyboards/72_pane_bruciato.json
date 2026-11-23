@@ -1,0 +1,106 @@
+{
+ "id": "72_pane_bruciato",
+ "topic": "La parte bruciata del pane va tolta?",
+ "paragraphs": [
+  {
+   "text": "Togli la parte bruciata del pane! Te lo diceva tua nonna. E aveva ragione.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "PANE",
+     "BRUCIATO?"
+    ],
+    "title_size": 118,
+    "prop": {
+     "appliance": "toast"
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "ragione",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Quando pane, patate e biscotti cuociono a temperature alte si forma l'acrilammide. Più scuro diventa, più ce n'è. Secondo l'Autorità europea per la sicurezza alimentare può aumentare il rischio di tumore.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "SI FORMA",
+     "ACRILAMMIDE"
+    ],
+    "card": {
+     "main": "alta temperatura",
+     "sub": "pane, patate, biscotti",
+     "at": "temperature"
+    },
+    "big": {
+     "text": "PIÙ SCURO = PIÙ",
+     "at": "scuro",
+     "size": 110
+    },
+    "labels": [
+     {
+      "text": "EFSA: RISCHIO TUMORE",
+      "at": "tumore",
+      "pos": [
+       540,
+       1220
+      ],
+      "size": 58
+     }
+    ]
+   }
+  },
+  {
+   "text": "Non serve allarmarsi per una fetta, conta l'abitudine. La regola europea è semplice: dorato, non bruciato.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "LA",
+     "REGOLA"
+    ],
+    "items": [
+     {
+      "text": "CROSTA NERA",
+      "ok": false,
+      "at": "fetta"
+     },
+     {
+      "text": "DORATO CHIARO",
+      "ok": true,
+      "at": "dorato"
+     },
+     {
+      "text": "TOGLI LA PARTE BRUCIATA",
+      "ok": true,
+      "at": "bruciato"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi ama il pane abbrustolito nero.",
+   "scene": {
+    "type": "end",
+    "line": "AVEVA RAGIONE LA NONNA",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "La parte bruciata del pane va tolta: è VERO 🍞🔥 Cuocendo ad alte temperature alimenti ricchi di amido (pane, patate, biscotti) si forma acrilammide, e più il colore è scuro più ce n'è. L'EFSA (Autorità europea per la sicurezza alimentare) conclude che l'acrilammide negli alimenti può aumentare il rischio di cancro in tutte le fasce d'età. Non serve allarmarsi per una fetta: conta l'abitudine.\n\n• dorato chiaro, non marrone scuro o nero\n• togli le parti bruciate\n• vale anche per patate al forno e fritte\n\nMandalo a chi ama il pane abbrustolito nero 👇\n\n#pane #acrilammide #sicurezzaalimentare #veroofalso #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "DiLei: parere EFSA 2015, l'acrilammide aumenta potenzialmente il rischio di cancro; \"leggera doratura, non bruciatura\"",
+   "url": "https://dilei.it/benessere/dorato-ma-non-bruciato-come-lacrilammide-mette-a-rischio-la-salute/1210070/"
+  },
+  {
+   "titolo": "GreenMe: EFSA sull'acrilammide, colore dorato chiaro e non marrone intenso",
+   "url": "https://www.greenme.it/?p=1286847"
+  }
+ ],
+ "hook_test": "mamma_aveva_ragione",
+ "theme": "cucina_notte"
+}

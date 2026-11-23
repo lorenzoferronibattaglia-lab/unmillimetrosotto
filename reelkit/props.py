@@ -2283,3 +2283,129 @@ def storm_tree_car(cr, cx, base_y, t=0.0, bolt=1.0):
         g = bolt * (0.6 + 0.4 * (0.5 + 0.5 * math.sin(t * 3)))
         cr.move_to(tx + 20, base_y - 620); cr.line_to(tx - 30, base_y - 560); cr.line_to(tx + 10, base_y - 555); cr.line_to(tx - 20, base_y - 480)
         cr.set_source_rgba(1.0, 0.90, 0.25, g); cr.set_line_width(14); cr.stroke()
+
+
+def comment_bubble(cr, cx, cy, text, w=820, t=0.0, user="utente"):
+    """Fumetto commento stile Instagram con avatar e testo."""
+    h = 170
+    E.rounded_rect(cr, cx - w / 2, cy - h / 2, w, h, 34)
+    cr.set_source_rgb(1, 1, 1); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.circle(cr, cx - w / 2 + 75, cy, 45, (0.80, 0.84, 0.90), lw=4)
+    E.circle(cr, cx - w / 2 + 75, cy - 12, 16, (0.55, 0.60, 0.68), lw=0)
+    cr.save(); cr.translate(cx - w / 2 + 75, cy + 25); cr.scale(1, 0.55); E.circle(cr, 0, 0, 30, (0.55, 0.60, 0.68), lw=0); cr.restore()
+    E.outlined_text(cr, text, cx + 50, cy + 20, 58, fill=E.INK, lw=0)
+    # cuore
+    hx, hy = cx + w / 2 - 50, cy - 40
+    cr.move_to(hx, hy + 18); cr.curve_to(hx - 30, hy - 5, hx - 15, hy - 30, hx, hy - 12)
+    cr.curve_to(hx + 15, hy - 30, hx + 30, hy - 5, hx, hy + 18)
+    cr.set_source_rgb(*E.RED); cr.fill()
+
+
+def power_strips(cr, cx, base_y, t=0.0, heat=1.0):
+    """Tre ciabatte collegate a cascata, la prima che si scalda e fuma."""
+    def strip(x, y, w=300, glow=0.0):
+        E.rounded_rect(cr, x - w / 2, y - 40, w, 80, 20)
+        cr.set_source_rgb(0.95 + 0.05 * glow, 0.95 - 0.5 * glow, 0.95 - 0.6 * glow); cr.fill_preserve()
+        cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+        for k in range(4):
+            sx = x - w / 2 + 50 + k * 67
+            E.circle(cr, sx, y, 18, (0.25, 0.25, 0.28), lw=0)
+    # presa a muro
+    E.rounded_rect(cr, 90, base_y - 520, 130, 130, 20)
+    cr.set_source_rgb(1, 1, 1); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    pos = [(cx - 150, base_y - 380), (cx + 60, base_y - 200), (cx + 170, base_y - 20)]
+    prev = (155, base_y - 455)
+    for i, (x, y) in enumerate(pos):
+        cr.move_to(*prev); cr.curve_to(prev[0] + 60, prev[1] + 80, x - 220, y - 60, x - 150, y)
+        cr.set_source_rgb(*E.INK); cr.set_line_width(10); cr.stroke()
+        g = heat * (0.9 + 0.1 * math.sin(t * 4)) if i == 0 else 0.0
+        strip(x, y, glow=g)
+        prev = (x + 120, y)
+    # spine attaccate
+    for (x, y) in pos:
+        for k in (1, 2, 3):
+            E.rounded_rect(cr, x - 150 + 50 + k * 67 - 22, y - 90, 44, 60, 8)
+            cr.set_source_rgb(0.15, 0.15, 0.17); cr.fill()
+    # fumo dalla prima
+    steam(cr, pos[0][0], pos[0][1] - 100, t, n=4, alpha=0.6 * heat, spread=160)
+
+
+def sponge_germs(cr, cx, base_y, t=0.0, germs=1.0):
+    """Spugna gialla/verde con germi che compaiono."""
+    cr.save(); cr.translate(cx, base_y - 180); cr.rotate(-0.08)
+    E.rounded_rect(cr, -260, -60, 520, 150, 26)
+    cr.set_source_rgb(1.0, 0.85, 0.25); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    E.rounded_rect(cr, -260, -110, 520, 60, 20)
+    cr.set_source_rgb(0.25, 0.65, 0.35); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    rnd = random.Random(8)
+    for i in range(22):
+        E.circle(cr, rnd.uniform(-230, 230), rnd.uniform(-30, 70), rnd.uniform(6, 14), (0.85, 0.65, 0.15), lw=0)
+    cr.restore()
+    rnd = random.Random(3)
+    n = int(14 * germs)
+    for i in range(n):
+        x = cx + rnd.uniform(-300, 300); y = base_y - 320 - rnd.uniform(0, 300) + 10 * math.sin(t * 2 + i)
+        virus(cr, x, y, r=rnd.uniform(22, 40), t=t, alpha=0.95)
+
+
+def toast_slices(cr, cx, base_y, t=0.0, burnt=1.0):
+    """Due fette di pane: una dorata, una bruciata con fumo."""
+    def slice_(x, col, crust):
+        cr.save(); cr.translate(x, base_y - 230)
+        cr.move_to(-140, 150); cr.line_to(-140, -60); cr.curve_to(-170, -170, -40, -200, 0, -150)
+        cr.curve_to(40, -200, 170, -170, 140, -60); cr.line_to(140, 150); cr.close_path()
+        cr.set_source_rgb(*crust); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+        cr.move_to(-110, 125); cr.line_to(-110, -50); cr.curve_to(-135, -140, -30, -165, 0, -120)
+        cr.curve_to(30, -165, 135, -140, 110, -50); cr.line_to(110, 125); cr.close_path()
+        cr.set_source_rgb(*col); cr.fill()
+        cr.restore()
+    slice_(cx - 190, (0.95, 0.80, 0.50), (0.75, 0.50, 0.25))
+    b = burnt
+    slice_(cx + 190, (0.95 - 0.8 * b, 0.80 - 0.7 * b, 0.50 - 0.45 * b), (0.30, 0.18, 0.10))
+    steam(cr, cx + 190, base_y - 480, t, n=4, alpha=0.6 * b, spread=140)
+
+
+def book_dark(cr, cx, base_y, t=0.0, dark=1.0):
+    """Libro aperto al buio con piccola lampada fioca e occhio."""
+    # alone di buio
+    cr.rectangle(60, base_y - 760, 960, 760); cr.set_source_rgba(0.02, 0.02, 0.05, 0.55 * dark); cr.fill()
+    # lampada
+    E.circle(cr, cx + 300, base_y - 600, 45, (1.0, 0.92, 0.55), lw=5, alpha=0.4 + 0.3 * (1 - dark))
+    # libro
+    for s in (-1, 1):
+        cr.move_to(cx, base_y - 120); cr.curve_to(cx + s * 120, base_y - 170, cx + s * 250, base_y - 150, cx + s * 320, base_y - 120)
+        cr.line_to(cx + s * 320, base_y - 420); cr.curve_to(cx + s * 250, base_y - 450, cx + s * 120, base_y - 470, cx, base_y - 420); cr.close_path()
+        cr.set_source_rgb(0.97, 0.95, 0.88); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+        for k in range(6):
+            y = base_y - 380 + k * 40
+            cr.move_to(cx + s * 40, y); cr.line_to(cx + s * 280, y)
+            cr.set_source_rgba(0.4, 0.4, 0.45, 0.7); cr.set_line_width(5); cr.stroke()
+    # occhio che strizza
+    sq = 0.5 + 0.5 * math.sin(t * 2.5)
+    ex, ey = cx - 250, base_y - 620
+    cr.save(); cr.translate(ex, ey); cr.scale(1, 0.25 + 0.35 * sq)
+    E.circle(cr, 0, 0, 80, E.WHITE, lw=6); cr.restore()
+    E.circle(cr, ex, ey, 26 * (0.4 + 0.6 * sq), (0.25, 0.45, 0.70), lw=0)
+
+
+def tap_vs_bottle(cr, cx, base_y, t=0.0):
+    """Rubinetto che riempie un bicchiere contro bottiglia di plastica."""
+    # rubinetto
+    fx = cx - 220
+    E.rounded_rect(cr, fx - 40, base_y - 620, 80, 160, 16)
+    cr.set_source_rgb(0.80, 0.82, 0.86); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, fx - 40, base_y - 640, 200, 60, 20)
+    cr.set_source_rgb(0.80, 0.82, 0.86); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    # getto
+    w = 18 + 3 * math.sin(t * 8)
+    E.rounded_rect(cr, fx + 120 - w / 2, base_y - 580, w, 330, w / 2)
+    cr.set_source_rgba(0.55, 0.78, 0.97, 0.9); cr.fill()
+    glass_of(cr, fx + 120, base_y, liquid=(0.62, 0.82, 0.97), fill=0.55 + 0.1 * math.sin(t), t=t, scale=0.9)
+    # bottiglia
+    bx = cx + 250
+    cr.move_to(bx - 90, base_y); cr.line_to(bx - 90, base_y - 380); cr.curve_to(bx - 90, base_y - 450, bx - 40, base_y - 470, bx - 40, base_y - 520)
+    cr.line_to(bx + 40, base_y - 520); cr.curve_to(bx + 40, base_y - 470, bx + 90, base_y - 450, bx + 90, base_y - 380); cr.line_to(bx + 90, base_y); cr.close_path()
+    cr.set_source_rgba(0.70, 0.88, 1.0, 0.85); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    E.rounded_rect(cr, bx - 45, base_y - 570, 90, 55, 10); cr.set_source_rgb(0.20, 0.45, 0.90); cr.fill()
+    E.rounded_rect(cr, bx - 90, base_y - 300, 180, 110, 6); cr.set_source_rgb(1, 1, 1); cr.fill()
+    E.outlined_text(cr, "€€", bx, base_y - 225, 56, fill=(0.20, 0.45, 0.90), lw=0)

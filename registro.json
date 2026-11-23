@@ -821,49 +821,89 @@
     },
     {
       "id": "62_cane_sette_anni",
-      "stato": "programmato",
+      "stato": "pubblicato",
       "uscita": "2026-11-22T15:45+01:00",
-      "vidiq_post_id": "4f92e85d-e8c9-4756-9191-83b1e6c4ef70"
+      "vidiq_post_id": "4f92e85d-e8c9-4756-9191-83b1e6c4ef70",
+      "views_23_11": 2363,
+      "condivisioni_23_11": 13
     },
     {
       "id": "63_candeggina_anticalcare",
-      "stato": "programmato",
+      "stato": "pubblicato",
       "serie": "la mamma aveva ragione",
       "uscita": "2026-11-22T10:40+01:00",
-      "vidiq_post_id": "ae0509ad-3c80-4213-9169-6d57d116bebc"
+      "vidiq_post_id": "ae0509ad-3c80-4213-9169-6d57d116bebc",
+      "views_23_11": 1708,
+      "condivisioni_23_11": 12
     },
     {
       "id": "64_stufa_notte",
-      "stato": "programmato",
+      "stato": "pubblicato",
       "serie": "la mamma aveva ragione",
       "uscita": "2026-11-22T12:15+01:00",
-      "vidiq_post_id": "007df22b-37d0-4609-b1ec-a5b578e90920"
+      "vidiq_post_id": "007df22b-37d0-4609-b1ec-a5b578e90920",
+      "views_23_11": 188,
+      "condivisioni_23_11": 0
     },
     {
       "id": "65_riso_avanzato",
-      "stato": "programmato",
+      "stato": "pubblicato",
       "serie": "la mamma aveva ragione",
       "uscita": "2026-11-22T14:00+01:00",
-      "vidiq_post_id": "718910de-3bc1-4681-bf60-41380236ff42"
+      "vidiq_post_id": "718910de-3bc1-4681-bf60-41380236ff42",
+      "views_23_11": 1878,
+      "condivisioni_23_11": 17
     },
     {
       "id": "66_telefono_cuscino",
-      "stato": "programmato",
+      "stato": "pubblicato",
       "serie": "la mamma aveva ragione",
       "uscita": "2026-11-22T17:45+01:00",
-      "vidiq_post_id": "1dcac895-c783-4886-9321-164d06a25a4c"
+      "vidiq_post_id": "1dcac895-c783-4886-9321-164d06a25a4c",
+      "views_23_11": 1659,
+      "condivisioni_23_11": 10
     },
     {
       "id": "67_miele_neonati",
-      "stato": "programmato",
+      "stato": "pubblicato",
       "serie": "la mamma aveva ragione",
       "uscita": "2026-11-22T20:00+01:00",
-      "vidiq_post_id": "35ac4f4f-b354-458f-9145-fdfcb1b05033"
+      "vidiq_post_id": "35ac4f4f-b354-458f-9145-fdfcb1b05033",
+      "views_23_11": 258,
+      "condivisioni_23_11": 0
     },
     {
       "id": "68_temporale_parte2",
-      "stato": "proposto",
-      "serie": "seguito virale 58"
+      "stato": "pubblicato",
+      "serie": "seguito virale 58",
+      "views_23_11": 204,
+      "condivisioni_23_11": 0,
+      "uscita": "2026-11-22T21:30+01:00",
+      "vidiq_post_id": "b828020d-8b4a-4724-b4ea-89a863aaa6fc"
+    },
+    {
+      "id": "69_tubi_plastica",
+      "stato": "proposto"
+    },
+    {
+      "id": "71_spugna_cucina",
+      "stato": "proposto"
+    },
+    {
+      "id": "70_ciabatta_cascata",
+      "stato": "storyboard pronto, voce mancante (quota ElevenLabs esaurita)"
+    },
+    {
+      "id": "72_pane_bruciato",
+      "stato": "storyboard pronto, voce mancante (quota ElevenLabs esaurita)"
+    },
+    {
+      "id": "73_leggere_buio",
+      "stato": "storyboard pronto, voce mancante (quota ElevenLabs esaurita)"
+    },
+    {
+      "id": "74_acqua_rubinetto",
+      "stato": "storyboard pronto, voce mancante (quota ElevenLabs esaurita)"
     }
   ],
   "lezioni": [
@@ -894,7 +934,8 @@
     "19/11: le condivisioni nascono dal 'mandalo a chi...' su oggetti identitari (moka sapone 193 share). Spaghetti: record visione 45% ma 1 share: la curiosità pura trattiene ma non si manda. Seguito moka (pressata) 0,57 share/100 views: buono, non virale. Pollo: 6 share su 2.1k.",
     "20/11: colpo d'aria 1,67 share/100 views (record): il filone 'smentisci la mamma' è il più condivisibile. Ma 61% skip e distribuzione bassa (reach 18/11 4,3k). Da ora hook in movimento dal frame 0 e frase che chiama in causa chi guarda.",
     "21/11: 4 reel/giorno = più views totali (5,1k vs 2,8k) ma il più debole affonda (carote 193). Hook in movimento: skip 44-46% invece di 61%. TV vicina 1 share/100. I più forti a 08:45 e 20:00.",
-    "22/11: doccia col temporale (mito VERO + pericolo) 19,9k views e 235 condivisioni (1,18/100), +43 follower. Dita/forno/scottatura sotto 240: i miti già sfatati da tutti non partono. Nuova serie 'La mamma aveva ragione'."
+    "22/11: doccia col temporale (mito VERO + pericolo) 19,9k views e 235 condivisioni (1,18/100), +43 follower. Dita/forno/scottatura sotto 240: i miti già sfatati da tutti non partono. Nuova serie 'La mamma aveva ragione'.",
+    "23/11: doccia 55,7k views e 1570 condivisioni; +161 follower. Parte 2 flop (204, skip 60%): il seguito da solo non eredita il pubblico. Argomenti universali (riso, candeggina, telefono, cane) ~1,7-2,4k; di nicchia (stufetta a gas, miele neonati) <260. Filtro: gesto che fanno quasi tutti."
   ],
   "voce_attuale": {
     "nome": "Francesco - Natural, Warm and Confident",
@@ -970,6 +1011,12 @@
       "follower": 586,
       "fonte": "API",
       "raggiunti_21_11": 20349
+    },
+    {
+      "data": "2026-11-23T08:01",
+      "follower": 747,
+      "fonte": "API",
+      "raggiunti_22_11": 36676
     }
   ]
 }

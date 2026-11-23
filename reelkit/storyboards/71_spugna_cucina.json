@@ -1,0 +1,109 @@
+{
+ "id": "71_spugna_cucina",
+ "topic": "La spugna dei piatti è la cosa più sporca della cucina?",
+ "paragraphs": [
+  {
+   "text": "La spugna con cui lavi i piatti è pulita, perché è sempre insaponata. Falso. È la cosa più sporca della cucina.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "LA SPUGNA",
+     "È PULITA?"
+    ],
+    "title_size": 112,
+    "prop": {
+     "appliance": "sponge"
+    },
+    "stamp": {
+     "text": "FALSO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Uno studio tedesco su spugne usate ha trovato oltre trecentosessanta tipi di batteri, con concentrazioni simili a quelle delle feci. Umida, calda e piena di cibo: è l'ambiente perfetto per farli crescere.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "360 TIPI",
+     "DI BATTERI"
+    ],
+    "card": {
+     "main": "spugna usata",
+     "sub": "studio tedesco",
+     "at": "tedesco"
+    },
+    "big": {
+     "text": "COME LE FECI",
+     "at": "feci",
+     "size": 130
+    },
+    "labels": [
+     {
+      "text": "UMIDA + CIBO = BATTERI",
+      "at": "crescere",
+      "pos": [
+       540,
+       1220
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "E lavarla nel microonde non basta: i batteri più resistenti tornano. La soluzione è strizzarla e lasciarla asciugare, e cambiarla spesso, circa ogni settimana.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "COSA",
+     "FARE"
+    ],
+    "items": [
+     {
+      "text": "MICROONDE E VIA",
+      "ok": false,
+      "at": "microonde"
+     },
+     {
+      "text": "STRIZZALA E FALLA ASCIUGARE",
+      "ok": true,
+      "at": "asciugare"
+     },
+     {
+      "text": "CAMBIALA OGNI SETTIMANA",
+      "ok": true,
+      "at": "settimana"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi usa la stessa spugna da un mese.",
+   "scene": {
+    "type": "end",
+    "line": "DA QUANTO HAI LA TUA?",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "La spugna dei piatti è la cosa più sporca della cucina 🧽🦠 Uno studio delle università di Furtwangen e Giessen (Scientific Reports, 2017) ha trovato nelle spugne usate oltre 360 tipi di batteri, con densità paragonabili a quelle delle feci. Umida e piena di residui di cibo, è l'ambiente ideale per farli moltiplicare; i trattamenti casalinghi come il microonde non risolvono: i batteri più resistenti ricolonizzano la spugna.\n\n• strizzala bene e lasciala asciugare dopo l'uso\n• cambiala spesso, circa ogni settimana\n• usane una diversa per il piano di lavoro\n\nMandalo a chi usa la stessa spugna da un mese 👇\n\n#cucina #pulizie #batteri #veroofalso #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Centro Tutela Consumatori Bolzano: studio Furtwangen/Giessen, oltre 360 tipi di batteri, densità come nelle feci",
+   "url": "https://www.consumer.bz.it/it/print/pdf/node/944"
+  },
+  {
+   "titolo": "Il Post: le spugne da cucina sono piene di batteri, meglio cambiarle spesso",
+   "url": "https://www.ilpost.it/2017/08/12/spugne-cucina-batteri/"
+  },
+  {
+   "titolo": "Focus: lavarle non serve, i batteri tornano più resistenti",
+   "url": "https://www.focus.it/scienza/scienze/la-spugna-da-cucina-peggio-solo-le-feci"
+  }
+ ],
+ "hook_test": "smentisci_convinzione",
+ "theme": "cucina_notte"
+}

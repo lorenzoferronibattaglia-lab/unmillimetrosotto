@@ -1,0 +1,106 @@
+{
+ "id": "69_tubi_plastica",
+ "topic": "Risposta al commento: ma i tubi sono di plastica",
+ "paragraphs": [
+  {
+   "text": "In tanti ci avete scritto: ma i tubi sono di plastica, quindi la doccia col temporale si può fare? Quasi.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "E SE I TUBI SONO",
+     "DI PLASTICA?"
+    ],
+    "title_size": 96,
+    "prop": {
+     "appliance": "comment_shower",
+     "comment": "I tubi sono di plastica"
+    },
+    "stamp": {
+     "text": "QUASI",
+     "at": "Quasi"
+    }
+   }
+  },
+  {
+   "text": "Con i tubi di plastica il rischio si abbassa, è vero. Ma a condurre non sono solo i tubi: è l'acqua stessa, che ha dentro sali e impurità. E in quasi ogni casa c'è un pezzo di metallo: il rubinetto, il miscelatore, un raccordo.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "A CONDURRE",
+     "È L'ACQUA"
+    ],
+    "card": {
+     "main": "acqua",
+     "sub": "con sali e impurità",
+     "at": "acqua"
+    },
+    "big": {
+     "text": "NON SOLO I TUBI",
+     "at": "tubi",
+     "size": 110
+    },
+    "labels": [
+     {
+      "text": "+ RUBINETTO DI METALLO",
+      "at": "rubinetto",
+      "pos": [
+       540,
+       1220
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Lo dice anche il servizio meteorologico americano: coi tubi di plastica il rischio cala, ma non sparisce. Quindi la regola resta: mezz'ora dopo l'ultimo tuono.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "LA REGOLA",
+     "RESTA"
+    ],
+    "items": [
+     {
+      "text": "TUBI DI PLASTICA: RISCHIO PIÙ BASSO",
+      "ok": true,
+      "at": "cala"
+     },
+     {
+      "text": "RISCHIO ZERO",
+      "ok": false,
+      "at": "sparisce"
+     },
+     {
+      "text": "30 MIN DOPO L'ULTIMO TUONO",
+      "ok": true,
+      "at": "tuono"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi ti ha detto: tanto ho i tubi di plastica.",
+   "scene": {
+    "type": "end",
+    "line": "RISPONDIAMO AI COMMENTI",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Rispondiamo ai vostri commenti: \"ma i tubi sono di plastica\" ⚡ Con i tubi di plastica il rischio si riduce, è vero. Ma a condurre è anche l'acqua, che contiene sali e impurità, e in quasi ogni bagno ci sono parti metalliche (rubinetto, miscelatore, raccordi). Il National Weather Service americano lo dice chiaramente: la plastica abbassa il rischio, non lo elimina.\n\n• tubi di plastica: rischio più basso\n• rischio zero: no\n• aspetta 30 minuti dopo l'ultimo tuono\n\nMandalo a chi \"tanto ho i tubi di plastica\" 👇\n\n#temporale #fulmini #veroofalso #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Internazionale: i tubi di plastica riducono il rischio ma l'acqua resta un buon conduttore (National Weather Service)",
+   "url": "https://www.internazionale.it/magazine/2025/06/05/non-si-fa-la-doccia-durante-i-temporali"
+  },
+  {
+   "titolo": "Focus: il rischio è minore coi tubi di plastica, ma l'acqua conduce",
+   "url": "https://www.focus.it/cultura/curiosita/perche-meglio-non-fare-doccia-durante-temporale-fulmini"
+  }
+ ],
+ "hook_test": "risposta_commento",
+ "theme": "cucina_notte"
+}

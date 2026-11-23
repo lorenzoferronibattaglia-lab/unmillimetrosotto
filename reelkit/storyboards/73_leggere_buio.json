@@ -1,0 +1,109 @@
+{
+ "id": "73_leggere_buio",
+ "topic": "Leggere al buio rovina la vista?",
+ "paragraphs": [
+  {
+   "text": "Accendi la luce che ti rovini gli occhi! Lo abbiamo sentito tutti. Falso.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "LEGGERE AL BUIO",
+     "ROVINA LA VISTA?"
+    ],
+    "title_size": 96,
+    "prop": {
+     "appliance": "book_dark"
+    },
+    "stamp": {
+     "text": "FALSO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "Con poca luce gli occhi fanno più fatica a mettere a fuoco, sbattiamo meno le palpebre e si stancano. Ma è un affaticamento passeggero: non esiste prova che rovini la vista in modo permanente.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "SI STANCANO",
+     "NON SI ROVINANO"
+    ],
+    "card": {
+     "main": "poca luce",
+     "sub": "più sforzo",
+     "at": "luce"
+    },
+    "big": {
+     "text": "PASSEGGERO",
+     "at": "passeggero",
+     "size": 130
+    },
+    "labels": [
+     {
+      "text": "NESSUN DANNO PERMANENTE",
+      "at": "permanente",
+      "pos": [
+       540,
+       1220
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Se ti bruciano gli occhi o ti viene mal di testa, accendi la luce e fai una pausa. Il fastidio passa con il riposo.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "SE GLI OCCHI",
+     "BRUCIANO"
+    ],
+    "items": [
+     {
+      "text": "ACCENDI LA LUCE",
+      "ok": true,
+      "at": "accendi"
+     },
+     {
+      "text": "FAI UNA PAUSA",
+      "ok": true,
+      "at": "pausa"
+     },
+     {
+      "text": "DANNO PER SEMPRE",
+      "ok": false,
+      "at": "riposo"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi ti spegneva la luce sul più bello.",
+   "scene": {
+    "type": "end",
+    "line": "E TU LEGGI AL BUIO?",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Leggere al buio NON rovina la vista 📖🌙 Con poca luce gli occhi fanno più fatica a mettere a fuoco e si sbatte meno le palpebre: il risultato è affaticamento, occhi secchi o mal di testa. Ma è un disturbo passeggero: non c'è nessuna prova che leggere in penombra danneggi la vista in modo permanente.\n\n• se gli occhi bruciano, accendi la luce\n• fai una pausa e sbatti le palpebre\n• se il fastidio è frequente, fai un controllo della vista\n\nMandalo a chi ti spegneva la luce sul più bello 👇\n\n#vista #occhi #falsimiti #veroofalso #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "ZEISS: leggere con poca luce non danneggia gli occhi",
+   "url": "https://www.zeiss.com/vision-care/int/better-vision/health-prevention/does-reading-in-poor-light-damage-your-eyes-.html"
+  },
+  {
+   "titolo": "My Personal Trainer: leggere con poca luce non rovina irrimediabilmente la vista",
+   "url": "https://www.my-personaltrainer.it/salute-benessere/cosa-succede-se-si-legge-con-una-luce-troppo-bassa.html"
+  },
+  {
+   "titolo": "All About Vision: l'affaticamento degli occhi non danneggia in modo permanente la vista",
+   "url": "https://www.allaboutvision.com/it/patologie-oculari/sindrome-da-visione-al-computer/affaticamento-visivo-digitale/passi-per-stare-meglio/"
+  }
+ ],
+ "hook_test": "smentisci_la_mamma",
+ "theme": "cucina_notte"
+}
