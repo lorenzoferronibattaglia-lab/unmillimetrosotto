@@ -793,7 +793,9 @@
       "uscita": "2026-11-21T11:00+01:00",
       "vidiq_post_id": "105aef89-faa6-4653-a342-19eb5580a621",
       "views_22_11": 19938,
-      "condivisioni_22_11": 235
+      "condivisioni_22_11": 235,
+      "views_24_11": 65875,
+      "condivisioni_24_11": 2027
     },
     {
       "id": "59_scottatura_burro",
@@ -825,7 +827,9 @@
       "uscita": "2026-11-22T15:45+01:00",
       "vidiq_post_id": "4f92e85d-e8c9-4756-9191-83b1e6c4ef70",
       "views_23_11": 2363,
-      "condivisioni_23_11": 13
+      "condivisioni_23_11": 13,
+      "views_24_11": 3442,
+      "condivisioni_24_11": 14
     },
     {
       "id": "63_candeggina_anticalcare",
@@ -883,15 +887,19 @@
     },
     {
       "id": "69_tubi_plastica",
-      "stato": "programmato",
+      "stato": "pubblicato",
       "uscita": "2026-11-23T10:50+01:00",
-      "vidiq_post_id": "de921d08-75cb-4e6c-96fc-9143a93f00d2"
+      "vidiq_post_id": "de921d08-75cb-4e6c-96fc-9143a93f00d2",
+      "views_24_11": 171,
+      "condivisioni_24_11": 0
     },
     {
       "id": "71_spugna_cucina",
-      "stato": "programmato",
+      "stato": "pubblicato",
       "uscita": "2026-11-23T18:00+01:00",
-      "vidiq_post_id": "1901b651-3515-4dd1-95cc-71550921a4eb"
+      "vidiq_post_id": "1901b651-3515-4dd1-95cc-71550921a4eb",
+      "views_24_11": 631,
+      "condivisioni_24_11": 5
     },
     {
       "id": "70_ciabatta_cascata",
@@ -939,7 +947,8 @@
     "20/11: colpo d'aria 1,67 share/100 views (record): il filone 'smentisci la mamma' è il più condivisibile. Ma 61% skip e distribuzione bassa (reach 18/11 4,3k). Da ora hook in movimento dal frame 0 e frase che chiama in causa chi guarda.",
     "21/11: 4 reel/giorno = più views totali (5,1k vs 2,8k) ma il più debole affonda (carote 193). Hook in movimento: skip 44-46% invece di 61%. TV vicina 1 share/100. I più forti a 08:45 e 20:00.",
     "22/11: doccia col temporale (mito VERO + pericolo) 19,9k views e 235 condivisioni (1,18/100), +43 follower. Dita/forno/scottatura sotto 240: i miti già sfatati da tutti non partono. Nuova serie 'La mamma aveva ragione'.",
-    "23/11: doccia 55,7k views e 1570 condivisioni; +161 follower. Parte 2 flop (204, skip 60%): il seguito da solo non eredita il pubblico. Argomenti universali (riso, candeggina, telefono, cane) ~1,7-2,4k; di nicchia (stufetta a gas, miele neonati) <260. Filtro: gesto che fanno quasi tutti."
+    "23/11: doccia 55,7k views e 1570 condivisioni; +161 follower. Parte 2 flop (204, skip 60%): il seguito da solo non eredita il pubblico. Argomenti universali (riso, candeggina, telefono, cane) ~1,7-2,4k; di nicchia (stufetta a gas, miele neonati) <260. Filtro: gesto che fanno quasi tutti.",
+    "24/11: i reel 'collegati' al virale (parte 2: 225, risposta tubi: 171) non funzionano: smettere di inseguire la doccia. Spugna 631 con skip 65%: hook statico. Cane 3,4k e in crescita: animali domestici funzionano (1 a settimana). Voce ElevenLabs esaurita dal 23/11 (10k/mese ≈ 4 giorni a 6 reel/giorno)."
   ],
   "voce_attuale": {
     "nome": "Francesco - Natural, Warm and Confident",
@@ -1021,6 +1030,12 @@
       "follower": 747,
       "fonte": "API",
       "raggiunti_22_11": 36676
+    },
+    {
+      "data": "2026-11-24T08:01",
+      "follower": 796,
+      "fonte": "API",
+      "raggiunti_23_11": 9364
     }
   ]
 }
