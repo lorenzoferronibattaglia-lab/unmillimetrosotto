@@ -899,7 +899,9 @@
       "uscita": "2026-11-23T18:00+01:00",
       "vidiq_post_id": "1901b651-3515-4dd1-95cc-71550921a4eb",
       "views_24_11": 631,
-      "condivisioni_24_11": 5
+      "condivisioni_24_11": 5,
+      "views_25_11": 1593,
+      "condivisioni_25_11": 14
     },
     {
       "id": "70_ciabatta_cascata",
@@ -1036,6 +1038,12 @@
       "follower": 796,
       "fonte": "API",
       "raggiunti_23_11": 9364
+    },
+    {
+      "data": "2026-11-25T08:01",
+      "follower": 825,
+      "fonte": "API",
+      "raggiunti_24_11": 5450
     }
   ]
 }
