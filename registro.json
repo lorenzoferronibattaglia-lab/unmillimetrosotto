@@ -795,7 +795,9 @@
       "views_22_11": 19938,
       "condivisioni_22_11": 235,
       "views_24_11": 65875,
-      "condivisioni_24_11": 2027
+      "condivisioni_24_11": 2027,
+      "views_26_11": 78566,
+      "condivisioni_26_11": 2419
     },
     {
       "id": "59_scottatura_burro",
@@ -1044,6 +1046,12 @@
       "follower": 825,
       "fonte": "API",
       "raggiunti_24_11": 5450
+    },
+    {
+      "data": "2026-11-26T08:01",
+      "follower": 868,
+      "fonte": "API",
+      "raggiunti_25_11": 7493
     }
   ]
 }
