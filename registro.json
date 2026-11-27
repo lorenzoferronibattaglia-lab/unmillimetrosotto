@@ -909,19 +909,27 @@
     },
     {
       "id": "70_ciabatta_cascata",
-      "stato": "storyboard pronto, voce mancante (quota ElevenLabs esaurita)"
+      "stato": "programmato",
+      "uscita": "2026-11-27T11:00+01:00",
+      "vidiq_post_id": "17775e89-9681-49c6-b65f-d612d1122243"
     },
     {
       "id": "72_pane_bruciato",
-      "stato": "storyboard pronto, voce mancante (quota ElevenLabs esaurita)"
+      "stato": "programmato",
+      "uscita": "2026-11-27T13:15+01:00",
+      "vidiq_post_id": "999d188e-5fd8-49a0-95df-6271c5949393"
     },
     {
       "id": "73_leggere_buio",
-      "stato": "storyboard pronto, voce mancante (quota ElevenLabs esaurita)"
+      "stato": "programmato",
+      "uscita": "2026-11-27T17:45+01:00",
+      "vidiq_post_id": "652cd4b7-f1a5-4b62-9db0-f3f0e00108e2"
     },
     {
       "id": "74_acqua_rubinetto",
-      "stato": "storyboard pronto, voce mancante (quota ElevenLabs esaurita)"
+      "stato": "programmato",
+      "uscita": "2026-11-27T20:00+01:00",
+      "vidiq_post_id": "6baffd1d-7907-47a2-8391-6e5416e1d0c4"
     }
   ],
   "lezioni": [
