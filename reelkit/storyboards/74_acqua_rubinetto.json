@@ -3,31 +3,32 @@
  "topic": "L'acqua in bottiglia è più sicura di quella del rubinetto?",
  "paragraphs": [
   {
-   "text": "L'acqua in bottiglia è più sicura di quella del rubinetto. Lo pensa un italiano su tre. Falso.",
+   "text": "Ti porti a casa le casse d'acqua perché del rubinetto non ti fidi. Ma l'acqua del rubinetto è controllata più spesso di quella in bottiglia.",
    "scene": {
     "type": "hook",
     "mode": "payoff",
     "title": [
-     "BOTTIGLIA PIÙ",
-     "SICURA?"
+     "SEI CASSE D'ACQUA",
+     "PER NON RISCHIARE"
     ],
-    "title_size": 110,
+    "title_size": 96,
     "prop": {
      "appliance": "tap_bottle"
     },
     "stamp": {
-     "text": "FALSO",
-     "at": "Falso"
+     "text": "SICURA",
+     "at": "controllata",
+     "color": "green"
     }
    }
   },
   {
-   "text": "L'Istituto Superiore di Sanità ha controllato più di due milioni e mezzo di analisi sull'acqua di rete: oltre il novantanove per cento è a norma. E l'acqua del rubinetto viene controllata più spesso di quella minerale.",
+   "text": "L'Istituto Superiore di Sanità ha guardato due milioni e mezzo di analisi: oltre il novantanove per cento è a norma. Quindi paghi cento volte di più per un'acqua che non è più sicura.",
    "scene": {
     "type": "number",
     "title": [
-     "CONTROLLATA",
-     "PIÙ SPESSO"
+     "99%",
+     "A NORMA"
     ],
     "card": {
      "main": "2,5 milioni",
@@ -35,52 +36,14 @@
      "at": "analisi"
     },
     "big": {
-     "text": "99% A NORMA",
-     "at": "norma",
-     "size": 130
-    },
-    "labels": [
-     {
-      "text": "COSTA 100 VOLTE MENO",
-      "at": "minerale",
-      "pos": [
-       540,
-       1220
-      ],
-      "size": 56
-     }
-    ]
+     "text": "100 VOLTE PIÙ CARA",
+     "at": "cento",
+     "size": 92
+    }
    }
   },
   {
-   "text": "Se non ti piace il sapore di cloro, riempi una caraffa e lasciala in frigo mezz'ora. E le caraffe filtranti non la rendono più sicura: è già potabile.",
-   "scene": {
-    "type": "checklist",
-    "title": [
-     "SE NON TI",
-     "PIACE"
-    ],
-    "items": [
-     {
-      "text": "CARAFFA IN FRIGO",
-      "ok": true,
-      "at": "caraffa"
-     },
-     {
-      "text": "FILTRO PER RENDERLA SICURA",
-      "ok": false,
-      "at": "filtranti"
-     },
-     {
-      "text": "È GIÀ POTABILE",
-      "ok": true,
-      "at": "potabile"
-     }
-    ]
-   }
-  },
-  {
-   "text": "Mandalo a chi si porta a casa le casse d'acqua ogni settimana.",
+   "text": "Mandalo a chi si porta le casse su per le scale.",
    "scene": {
     "type": "end",
     "line": "TU QUALE BEVI?",
@@ -104,6 +67,6 @@
    "url": "https://www.greenme.it/?p=1183606"
   }
  ],
- "hook_test": "smentisci_convinzione",
+ "hook_test": "ma_quindi_southpark",
  "theme": "cucina_notte"
 }

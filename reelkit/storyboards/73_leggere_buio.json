@@ -3,41 +3,41 @@
  "topic": "Leggere al buio rovina la vista?",
  "paragraphs": [
   {
-   "text": "Accendi la luce che ti rovini gli occhi! Lo abbiamo sentito tutti. Falso.",
+   "text": "Leggi a letto con la luce bassa e dopo un po' gli occhi bruciano. Sembra che ti stai rovinando la vista. Ma è solo stanchezza.",
    "scene": {
     "type": "hook",
     "mode": "payoff",
     "title": [
-     "LEGGERE AL BUIO",
-     "ROVINA LA VISTA?"
+     "LEGGI AL BUIO E",
+     "GLI OCCHI BRUCIANO"
     ],
-    "title_size": 96,
+    "title_size": 92,
     "prop": {
      "appliance": "book_dark"
     },
     "stamp": {
-     "text": "FALSO",
-     "at": "Falso"
+     "text": "STANCHEZZA",
+     "at": "stanchezza"
     }
    }
   },
   {
-   "text": "Con poca luce gli occhi fanno più fatica a mettere a fuoco, sbattiamo meno le palpebre e si stancano. Ma è un affaticamento passeggero: non esiste prova che rovini la vista in modo permanente.",
+   "text": "Con poca luce gli occhi sforzano per mettere a fuoco e sbattono meno le palpebre, quindi si seccano. Ma basta riposarli e passa: nessuno studio ha mai trovato un danno permanente.",
    "scene": {
     "type": "number",
     "title": [
-     "SI STANCANO",
+     "SI SECCANO",
      "NON SI ROVINANO"
     ],
     "card": {
      "main": "poca luce",
-     "sub": "più sforzo",
-     "at": "luce"
+     "sub": "palpebre ferme",
+     "at": "palpebre"
     },
     "big": {
-     "text": "PASSEGGERO",
-     "at": "passeggero",
-     "size": 130
+     "text": "PASSA DA SOLO",
+     "at": "passa",
+     "size": 104
     },
     "labels": [
      {
@@ -53,38 +53,11 @@
    }
   },
   {
-   "text": "Se ti bruciano gli occhi o ti viene mal di testa, accendi la luce e fai una pausa. Il fastidio passa con il riposo.",
-   "scene": {
-    "type": "checklist",
-    "title": [
-     "SE GLI OCCHI",
-     "BRUCIANO"
-    ],
-    "items": [
-     {
-      "text": "ACCENDI LA LUCE",
-      "ok": true,
-      "at": "accendi"
-     },
-     {
-      "text": "FAI UNA PAUSA",
-      "ok": true,
-      "at": "pausa"
-     },
-     {
-      "text": "DANNO PER SEMPRE",
-      "ok": false,
-      "at": "riposo"
-     }
-    ]
-   }
-  },
-  {
-   "text": "Mandalo a chi ti spegneva la luce sul più bello.",
+   "text": "Quindi mandalo a chi ti spegneva la luce sul più bello.",
    "scene": {
     "type": "end",
-    "line": "E TU LEGGI AL BUIO?",
-    "follow_at": "Mandalo",
+    "line": "LEGGI PURE",
+    "follow_at": "mandalo",
     "stamp": "MANDALO!"
    }
   }
@@ -104,6 +77,6 @@
    "url": "https://www.allaboutvision.com/it/patologie-oculari/sindrome-da-visione-al-computer/affaticamento-visivo-digitale/passi-per-stare-meglio/"
   }
  ],
- "hook_test": "smentisci_la_mamma",
+ "hook_test": "ma_quindi_southpark",
  "theme": "cucina_notte"
 }
