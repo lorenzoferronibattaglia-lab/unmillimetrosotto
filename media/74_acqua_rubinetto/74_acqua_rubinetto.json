@@ -1,0 +1,109 @@
+{
+ "id": "74_acqua_rubinetto",
+ "topic": "L'acqua in bottiglia è più sicura di quella del rubinetto?",
+ "paragraphs": [
+  {
+   "text": "L'acqua in bottiglia è più sicura di quella del rubinetto. Lo pensa un italiano su tre. Falso.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "BOTTIGLIA PIÙ",
+     "SICURA?"
+    ],
+    "title_size": 110,
+    "prop": {
+     "appliance": "tap_bottle"
+    },
+    "stamp": {
+     "text": "FALSO",
+     "at": "Falso"
+    }
+   }
+  },
+  {
+   "text": "L'Istituto Superiore di Sanità ha controllato più di due milioni e mezzo di analisi sull'acqua di rete: oltre il novantanove per cento è a norma. E l'acqua del rubinetto viene controllata più spesso di quella minerale.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "CONTROLLATA",
+     "PIÙ SPESSO"
+    ],
+    "card": {
+     "main": "2,5 milioni",
+     "sub": "di analisi ISS",
+     "at": "analisi"
+    },
+    "big": {
+     "text": "99% A NORMA",
+     "at": "norma",
+     "size": 130
+    },
+    "labels": [
+     {
+      "text": "COSTA 100 VOLTE MENO",
+      "at": "minerale",
+      "pos": [
+       540,
+       1220
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Se non ti piace il sapore di cloro, riempi una caraffa e lasciala in frigo mezz'ora. E le caraffe filtranti non la rendono più sicura: è già potabile.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "SE NON TI",
+     "PIACE"
+    ],
+    "items": [
+     {
+      "text": "CARAFFA IN FRIGO",
+      "ok": true,
+      "at": "caraffa"
+     },
+     {
+      "text": "FILTRO PER RENDERLA SICURA",
+      "ok": false,
+      "at": "filtranti"
+     },
+     {
+      "text": "È GIÀ POTABILE",
+      "ok": true,
+      "at": "potabile"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi si porta a casa le casse d'acqua ogni settimana.",
+   "scene": {
+    "type": "end",
+    "line": "TU QUALE BEVI?",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "L'acqua in bottiglia NON è più sicura di quella del rubinetto 💧 Il Centro Nazionale per la Sicurezza delle Acque dell'Istituto Superiore di Sanità ha esaminato oltre 2,5 milioni di analisi: l'acqua di rete è conforme ai parametri sanitari in più del 99% dei casi. Eppure circa un italiano su tre non si fida, e l'Italia è tra i primi Paesi al mondo per consumo di acqua in bottiglia.\n\n• il sapore di cloro passa lasciandola mezz'ora in frigo in una caraffa\n• le caraffe filtranti non servono a renderla sicura: lo è già\n• un metro cubo d'acqua di rete costa oltre 100 volte meno di quella in bottiglia\n\nMandalo a chi si porta a casa le casse d'acqua ogni settimana 👇\n\n#acqua #rubinetto #falsimiti #veroofalso #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Avvenire: rapporto CeNSiA-ISS, oltre 2,5 milioni di analisi, conformità 99,1%",
+   "url": "https://www.avvenire.it/attualita/lacqua-di-casa-e-buona-e-sicura-ma-un-italiano-su-3-non-ci-crede_79062"
+  },
+  {
+   "titolo": "Quotidiano.net: controlli che rendono l'acqua del rubinetto sicura quanto la minerale; costa oltre 100 volte meno",
+   "url": "https://www.quotidiano.net/magazine/acqua-rubinetto-2f4aaf2e"
+  },
+  {
+   "titolo": "GreenMe: caraffe e filtri non potabilizzano, l'acqua di rete è già sicura",
+   "url": "https://www.greenme.it/?p=1183606"
+  }
+ ],
+ "hook_test": "smentisci_convinzione",
+ "theme": "cucina_notte"
+}

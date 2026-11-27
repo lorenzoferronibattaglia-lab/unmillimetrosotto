@@ -1,0 +1,110 @@
+{
+ "id": "70_ciabatta_cascata",
+ "topic": "Ciabatta attaccata a un'altra ciabatta: pericolosa?",
+ "paragraphs": [
+  {
+   "text": "Una ciabatta attaccata a un'altra ciabatta? Tua madre ti diceva di non farlo. E aveva ragione.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "CIABATTA SU",
+     "CIABATTA?"
+    ],
+    "title_size": 112,
+    "prop": {
+     "appliance": "strips"
+    },
+    "stamp": {
+     "text": "VERO",
+     "at": "ragione",
+     "color": "green"
+    }
+   }
+  },
+  {
+   "text": "Tutta la corrente delle ciabatte a valle passa dalla prima, che ha un limite di potenza. Se lo superi si surriscalda, l'isolante dei cavi può fondere e partire un incendio. E la causa elettrica è tra le prime negli incendi in casa.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "LA PRIMA",
+     "SI SCALDA"
+    ],
+    "card": {
+     "main": "la prima",
+     "sub": "regge tutto",
+     "at": "corrente"
+    },
+    "big": {
+     "text": "RISCHIO INCENDIO",
+     "at": "incendio",
+     "size": 110
+    },
+    "labels": [
+     {
+      "text": "L'ISOLANTE FONDE",
+      "at": "fondere",
+      "pos": [
+       540,
+       1220
+      ],
+      "size": 58
+     }
+    ]
+   }
+  },
+  {
+   "text": "Quindi: una ciabatta per presa, mai a catena. E stufette, forno, phon, ferro da stiro direttamente nella presa a muro.",
+   "scene": {
+    "type": "checklist",
+    "title": [
+     "COME",
+     "FARE"
+    ],
+    "items": [
+     {
+      "text": "CIABATTE A CATENA",
+      "ok": false,
+      "at": "catena"
+     },
+     {
+      "text": "UNA PER PRESA",
+      "ok": true,
+      "at": "presa"
+     },
+     {
+      "text": "STUFETTA E FORNO AL MURO",
+      "ok": true,
+      "at": "muro"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi ha tre ciabatte dietro la tv.",
+   "scene": {
+    "type": "end",
+    "line": "AVEVA RAGIONE LA MAMMA",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Ciabatta attaccata a un'altra ciabatta: è VERO che è pericoloso 🔌🔥 Tutta la corrente degli apparecchi collegati \"a cascata\" passa dalla prima multipresa: se supera il suo limite di potenza si surriscalda, l'isolante dei cavi può fondere e innescare un incendio. Le cause elettriche sono tra le principali origini degli incendi domestici.\n\n• mai ciabatte a catena: una per presa\n• controlla la potenza massima scritta sulla ciabatta\n• stufette, forno, phon e ferro da stiro direttamente nella presa a muro\n\nMandalo a chi ha tre ciabatte dietro la tv 👇\n\n#sicurezzaincasa #corrente #veroofalso #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "PuntoSicuro: non collegare a cascata più ciabatte, la prima viene sovraccaricata",
+   "url": "https://www.puntosicuro.it/rischio-elettrico-C-34/le-immagini-dell-insicurezza-AR-13454/"
+  },
+  {
+   "titolo": "Università di Firenze: inserimento a catena di prese multiple, carico eccessivo e rischio incendio",
+   "url": "https://www.ateneosicuro.unifi.it/upload/sub/Archivio%20accesso%20pubblico/Buone%20Prassi/UNIFI-PG-13-IOp01.pdf"
+  },
+  {
+   "titolo": "My Personal Trainer: la causa elettrica tra le principali origini degli incendi domestici (Vigili del Fuoco)",
+   "url": "https://www.my-personaltrainer.it/salute-benessere/elettrodomestici-da-staccare-prima-di-partire.html"
+  }
+ ],
+ "hook_test": "mamma_aveva_ragione",
+ "theme": "cucina_notte"
+}
