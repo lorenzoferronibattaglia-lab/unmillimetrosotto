@@ -3,13 +3,13 @@
  "topic": "Sciacquare dopo aver lavato i denti",
  "paragraphs": [
   {
-   "text": "Ti lavi i denti, sputi e poi sciacqui bene con l'acqua. Ma così butti via proprio la parte che li protegge.",
+   "text": "Dopo esserti lavato i denti, sciacqui la bocca con l'acqua? Allora stai buttando via proprio la parte che li protegge.",
    "scene": {
     "type": "hook",
     "mode": "payoff",
     "title": [
-     "TI LAVI I DENTI",
-     "E POI SCIACQUI"
+     "SCIACQUI DOPO",
+     "I DENTI?"
     ],
     "title_size": 104,
     "prop": {
@@ -17,7 +17,7 @@
     },
     "stamp": {
      "text": "ERRORE",
-     "at": "butti"
+     "at": "buttando"
     }
    }
   },
@@ -77,6 +77,6 @@
    "url": "https://www.greenme.it/?p=1255577"
   }
  ],
- "hook_test": "ma_quindi_southpark",
+ "hook_test": "domanda",
  "theme": "cucina_notte"
 }
