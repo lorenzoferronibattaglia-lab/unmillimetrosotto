@@ -1,0 +1,82 @@
+{
+ "id": "76_motore_freddo",
+ "topic": "Scaldare la macchina da ferma in inverno",
+ "paragraphs": [
+  {
+   "text": "Fuori gela, accendi la macchina e la lasci in moto cinque minuti per scaldarla. Ma da ferma il motore quasi non si scalda.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "LA LASCI IN MOTO",
+     "PER SCALDARLA"
+    ],
+    "title_size": 104,
+    "prop": {
+     "appliance": "car_idle"
+    },
+    "stamp": {
+     "text": "INUTILE",
+     "at": "quasi"
+    }
+   }
+  },
+  {
+   "text": "L'automobile club tedesco l'ha misurato: a meno dieci gradi, dopo quattro minuti al minimo, l'olio era salito solo a meno sette. Quindi consumi e inquini per niente. Ma se parti subito e vai piano, si scalda molto prima.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "4 MINUTI",
+     "PER 3 GRADI"
+    ],
+    "card": {
+     "main": "olio motore",
+     "sub": "da -10 a -7 °C",
+     "at": "olio"
+    },
+    "big": {
+     "text": "PARTI PIANO",
+     "at": "piano",
+     "size": 120
+    },
+    "labels": [
+     {
+      "text": "CONSUMI E INQUINI",
+      "at": "inquini",
+      "pos": [
+       540,
+       1220
+      ],
+      "size": 58
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi ogni mattina scalda la macchina sotto casa.",
+   "scene": {
+    "type": "end",
+    "line": "PARTI E VAI PIANO",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Scaldare la macchina da ferma in inverno è inutile 🚗❄️ Le auto moderne a iniezione elettronica non hanno bisogno di restare al minimo prima di partire. L'ADAC (l'automobile club tedesco) ha misurato che a -10 °C, dopo 4 minuti al minimo, l'olio motore arriva solo a -7 °C: da fermo si scalda pochissimo, mentre consumi e inquini.\n\n• avvia e parti dopo pochi secondi\n• i primi minuti guida piano, senza tirare le marce\n• da parcheggiato, tenere il motore acceso solo per scaldare l'abitacolo può costare una multa da 223 a 444 € (art. 157 comma 7-bis del Codice della Strada)\n\nMandalo a chi ogni mattina scalda la macchina sotto casa 👇\n\n#auto #inverno #motori #veroofalso #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "MotoriMagazine: ADAC, a -10 °C dopo 4 minuti da fermo l'olio arriva solo a -7 °C",
+   "url": "https://www.motorimagazine.it/riscaldamento-del-motore-in-inverno-cosa-sapere-per-una-guida-sicura/"
+  },
+  {
+   "titolo": "Autoblog: con i motori moderni meglio partire subito a bassa andatura",
+   "url": "https://www.autoblog.it/post/scaldare-lauto-in-inverno-perche-non-lasciare-il-motore-al-minimo"
+  },
+  {
+   "titolo": "Money.it: art. 157 CdS, motore acceso da fermi per il riscaldamento, sanzione da 223 a 444 euro",
+   "url": "https://www.money.it/fino-444-euro-multa-se-fai-questo-errore-tua-auto-quando-fa-freddo"
+  }
+ ],
+ "hook_test": "ma_quindi_southpark",
+ "theme": "cucina_notte"
+}

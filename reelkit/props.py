@@ -2409,3 +2409,68 @@ def tap_vs_bottle(cr, cx, base_y, t=0.0):
     E.rounded_rect(cr, bx - 45, base_y - 570, 90, 55, 10); cr.set_source_rgb(0.20, 0.45, 0.90); cr.fill()
     E.rounded_rect(cr, bx - 90, base_y - 300, 180, 110, 6); cr.set_source_rgb(1, 1, 1); cr.fill()
     E.outlined_text(cr, "€€", bx, base_y - 225, 56, fill=(0.20, 0.45, 0.90), lw=0)
+
+
+def toothbrush_rinse(cr, cx, base_y, t=0.0, rinse=1.0):
+    """Dente con scudo di fluoro che si dissolve mentre l'acqua del bicchiere lo sciacqua via."""
+    # dente
+    tx, ty = cx - 150, base_y - 420
+    cr.move_to(tx - 130, ty - 120); cr.curve_to(tx - 150, ty - 220, tx - 40, ty - 240, tx, ty - 190)
+    cr.curve_to(tx + 40, ty - 240, tx + 150, ty - 220, tx + 130, ty - 120)
+    cr.curve_to(tx + 120, ty + 20, tx + 90, ty + 160, tx + 60, ty + 200)
+    cr.curve_to(tx + 30, ty + 220, tx + 20, ty + 80, tx, ty + 60)
+    cr.curve_to(tx - 20, ty + 80, tx - 30, ty + 220, tx - 60, ty + 200)
+    cr.curve_to(tx - 90, ty + 160, tx - 120, ty + 20, tx - 130, ty - 120); cr.close_path()
+    cr.set_source_rgb(0.98, 0.98, 0.95); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    # scudo di fluoro (alone azzurro) che svanisce
+    a = max(0.0, 1.0 - rinse)
+    if a > 0.02:
+        for k in range(3):
+            E.circle(cr, tx, ty - 40, 210 + k * 18, (0.45, 0.80, 1.0), lw=0, alpha=0.18 * a)
+        E.outlined_text(cr, "F", tx + 150, ty - 210, 70, fill=(0.35, 0.70, 1.0), lw=8, alpha=a)
+    # bicchiere d'acqua inclinato e goccioline che portano via il fluoro
+    glass_of(cr, cx + 230, base_y, liquid=(0.62, 0.82, 0.97), fill=0.6, t=t, scale=1.0)
+    rnd = random.Random(4)
+    for i in range(int(14 * rinse)):
+        ph = (t * 0.8 + rnd.random()) % 1.0
+        x = tx + rnd.uniform(-120, 120); y = ty - 120 + 420 * ph
+        E.circle(cr, x, y, 12, (0.45, 0.75, 1.0), lw=3, alpha=0.9 * (1 - ph))
+    # spazzolino
+    cr.save(); cr.translate(cx + 120, base_y - 620); cr.rotate(0.5)
+    E.rounded_rect(cr, -30, -20, 360, 40, 20); cr.set_source_rgb(0.30, 0.60, 0.95); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(5); cr.stroke()
+    E.rounded_rect(cr, -30, -60, 110, 40, 10); cr.set_source_rgb(1, 1, 1); cr.fill_preserve(); cr.stroke()
+    cr.restore()
+
+
+def car_idle_frost(cr, cx, base_y, t=0.0, smoke=1.0, temp="-7°"):
+    """Auto ferma col motore acceso: fumo dallo scarico, brina, termometro dell'olio che non sale."""
+    # brina a terra
+    E.rounded_rect(cr, 80, base_y - 10, 920, 40, 14); cr.set_source_rgb(0.85, 0.92, 1.0); cr.fill()
+    ax = cx - 40
+    cr.move_to(ax - 300, base_y - 60); cr.line_to(ax - 300, base_y - 180); cr.line_to(ax - 180, base_y - 195)
+    cr.line_to(ax - 100, base_y - 310); cr.line_to(ax + 120, base_y - 310); cr.line_to(ax + 210, base_y - 195)
+    cr.line_to(ax + 300, base_y - 180); cr.line_to(ax + 300, base_y - 60); cr.close_path()
+    cr.set_source_rgb(0.25, 0.50, 0.85); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(7); cr.stroke()
+    # finestrini ghiacciati
+    for (x0, x1) in ((ax - 90, ax), (ax + 20, ax + 160)):
+        cr.move_to(x0, base_y - 200); cr.line_to(x0 + 15, base_y - 290); cr.line_to(x1, base_y - 290); cr.line_to(x1 + 20, base_y - 200); cr.close_path()
+        cr.set_source_rgb(0.88, 0.95, 1.0); cr.fill_preserve(); cr.set_source_rgb(*E.INK); cr.set_line_width(5); cr.stroke()
+    for wx in (ax - 180, ax + 180):
+        E.circle(cr, wx, base_y - 55, 60, (0.15, 0.15, 0.17), lw=7)
+        E.circle(cr, wx, base_y - 55, 24, (0.75, 0.76, 0.80), lw=0)
+    # scarico e fumo
+    E.rounded_rect(cr, ax + 290, base_y - 95, 50, 22, 8); cr.set_source_rgb(0.4, 0.4, 0.45); cr.fill()
+    rnd = random.Random(9)
+    for i in range(10):
+        ph = (t * 0.5 + i / 10) % 1.0
+        E.circle(cr, ax + 360 + 160 * ph + rnd.uniform(-10, 10), base_y - 90 - 120 * ph, 25 + 45 * ph, (0.75, 0.77, 0.82), lw=0, alpha=0.6 * (1 - ph) * smoke)
+    # termometro olio
+    th_x, th_y = cx + 300, base_y - 700
+    E.rounded_rect(cr, th_x - 30, th_y - 230, 60, 260, 30); cr.set_source_rgb(1, 1, 1); cr.fill_preserve()
+    cr.set_source_rgb(*E.INK); cr.set_line_width(6); cr.stroke()
+    lvl = 0.18 + 0.04 * math.sin(t * 2)
+    E.rounded_rect(cr, th_x - 14, th_y + 10 - 230 * lvl, 28, 230 * lvl, 12); cr.set_source_rgb(0.25, 0.55, 0.95); cr.fill()
+    E.circle(cr, th_x, th_y + 40, 42, (0.25, 0.55, 0.95), lw=6)
+    E.outlined_text(cr, temp, th_x - 130, th_y - 60, 64, fill=E.WHITE, lw=8)
+    E.outlined_text(cr, "OLIO", th_x - 130, th_y + 10, 40, fill=(0.75, 0.85, 1.0), lw=6)

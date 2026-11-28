@@ -132,7 +132,7 @@ def hook(cr, t, ctx, par, spec):
         stamp_col = P.GREEN_OK
     if pr.get("appliance") in ("pot_lid", "wine_glass", "water_glass_ice", "bottle_spoon", "oil_pot", "pasta_pot", "microwave2",
                                "thaw_bowl", "pressure_pot", "steak_pan", "rice_bowl", "boiled_egg", "veg_pot",
-                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum", "knuckles", "shower_storm", "burn", "oven_wait", "washer_foam", "dog_cake", "bleach", "heater_bed", "phone_pillow", "honey_baby", "rice_left", "storm_tree_car", "comment_shower", "strips", "sponge", "toast", "book_dark", "tap_bottle"):
+                               "soup_pot", "foam_pot", "fridge_tomato", "salad", "washer", "dishwasher", "air_fryer", "radiator", "tv_standby", "shower", "fridge_cold", "fridge_bread", "rice_phone", "vinegar_soda", "potato_pot", "beach", "faucet", "moka", "amaro", "chicken", "window", "moka_new", "eggs", "tv_kid", "fruit", "carrot", "gum", "knuckles", "shower_storm", "burn", "oven_wait", "washer_foam", "dog_cake", "bleach", "heater_bed", "phone_pillow", "honey_baby", "rice_left", "storm_tree_car", "comment_shower", "strips", "sponge", "toast", "book_dark", "tap_bottle", "teeth_rinse", "car_idle"):
         if pr["appliance"] == "bleach":
             mx = E.ease(E.clamp((t - s) / 2.5))
             P.bleach_mix(cr, 540, 1340, t=t, mix=0.25 + 0.75 * mx)
@@ -154,6 +154,10 @@ def hook(cr, t, ctx, par, spec):
             P.book_dark(cr, 540, 1380, t=t)
         elif pr["appliance"] == "tap_bottle":
             P.tap_vs_bottle(cr, 540, 1380, t=t)
+        elif pr["appliance"] == "teeth_rinse":
+            P.toothbrush_rinse(cr, 540, 1380, t=t, rinse=E.ease(E.clamp((t - s - 1.0) / 3.0)))
+        elif pr["appliance"] == "car_idle":
+            P.car_idle_frost(cr, 540, 1380, t=t)
         elif pr["appliance"] == "storm_tree_car":
             P.storm_tree_car(cr, 540, 1380, t=t, bolt=E.ease(E.clamp((t - s) / 1.5)))
         elif pr["appliance"] == "rice_left":

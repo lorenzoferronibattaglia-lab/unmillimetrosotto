@@ -1,0 +1,82 @@
+{
+ "id": "75_denti_sciacquo",
+ "topic": "Sciacquare dopo aver lavato i denti",
+ "paragraphs": [
+  {
+   "text": "Ti lavi i denti, sputi e poi sciacqui bene con l'acqua. Ma così butti via proprio la parte che li protegge.",
+   "scene": {
+    "type": "hook",
+    "mode": "payoff",
+    "title": [
+     "TI LAVI I DENTI",
+     "E POI SCIACQUI"
+    ],
+    "title_size": 104,
+    "prop": {
+     "appliance": "teeth_rinse"
+    },
+    "stamp": {
+     "text": "ERRORE",
+     "at": "butti"
+    }
+   }
+  },
+  {
+   "text": "Il fluoro del dentifricio deve restare sui denti per rinforzare lo smalto. Ma se sciacqui, in mezz'ora torna ai livelli di prima. Quindi i dentisti dicono: sputa e basta.",
+   "scene": {
+    "type": "number",
+    "title": [
+     "IL FLUORO",
+     "VA VIA"
+    ],
+    "card": {
+     "main": "fluoro",
+     "sub": "rinforza lo smalto",
+     "at": "fluoro"
+    },
+    "big": {
+     "text": "SPUTA E BASTA",
+     "at": "sputa",
+     "size": 110
+    },
+    "labels": [
+     {
+      "text": "IN 30 MINUTI SPARISCE",
+      "at": "mezz'ora",
+      "pos": [
+       540,
+       1220
+      ],
+      "size": 56
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mandalo a chi fa i gargarismi dopo lo spazzolino.",
+   "scene": {
+    "type": "end",
+    "line": "SPUTA, NON SCIACQUARE",
+    "follow_at": "Mandalo",
+    "stamp": "MANDALO!"
+   }
+  }
+ ],
+ "caption": "Dopo aver lavato i denti NON sciacquare con l'acqua 🪥 Il fluoro del dentifricio deve restare a contatto con lo smalto per rinforzarlo e proteggerlo dalla carie: risciacquando lo porti via quasi tutto. In uno studio, chi sciacquava tornava ai livelli di fluoro di partenza già dopo mezz'ora.\n\n• sputa il dentifricio in eccesso, senza sciacquare\n• niente collutorio subito dopo: aspetta almeno mezz'ora\n• basta una dose di dentifricio grande come un pisello\n\nMandalo a chi fa i gargarismi dopo lo spazzolino 👇\n\n#denti #dentista #igieneorale #veroofalso #unmillimetrosotto",
+ "sources": [
+  {
+   "titolo": "Altroconsumo: sputa il dentifricio in eccesso, niente sciacquo finale con acqua o collutorio",
+   "url": "https://www.altroconsumo.it/salute/farmaci/news/collutori-alla-prova-test-salute-84"
+  },
+  {
+   "titolo": "FDI World Dental Federation: spazzolare con dentifricio al fluoro, non risciacquare ma sputare",
+   "url": "https://www.fdiworlddental.org/sites/default/files/2020-11/2017-fdi_cpp-chairside_guide-it.pdf"
+  },
+  {
+   "titolo": "GreenMe: studio 2009, chi sciacquava tornava ai livelli basali di fluoro dopo mezz'ora",
+   "url": "https://www.greenme.it/?p=1255577"
+  }
+ ],
+ "hook_test": "ma_quindi_southpark",
+ "theme": "cucina_notte"
+}
